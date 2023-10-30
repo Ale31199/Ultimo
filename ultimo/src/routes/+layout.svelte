@@ -5,9 +5,9 @@
 <slot />
 
 
-<nav>
+<nav class="flex flex-col justify-center">
 <div class="bg-black flex-auto relative -top-56 h-24 items-center border-b-2 white flex">
-<h1  class="text-white text-4xl font-bold inline-flex relative left-2 justify-center">Homepage<h1 class="animate-pulse text-white">|</h1></h1>
+<h1  class="text-white text-4xl font-bold inline-flex relative left-2 justify-center cursor-default">HomeCode<h1 class="animate-pulse text-white">|</h1></h1>
 </div>
 
 <div class="bg-zinc-700 h-10 flex-auto flex flex-row items-center justify-between relative -top-48 rounded-lg"> 
