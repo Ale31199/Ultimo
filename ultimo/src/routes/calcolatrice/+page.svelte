@@ -3,44 +3,92 @@
   import devil from '/src/routes/calcolatrice/littledevil.gif';
   import sticky from '/src/routes/calcolatrice/sticky.gif';
 
-  let result = '';
   let count = '';
-  const uno = '1';
-  const due = '2';
-  const tre = '3';
-  const quattro = '4';
-  const cinque = '5';
-  const sei = '6';
-  const sette= '7';
-  const otto = '8';
-  const nove= '9';
-  const zero = '0';
-  const piu = '+';
-  const meno = '-';
-  const diviso= '/';
-  const per = '*';
-  const uguale = '=';
-  const punto = '.'
-
-
-  const calc=(input)=>{
-    if (input === '='){
-      result = eval(result);
-    }else if (input === 'Reset'){
-      result = '';
-    }else{
-      result += input
+  const reset = 'Reset';
+  
+  const calcola=(value)=>{
+      switch (value) {
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+        case '0':
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+        case '.':
+          count = count + value;
+          break;
+          case '=':
+            try {
+              count = eval(count)
+            } catch (error) {
+              count = 'Error'
+            }
+            break;
+            case 'Reset':
+              count = '';
+              break;
+        default:
+          break;
+      }
     }
-  }
 
-  const maxlimit = 9 
+   const frasi = [
+    'Benvenuto su The Calculator', 
+    'Ricorda: 2+2 è uguale 4',
+    'Come te la passi?',
+    'Sono sempre qui per aiutarti',
+    'Mi fa piacere che tu mi stia usando :)',
+    "E' un giorno stupendo per calcolare!",
+    '109 97 116 104',
+    'Stai andando alla grande!',
+    'Sei un genio/a!',
+    'Io sono Sticky!',
+    'Beep Boop Boop Beep...',
+    'Vuoi un caffè?',
+    'Uhhhh la mia schiena...',
+    'Si, vivo dentro questo rettangolo nero',
+    'Spero ti stia divertendo ^_^',
+    'Stai leggendo tutto quello che dico vero?',
+    'Fermo! fissami per 5 secondi!',
+    'Usami per i tuoi compiti',
+    'GUARDA DIETRO DI TE!!',
+    'Bisogno di una pausa?',
+    'Dimmi i tuoi segreti',
+    'Mettiti comodo e fai i tuoi calcoli con me!',
+    'Non fare 666!!!',
+    'Prova a fare 666...',
+    'Prova a fare 101010...',
+    'Sto sempre in piedi',
+   ]
 
-  const limit=(event)=>{
-    const text = event.target.value;
-    if (text.length > maxlimit){
-      
-    }
-  }
+   let newfrasi = 'Sono stato programmato da Alessio Santillo'
+
+   const generaRandom=()=>{
+    const random = setInterval(()=>{
+    const rand = Math.floor(Math.random() * frasi.length)
+    newfrasi = frasi[rand]
+    }, 5000)
+    return ()=> clearInterval(random)
+   }
+
+   generaRandom()
+
+
+   let active = false;
+   const hellMode=()=>{
+    active = !active
+   }
+
+   
+
 
 
 </script>
@@ -57,25 +105,39 @@
   </div>
 </div>
 
-<div class="w-[90%] h-[90%] absolute top-[27%] left-[5%] rounded-3xl bg-black flex justify-center border-solid border-2 border-gray-700 shadow-2xl bg-gradient-to-tl from-black to-gray-950">
-  <div class="w-[90%] h-[15%] absolute top-[20%] bg-neutral-900 rounded-2xl border-solid border-2 border-gray-700 text-teal-700 items-start flex justify-center text-4xl">{result}</div>
+
+<div class="w-[90%] md:w-[60%] lg:w-[30%] h-[90%] absolute top-[27%] left-[5%] md:left-[20%] lg:left-[35%] rounded-3xl bg-black flex justify-center border-solid border-2 border-gray-700 shadow-xl bg-gradient-to-tl from-black to-gray-950">  
+  <div>
+    <p class="text-white tracking-[15px] font-extrabold text-3xl cursor-default">THE CALCULATOR</p>
+    <div class="flex flex-row w-[70%] absolute left-[52%]">
+    <button on:click="{hellMode}" class="text-white bg-red-900 rounded-md p-1 font-semibold cursor-pointer mr-[10%]">Hell Mode</button>
+    <p class="text-white bg-teal-900 rounded-md p-1 font-semibold cursor-pointer">Pixel Mode</p>
+    </div>
+  </div>
+  <div class="bg-black flex w-[90%] h-[9%] rounded-3xl absolute top-[10%]">
+    <img src={sticky} alt="sticky" class="invert w-[15%] sm:top-[20%] md:top-0 rounded-full border-solid border-red-500 border-r-2 absolute" />
+    <p class="text-teal-500 font-mono absolute top-[25%] left-[18%] flex mr-[20%] tracking-tighter text-xs md:text-base ">{newfrasi}</p>
+  </div>
+
+
+  <div class="w-[90%] h-[15%] absolute top-[20%] bg-neutral-900 rounded-2xl border-solid border-2 border-gray-700 text-teal-700 items-start flex justify-start text-6xl"><p class="text-teal-600 text-4xl absolute top-[26%] right-[5%]">{count}</p></div>
   <div class="grid grid-cols-4 grid-rows-5 absolute w-[100%] h-[100%] left-[2.5%] top-[5%]">
-    <div on:click="{()=>calc('1')}" class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[160%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">1</div>
-    <div class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[160%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">2</div>
-    <div class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[160%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">3</div>
-    <div on:click="{()=>calc('+')}" class="bg-teal-900 w-[60%] h-[40%] rounded-xl flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[160%] left-[10%] hover:bg-orange-700 hover:rounded-2xl hover:duration-700 hover:ease-in-out hover:cursor-pointer">/</div>
-    <div class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[120%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">4</div>
-    <div class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[120%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">5</div>
-    <div class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[120%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">6</div>
-    <div class="bg-teal-900 w-[60%] h-[40%] rounded-xl flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[120%] left-[10%] hover:bg-orange-700 hover:rounded-2xl hover:duration-700 hover:ease-in-out hover:cursor-pointer">*</div>
-    <div class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[80%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">7</div>
-    <div class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[80%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">8</div>
-    <div class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[80%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">9</div>
-    <div class="bg-teal-900 w-[60%] h-[40%] rounded-xl flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[80%] left-[10%]  hover:bg-orange-700 hover:rounded-2xl hover:duration-700 hover:ease-in-out hover:cursor-pointer">-</div>
-    <div class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[40%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">0</div>
-    <div class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[40%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">.</div>
-    <div on:click="{()=>calc('=')}" class="bg-green-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[40%] left-[10%]    hover:bg-green-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">=</div>
-    <div class="bg-teal-900 w-[60%] h-[40%] rounded-xl flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[40%] left-[10%]  hover:bg-orange-700 hover:rounded-2xl hover:duration-700 hover:ease-in-out hover:cursor-pointer">+</div>
-    <div on:click="{()=>calc('Reset')}" class="bg-red-900 w-[130%] h-[40%] rounded-xl flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[10%] left-[10%]  hover:bg-red-700 hover:rounded-full hover:duration-700 hover:ease-in-out hover:cursor-pointer">Reset</div>
+    <button on:click="{()=>calcola('1')}" class="bg-neutral-900 {active ?"bg-red-500": ''}  w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold font-roboto relative top-[160%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">1</button>
+    <button on:click="{()=>calcola('2')}" class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[160%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">2</button>
+    <button on:click="{()=>calcola('3')}" class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[160%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">3</button>
+    <button on:click="{()=>calcola('/')}" class="bg-teal-900 w-[60%] h-[40%] rounded-xl flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[160%] left-[10%] hover:bg-orange-700 hover:rounded-2xl hover:duration-700 hover:ease-in-out hover:cursor-pointer">/</button>
+    <button on:click="{()=>calcola('4')}" class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[120%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">4</button>
+    <button on:click="{()=>calcola('5')}" class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[120%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">5</button>
+    <button on:click="{()=>calcola('6')}" class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[120%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">6</button>
+    <button on:click="{()=>calcola('*')}" class="bg-teal-900 w-[60%] h-[40%] rounded-xl flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[120%] left-[10%] hover:bg-orange-700 hover:rounded-2xl hover:duration-700 hover:ease-in-out hover:cursor-pointer">*</button>
+    <button on:click="{()=>calcola('7')}" class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[80%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">7</button>
+    <button on:click="{()=>calcola('8')}" class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[80%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">8</button>
+    <button on:click="{()=>calcola('9')}" class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[80%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">9</button>
+    <button on:click="{()=>calcola('-')}" class="bg-teal-900 w-[60%] h-[40%] rounded-xl flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[80%] left-[10%]  hover:bg-orange-700 hover:rounded-2xl hover:duration-700 hover:ease-in-out hover:cursor-pointer">-</button>
+    <button on:click="{()=>calcola('0')}" class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[40%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">0</button>
+    <button on:click="{()=>calcola('.')}" class="bg-neutral-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[40%] left-[10%]  hover:text-teal-400 hover:bg-neutral-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">.</button>
+    <button on:click="{()=>calcola('=')}" class="bg-green-900 w-[60%] h-[40%] rounded-full flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[40%] left-[10%]    hover:bg-green-700 hover:rounded-lg hover:duration-700 hover:ease-in-out hover:cursor-pointer">=</button>
+    <button on:click="{()=>calcola('+')}" class="bg-teal-900 w-[60%] h-[40%] rounded-xl flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[40%] left-[10%]  hover:bg-orange-700 hover:rounded-2xl hover:duration-700 hover:ease-in-out hover:cursor-pointer">+</button>
+    <button on:click="{()=>calcola('Reset')}" class="bg-red-900 w-[130%] h-[40%] rounded-xl flex justify-center text-center items-center text-white text-4xl font-semibold relative top-[10%] left-[10%]  hover:bg-red-700 hover:rounded-full hover:duration-700 hover:ease-in-out hover:cursor-pointer">Reset</button>
   </div>
 </div>
