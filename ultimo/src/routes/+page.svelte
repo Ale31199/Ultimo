@@ -34,7 +34,7 @@
     <a href="https://www.linkedin.com/in/alessio-santillo-422186275/" class="bg-neutral-800 inline-flex text-teal-500 rounded-lg p-1 cursor-pointer underline justify-center ">LinkedIn: Alessio Santillo</a>
     </div>
 
-    <div class="w-[80%] h-[80%] md:h-[70%] absolute bottom-[0%] bg-neutral-900 flex justify-center text-justify rounded-t-3xl">
+    <div class="w-[80%] h-[80%] md:h-[70%] absolute bottom-[0%] bg-gradient-to-bl from-neutral-800 to-neutral-950 flex justify-center text-justify rounded-t-3xl">
     <p class="text-justify ml-4 mr-4 text-2xl relative top-[4%] font-extrabold" >Chi sono?</p>
     <p class="text-justify ml-4 mr-4 absolute top-[8%] font-thin text-sm md:text-lg w-[80%]" >{ita.testo.testo2}</p>
     <p class="text-justify ml-4 mr-4 text-2xl absolute top-[49%] font-extrabold" >Il Mio Percorso  </p>
