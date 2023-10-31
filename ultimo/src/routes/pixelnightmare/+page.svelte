@@ -3,7 +3,9 @@
   import choices from '/src/routes/pixelnightmare/choicesound.mp3';
   import castello from '/src/routes/pixelnightmare/castello.jpg';
 
+  // @ts-ignore
   import sto from '/src/routes/pixelnightmare/story.json';
+
 
 
       /////////////////////////////////////////////////////////////////////
@@ -11,6 +13,7 @@
       let choice1 = sto.storia.r0[0]
       let choice2 = sto.storia.r0[1]
 
+      // @ts-ignore
       const GStory=(risp)=>{
     if(text === sto.storia.t0 && risp === sto.storia.r0[0]){
       setTimeout(()=>{
@@ -142,13 +145,12 @@
     }
   }
 
-  let playy = false
-  const thesound = choices;
+  let audioElement;
+  let soundcho = choices
 
   const playsound=()=>{
-    if (playy){
-    thesound.play()
-  }
+  audioElement = new Audio(soundcho);
+  audioElement.play()
 }
 
 </script>
@@ -169,13 +171,15 @@
 
 
 <div class="w-[100%] h-[60%] md:h-[60%] lg:h-[80%] rounded-3xl relative top-36 flex justify-center ">
-    <audio id='audio' bind:this={thesound}></audio>
-    <img src={castello} alt="castle" class="w-[100%] md:w-[80%] lg:w-[50%] h-[100%] absolute bg-cover rounded-3xl shadow-inner" />
-    <img src={logo} alt="logo" class="w-[70%] md:w-[30%] lg:w-[20%] absolute top-[3%] " />
-    <div class="absolute w-[90%] md:w-[70%] lg:w-[40%] h-[50%] bg-gradient-to-br to-neutral-800 from-black rounded-3xl top-[20%] md:top-[25%] flex justify-center"><p class="tracking-tighter text-white text-xs md:text-base lg:text-base w-[80%] h-[80%] text-justify absolute top-[1%] font-mono">{text}</p></div>
-    <div class="grid grid-cols-1 grid-rows-2 absolute left-[9.5%] bottom-[5%] h-[15%] w-[90%] md:w-[60%] lg:w-[40%] justify-items-center">
-      <button value={choice1} on:click="{()=>GStory(choice1)}" on:click="{()=>playsound()}" class="w-[100%] md:w-[100%] lg:w-[70%] h-[100%] rounded-md hover:bg-teal-950 hover:text-white hover:border-white hover:border-solid hover:border-2 bg-neutral-900 border-solid border-2 border-teal-500 text-teal-500 font-mono relative bottom-[50%] text-sm">{choice1}</button>
-      <button value={choice2} on:click="{()=>GStory(choice2)}" on:click="{()=>playsound()}" class="w-[100%] md:w-[100%] lg:w-[70%] h-[100%] rounded-md hover:bg-teal-950 hover:text-white hover:border-white hover:border-solid hover:border-2 bg-neutral-900 border-solid border-2 border-teal-500 text-teal-500 font-mono relative bottom-[20%] text-sm">{choice2}</button>
+    <audio>
+      <source src={soundcho} type="audio/mpeg"/>
+    </audio>
+    <img src={castello} alt="castle" class="w-[100%] md:w-[80%] lg:w-[60%] h-[100%] absolute bg-cover rounded-3xl shadow-inner" />
+    <img src={logo} alt="logo" class="w-[60%] md:w-[30%] lg:w-[30%] absolute top-[3%] " />
+    <div class="absolute w-[90%] md:w-[70%] lg:w-[40%] h-[50%] bg-gradient-to-br to-neutral-800 from-black rounded-3xl top-[20%] md:top-[25%] flex justify-center"><p class="tracking-tighter text-white text-[11px] md:text-base lg:text-base w-[80%] h-[80%] text-justify absolute top-[1%] font-mono">{text}</p></div>
+    <div class="grid grid-cols-1 grid-rows-2 absolute left-[5%] md:left-[20%] lg:left-[30%] bottom-[5%] h-[15%] w-[90%] md:w-[60%] lg:w-[40%] justify-items-center">
+      <button value={choice1} on:click="{()=>GStory(choice1)}" on:click="{()=>playsound()}" class="w-[100%] md:w-[100%] lg:w-[70%] h-[100%] rounded-md hover:bg-teal-950 hover:text-white hover:border-white hover:border-solid hover:border-2 bg-neutral-900 border-solid border-2 border-teal-500 text-teal-500 font-mono relative bottom-[50%] text-[12px]">{choice1}</button>
+      <button value={choice2} on:click="{()=>GStory(choice2)}" on:click="{()=>playsound()}" class="w-[100%] md:w-[100%] lg:w-[70%] h-[100%] rounded-md hover:bg-teal-950 hover:text-white hover:border-white hover:border-solid hover:border-2 bg-neutral-900 border-solid border-2 border-teal-500 text-teal-500 font-mono relative bottom-[20%] text-[12px]">{choice2}</button>
     </div>
 </div>
 
