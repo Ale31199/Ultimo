@@ -12,4 +12,9 @@
   </div>
 </div>
 
-<h1>x-flies</h1>
+
+<div class="bg-black w-auto h-[3000px] md:h-[2300px] lg:h-[1800px] rounded-3xl relative top-36 flex justify-center ">
+  
+
+  
+</div>
