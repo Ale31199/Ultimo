@@ -39,6 +39,7 @@ import thismeanswar from './songs/thismeanswar.mp3';
 import bad from './songs/bad.mp3';
 import someday from './songs/someday.mp3';
 
+
 let openlibrary = false;
 
 const openLib=()=>{
@@ -62,31 +63,33 @@ const openLib=()=>{
 </div>
 
 
-
-<div class="invisible md:visible grid grid-cols-1 grid-rows-2 bg-black w-[7%] h-[600px] rounded-xl absolute top-[24.5%] {openlibrary ? "w-[40%]": "w-[7%]"}">
-   <div class="w-[100%] h-[50%] bg-neutral-900 rounded-xl">
-    <div class="grid grid-cols-1 grid-rows-4 w-[100%] h-[100%] justify-items-center items-center">
-      <img src={home} alt="home" class="w-[40%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer"/>
-      <p class="text-neutral-500 text-sm">Home</p>
-      <img src={src} alt="home" class="w-[40%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer"/>
-      <p class="text-neutral-500 text-sm">Search</p>
-    </div>
+<div class="invisible md:visible grid grid-cols-1 grid-rows-2 bg-black w-[7%] h-[598px] rounded-xl absolute top-[25%] {openlibrary ? "md:w-[25%]": ""}">
+  <div class="w-[100%] h-[50%] bg-neutral-900 rounded-xl flex justify-items-center items-center">
+   <div class="grid grid-cols-1 grid-rows-4 w-[100%] h-[100%] justify-items-center items-center relative {openlibrary ? "md:grid-cols-2 md:grid-rows-2 md:w-[80%] h-[30%] gap-y-[100%]": ""}">
+     <img src={home} alt="home" class="w-[40%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[30%]": ""}"/>
+     <p class="text-neutral-500 text-sm relative {openlibrary ? "text-xl left-[0%]": ""}">Home</p>
+     <img src={src} alt="home" class="w-[40%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[30%]": ""}"/>
+     <p class="text-neutral-500 text-sm relative {openlibrary ? "text-xl left-[0%]": ""}">Search</p>
    </div>
-   <div class="w-[100%] h-[70%] absolute top-[30%] bg-neutral-900 rounded-xl">
-    <div class="grid grid-cols-1 grid-rows-2 justify-items-center items-center sticky bg-neutral-900 rounded-xl">
-    <img src={library} alt="home" class="w-[40%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer"/>
-      <button class="text-neutral-500 text-sm" on:click={openLib}>Library</button>
-    </div>
-    <div class="grid grid-cols-1 grid-rows-11 w-[100%] h-[100%] justify-items-center items-center overflow-y-auto">
-      
-    </div>
+  </div>
+  <div class="w-[100%] h-[70%] absolute top-[30%] bg-neutral-900 rounded-xl">
+    <button on:click={openLib} class="flex items-center" >
+   <div class="grid grid-cols-1 grid-rows-2 justify-items-center items-center sticky bg-neutral-900 rounded-xl {openlibrary ? "md:grid-cols-2 grid-rows-1 md:w-[80%] md:h-[30%]": ""}">
+   <img src={library} alt="home" class="w-[40%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[35%]": ""}"/>
+     <p class="text-neutral-500 text-sm relative {openlibrary ? "text-xl left-[0%]": ""}">Library</p>
    </div>
-
+  </button>
+   <div class="grid grid-cols-1 grid-rows-11 w-[100%] h-[100%] justify-items-center items-center overflow-y-auto">
+     
+   </div>
+  </div>
 </div>
 
 
 
-<div class="bg-black w-auto md:w-[90%] md:left-[9%] h-[700px] md:h-[600px] lg:h-[1800px] rounded-3xl relative top-[100px] bottom-6 flex justify-center overflow-auto ">
+
+
+<div class="bg-black w-auto md:w-[90%] md:left-[9%] h-[700px] md:h-[600px] lg:h-[1800px] rounded-3xl relative top-[100px] bottom-6 flex justify-center overflow-auto {openlibrary ? "md:w-[610px] md:left-[30%]": ""}">
   <div class="w-[100%] h-[10%] absolute top-[0%] flex bg-neutral-900 mb-[10%]">
    <p class="text-white font-bold font-sans text-lg left-[5%] top-[25%] absolute">Good evening</p>
    <img src={devices} alt="user" class="w-[8%] md:w-[5%] invert absolute right-[20%] md:right-[15%] md:cursor-not-allowed top-[25%] md:top-[20%]"/>
@@ -95,55 +98,55 @@ const openLib=()=>{
 
   <div class="grid grid-cols-2 grid-rows-3 w-[100%] h-[30%] absolute top-[15%] gap-2">
     <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md ml-4 md:left-[5%] md:relative flex items-center cursor-pointer hover:bg-neutral-700">
-     <img src={hrt} alt="heart" class="w-[39.5%] md:w-[15%] bg-gradient-to-br from-purple-300 to-purple-800 p-[15px] rounded-s-md"/>
+     <img src={hrt} alt="heart" class="w-[39.5%] md:w-[14%] bg-gradient-to-br from-purple-300 to-purple-800 p-[15px] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
      <p class="text-xs font-semibold text-white absolute left-[24%]">Liked Songs</p>
     </div>
-    <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md mr-4 flex items-center cursor-pointer hover:bg-neutral-700 ">
-     <img src={r4} alt="heart" class="w-[39.5%] md:w-[15%] rounded-s-md"/>
+    <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md mr-4 flex items-center cursor-pointer hover:bg-neutral-700">
+     <img src={r4} alt="heart" class="w-[39.5%] md:w-[14%] rounded-s-md  {openlibrary ? "md:w-[18%]": ""} "/>
      <p class="text-xs font-semibold text-white absolute right-[5%] w-[25%] md:right-[13.5%] whitespace-nowrap overflow-hidden text-ellipsis">Metallica's Playlist</p>
     </div>
     <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md ml-4 md:left-[5%] md:relative flex items-center cursor-pointer hover:bg-neutral-700 ">
-    <img src={r6} alt="heart" class="w-[39.5%] md:w-[15%] rounded-s-md"/>
+    <img src={r6} alt="heart" class="w-[39.5%] md:w-[14%] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
     <p class="text-xs font-semibold text-white absolute left-[24%] w-[23%] md:w-[50%] whitespace-nowrap overflow-hidden text-ellipsis">Eminem's Playlist</p>
     </div>
-    <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md mr-4 flex items-center cursor-pointer hover:bg-neutral-700">
-    <img src={r8} alt="heart" class="w-[39.5%] md:w-[15%] rounded-s-md"/>
+    <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md mr-4 flex items-center cursor-pointer hover:bg-neutral-700 ">
+    <img src={r8} alt="heart" class="w-[39.5%] md:w-[14%] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
     <p class="text-xs font-semibold text-white absolute right-[5%] w-[25%] md:right-[13.5%] whitespace-nowrap overflow-hidden text-ellipsis">Nickelback's Playlist</p>
     </div>
-    <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md ml-4 md:left-[5%] md:relative flex items-center cursor-pointer hover:bg-neutral-700">
-      <img src={r10} alt="heart" class="w-[39.5%] md:w-[15%] rounded-s-md"/>
+    <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md ml-4 md:left-[5%] md:relative flex items-center cursor-pointer hover:bg-neutral-700 ">
+      <img src={r10} alt="heart" class="w-[39.5%] md:w-[14%] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
       <p class="text-xs font-semibold text-white absolute left-[24%] w-[23%] md:w-[50%] whitespace-nowrap overflow-hidden text-ellipsis">Best of Nickelback</p>
     </div>
-    <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md mr-4 flex items-center cursor-pointer hover:bg-neutral-700">
-      <img src={r3} alt="heart" class="w-[39.5%] md:w-[15%] rounded-s-md"/>
+    <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md mr-4 flex items-center cursor-pointer hover:bg-neutral-700 ">
+      <img src={r3} alt="heart" class="w-[39.5%] md:w-[14%] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
       <p class="text-xs font-semibold text-white absolute right-[5%] w-[25%] md:right-[13.5%] whitespace-nowrap overflow-hidden text-ellipsis">Laura Branigam's Playlist</p>
     </div>
   </div>
 
 
-  <div class="grid grid-cols-1 grid-rows-3 absolute w-[100%] h-[110%] md:h-[150%] top-[50%]">
+  <div class="grid grid-cols-1 grid-rows-3 absolute w-[100%] h-[110%] md:h-[150%] top-[50%] {openlibrary ? "md:h-[100%]": ""} ">
 
-    <div class="grid grid-cols-1 grid-rows-2 w-[100%] h-[80%] top-[0%] relative  overflow-x-scroll md:overflow-hidden">
+    <div class="grid grid-cols-1 grid-rows-2 w-[100%] h-[80%] md:h-[80%] top-[0%] relative  overflow-x-scroll md:overflow-hidden {openlibrary ? "md:h-[60%]": ""} ">
     <p class="font-bold text-base text-white relative left-[5%] top-[5%]">Brani Preferiti</p>
-    <div class="grid grid-cols-4 grid-rows-3 absolute w-[160%] md:w-[80%] h-[70%] top-[15%] left-[5%] right-[5%] rounded-lg gap-x-3">
+    <div class="grid grid-cols-4 grid-rows-3 absolute w-[160%] md:w-[80%] h-[70%] top-[15%] left-[5%] right-[5%] rounded-lg gap-x-3  {openlibrary ? "md:h-[77%]": ""} ">
       <img src={r1} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
       <img src={r7} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
       <img src={r5} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
       <img src={r9} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-      <p class="text-white relative top-[160%] left-[5%] text-xs h-[20%]">Born Villain</p>
-      <p class="text-white relative top-[160%] left-[5%] text-xs h-[20%]">Because We Can</p>
-      <p class="text-white relative top-[160%] left-[5%] text-xs h-[20%]">Enter The Matrix</p>
-      <p class="text-white relative top-[160%] left-[5%] text-xs h-[20%]">Bad</p>
-      <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs h-[20%]">Marilyn Manson</p>
-      <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs h-[20%]">Bon Jovi</p>
-      <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs h-[20%]">Aurora</p>
-      <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs h-[20%]">Michael Jackson</p>
+      <p class="text-white relative top-[170%] left-[5%] text-xs h-[20%]">Born Villain</p>
+      <p class="text-white relative top-[170%] left-[5%] text-xs h-[20%]">Because We Can</p>
+      <p class="text-white relative top-[170%] left-[5%] text-xs h-[20%]">Enter The Matrix</p>
+      <p class="text-white relative top-[170%] left-[5%] text-xs h-[20%]">Bad</p>
+      <p class="text-neutral-700 relative top-[100%] left-[5%] text-xs h-[20%]">Marilyn Manson</p>
+      <p class="text-neutral-700 relative top-[100%] left-[5%] text-xs h-[20%]">Bon Jovi</p>
+      <p class="text-neutral-700 relative top-[100%] left-[5%] text-xs h-[20%]">Aurora</p>
+      <p class="text-neutral-700 relative top-[100%] left-[5%] text-xs h-[20%]">Michael Jackson</p>
     </div>
     </div>
 
-    <div class="grid grid-cols-1 grid-rows-2 w-[100%] h-[80%] top-[-10%] relative  overflow-x-auto">
+    <div class="grid grid-cols-1 grid-rows-2 w-[100%] h-[80%] top-[-10%] relative  overflow-x-auto {openlibrary ? "md:h-[100%]": ""}">
       <p class="font-bold text-base text-white relative left-[5%] top-[5%]">Ultimi aggiunti</p>
-      <div class="grid grid-cols-5 grid-rows-3 absolute w-[200%] md:w-[100%] h-[70%] top-[15%] left-[5%] right-[5%] rounded-lg gap-x-3">
+      <div class="grid grid-cols-5 grid-rows-3 absolute w-[200%] md:w-[100%] h-[78%] top-[15%] left-[5%] right-[5%] rounded-lg gap-x-3 {openlibrary ? "md:h-[70%]": ""} ">
         <img src={r6} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
         <img src={r8} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
         <img src={star} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
@@ -151,7 +154,7 @@ const openLib=()=>{
         <img src={r4} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
         <p class="text-white relative top-[160%] left-[5%] text-xs h-[20%]">All Eyes On Me</p>
         <p class="text-white relative top-[160%] left-[5%] text-xs h-[20%]">This Means War</p>
-        <p class="text-white relative top-[160%] left-[5%] text-xs h-[30%] overflow-hidden whitespace-nowrap text-ellipsis md:overflow-hidden md:whitespace-nowrap md:text-ellipsis md:w-[80%] ">Starfield Official Soundtrack</p>
+        <p class="text-white relative top-[160%] left-[5%] text-xs h-[30%] overflow-hidden whitespace-nowrap text-ellipsis md:overflow-hidden md:whitespace-nowrap md:text-ellipsis md:w-[80%] {openlibrary ? "md:h-[35%]": ""}  ">Starfield Official Soundtrack</p>
         <p class="text-white relative top-[160%] left-[5%] text-xs h-[20%]">Enter The Matrix</p>
         <p class="text-white relative top-[160%] left-[5%] text-xs h-[20%]">Master Of Puppets</p>
         <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs h-[20%]">Eminem</p>
@@ -162,13 +165,17 @@ const openLib=()=>{
       </div>
       </div>
 
-      <div class="grid grid-cols-1 grid-rows-2 w-[100%] h-[70%] top-[-10%] relative  overflow-x-auto md:overflow-hidden">
+      <div class="grid grid-cols-1 grid-rows-2 w-[100%] h-[70%] top-[-10%] relative  overflow-x-auto md:overflow-hidden {openlibrary ? "md:h-[100%]": ""} ">
         <p class="font-bold text-base text-white relative left-[5%] top-[5%]">Artisti Preferiti</p>
-        <div class="grid grid-cols-4 grid-rows-3 absolute w-[160%] md:w-[80%] h-[70%] top-[15%] left-[5%] right-[5%] rounded-lg gap-x-3">
+        <div class="grid grid-cols-4 grid-rows-2 absolute w-[160%] md:w-[80%] h-[70%] top-[15%] left-[5%] right-[5%] rounded-lg gap-x-3 justify-items-center {openlibrary ? "md:h-[55%]": ""} ">
           <img src={star} alt="artist" class="w-[100%] rounded-full cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
           <img src={r4} alt="artist" class="w-[100%] rounded-full cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
           <img src={r3} alt="artist" class="w-[100%] rounded-full cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
           <img src={r2} alt="artist" class="w-[100%] rounded-full cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
+          <p class="text-white relative top-[110%] text-xs h-[30%] overflow-hidden whitespace-nowrap text-ellipsis ">Bethesda Games Studio</p>
+          <p class="text-white relative top-[110%] text-xs h-[30%] overflow-hidden whitespace-nowrap text-ellipsis ">Metallica</p>
+          <p class="text-white relative top-[110%] text-xs h-[30%] overflow-hidden whitespace-nowrap text-ellipsis ">Laura Branigan</p>
+          <p class="text-white relative top-[110%] text-xs h-[30%] overflow-hidden whitespace-nowrap text-ellipsis ">Nickelback</p>
         </div>
         </div>
   </div>
