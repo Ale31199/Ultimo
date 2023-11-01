@@ -14,6 +14,7 @@ import prev from './im/previous.png';
 import queue from './im/queue.png';
 import repeat from './im/repeat.png';
 import shuffle from './im/shuffle.png'; 
+import music from './im/music.png';
 import star from './im/star2 - Copy.jpg';
 import r1 from './im/R2.jpg';
 import r2 from './im/R3.jpg';
@@ -41,10 +42,318 @@ import someday from './songs/someday.mp3';
 
 
 let openlibrary = false;
-
 const openLib=()=>{
   openlibrary = !openlibrary
 }
+
+let playing = false;
+let audio = starfield;
+let playthis;
+
+let advillain = false;
+let audiovillain = villain;
+let playvillain;
+
+let adburn = false;
+let audioburn = burn;
+let playburn;
+
+let adcontrol = false;
+let audiocontrol = selfcontrol;
+let playselfcontrol;
+
+let adpuppets = false;
+let audiomaster = masterpuppets;
+let playmaster;
+
+let admatrix = false;
+let audiomatrix = entermatrix;
+let playmatrix;
+
+let adbon = false;
+let audiobon = becausebonjovi;
+let playbon;
+
+let adwar = false;
+let audiowar = thismeanswar;
+let playwar;
+
+let adeyes = false;
+let audioeyes = alleyes;
+let playeyes;
+
+let adbad = false;
+let audiobad = bad;
+let playbad;
+
+let adsome = false;
+let audiosome = someday;
+let playsome;
+
+
+let artist = music
+let song = ''
+let name = ''
+
+const playit=()=>{
+  if (!playing){
+    playthis = new Audio(audio)
+    playthis.play()
+    artist = star
+    song = "Starfield Official..."
+    name = "Bethesda Games St..."
+    playburn.pause()
+    playselfcontrol.pause()
+    playmaster.pause()
+    playmatrix.pause()
+    playbon.pause()
+    playwar.pause()
+    playeyes.pause()
+    playbad.pause()
+    playsome.pause()
+    playvillain.pause()
+} else{
+  playthis.pause()
+}
+playing = !playing
+}
+
+const playB=()=>{
+  if (!adburn){
+    playburn = new Audio(audioburn)
+    playburn.play()
+    artist = r2
+    song = "Burn"
+    name = "Nickelback"
+    playthis.pause()
+    playselfcontrol.pause()
+    playmaster.pause()
+    playmatrix.pause()
+    playbon.pause()
+    playwar.pause()
+    playeyes.pause()
+    playbad.pause()
+    playsome.pause()
+    playvillain.pause()
+} else{
+  playburn.pause()
+}
+adburn = !adburn
+}
+
+const playC=()=>{
+  if (!adcontrol){
+    playselfcontrol = new Audio(audiocontrol)
+    playselfcontrol.play()
+    artist = r3
+    song = "Self Control"
+    name = "Laura Branigan"
+    playburn.pause()
+    playthis.pause()
+    playmaster.pause()
+    playmatrix.pause()
+    playbon.pause()
+    playwar.pause()
+    playeyes.pause()
+    playbad.pause()
+    playsome.pause()
+    playvillain.pause()
+} else{
+  playselfcontrol.pause()
+}
+adcontrol = !adcontrol
+}
+
+const playM=()=>{
+  if (!adpuppets){
+    playmaster = new Audio(audiomaster)
+    playmaster.play()
+    artist = r4
+    song = "Master of Puppets"
+    name = "Metallica"
+    playburn.pause()
+    playselfcontrol.pause()
+    playthis.pause()
+    playmatrix.pause()
+    playbon.pause()
+    playwar.pause()
+    playeyes.pause()
+    playbad.pause()
+    playsome.pause()
+    playvillain.pause()
+} else{
+  playmaster.pause()
+}
+adpuppets = !adpuppets
+}
+
+const playMa=()=>{
+  if (!admatrix){
+    playmatrix = new Audio(audiomatrix)
+    playmatrix.play()
+    artist = r5
+    song = "Enter The Matrix"
+    name = "Aurora"
+     playburn.pause()
+    playselfcontrol.pause()
+    playmaster.pause()
+    playthis.pause()
+    playbon.pause()
+    playwar.pause()
+    playeyes.pause()
+    playbad.pause()
+    playsome.pause()
+    playvillain.pause()
+} else{
+  playmatrix.pause()
+}
+admatrix = !admatrix
+}
+
+const playBo=()=>{
+  if (!adbon){
+    playbon = new Audio(audiobon)
+    playbon.play()
+    artist = r7
+    song = "Because We Can"
+    name = "Bon Jovi"
+    playburn.pause()
+    playselfcontrol.pause()
+    playmaster.pause()
+    playmatrix.pause()
+    playthis.pause()
+    playwar.pause()
+    playeyes.pause()
+    playbad.pause()
+    playsome.pause()
+    playvillain.pause()
+} else{
+  playbon.pause()
+}
+adbon = !adbon
+}
+
+const playW=()=>{
+  if (!adwar){
+    playwar = new Audio(audiowar)
+    playwar.play()
+    artist = r8
+    song = "This Means War"
+    name = "Nickelback"
+    playburn.pause()
+    playselfcontrol.pause()
+    playmaster.pause()
+    playmatrix.pause()
+    playbon.pause()
+    playthis.pause()
+    playeyes.pause()
+    playbad.pause()
+    playsome.pause()
+    playvillain.pause()
+} else{
+  playwar.pause()
+}
+adwar = !adwar
+}
+
+const playE=()=>{
+  if (!adeyes){
+    playeyes = new Audio(audioeyes)
+    playeyes.play()
+    artist = r6
+    song = "All Eyes On Me"
+    name = "Eminem"
+    playburn.pause()
+    playselfcontrol.pause()
+    playmaster.pause()
+    playmatrix.pause()
+    playbon.pause()
+    playwar.pause()
+    playthis.pause()
+    playbad.pause()
+    playsome.pause()
+    playvillain.pause()
+} else{
+  playeyes.pause()
+}
+adeyes = !adeyes
+}
+
+const playBa=()=>{
+  if (!adbad){
+    playbad = new Audio(audiobad)
+    playbad.play()
+    artist = r9
+    song = "Bad"
+    name = "Michael Jackson"
+    playburn.pause()
+    playselfcontrol.pause()
+    playmaster.pause()
+    playmatrix.pause()
+    playbon.pause()
+    playwar.pause()
+    playeyes.pause()
+    playthis.pause()
+    playsome.pause()
+    playvillain.pause()
+} else{
+  playbad.pause()
+}
+adbad = !adbad
+}
+
+const playS=()=>{
+  if (!adsome){
+    playsome = new Audio(audiosome)
+    playsome.play()
+    artist = r10
+    song = "Someday"
+    name = "Nickelback"
+    playburn.pause()
+    playselfcontrol.pause()
+    playmaster.pause()
+    playmatrix.pause()
+    playbon.pause()
+    playwar.pause()
+    playeyes.pause()
+    playbad.pause()
+    playthis.pause()
+    playvillain.pause()
+} else{
+  playsome.pause()
+}
+adsome = !adsome
+}
+
+const playV=()=>{
+  if (!advillain){
+    playvillain = new Audio(audiovillain)
+    playvillain.play()
+    artist = r1
+    song = "Born Villain"
+    name = "Marilyn Manson"
+    playburn.pause()
+    playselfcontrol.pause()
+    playmaster.pause()
+    playmatrix.pause()
+    playbon.pause()
+    playwar.pause()
+    playeyes.pause()
+    playbad.pause()
+    playsome.pause()
+    playthis.pause()
+} else{
+  playvillain.pause()
+}
+advillain = !advillain
+}
+
+
+
+
+
+
+
 
 
 </script>
@@ -63,24 +372,27 @@ const openLib=()=>{
 </div>
 
 
-<div class="invisible md:visible grid grid-cols-1 grid-rows-2 bg-black w-[7%] h-[598px] rounded-xl absolute top-[25%] {openlibrary ? "md:w-[25%]": ""}">
-  <div class="w-[100%] h-[50%] bg-neutral-900 rounded-xl flex justify-items-center items-center">
-   <div class="grid grid-cols-1 grid-rows-4 w-[100%] h-[100%] justify-items-center items-center relative {openlibrary ? "md:grid-cols-2 md:grid-rows-2 md:w-[80%] h-[30%] gap-y-[100%]": ""}">
-     <img src={home} alt="home" class="w-[40%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[30%]": ""}"/>
-     <p class="text-neutral-500 text-sm relative {openlibrary ? "text-xl left-[0%]": ""}">Home</p>
-     <img src={src} alt="home" class="w-[40%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[30%]": ""}"/>
-     <p class="text-neutral-500 text-sm relative {openlibrary ? "text-xl left-[0%]": ""}">Search</p>
+<div class="invisible md:visible grid grid-cols-1 grid-rows-2 bg-neutral-950 w-[7%] lg:w-[4%] h-[598px] rounded-xl absolute top-[25%] lg:left-[10%] {openlibrary ? "md:w-[25%]": ""}">
+  <div class="w-[100%] h-[50%] bg-neutral-900 rounded-xl flex justify-items-center items-center {openlibrary ? "md:h-[30%]": ""} ">
+   <div class="grid grid-cols-1 grid-rows-4 w-[100%] h-[100%] justify-items-center items-center relative {openlibrary ? "md:grid-cols-2 md:grid-rows-2 md:w-[60%] h-[30%] gap-y-[150%]": ""}">
+     <img src={home} alt="home" class="w-[40%] lg:w-[25%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[30%]": ""}"/>
+     <p class="text-neutral-500 text-sm relative {openlibrary ? "text-xl left-[0%] cursor-not-allowed": ""}">Home</p>
+     <img src={src} alt="home" class="w-[40%] lg:w-[25%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[30%]": ""}"/>
+     <p class="text-neutral-500 text-sm relative {openlibrary ? "text-xl left-[0%] cursor-not-allowed": ""}">Search</p>
    </div>
   </div>
-  <div class="w-[100%] h-[70%] absolute top-[30%] bg-neutral-900 rounded-xl">
-    <button on:click={openLib} class="flex items-center" >
-   <div class="grid grid-cols-1 grid-rows-2 justify-items-center items-center sticky bg-neutral-900 rounded-xl {openlibrary ? "md:grid-cols-2 grid-rows-1 md:w-[80%] md:h-[30%]": ""}">
-   <img src={library} alt="home" class="w-[40%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[35%]": ""}"/>
+  <div class="w-[100%] h-[70%] absolute top-[30%] bg-neutral-900 rounded-xl overflow-y-auto">
+    <button on:click={openLib} class="flex items-center sticky bottom-[90%]" >
+   <div class="grid grid-cols-1 grid-rows-2 justify-items-center items-center sticky top-[90%] bg-neutral-900 rounded-xl {openlibrary ? "md:grid-cols-2 grid-rows-1 md:w-[60%] md:h-[30%]": ""}">
+   <img src={library} alt="home" class="w-[40%] lg:w-[25%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[35%]": ""}"/>
      <p class="text-neutral-500 text-sm relative {openlibrary ? "text-xl left-[0%]": ""}">Library</p>
    </div>
   </button>
-   <div class="grid grid-cols-1 grid-rows-11 w-[100%] h-[100%] justify-items-center items-center overflow-y-auto">
-     
+   <div class="grid grid-cols-1 absolute grid-rows-11 w-[100%] top-[20%] justify-items-center items-center">
+    <div class="bg-black rounded-lg w-[80%] p-4">
+      <img src={star} alt="star" class="w-[100%] rounded-lg {openlibrary ? "w-[30%]": ""} "/>
+    </div>
+    
    </div>
   </div>
 </div>
@@ -88,94 +400,93 @@ const openLib=()=>{
 
 
 
-
-<div class="bg-black w-auto md:w-[90%] md:left-[9%] h-[700px] md:h-[600px] lg:h-[1800px] rounded-3xl relative top-[100px] bottom-6 flex justify-center overflow-auto {openlibrary ? "md:w-[610px] md:left-[30%]": ""}">
+<div class="bg-black w-auto md:w-[90%] lg:w-[90%] md:left-[9%] h-[700px] md:h-[600px] lg:h-[600px] rounded-3xl relative top-[100px] bottom-6 flex justify-center overflow-auto {openlibrary ? "md:w-[610px]": "md:w-[90%]"}">
   <div class="w-[100%] h-[10%] absolute top-[0%] flex bg-neutral-900 mb-[10%]">
-   <p class="text-white font-bold font-sans text-lg left-[5%] top-[25%] absolute">Good evening</p>
-   <img src={devices} alt="user" class="w-[8%] md:w-[5%] invert absolute right-[20%] md:right-[15%] md:cursor-not-allowed top-[25%] md:top-[20%]"/>
-   <img src={user} alt="user" class="w-[8%] md:w-[4%] invert absolute right-[5%] md:cursor-not-allowed top-[25%]"/>
+   <p class="text-white font-bold font-sans text-lg lg:text-3xl left-[5%] top-[25%] absolute cursor-pointer">Good evening</p>
+   <img src={devices} alt="user" class="w-[8%] md:w-[5%] lg:w-[2.5%] invert absolute right-[20%] md:right-[15%] md:cursor-not-allowed top-[25%] md:top-[20%]"/>
+   <img src={user} alt="user" class="w-[8%] md:w-[4%] lg:w-[2%] invert absolute right-[5%] md:cursor-not-allowed top-[25%]"/>
   </div>
-
-  <div class="grid grid-cols-2 grid-rows-3 w-[100%] h-[30%] absolute top-[15%] gap-2">
+  
+  <div class="grid grid-cols-2 grid-rows-3 lg:grid-cols-2 lg:grid-rows-3 w-[100%] lg:w-[80%] h-[30%] absolute top-[15%] gap-2">
     <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md ml-4 md:left-[5%] md:relative flex items-center cursor-pointer hover:bg-neutral-700">
-     <img src={hrt} alt="heart" class="w-[39.5%] md:w-[14%] bg-gradient-to-br from-purple-300 to-purple-800 p-[15px] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
-     <p class="text-xs font-semibold text-white absolute left-[24%]">Liked Songs</p>
+     <img src={hrt} alt="heart" class="w-[39.5%] md:w-[14%] lg:w-[9.5%] bg-gradient-to-br from-purple-300 to-purple-800 p-[15px] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
+     <p class="text-xs lg:text-base font-semibold text-white absolute left-[24%] cursor-not-allowed">Liked Songs</p>
     </div>
-    <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md mr-4 flex items-center cursor-pointer hover:bg-neutral-700">
-     <img src={r4} alt="heart" class="w-[39.5%] md:w-[14%] rounded-s-md  {openlibrary ? "md:w-[18%]": ""} "/>
-     <p class="text-xs font-semibold text-white absolute right-[5%] w-[25%] md:right-[13.5%] whitespace-nowrap overflow-hidden text-ellipsis">Metallica's Playlist</p>
+    <div on:click="{playM}" class="w-[90%] h-[90%] bg-neutral-900 rounded-md mr-4 flex items-center cursor-pointer hover:bg-neutral-700">
+     <img src={r4} alt="heart" class="w-[39.5%] md:w-[14%] lg:w-[9.5%] rounded-s-md  {openlibrary ? "md:w-[18%]": ""} "/>
+     <p class="text-xs lg:text-base font-semibold text-white absolute right-[5%] w-[25%] md:right-[13.5%] whitespace-nowrap overflow-hidden text-ellipsis">Metallica's Playlist</p>
     </div>
-    <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md ml-4 md:left-[5%] md:relative flex items-center cursor-pointer hover:bg-neutral-700 ">
-    <img src={r6} alt="heart" class="w-[39.5%] md:w-[14%] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
-    <p class="text-xs font-semibold text-white absolute left-[24%] w-[23%] md:w-[50%] whitespace-nowrap overflow-hidden text-ellipsis">Eminem's Playlist</p>
+    <div on:click="{playE}" class="w-[90%] h-[90%] bg-neutral-900 rounded-md ml-4 md:left-[5%] md:relative flex items-center cursor-pointer hover:bg-neutral-700 ">
+    <img src={r6} alt="heart" class="w-[39.5%] md:w-[14%] lg:w-[9.5%] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
+    <p class="text-xs lg:text-base font-semibold text-white absolute left-[24%] w-[23%] md:w-[50%] whitespace-nowrap overflow-hidden text-ellipsis">Eminem's Playlist</p>
     </div>
-    <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md mr-4 flex items-center cursor-pointer hover:bg-neutral-700 ">
-    <img src={r8} alt="heart" class="w-[39.5%] md:w-[14%] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
-    <p class="text-xs font-semibold text-white absolute right-[5%] w-[25%] md:right-[13.5%] whitespace-nowrap overflow-hidden text-ellipsis">Nickelback's Playlist</p>
+    <div on:click="{playW}" class="w-[90%] h-[90%] bg-neutral-900 rounded-md mr-4 flex items-center cursor-pointer hover:bg-neutral-700 ">
+    <img src={r8} alt="heart" class="w-[39.5%] md:w-[14%] lg:w-[9.5%] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
+    <p class="text-xs lg:text-base font-semibold text-white absolute right-[5%] w-[25%] md:right-[13.5%] whitespace-nowrap overflow-hidden text-ellipsis">Nickelback's Playlist</p>
     </div>
-    <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md ml-4 md:left-[5%] md:relative flex items-center cursor-pointer hover:bg-neutral-700 ">
-      <img src={r10} alt="heart" class="w-[39.5%] md:w-[14%] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
-      <p class="text-xs font-semibold text-white absolute left-[24%] w-[23%] md:w-[50%] whitespace-nowrap overflow-hidden text-ellipsis">Best of Nickelback</p>
+    <div on:click="{playS}" class="w-[90%] h-[90%] bg-neutral-900 rounded-md ml-4 md:left-[5%] md:relative flex items-center cursor-pointer hover:bg-neutral-700 ">
+      <img src={r10} alt="heart" class="w-[39.5%] md:w-[14%] lg:w-[9.5%] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
+      <p class="text-xs lg:text-base font-semibold text-white absolute left-[24%] w-[23%] md:w-[50%] whitespace-nowrap overflow-hidden text-ellipsis">Best of Nickelback</p>
     </div>
-    <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md mr-4 flex items-center cursor-pointer hover:bg-neutral-700 ">
-      <img src={r3} alt="heart" class="w-[39.5%] md:w-[14%] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
-      <p class="text-xs font-semibold text-white absolute right-[5%] w-[25%] md:right-[13.5%] whitespace-nowrap overflow-hidden text-ellipsis">Laura Branigam's Playlist</p>
+    <div on:click="{playC}" class="w-[90%] h-[90%] bg-neutral-900 rounded-md mr-4 flex items-center cursor-pointer hover:bg-neutral-700 ">
+      <img src={r3} alt="heart" class="w-[39.5%] md:w-[14%] lg:w-[9.5%] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
+      <p class="text-xs lg:text-base font-semibold text-white absolute right-[5%] w-[25%] md:right-[13.5%] whitespace-nowrap overflow-hidden text-ellipsis">Laura Branigam's Playlist</p>
     </div>
   </div>
 
 
-  <div class="grid grid-cols-1 grid-rows-3 absolute w-[100%] h-[110%] md:h-[150%] top-[50%] {openlibrary ? "md:h-[100%]": ""} ">
+  <div class="grid grid-cols-1 grid-rows-3 absolute w-[100%] h-[110%] md:h-[150%] lg:h-[220%] top-[50%] {openlibrary ? "md:h-[100%]": ""} ">
 
-    <div class="grid grid-cols-1 grid-rows-2 w-[100%] h-[80%] md:h-[80%] top-[0%] relative  overflow-x-scroll md:overflow-hidden {openlibrary ? "md:h-[60%]": ""} ">
-    <p class="font-bold text-base text-white relative left-[5%] top-[5%]">Brani Preferiti</p>
+    <div class="grid grid-cols-1 grid-rows-2 w-[100%] lg:w-[70%] h-[80%] md:h-[80%] lg:h-[70%] top-[0%] relative  overflow-x-scroll md:overflow-hidden {openlibrary ? "md:h-[60%]": ""} ">
+    <p class="font-bold text-base lg:text-2xl text-white relative left-[5%] top-[5%]">Brani Preferiti</p>
     <div class="grid grid-cols-4 grid-rows-3 absolute w-[160%] md:w-[80%] h-[70%] top-[15%] left-[5%] right-[5%] rounded-lg gap-x-3  {openlibrary ? "md:h-[77%]": ""} ">
-      <img src={r1} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-      <img src={r7} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-      <img src={r5} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-      <img src={r9} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-      <p class="text-white relative top-[170%] left-[5%] text-xs h-[20%]">Born Villain</p>
-      <p class="text-white relative top-[170%] left-[5%] text-xs h-[20%]">Because We Can</p>
-      <p class="text-white relative top-[170%] left-[5%] text-xs h-[20%]">Enter The Matrix</p>
-      <p class="text-white relative top-[170%] left-[5%] text-xs h-[20%]">Bad</p>
-      <p class="text-neutral-700 relative top-[100%] left-[5%] text-xs h-[20%]">Marilyn Manson</p>
-      <p class="text-neutral-700 relative top-[100%] left-[5%] text-xs h-[20%]">Bon Jovi</p>
-      <p class="text-neutral-700 relative top-[100%] left-[5%] text-xs h-[20%]">Aurora</p>
-      <p class="text-neutral-700 relative top-[100%] left-[5%] text-xs h-[20%]">Michael Jackson</p>
+      <img src={r1} alt="artist" on:click="{playV}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
+      <img src={r7} alt="artist" on:click="{playBo}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
+      <img src={r5} alt="artist" on:click="{playMa}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
+      <img src={r9} alt="artist" on:click="{playBa}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
+      <p class="text-white relative top-[170%] left-[5%] text-xs lg:text-base h-[20%]">Born Villain</p>
+      <p class="text-white relative top-[170%] left-[5%] text-xs lg:text-base h-[20%]">Because We Can</p>
+      <p class="text-white relative top-[170%] left-[5%] text-xs lg:text-base h-[20%]">Enter The Matrix</p>
+      <p class="text-white relative top-[170%] left-[5%] text-xs lg:text-base h-[20%]">Bad</p>
+      <p class="text-neutral-700 relative top-[100%] left-[5%] text-xs lg:text-base h-[20%]">Marilyn Manson</p>
+      <p class="text-neutral-700 relative top-[100%] left-[5%] text-xs lg:text-base h-[20%]">Bon Jovi</p>
+      <p class="text-neutral-700 relative top-[100%] left-[5%] text-xs lg:text-base h-[20%]">Aurora</p>
+      <p class="text-neutral-700 relative top-[100%] left-[5%] text-xs lg:text-base h-[20%]">Michael Jackson</p>
     </div>
     </div>
 
-    <div class="grid grid-cols-1 grid-rows-2 w-[100%] h-[80%] top-[-10%] relative  overflow-x-auto {openlibrary ? "md:h-[100%]": ""}">
-      <p class="font-bold text-base text-white relative left-[5%] top-[5%]">Ultimi aggiunti</p>
-      <div class="grid grid-cols-5 grid-rows-3 absolute w-[200%] md:w-[100%] h-[78%] top-[15%] left-[5%] right-[5%] rounded-lg gap-x-3 {openlibrary ? "md:h-[70%]": ""} ">
-        <img src={r6} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-        <img src={r8} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-        <img src={star} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-        <img src={r5} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-        <img src={r4} alt="artist" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-        <p class="text-white relative top-[160%] left-[5%] text-xs h-[20%]">All Eyes On Me</p>
-        <p class="text-white relative top-[160%] left-[5%] text-xs h-[20%]">This Means War</p>
-        <p class="text-white relative top-[160%] left-[5%] text-xs h-[30%] overflow-hidden whitespace-nowrap text-ellipsis md:overflow-hidden md:whitespace-nowrap md:text-ellipsis md:w-[80%] {openlibrary ? "md:h-[35%]": ""}  ">Starfield Official Soundtrack</p>
-        <p class="text-white relative top-[160%] left-[5%] text-xs h-[20%]">Enter The Matrix</p>
-        <p class="text-white relative top-[160%] left-[5%] text-xs h-[20%]">Master Of Puppets</p>
-        <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs h-[20%]">Eminem</p>
-        <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs h-[20%]">Nickelback</p>
-        <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs h-[30%] overflow-hidden whitespace-nowrap text-ellipsis ">Bethesda Games Studio</p>
-        <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs h-[20%]">Aurora</p>
-        <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs h-[20%]">Metallica</p>
+    <div class="grid grid-cols-1 grid-rows-2 w-[100%] lg:w-[100%] h-[80%] lg:h-[65%] top-[-10%] relative  overflow-x-auto lg:overflow-hidden {openlibrary ? "md:h-[100%]": ""}">
+      <p class="font-bold text-base lg:text-2xl text-white relative left-[5%] lg:left-[4%] top-[5%]">Ultimi aggiunti</p>
+      <div class="grid grid-cols-5 grid-rows-3 absolute w-[200%] md:w-[100%] lg:w-[70%] h-[78%] top-[15%] left-[5%] lg:left-[4%] right-[5%] rounded-lg gap-x-3  {openlibrary ? "md:h-[70%]": ""} ">
+        <img src={r6} alt="artist" on:click="{playE}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
+        <img src={r8} alt="artist" on:click="{playW}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
+        <img src={star} alt="artist" on:click="{playit}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
+        <img src={r5} alt="artist" on:click="{playMa}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
+        <img src={r4} alt="artist" on:click="{playM}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
+        <p class="text-white relative top-[160%] left-[5%] text-xs lg:text-base h-[20%]">All Eyes On Me</p>
+        <p class="text-white relative top-[160%] left-[5%] text-xs lg:text-base h-[20%]">This Means War</p>
+        <p class="text-white relative top-[160%] left-[5%] text-xs lg:text-base h-[30%] overflow-hidden whitespace-nowrap text-ellipsis md:overflow-hidden md:whitespace-nowrap md:text-ellipsis md:w-[80%] {openlibrary ? "md:h-[35%]": ""}  ">Starfield Official Soundtrack</p>
+        <p class="text-white relative top-[160%] left-[5%] text-xs lg:text-base h-[20%]">Enter The Matrix</p>
+        <p class="text-white relative top-[160%] left-[5%] text-xs lg:text-base h-[20%]">Master Of Puppets</p>
+        <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs lg:text-base h-[20%]">Eminem</p>
+        <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs lg:text-base h-[20%]">Nickelback</p>
+        <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs lg:text-base h-[30%] overflow-hidden whitespace-nowrap text-ellipsis ">Bethesda Games Studio</p>
+        <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs lg:text-base h-[20%]">Aurora</p>
+        <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs lg:text-base h-[20%]">Metallica</p>
       </div>
       </div>
 
-      <div class="grid grid-cols-1 grid-rows-2 w-[100%] h-[70%] top-[-10%] relative  overflow-x-auto md:overflow-hidden {openlibrary ? "md:h-[100%]": ""} ">
-        <p class="font-bold text-base text-white relative left-[5%] top-[5%]">Artisti Preferiti</p>
+      <div class="grid grid-cols-1 grid-rows-2 w-[100%] lg:w-[70%] lg:h-[60%] h-[70%] top-[-10%] relative  overflow-x-auto md:overflow-hidden {openlibrary ? "md:h-[100%]": ""} ">
+        <p class="font-bold text-base lg:text-2xl text-white relative left-[5%] top-[5%]">Artisti Preferiti</p>
         <div class="grid grid-cols-4 grid-rows-2 absolute w-[160%] md:w-[80%] h-[70%] top-[15%] left-[5%] right-[5%] rounded-lg gap-x-3 justify-items-center {openlibrary ? "md:h-[55%]": ""} ">
-          <img src={star} alt="artist" class="w-[100%] rounded-full cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-          <img src={r4} alt="artist" class="w-[100%] rounded-full cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-          <img src={r3} alt="artist" class="w-[100%] rounded-full cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-          <img src={r2} alt="artist" class="w-[100%] rounded-full cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-          <p class="text-white relative top-[110%] text-xs h-[30%] overflow-hidden whitespace-nowrap text-ellipsis ">Bethesda Games Studio</p>
-          <p class="text-white relative top-[110%] text-xs h-[30%] overflow-hidden whitespace-nowrap text-ellipsis ">Metallica</p>
-          <p class="text-white relative top-[110%] text-xs h-[30%] overflow-hidden whitespace-nowrap text-ellipsis ">Laura Branigan</p>
-          <p class="text-white relative top-[110%] text-xs h-[30%] overflow-hidden whitespace-nowrap text-ellipsis ">Nickelback</p>
+          <img src={star} alt="artist" on:click="{playit}" class="w-[100%] rounded-full cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
+          <img src={r4} alt="artist" on:click="{playM}" class="w-[100%] rounded-full cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
+          <img src={r3} alt="artist" on:click="{playC}" class="w-[100%] rounded-full cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
+          <img src={r2} alt="artist" on:click="{playB}" class="w-[100%] rounded-full cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
+          <p class="text-white relative top-[110%] text-xs lg:text-base h-[30%] overflow-hidden whitespace-nowrap text-ellipsis ">Bethesda Games Studio</p>
+          <p class="text-white relative top-[110%] text-xs lg:text-base h-[30%] overflow-hidden whitespace-nowrap text-ellipsis ">Metallica</p>
+          <p class="text-white relative top-[110%] text-xs lg:text-base h-[30%] overflow-hidden whitespace-nowrap text-ellipsis ">Laura Branigan</p>
+          <p class="text-white relative top-[110%] text-xs lg:text-base h-[30%] overflow-hidden whitespace-nowrap text-ellipsis ">Nickelback</p>
         </div>
         </div>
   </div>
@@ -190,9 +501,17 @@ const openLib=()=>{
        <p class="text-neutral-500 text-sm">Library</p>
       </div>
     </div>
-    
-    
-
-
 
 </div>
+
+<div class="flex w-[95%] h-[10%] bg-black absolute bottom-[1%] invisible md:visible ">
+  <div class="w-[30%] h-[60%] rounded-lg absolute top-[20%] left-[1%] flex flex-row  items-center" >
+    <img src={artist} alt="artist" class="w-[30%] rounded-lg"/>
+    <div class="absolute left-[35%]">
+    <p class="text-base text-white overflow-hidden text-ellipsis whitespace-nowrap">{song}</p>
+    <p class="text-sm text-neutral-700  overflow-hidden text-ellipsis whitespace-nowrap">{name}</p>
+    </div>
+  </div>
+
+</div>
+
