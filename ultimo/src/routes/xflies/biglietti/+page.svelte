@@ -130,11 +130,24 @@ const tempo =()=>{
         scorrifrasi()
 
 
-        let opencart = true
+        let opencart = false
 
         const apricarrello=()=>{
          opencart = !opencart
         }
+
+
+        let buypianeta = ''
+        let buyprezzo = ''
+        let buyimmagine;
+        let buycarrello  = []
+
+        const compra=()=>{
+        
+        }
+
+
+
 
 </script>
 
@@ -255,26 +268,27 @@ const tempo =()=>{
     </div>
 
 
-    <div class=" {opencart ? "visible": ""} invisible bg-black w-[80%] h-[845px] sm:h-[6500px] md:h-[5500px] lg:h-[3000px]  fixed bottom-[0%] left-[10%] flex justify-center overflow-y-auto ">
+    <div class=" {opencart ? "invisible": "visible"}  bg-black w-[80%] h-[845px] sm:h-[6500px] md:h-[5500px] lg:h-[3000px]  fixed bottom-[0%] left-[10%] flex justify-center overflow-y-auto ">
 
         <div class="flex flex-row justify-center items-center absolute top-0 bg-teal-950 w-[100%] h-[8%] rounded-b-xl">
         <p class="text-white font-bold text-3xl tracking-[3px] ">CARRELLO</p>
         </div>
 
 
-        <div class="flex items-center bg-neutral-950 w-[100%] h-[35%] rounded-2xl absolute top-[10%] transizione2">
-          <img src={terra} alt="terra" class="w-[25%] animazione absolute right-[5%] top-[5%]" />
-          <p class="text-teal-500 text-4xl font-semibold absolute top-[5%] left-[10%]">{ita.biglietti.laterra}</p>
+        <div class="flex items-center bg-gradient-to-tr from-black to-gray-700 border-2 border-gray-700 w-[100%] h-[15%] rounded-2xl absolute top-[10%] justify-center text-center">
+          <img src={terra} alt="terra" class="w-[25%] animazione absolute left-[5%] top-[20%]" />
+          <p class="text-teal-500 text-3xl font-semibold absolute top-[20%] left-[34%] tracking-widest">{ita.biglietti.laterra}</p>
+          <p class="text-teal-500 text-2xl font-semibold absolute top-[50%] left-[34%]">{ita.biglietti.pterra}</p>
         </div>
 
     </div>
 
 
-    <button on:click="{()=>apricarrello()}"  class="fixed w-[20%] bg-black border-teal-500 border-2 shadow-lg shadow-teal-950 p-5 rounded-full bottom-[5%] right-[10%] cursor-pointer hover:bg-teal-950 transizione2">
+    <button on:click="{apricarrello}"  class="fixed w-[20%] bg-black border-teal-500 border-2 shadow-lg shadow-teal-950 p-5 rounded-full bottom-[5%] right-[10%] cursor-pointer hover:bg-teal-950 transizione2">
       <img src={cart} alt="cart" class="invert w-[100%]"/>
     </button>
 
-    <div class="fixed w-[50%] bg-black border-green-500 border-2 shadow-lg shadow-green-950 p-5 rounded-full bottom-[5%] left-[10%] cursor-pointer hover:bg-green-950 transizione2">
+    <div class="{opencart ? "invisible" : "visible transizione2"} fixed w-[50%] bg-black border-green-500 border-2 shadow-lg shadow-green-950 p-5 rounded-full bottom-[5%] left-[10%] cursor-pointer hover:bg-green-950 ">
       <p class="invert w-[100%] text-lg font-bold">Paga Tutto</p>
     </div>
 
@@ -306,6 +320,13 @@ const tempo =()=>{
     transition: 0.3s; 
   }
 
+  .mostra{
+    visibility: visible;
+  }
+
+  .nonmostra{
+    visibility: hidden;
+  }
 
   
 </style>
