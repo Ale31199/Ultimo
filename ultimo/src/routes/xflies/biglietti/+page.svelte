@@ -130,7 +130,7 @@ const tempo =()=>{
         scorrifrasi()
 
 
-        let opencart = false
+        let opencart = true
 
         const apricarrello=()=>{
          opencart = !opencart
