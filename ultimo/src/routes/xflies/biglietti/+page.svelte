@@ -109,7 +109,7 @@ desc = ita.biglietti.sistema
 
 <div class="bg-black w-[100%] h-[5500px] sm:h-[6500px] md:h-[5500px] lg:h-[3000px] rounded-3xl relative top-36 flex justify-center ">
   <div class="w-[90%] h-[5%] flex flex-col">
-    <div class="bg-gradient-to-br from-gray-950 to-teal-950 flex-auto relative top-5 w-[100%] h-[30%] items-center teal-500 flex rounded-3xl ">
+    <div class="bg-gradient-to-br from-gray-950 to-teal-950 flex-auto relative top-5 w-[100%] h-[30%] lg:absolute lg:h-[5%] lg:left-0 lg:top-0 md:absolute md:h-[3%] md:left-0 md:top-0 items-center teal-500 flex rounded-3xl ">
     <img src={alien} alt="alien" class="w-[30%] sm:w-[20%] md:w-[10%]  md:left-[4%] relative" />
     <div class="flex flex-col  md:left-[5%] relative">
     <h1  class="text-white text-4xl flex relative left-[0px] font-thin justify-center tracking-[10px] cursor-default">X-FLIES</h1>
@@ -118,7 +118,7 @@ desc = ita.biglietti.sistema
     </div>
 
   
-    <div class="bg-gradient-to-br from-gray-950 to-teal-950 md:bg-gradient-to-br md:from-black md:to-neutral-900 h-[1%] flex-auto flex flex-row items-center justify-between relative top-12  rounded-lg md:w-[50%] md:left-[45%] md:-top-[41%] "> 
+    <div class="bg-gradient-to-br from-gray-950 to-teal-950 md:bg-gradient-to-br md:from-black md:to-neutral-900 h-[1%]  lg:h-[2%] lg:top-[1.5%] md:absolute md:h-[1.5%] md:top-[0.8%] flex-auto flex flex-row items-center justify-between lg:absolute relative top-12  rounded-lg md:w-[50%] md:left-[45%] "> 
     <a href="/xflies" class=" text-white font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500">Home</a>
     <a href="/xflies/biglietti" class=" text-white font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500">Biglietti</a>
     <a href="/xflies/shop" class=" text-white font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500">X-Shop</a>
