@@ -330,13 +330,6 @@
       transition: 0.3s; 
     }
   
-    .mostra{
-      visibility: visible;
-    }
-  
-    .nonmostra{
-      visibility: hidden;
-    }
   
     
   </style>

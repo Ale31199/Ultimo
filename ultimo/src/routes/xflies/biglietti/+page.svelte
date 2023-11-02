@@ -134,7 +134,7 @@ const tempo =()=>{
 
         const apricarrello=()=>{
          opencart = !opencart
-        }
+        } 
 
 
         let buypianeta = ''
@@ -174,7 +174,7 @@ const tempo =()=>{
     </div>
     </div>
   
-    <div class="flex justify-center items-center absolute top-[0%] left-[35%] lg:top-[130px] lg:left-[35%] md:rounded-se-2xl lg:h-[1%] md:top-[130px] md:left-[0%] md:rounded-tr-full bg-black p-3 rounded-xl w-[30%]">
+    <div class="flex justify-center items-center absolute top-[0%] left-[35%] lg:top-[130px] lg:left-[35%]  lg:h-[1%] md:top-[130px] md:left-[0%] md:rounded-tr-full lg:rounded-t-full bg-black p-3 rounded-xl w-[30%]">
       <p class="text-teal-500 font-bold" >{time.toLocaleTimeString()}</p>
     </div>
 
@@ -190,14 +190,14 @@ const tempo =()=>{
     <a href="/xflies/shop" class=" text-white font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500">X-Shop</a>
     </div>
 
-    <div class="flex justify-center items-center absolute top-[340px] left-[10%] text-[12px] font-light  md:rounded-se-2xl lg:h-[1.5%] md:top-[380px] lg:top-[180px] sm:top-[500px] md:left-[25%] lg:left-[25%]  md:w-[50%] md:rounded-tr-full bg-neutral-950 p-3 rounded-xl w-[80%]">
+    <div class="flex justify-center items-center absolute top-[340px] sm:top-[400px] left-[10%] text-[12px] font-light  md:rounded-xl   lg:rounded-xl lg:h-[1.5%] md:top-[380px] lg:top-[180px] md:left-[25%] lg:left-[25%]  md:w-[50%]  bg-neutral-950 p-3 rounded-xl w-[80%]">
       <p class="text-teal-500 font-bold" >{frasi}</p>
     </div>
 
 
 
     <div class="flex w-[100%] justify-center">
-    <div class="{grey ? "bg-gradient-to-tr from-black to-neutral-500 border-gray-500 transizione" : ""} {blue ? "bg-gradient-to-tr from-black to-blue-950 border-blue-950 transizione " : ""} {red ? "bg-gradient-to-tr from-black to-red-950 border-red-950 transizione " : ""} transizione grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[8%]  w-[90%] sm:w-[70%] h-[10%] sm:h-[8%] lg:h-[23%] lg:w-[80%] border-neutral-500 border-2  rounded-3xl">
+    <div class="{grey ? "bg-gradient-to-tr from-black to-neutral-500 border-neutral-500  border-2 transizione" : ""} {blue ? "bg-gradient-to-tr from-black to-blue-950 border-blue-950 border-2 transizione " : ""} {red ? "bg-gradient-to-tr from-black to-red-950 border-red-950 border-2 transizione " : ""} transizione grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[8%]  w-[90%] sm:w-[70%] h-[10%] sm:h-[8%] lg:h-[23%] lg:w-[80%] rounded-3xl">
       <img src={pianeta} alt="hand" class="w-[40%] md:w-[25%] lg:w-[20%] relative top-[10%] animazione" />
       <p class="text-teal-500 text-3xl sm:top-[50%] lg:text-5xl lg:top-[50%] relative ">{titolo}</p>
       <p class="text-white text-justify text-[13px] lg:text-[22px] absolute w-[90%] top-[35%] sm:top-[49%] lg:top-[50%]  sm:w-[80%]">{desc}</p>
@@ -206,7 +206,7 @@ const tempo =()=>{
         <button on:click="{()=>selezionaViaggioNext()}" class="bg-neutral-900 text-teal-500 rounded-lg relative w-[40%] ml-5 text-xl cursor-pointer hover:border-2 hover:border-teal-500 ">&gt;</button>
       </div>
 
-      <button class="absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer {grey ? "bg-neutral-400 text-black font-semibold transizione" : ""}{blue ? "bg-blue-900 font-semibold text-white transizione" : ""}{red ? "bg-red-950 font-semibold text-white transizione" : ""} ">Prenota {paga}</button>
+      <button class="shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer {grey ? "bg-neutral-400 text-black font-semibold transizione" : ""}{blue ? "bg-blue-900 font-semibold text-white transizione" : ""}{red ? "bg-red-950 font-semibold text-white transizione" : ""} ">Prenota {paga}</button>
     </div>
 
     <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[20%] sm:top-[18%] lg:top-[33%] lg:left-[8%] w-[90%] sm:w-[70%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl">
@@ -270,7 +270,7 @@ const tempo =()=>{
 
     <div class=" {opencart ? "invisible": "visible"}  bg-black w-[80%] h-[845px] sm:h-[6500px] md:h-[5500px] lg:h-[3000px]  fixed bottom-[0%] left-[10%] flex justify-center overflow-y-auto ">
 
-        <div class="flex flex-row justify-center items-center absolute top-0 bg-teal-950 w-[100%] h-[8%] rounded-b-xl">
+        <div class="flex flex-row justify-center items-center absolute top-0 sm:top-2 bg-teal-950 w-[100%] h-[8%] rounded-b-xl">
         <p class="text-white font-bold text-3xl tracking-[3px] ">CARRELLO</p>
         </div>
 
@@ -284,11 +284,11 @@ const tempo =()=>{
     </div>
 
 
-    <button on:click="{apricarrello}"  class="fixed w-[20%] bg-black border-teal-500 border-2 shadow-lg shadow-teal-950 p-5 rounded-full bottom-[5%] right-[10%] cursor-pointer hover:bg-teal-950 transizione2">
+    <button on:click="{apricarrello}"  class="fixed w-[20%] sm:w-[15%] md:w-[10%] lg:w-[5%] bg-black border-teal-500 border-2 shadow-lg shadow-teal-950 p-5 rounded-full bottom-[5%] right-[10%] cursor-pointer hover:bg-teal-950 transizione2">
       <img src={cart} alt="cart" class="invert w-[100%]"/>
     </button>
 
-    <div class="{opencart ? "invisible" : "visible transizione2"} fixed w-[50%] bg-black border-green-500 border-2 shadow-lg shadow-green-950 p-5 rounded-full bottom-[5%] left-[10%] cursor-pointer hover:bg-green-950 ">
+    <div class="{opencart ? "invisible" : "visible transizione2"} fixed w-[50%] sm:w-[30%] bg-black border-green-500 border-2 shadow-lg shadow-green-950 p-5 rounded-full bottom-[5%] left-[10%] cursor-pointer hover:bg-green-950 ">
       <p class="invert w-[100%] text-lg font-bold">Paga Tutto</p>
     </div>
 
@@ -318,14 +318,6 @@ const tempo =()=>{
 
   .transizione2{
     transition: 0.3s; 
-  }
-
-  .mostra{
-    visibility: visible;
-  }
-
-  .nonmostra{
-    visibility: hidden;
   }
 
   
