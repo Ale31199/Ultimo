@@ -11,6 +11,7 @@
   p{
     color: white;
   }
+  
 </style>
 
 
@@ -28,35 +29,35 @@
 </div>
 
 
-<div class="bg-black w-[100%] md:h-[170%] lg:h-[280%] h-[3300px] relative top-36 rounded-3xl flex justify-center">
+<div class="bg-black w-[100%] sm:h-[230%] md:h-[170%] lg:h-[280%] h-[3300px] relative top-36 rounded-3xl flex justify-center">
     <div class="grid lg:grid-cols-1 lg:grid-rows-4 w-[100%] lg:w-[80%] gap-10 sm:grid-cols-1 md:grid-cols-2">
        
-      <div class="bg-neutral-900 w-[90%] md:h-[90%] lg:h-[70%] h-[90%] flex justify-center relative top-10 left-[5%] rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-teal-500 hover:border-[5px]">
-        <img src={alien} alt="html" class="w-[50%] md:w-[50%] lg:w-[30%] lg:left-[5%] absolute top-8" />
+      <div class="bg-gradient-to-bl to-teal-950 from-neutral-950 border-2 border-teal-950 w-[90%] md:h-[90%] lg:h-[70%] h-[90%] flex justify-center relative top-10 left-[5%] rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-teal-500 hover:border-[5px]">
+        <img src={alien} alt="html" class="w-[60%] sm:w-[30%] sm:top-[1%] md:top-[5%] md:w-[50%] lg:w-[30%] lg:left-[5%] absolute top-8" />
         <h1 class="bg-teal-500 flex flex-row w-[100%] h-[10%] absolute top-[36%] font-extrabold text-5xl justify-center items-center lg:top-[5%] lg:w-[40%] lg:right-[13%] lg:rounded-xl ">X-FLIES</h1>
         <p class="absolute top-[50%] w-[90%] text-justify lg:w-[40%] text-[13px] md:text-[15px] lg:text-xl lg:right-[13%] lg:top-[20%]">{ita.progetti.alien}</p>
-        <a href="/xflies" class="absolute bottom-8 bg-neutral-950 rounded-3xl w-[80%] text-center p-3 font-semibold text-teal-500 lg:bottom-[5%] lg:w-[40%] lg:right-[13%] lg:h-[10%] text-xl hover:rounded-lg hover:bg-black duration-700 ">Prova X-Flies</a>
+        <a href="/xflies" class=" border-teal-950 border-2 absolute bottom-8 bg-neutral-950 rounded-3xl w-[80%] text-center p-3 font-semibold text-teal-500 lg:bottom-[5%] lg:w-[40%] lg:right-[13%] lg:h-[10%] text-xl hover:rounded-lg hover:bg-black duration-700 ">Prova X-Flies</a>
         </div>
 
-        <div class="bg-neutral-900 w-[90%] md:h-[90%] lg:h-[70%] h-[90%] flex justify-center relative top-10 left-[5%] rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-green-500 hover:border-[5px]">
-          <img src={spotify} alt="html" class="w-[50%] md:w-[50%] lg:w-[30%] lg:left-[5%] absolute top-8" />
+        <div class="bg-gradient-to-bl to-green-950 from-neutral-950 border-2 border-green-950 w-[90%] md:h-[90%] lg:h-[70%] h-[90%] flex justify-center relative top-10 left-[5%] rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-green-500 hover:border-[5px]">
+          <img src={spotify} alt="html" class="w-[60%]  sm:w-[28%] sm:top-[1%] md:top-[5%] md:w-[50%] lg:w-[30%] lg:left-[5%] absolute top-8" />
           <h1 class="bg-green-500 flex flex-row w-[100%] h-[10%] absolute top-[36%] font-extrabold text-5xl justify-center items-center lg:top-[5%] lg:w-[40%] lg:right-[13%] lg:rounded-xl ">SPOTIFY</h1>
           <p class="absolute top-[50%] w-[90%] text-justify lg:w-[40%] text-[13px] md:text-[15px]  lg:text-xl lg:right-[13%] lg:top-[20%]">{ita.progetti.spotify}</p>
-          <a href="/spotify" class="absolute bottom-8 bg-neutral-950 rounded-3xl w-[80%] text-center p-3 font-semibold text-teal-500 lg:bottom-[5%] lg:w-[40%] lg:right-[13%] lg:h-[10%] text-xl hover:rounded-lg hover:bg-black duration-700 ">Prova Spotify</a>
+          <a href="/spotify" class="border-green-950 border-2 absolute bottom-8 bg-neutral-950 rounded-3xl w-[80%] text-center p-3 font-semibold text-teal-500 lg:bottom-[5%] lg:w-[40%] lg:right-[13%] lg:h-[10%] text-xl hover:rounded-lg hover:bg-black duration-700 ">Prova Spotify</a>
           </div>
 
-          <div class="bg-neutral-900 w-[90%] md:h-[90%] lg:h-[70%] h-[90%] flex justify-center relative top-10 left-[5%] rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-violet-900 hover:border-[5px]">
-            <img src={pixel} alt="html" class="w-[50%] md:w-[50%] lg:w-[30%] lg:left-[5%] absolute top-8" />
+          <div class="bg-gradient-to-bl to-violet-950 from-neutral-950 border-2 border-violet-950  w-[90%] md:h-[90%] lg:h-[70%] h-[90%] flex justify-center relative top-10 left-[5%] rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-violet-900 hover:border-[5px]">
+            <img src={pixel} alt="html" class="w-[60%]  sm:w-[30%] sm:top-[1%] md:top-[5%] md:w-[50%] lg:w-[30%] lg:left-[5%] absolute top-8" />
             <h1 class="bg-violet-900 flex flex-row w-[100%] h-[10%] absolute top-[36%] font-extrabold text-3xl justify-center items-center lg:top-[5%] lg:w-[40%] lg:right-[13%] lg:rounded-xl md:text-4xl lg:text-[40px] ">PIXEL NIGHTMARE</h1>
             <p class="absolute top-[50%] w-[90%] text-justify lg:w-[40%] text-[13px] md:text-[15px]  lg:text-xl lg:right-[13%] lg:top-[20%]">{ita.progetti.pixel}</p>
-            <a href="/pixelnightmare" class="absolute bottom-8 bg-neutral-950 rounded-3xl w-[80%] text-center p-3 font-semibold text-teal-500 lg:bottom-[5%] lg:w-[40%] lg:right-[13%] lg:h-[10%] text-xl hover:rounded-lg hover:bg-black duration-700 ">Prova Pixel Nightmare</a>
+            <a href="/pixelnightmare" class="border-violet-950 border-2 absolute bottom-8 bg-neutral-950 rounded-3xl w-[80%] text-center p-3 font-semibold text-teal-500 lg:bottom-[5%] lg:w-[40%] lg:right-[13%] lg:h-[10%] text-xl hover:rounded-lg hover:bg-black duration-700 ">Prova Pixel Nightmare</a>
             </div>
 
-            <div class="bg-neutral-900 w-[90%] md:h-[90%] lg:h-[70%] h-[90%] flex justify-center relative top-10 left-[5%] rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-red-700 hover:border-[5px]">
-              <img src={calculator} alt="html" class="w-[50%] md:w-[50%] lg:w-[30%] lg:left-[5%] absolute top-8" />
+            <div class="bg-gradient-to-bl to-red-950 from-neutral-950 border-2 border-red-950  w-[90%] md:h-[90%] lg:h-[70%] h-[90%] flex justify-center relative top-10 left-[5%] rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-red-700 hover:border-[5px]">
+              <img src={calculator} alt="html" class="w-[60%]  sm:w-[28%] sm:top-[1%] md:top-[5%] md:w-[50%] lg:w-[30%] lg:left-[5%] absolute top-8" />
               <h1 class="bg-red-700 flex flex-row w-[100%] h-[10%] absolute top-[36%] font-extrabold text-4xl justify-center items-center lg:top-[5%] lg:w-[40%] lg:right-[13%] lg:rounded-xl ">CALCULATOR</h1>
               <p class="absolute top-[50%] w-[90%] text-justify lg:w-[40%] text-[13px] md:text-[15px]  lg:text-[18px] lg:right-[13%] lg:top-[20%]">{ita.progetti.calculator}</p>
-              <a href="/calcolatrice" class="absolute bottom-8 bg-neutral-950 rounded-3xl w-[80%] text-center p-3 font-semibold text-teal-500 lg:bottom-[5%] lg:w-[40%] lg:right-[13%] lg:h-[10%] text-xl hover:rounded-lg hover:bg-black duration-700 ">Prova Calculator</a>
+              <a href="/calcolatrice" class="border-red-950 border-2 absolute bottom-8 bg-neutral-950 rounded-3xl w-[80%] text-center p-3 font-semibold text-teal-500 lg:bottom-[5%] lg:w-[40%] lg:right-[13%] lg:h-[10%] text-xl hover:rounded-lg hover:bg-black duration-700 ">Prova Calculator</a>
               </div>
   
         

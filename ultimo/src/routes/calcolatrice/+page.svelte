@@ -123,14 +123,14 @@
 
 <div class="w-[90%] md:w-[60%] lg:w-[30%] h-[90%] {active ? "bg-gradient-to-tl from-black to-neutral-950": ""} absolute top-[27%] left-[5%] md:left-[20%] lg:left-[35%] rounded-3xl bg-black flex justify-center border-solid border-2 border-gray-700 shadow-xl bg-gradient-to-tl from-black to-gray-950">  
   <div>
-    <p class="text-white tracking-[10px] md:tracking-[15px] font-extrabold text-sm md:text-3xl cursor-default">THE CALCULATOR</p>
+    <p class="text-white tracking-[10px] md:tracking-[15px] font-extrabold text-sm sm:text-2xl md:text-3xl cursor-default">THE CALCULATOR</p>
     <div class="flex flex-row w-[70%] absolute left-[32%] md:left-[52%]">
     <button on:click="{hellMode}" class="text-white bg-red-900 {active ?"rounded-sm border-solid border-black border-6 text-orange-500": ""} rounded-md p-0 font-semibold cursor-pointer mr-[5%] md:mr-[10%]">Hell Mode</button>
     <button on:click="{pixelMode}" class="text-white bg-teal-900 {pix ?"rounded-sm border-solid border-white border-6 text-black": ""} rounded-md p-0 font-semibold cursor-pointer">Pixel Mode</button>
     </div>
   </div>
   <div class="bg-black flex w-[90%] h-[9%] rounded-3xl absolute top-[10%]">
-    <img src={sticky} alt="sticky" class="invert {active ? "border-teal-500 border-r-2 border-solid": ""} w-[15%] sm:top-[20%] md:top-0 rounded-full border-solid border-red-500 border-r-2 absolute" />
+    <img src={sticky} alt="sticky" class="invert {active ? "border-teal-500 border-r-2 border-solid": ""} w-[15%] sm:w-[13%] sm:top-[5%] md:top-[5%] rounded-full border-solid border-red-500 border-r-2 absolute" />
     <p class="text-teal-500 {active ? "text-red-600": ""} font-mono absolute top-[25%] left-[17%] flex tracking-tighter text-xs md:text-base ">{newfrasi}</p>
   </div>
 
