@@ -1,13 +1,13 @@
 <script>
-import alien from './ximg/alien.png';
-import alien1 from './ximg/alien1.png';
-import alien2 from './ximg/alien2.png';
-import alien3 from './ximg/alien3.png';
-import aliens from './ximg/aliens.png';
-import area51 from './ximg/area-51.png';
-import ufo from './ximg/ufo.png';
-import hand from './ximg/handshake.png';
-import chat from './ximg/chat.png';
+import alien from '/src/routes/xflies/ximg/alien.png';
+import alien1 from '/src/routes/xflies/ximg/alien1.png';
+import alien2 from '/src/routes/xflies/ximg/alien2.png';
+import alien3 from '/src/routes/xflies/ximg/alien3.png';
+import aliens from '/src/routes/xflies/ximg/aliens.png';
+import area51 from '/src/routes/xflies/ximg/area-51.png';
+import ufo from '/src/routes/xflies/ximg/ufo.png';
+import hand from '/src/routes/xflies/ximg/handshake.png';
+import chat from '/src/routes/xflies/ximg/chat.png';
 // @ts-ignore
 import ita from '/src/routes/xflies/xtesto.json';
 
@@ -47,31 +47,31 @@ import ita from '/src/routes/xflies/xtesto.json';
 
     <div class="grid grid-cols-1 grid-rows-3 justify-items-center absolute top-[8%]  w-[90%] sm:w-[70%] h-[10%] sm:h-[15%] lg:h-[15%] sm:bg-gradient-to-tr from-black to-neutral-900 rounded-3xl">
       <img src={hand} alt="hand" class="w-[35%] lg:w-[20%] relative top-[0%] animazione" />
-      <p class="text-teal-500 text-3xl lg:text-5xl lg:top-[15%] relative ">Benvenuti su X-Flies!</p>
+      <p class="text-teal-500 text-3xl lg:text-5xl lg:top-[15%] relative ">Benvenuti su biglietti!</p>
       <p class="text-white text-justify text-[13px] lg:text-[18px] absolute top-[50%] sm:top-[40%] lg:top-[50%] sm:w-[80%]">{ita.homepage.benvenuto}</p>
     </div>
 
     <div class="grid grid-cols-1 grid-rows-3 justify-items-center absolute top-[27%] sm:top-[26%] w-[90%] sm:w-[70%] h-[9%] sm:h-[16%] lg:h-[16%] sm:bg-gradient-to-tr from-black to-neutral-900 rounded-3xl">
-      <img src={alien1} alt="hand" class="w-[35%] lg:w-[20%] relative top-[10%]" />
-      <p class="text-teal-500 text-2xl lg:text-5xl md:top-[20%] md:text-3xl lg:top-[15%] relative ">Messaggio Per Gli Umani</p>
+      <img src={alien1} alt="hand" class="w-[35%] lg:w-[15%] relative top-[10%]" />
+      <p class="text-teal-500 text-2xl  lg:text-5xl absolute md:top-[40%] md:text-3xl ">Messaggio Per Gli Umani</p>
       <p class="text-white text-justify text-[13px] lg:text-[18px] absolute top-[50%] md:top-[46%]  sm:top-[40%] lg:top-[50%] sm:w-[80%]">{ita.homepage.messaggio}</p>
     </div>
     
     <div class="grid grid-cols-1 grid-rows-3 justify-items-center absolute top-[46%] sm:top-[45%] w-[90%] sm:w-[70%] h-[10%] sm:h-[14%] lg:h-[14%] sm:bg-gradient-to-tr from-black to-neutral-900 rounded-3xl">
       <img src={ufo} alt="hand" class="w-[45%] lg:w-[25%] relative top-[0%] animazione2" />
-      <p class="text-teal-500 text-2xl  lg:text-5xl md:top-[20%] md:text-3xl lg:top-[15%] relative ">L'Eccellenza dei Nostri Piloti</p>
+      <p class="text-teal-500 text-2xl lg:text-5xl absolute md:top-[40%] md:text-3xl ">L'Eccellenza dei Nostri Piloti</p>
       <p class="text-white text-justify text-[13px] lg:text-[18px] absolute top-[50%] md:top-[46%] sm:top-[40%] lg:top-[50%] sm:w-[80%]">{ita.homepage.piloti}</p>
     </div>
 
     <div class=" grid grid-cols-1 grid-rows-3 justify-items-center absolute top-[61.5%] sm:top-[62%] w-[90%] sm:w-[70%] h-[10%] sm:h-[18%] lg:h-[18%] sm:bg-gradient-to-tr from-black to-neutral-900 rounded-3xl">
-      <img src={alien3} alt="hand" class="w-[35%] lg:w-[20%] relative top-[10%] md:top-[25%]" />
-      <p class="text-teal-500 text-2xl  lg:text-5xl md:top-[20%] md:text-3xl lg:top-[15%] relative ">Licenze di Volo su XFlies</p>
+      <img src={alien3} alt="hand" class="w-[40%] lg:w-[25%] relative top-[10%]" />
+      <p class="text-teal-500 text-2xl lg:text-5xl absolute md:top-[40%] md:text-3xl ">Licenze di Volo su XFlies</p>
       <p class="text-white text-justify text-[13px] lg:text-[18px] absolute top-[50%] md:top-[46%]  sm:top-[40%] lg:top-[50%] sm:w-[80%]">{ita.homepage.licenze}</p>
     </div>
 
     <div class=" grid grid-cols-1 grid-rows-3 justify-items-center absolute top-[82.5%] sm:top-[83%] w-[90%] sm:w-[70%] h-[10%] sm:h-[14%] lg:h-[15%] sm:bg-gradient-to-tr from-black to-neutral-900 rounded-3xl">
       <img src={area51} alt="hand" class="w-[45%] lg:w-[25%] relative top-[0%]" />
-      <p class="text-teal-500 text-3xl  lg:text-5xl md:top-[20%] md:text-3xl lg:top-[15%] relative ">L'Area 51 su XFlies</p>
+      <p class="text-teal-500 text-3xl lg:text-5xl absolute md:top-[40%] md:text-3xl ">L'Area 51 su XFlies</p>
       <p class="text-white text-justify text-[13px] lg:text-[18px] absolute top-[50%] md:top-[46%]  sm:top-[40%] lg:top-[50%] sm:w-[80%]">{ita.homepage.area}</p>
     </div>
 
