@@ -2,8 +2,6 @@
   import io from '/src/routes/img/io.jpg';
   // @ts-ignore
   import ita from '/src/routes/textITA.json';
- 
-
 </script>
 
 <style>
