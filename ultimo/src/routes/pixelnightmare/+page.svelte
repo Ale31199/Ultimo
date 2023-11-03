@@ -170,13 +170,13 @@
 </div>
 
 
-<div class="w-[100%] h-[60%] md:h-[60%] lg:h-[80%] rounded-3xl relative top-36 flex justify-center ">
+<div class="w-[100%] h-[80%] md:h-[60%] lg:h-[80%] rounded-3xl relative top-[15%] bottom-[20%] flex justify-center ">
     <audio>
       <source src={soundcho} type="audio/mpeg"/>
     </audio>
     <img src={castello} alt="castle" class="w-[100%] md:w-[80%] lg:w-[60%] h-[100%] absolute bg-cover rounded-3xl shadow-inner" />
     <img src={logo} alt="logo" class="w-[60%] sm:w-[40%] md:w-[30%] lg:w-[30%] absolute top-[3%] " />
-    <div class="absolute w-[90%] md:w-[70%] lg:w-[40%] h-[50%] bg-gradient-to-br to-gray-900 from-black border-2 border-gray-900 rounded-3xl top-[20%] md:top-[25%] flex justify-center shadow-xl shadow-gray-950"><p class="tracking-tighter text-white text-[11px] md:text-base lg:text-base w-[80%] h-[80%] text-justify absolute top-[1%] font-mono ">{text}</p></div>
+    <div class="absolute w-[90%] md:w-[70%] lg:w-[40%] h-[50%] bg-gradient-to-br to-gray-900 from-black border-2 border-gray-900 rounded-3xl top-[20%] md:top-[25%] flex justify-center shadow-xl shadow-gray-950"><p class="tracking-tighter text-white text-[10px] md:text-base lg:text-base w-[80%] h-[80%] text-justify absolute top-[1%] font-mono ">{text}</p></div>
     <div class="grid grid-cols-1 grid-rows-2 absolute left-[5%] md:left-[20%] lg:left-[30%] bottom-[5%] h-[15%] w-[90%] md:w-[60%] lg:w-[40%] justify-items-center">
       <button value={choice1} on:click="{()=>GStory(choice1)}" on:click="{()=>playsound()}" class="w-[100%] md:w-[100%] lg:w-[70%] h-[100%] rounded-md hover:bg-teal-950 hover:text-white hover:border-white hover:border-solid hover:border-2 bg-gradient-to-br to-gray-900 from-black  border-solid border-2 border-teal-500 text-teal-500 font-mono relative bottom-[50%] text-[12px] shadow-xl shadow-gray-900">{choice1}</button>
       <button value={choice2} on:click="{()=>GStory(choice2)}" on:click="{()=>playsound()}" class="w-[100%] md:w-[100%] lg:w-[70%] h-[100%] rounded-md hover:bg-teal-950 hover:text-white hover:border-white hover:border-solid hover:border-2 bg-gradient-to-br to-gray-900 from-black  border-solid border-2 border-teal-500 text-teal-500 font-mono relative bottom-[20%] text-[12px] shadow-xl shadow-gray-900">{choice2}</button>

@@ -121,9 +121,9 @@
 </div>
 
 
-<div class="w-[90%] md:w-[60%] lg:w-[30%] h-[90%] {active ? "bg-gradient-to-tl from-black to-neutral-950": ""} absolute top-[27%] left-[5%] md:left-[20%] lg:left-[35%] rounded-3xl bg-black flex justify-center border-solid border-2 border-gray-700 shadow-xl bg-gradient-to-tl from-black to-gray-950">  
+<div class="w-[90%] md:w-[60%] lg:w-[30%] h-[90%] {active ? "bg-gradient-to-tl from-black to-neutral-950": ""} absolute top-[33%] left-[5%] md:left-[20%] lg:left-[35%] rounded-3xl bg-black flex justify-center border-solid border-2 border-gray-700 shadow-xl bg-gradient-to-tl from-black to-gray-950">  
   <div>
-    <p class="text-white tracking-[10px] md:tracking-[15px] font-extrabold text-sm sm:text-2xl md:text-3xl cursor-default">THE CALCULATOR</p>
+    <p class="text-white tracking-[10px] md:tracking-[15px] font-extrabold text-[18px] sm:text-2xl md:text-3xl cursor-default">THE CALCULATOR</p>
     <div class="flex flex-row w-[70%] absolute left-[32%] md:left-[52%]">
     <button on:click="{hellMode}" class="text-white bg-red-900 {active ?"rounded-sm border-solid border-black border-6 text-orange-500": ""} rounded-md p-0 font-semibold cursor-pointer mr-[5%] md:mr-[10%]">Hell Mode</button>
     <button on:click="{pixelMode}" class="text-white bg-teal-900 {pix ?"rounded-sm border-solid border-white border-6 text-black": ""} rounded-md p-0 font-semibold cursor-pointer">Pixel Mode</button>

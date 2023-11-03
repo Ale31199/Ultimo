@@ -37,11 +37,11 @@
 
     <div class="w-[80%] h-[80%] sm:h-[70%] md:h-[70%] absolute bottom-[0%] sm:bottom-[0%] bg-gradient-to-bl from-neutral-800 to-neutral-950 border-2 border-neutral-800 flex justify-center text-justify rounded-t-3xl">
     <p class="text-justify ml-4 mr-4 text-2xl relative top-[2%] sm:top-[1%] lg:text-4xl  font-extrabold" >Chi sono?</p>
-    <p class="text-justify ml-4 mr-4 absolute top-[4%] md font-thin text-sm sm:text-[13px] lg:text-[20px] md:text-lg w-[80%]" >{ita.testo.testo2}</p>
+    <p class="text-justify ml-4 mr-4 absolute top-[4%] md font-thin text-[12px] sm:text-[13px] lg:text-[20px] md:text-lg w-[80%]" >{ita.testo.testo2}</p>
     <p class="text-justify ml-4 mr-4 text-2xl absolute top-[51%] sm:top-[50%] lg:text-4xl font-extrabold" >Il Mio Percorso  </p>
-    <p class="text-justify ml-4 mr-4 absolute top-[53%] font-thin text-sm md:text-lg w-[80%] lg:text-[20px]" >{ita.testo.testo3}</p>
+    <p class="text-justify ml-4 mr-4 absolute top-[53%] font-thin text-[12px] md:text-lg w-[80%] lg:text-[20px]" >{ita.testo.testo3}</p>
     <p class="text-justify ml-4 mr-4 text-2xl absolute top-[85%] sm:top-[84%] lg:text-4xl  font-extrabold" >Il Futuro  </p>
-    <p class="text-justify ml-4 mr-4 absolute top-[87%] font-thin text-sm md:text-lg w-[80%] lg:text-[20px]" >{ita.testo.testo4}</p>
+    <p class="text-justify ml-4 mr-4 absolute top-[87%] font-thin text-[12px] md:text-lg w-[80%] lg:text-[20px]" >{ita.testo.testo4}</p>
     </div>
 
     

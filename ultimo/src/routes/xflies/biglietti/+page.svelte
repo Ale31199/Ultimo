@@ -209,66 +209,66 @@ const tempo =()=>{
       <button class="shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer {grey ? "bg-neutral-400 text-black font-semibold transizione" : ""}{blue ? "bg-blue-900 font-semibold text-white transizione" : ""}{red ? "bg-red-950 font-semibold text-white transizione" : ""} ">Prenota {paga}</button>
     </div>
 
-    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[20%] sm:top-[18%] lg:top-[33%] lg:left-[8%] w-[90%] sm:w-[70%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl">
+    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[20%] sm:top-[18%] lg:top-[33%] lg:left-[8%] w-[90%] sm:w-[70%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={terra} alt="hand" class="w-[40%] md:w-[25%] lg:w-[20%] relative top-[10%] animazione md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl lg:text-5xl top-[25%] sm:top-[50%] md:top-[60%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.laterra}</p>
-      <p class="text-white text-justify text-[13px] lg:text-[18px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.terra}</p>
+      <p class="text-white text-justify text-[12px] lg:text-[18px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.terra}</p>
       <button class="absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer ">Prenota {ita.biglietti.laterra}</button>
     </div>
 
-    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[30%] sm:top-[28%] w-[90%] sm:w-[70%] lg:top-[33%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl">
+    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[30%] sm:top-[28%] w-[90%] sm:w-[70%] lg:top-[33%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={giove} alt="hand" class="w-[40%] md:w-[25%] lg:w-[20%] relative top-[10%] animazione md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl lg:text-5xl top-[25%] sm:top-[50%] md:top-[60%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.lagiove}</p>
-      <p class="text-white text-justify text-[13px] lg:text-[18px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.giove}</p>
+      <p class="text-white text-justify text-[12px] lg:text-[18px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.giove}</p>
       <button class="absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer ">Prenota {ita.biglietti.lagiove}</button>
     </div>
     
-    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[40%] sm:top-[38%] lg:top-[50%] lg:left-[8%] w-[90%] sm:w-[70%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl">
+    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[40%] sm:top-[38%] lg:top-[50%] lg:left-[8%] w-[90%] sm:w-[70%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={mercurio} alt="hand" class="w-[40%] md:w-[25%] lg:w-[20%] relative top-[10%] md:top-[10%] animazione lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[60%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.lamercurio}</p>
-      <p class="text-white text-justify text-[13px] lg:text-[18px] absolute top-[50%] md:top-[60%] sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.mercurio}</p>
+      <p class="text-white text-justify text-[12px] lg:text-[18px] absolute top-[50%] md:top-[60%] sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.mercurio}</p>
       <button class="absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer ">Prenota {ita.biglietti.lamercurio}</button>
     </div>
 
-    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[50%] sm:top-[48%] w-[90%] sm:w-[70%] lg:top-[50%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl">
+    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[50%] sm:top-[48%] w-[90%] sm:w-[70%] lg:top-[50%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={nettuno} alt="hand" class="w-[40%] md:w-[25%] lg:w-[20%] relative top-[10%] md:top-[10%] animazione lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[60%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.lanettuno}</p>
-      <p class="text-white text-justify text-[13px] lg:text-[18px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.nettuno}</p>
+      <p class="text-white text-justify text-[12px] lg:text-[18px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.nettuno}</p>
       <button class="absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer ">Prenota {ita.biglietti.lanettuno}</button>
     </div>
 
-    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[60%] sm:top-[58%] w-[90%] sm:w-[70%] lg:top-[67%] lg:left-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl">
+    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[60%] sm:top-[58%] w-[90%] sm:w-[70%] lg:top-[67%] lg:left-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={plutone} alt="hand" class="w-[40%] md:w-[25%] lg:w-[20%] relative top-[10%] md:top-[10%] animazione lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[60%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.laplutone}</p>
-      <p class="text-white text-justify text-[13px] lg:text-[18px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.plutone}</p>
+      <p class="text-white text-justify text-[12px] lg:text-[18px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.plutone}</p>
       <button class="absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer ">Prenota {ita.biglietti.laplutone}</button>
     </div>
 
-    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[70%] sm:top-[68%] w-[90%] sm:w-[70%] lg:top-[67%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl">
+    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[70%] sm:top-[68%] w-[90%] sm:w-[70%] lg:top-[67%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={saturno} alt="hand" class="w-[40%] md:w-[25%] lg:w-[20%] relative top-[10%] md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[60%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.lasaturno}</p>
-      <p class="text-white text-justify text-[13px] lg:text-[18px] absolute top-[50%] md:top-[60%] sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.saturno}</p>
+      <p class="text-white text-justify text-[12px] lg:text-[18px] absolute top-[50%] md:top-[60%] sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.saturno}</p>
       <button class="absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer ">Prenota {ita.biglietti.lasaturno}</button>
     </div>
 
-    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[80%] sm:top-[78%] w-[90%] sm:w-[70%] lg:top-[84%] lg:left-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl">
+    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[80%] sm:top-[78%] w-[90%] sm:w-[70%] lg:top-[84%] lg:left-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={urano} alt="hand" class="w-[35%] md:w-[25%] lg:w-[20%] relative top-[10%] md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[60%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.laurano}</p>
-      <p class="text-white text-justify text-[13px] lg:text-[18px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.urano}</p>
+      <p class="text-white text-justify text-[12px] lg:text-[18px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.urano}</p>
       <button class="absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer ">Prenota {ita.biglietti.laurano}</button>
     </div>
 
-    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[90%] sm:top-[88%] w-[90%] sm:w-[70%] lg:top-[84%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl">
+    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[90%] sm:top-[88%] w-[90%] sm:w-[70%] lg:top-[84%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={venere} alt="hand" class="w-[40%] md:w-[25%] lg:w-[20%] relative top-[10%] md:top-[10%] lg:top-[10%] animazione" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[60%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.lavenere}</p>
-      <p class="text-white text-justify text-[13px] lg:text-[18px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.venere}</p>
+      <p class="text-white text-justify text-[12px] lg:text-[18px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.venere}</p>
       <button class="absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer ">Prenota {ita.biglietti.lavenere}</button>
     </div>
 
     </div>
 
 
-    <div class=" {opencart ? "invisible": "visible"}  bg-black w-[80%] h-[845px] sm:h-[6500px] md:h-[5500px] lg:h-[3000px]  fixed bottom-[0%] left-[10%] flex justify-center overflow-y-auto ">
+    <div class=" {opencart ? "invisible": "visible"}  bg-black w-[80%] h-[670px] sm:h-[6500px] md:h-[5500px] lg:h-[3000px]  fixed bottom-[0%] left-[10%] flex justify-center overflow-y-auto ">
 
         <div class="flex flex-row justify-center items-center absolute top-0 sm:top-2 bg-teal-950 w-[100%] h-[8%] rounded-b-xl">
         <p class="text-white font-bold text-3xl tracking-[3px] ">CARRELLO</p>
@@ -276,7 +276,7 @@ const tempo =()=>{
 
 
         <div class="flex items-center bg-gradient-to-tr from-black to-gray-700 border-2 border-gray-700 w-[100%] h-[15%] rounded-2xl absolute top-[10%] justify-center text-center">
-          <img src={terra} alt="terra" class="w-[25%] animazione absolute left-[5%] top-[20%]" />
+          <img src={terra} alt="terra" class="w-[25%] animazione absolute left-[5%] top-[10%]" />
           <p class="text-teal-500 text-3xl font-semibold absolute top-[20%] left-[34%] tracking-widest">{ita.biglietti.laterra}</p>
           <p class="text-teal-500 text-2xl font-semibold absolute top-[50%] left-[34%]">{ita.biglietti.pterra}</p>
         </div>
@@ -284,7 +284,7 @@ const tempo =()=>{
     </div>
 
 
-    <button on:click="{apricarrello}"  class="fixed w-[20%] sm:w-[15%] md:w-[10%] lg:w-[5%] bg-black border-teal-500 border-2 shadow-lg shadow-teal-950 p-5 rounded-full bottom-[5%] right-[10%] cursor-pointer hover:bg-teal-950 transizione2">
+    <button on:click="{apricarrello}"  class="fixed w-[18%] sm:w-[15%] md:w-[10%] lg:w-[5%] bg-black border-teal-500 border-2 shadow-lg shadow-teal-950 p-5 rounded-full bottom-[5%] right-[10%] md:right-[5%] lg:right-[10%] cursor-pointer hover:bg-teal-950 transizione2">
       <img src={cart} alt="cart" class="invert w-[100%]"/>
     </button>
 
