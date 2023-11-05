@@ -6,6 +6,7 @@
   let count = '';
   const reset = 'Reset';
   
+  // @ts-ignore
   const calcola=(value)=>{
       switch (value) {
         case '1':
