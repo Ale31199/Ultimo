@@ -4,6 +4,83 @@
   import pixel from '/src/routes/img/gamepad.png';
   import calculator from '/src/routes/img/calculator.png';
   import ita from '/src/routes/textITA.json';
+
+
+ let alieno = false;
+ let spot = false;
+ let night = false;
+ let cal = false;
+
+
+ const selezionaA=()=>{
+  if(alieno){
+    alieno = false
+  } else {
+    alieno = true
+  spot = false;
+  night = false;
+  cal = false;
+  }
+ }
+
+ const selezionaS=()=>{
+  if(spot){
+    spot = false
+  } else {
+    spot = true
+  alieno = false;
+  night = false;
+  cal = false;
+  }
+ }
+
+ const selezionaP=()=>{
+  if(night){
+    night = false
+  } else {
+    night = true
+  spot = false;
+  alieno = false;
+  cal = false;
+  }
+ }
+
+ const selezionaC=()=>{
+  if(cal){
+    cal = false
+  } else {
+    cal = true
+  spot = false;
+  night = false;
+  alieno = false;
+  }
+ }
+
+let titolo = ita.progetti.benvenuto
+let descrizione = ita.progetti.desc;
+let titolobottone = 'ciao'
+let linkk = ''
+
+const scegliApp=()=>{
+  if (titolo === ita.progetti.benvenuto){
+    titolo = 'X-FLIES'
+    descrizione = ita.progetti.alien;
+  }
+  if (titolo === ita.progetti.benvenuto){
+    titolo = 'SPOTIFY'
+    descrizione = ita.progetti.spotify;
+  }
+  if (titolo === ita.progetti.benvenuto){
+    titolo = 'PIXEL NIGHTMARE'
+    descrizione = ita.progetti.pixel;
+  }
+  if (titolo === ita.progetti.benvenuto){
+    titolo = 'CALCULATOR'
+    descrizione = ita.progetti.calculator;
+  }
+}
+
+
 </script>
 
 
@@ -11,7 +88,42 @@
   p{
     color: white;
   }
-  
+  .transizione{
+    transition: 1.3s;
+  }
+
+  .ombraA{
+    box-shadow: teal 0px 0px 25px 0px;
+    animation: infinite 1s alternate-reverse pulsa;
+  }
+  @keyframes pulsa {
+    from{box-shadow: teal 0px 0px 25px 0px;}
+    to{box-shadow: teal 0px 0px 0px 0px;}
+  }
+  .ombraS{
+    box-shadow: green 0px 0px 25px 0px;
+    animation: infinite 1s alternate-reverse pulsa;
+  }
+  @keyframes pulsa {
+    from{box-shadow: green 0px 0px 25px 0px;}
+    to{box-shadow: green 0px 0px 0px 0px;}
+  }
+  .ombraP{
+    box-shadow: purple 0px 0px 25px 0px;
+    animation: infinite 1s alternate-reverse pulsa;
+  }
+  @keyframes pulsa {
+    from{box-shadow: purple 0px 0px 25px 0px;}
+    to{box-shadow: purple 0px 0px 0px 0px;}
+  }
+  .ombraC{
+    box-shadow: darkred 0px 0px 25px 0px;
+    animation: infinite 1s alternate-reverse pulsa;
+  }
+  @keyframes pulsa {
+    from{box-shadow: darkred 0px 0px 25px 0px;}
+    to{box-shadow: darkred 0px 0px 0px 0px;}
+  }
 </style>
 
 
@@ -29,40 +141,37 @@
 </div>
 
 
-<div class="bg-black w-[100%] sm:h-[230%] md:h-[170%] lg:h-[280%] h-[3300px] relative top-36 rounded-3xl flex justify-center">
-    <div class="grid lg:grid-cols-1 lg:grid-rows-4 w-[100%] lg:w-[80%] gap-10 sm:grid-cols-1 md:grid-cols-2">
-       
-      <div class="bg-gradient-to-bl to-teal-950 from-neutral-950 border-2 border-teal-950 w-[90%] md:h-[90%] lg:h-[70%] h-[90%] flex justify-center relative top-10 left-[5%] rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-teal-500 hover:border-[5px]">
-        <img src={alien} alt="html" class="w-[60%] sm:w-[30%] sm:top-[1%] md:top-[5%] md:w-[50%] lg:w-[30%] lg:left-[5%] absolute top-8" />
-        <h1 class="bg-teal-500 flex flex-row w-[100%] h-[10%] absolute top-[36%] font-extrabold text-5xl justify-center items-center lg:top-[5%] lg:w-[40%] lg:right-[13%] lg:rounded-xl ">X-FLIES</h1>
-        <p class="absolute top-[50%] w-[90%] text-justify lg:w-[40%] text-[13px] md:text-[15px] lg:text-xl lg:right-[13%] lg:top-[20%]">{ita.progetti.alien}</p>
-        <a href="/xflies" class=" border-teal-950 border-2 absolute bottom-8 bg-neutral-950 rounded-3xl w-[80%] text-center p-3 font-semibold text-teal-500 lg:bottom-[5%] lg:w-[40%] lg:right-[13%] lg:h-[10%] text-xl hover:rounded-lg hover:bg-black duration-700 ">Prova X-Flies</a>
-        </div>
+<div class="relative top-36 h-[1000px] w-[100%]">
+<div style="padding-bottom: 10%" class="bg-black w-[100%] sm:h-[230%] md:h-[170%] lg:h-[280%] h-[920px] relative  mb-[10%] rounded-3xl flex justify-center">
+  <div class="grid grid-cols-2 grid-rows-2 gap-5 justify-center items-center w-[90%] h-[290px] absolute top-[5%] ">
+    <div on:click="{selezionaA}" on:click="{scegliApp}" class=" w-[100%] h-[140px] bg-gradient-to-tr from-black to-teal-950 hover:border-2 hover:border-teal-500 flex items-center justify-center {alieno ? "rounded-full border-teal-500 border-2 transizione ombraA" : "rounded-2xl border-teal-950 border-2 transizione"}">
+      <img src={alien} alt="spotify" class="w-[80%]" />
+    </div>
+    <div on:click="{selezionaS}" class=" w-[100%] h-[140px] bg-gradient-to-tr from-black to-green-950 hover:border-2 hover:border-green-500 flex items-center justify-center  {spot ? "rounded-full border-green-500 border-2 transizione ombraS" : "rounded-2xl border-2 border-green-950 transizione"}">
+      <img src={spotify} alt="spotify" class="w-[80%]" />
+    </div>
+    <div on:click="{selezionaP}" class=" w-[100%] h-[140px] bg-gradient-to-tr from-black to-violet-950 hover:border-2 hover:border-violet-500  flex items-center justify-center {night ? "rounded-full border-violet-500 border-2 transizione ombraP" : "rounded-2xl border-2 border-violet-950 transizione"}">
+      <img src={pixel} alt="spotify" class="w-[80%]" />
+    </div> 
+    <div on:click="{selezionaC}" class=" w-[100%] h-[140px] bg-gradient-to-tr from-black to-red-950 hover:border-2 hover:border-red-500  flex items-center justify-center {cal ? "rounded-full border-red-500 border-2 transizione ombraC" : "rounded-2xl border-2 border-red-950 transizione"}">
+      <img src={calculator} alt="spotify" class="w-[80%]" />
+    </div>
+  </div>
 
-        <div class="bg-gradient-to-bl to-green-950 from-neutral-950 border-2 border-green-950 w-[90%] md:h-[90%] lg:h-[70%] h-[90%] flex justify-center relative top-10 left-[5%] rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-green-500 hover:border-[5px]">
-          <img src={spotify} alt="html" class="w-[60%]  sm:w-[28%] sm:top-[1%] md:top-[5%] md:w-[50%] lg:w-[30%] lg:left-[5%] absolute top-8" />
-          <h1 class="bg-green-500 flex flex-row w-[100%] h-[10%] absolute top-[36%] font-extrabold text-5xl justify-center items-center lg:top-[5%] lg:w-[40%] lg:right-[13%] lg:rounded-xl ">SPOTIFY</h1>
-          <p class="absolute top-[50%] w-[90%] text-justify lg:w-[40%] text-[13px] md:text-[15px]  lg:text-xl lg:right-[13%] lg:top-[20%]">{ita.progetti.spotify}</p>
-          <a href="/spotify" class="border-green-950 border-2 absolute bottom-8 bg-neutral-950 rounded-3xl w-[80%] text-center p-3 font-semibold text-teal-500 lg:bottom-[5%] lg:w-[40%] lg:right-[13%] lg:h-[10%] text-xl hover:rounded-lg hover:bg-black duration-700 ">Prova Spotify</a>
-          </div>
-
-          <div class="bg-gradient-to-bl to-violet-950 from-neutral-950 border-2 border-violet-950  w-[90%] md:h-[90%] lg:h-[70%] h-[90%] flex justify-center relative top-10 left-[5%] rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-violet-900 hover:border-[5px]">
-            <img src={pixel} alt="html" class="w-[60%]  sm:w-[30%] sm:top-[1%] md:top-[5%] md:w-[50%] lg:w-[30%] lg:left-[5%] absolute top-8" />
-            <h1 class="bg-violet-900 flex flex-row w-[100%] h-[10%] absolute top-[36%] font-extrabold text-3xl justify-center items-center lg:top-[5%] lg:w-[40%] lg:right-[13%] lg:rounded-xl md:text-4xl lg:text-[40px] ">PIXEL NIGHTMARE</h1>
-            <p class="absolute top-[50%] w-[90%] text-justify lg:w-[40%] text-[13px] md:text-[15px]  lg:text-xl lg:right-[13%] lg:top-[20%]">{ita.progetti.pixel}</p>
-            <a href="/pixelnightmare" class="border-violet-950 border-2 absolute bottom-8 bg-neutral-950 rounded-3xl w-[80%] text-center p-3 font-semibold text-teal-500 lg:bottom-[5%] lg:w-[40%] lg:right-[13%] lg:h-[10%] text-xl hover:rounded-lg hover:bg-black duration-700 ">Prova Pixel Nightmare</a>
-            </div>
-
-            <div class="bg-gradient-to-bl to-red-950 from-neutral-950 border-2 border-red-950  w-[90%] md:h-[90%] lg:h-[70%] h-[90%] flex justify-center relative top-10 left-[5%] rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-red-700 hover:border-[5px]">
-              <img src={calculator} alt="html" class="w-[60%]  sm:w-[28%] sm:top-[1%] md:top-[5%] md:w-[50%] lg:w-[30%] lg:left-[5%] absolute top-8" />
-              <h1 class="bg-red-700 flex flex-row w-[100%] h-[10%] absolute top-[36%] font-extrabold text-4xl justify-center items-center lg:top-[5%] lg:w-[40%] lg:right-[13%] lg:rounded-xl ">CALCULATOR</h1>
-              <p class="absolute top-[50%] w-[90%] text-justify lg:w-[40%] text-[13px] md:text-[15px]  lg:text-[18px] lg:right-[13%] lg:top-[20%]">{ita.progetti.calculator}</p>
-              <a href="/calcolatrice" class="border-red-950 border-2 absolute bottom-8 bg-neutral-950 rounded-3xl w-[80%] text-center p-3 font-semibold text-teal-500 lg:bottom-[5%] lg:w-[40%] lg:right-[13%] lg:h-[10%] text-xl hover:rounded-lg hover:bg-black duration-700 ">Prova Calculator</a>
-              </div>
-  
-        
-              
-  
-
-    </div>  
+<div class="absolute top-[40%] w-[90%] h-[510px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-900 rounded-2xl flex flex-col items-center justify-center" >
+  <p class="font-bold text-lg absolute top-[5%]" >{titolo}</p>
+  <p class="w-[80%] text-justify text-[12px] absolute top-[13%]">{descrizione}</p>
+  <a class="w-[80%] h-[60px] absolute bottom-[5%] rounded-xl bg-white text-black hover:text-white flex font-bold items-center justify-center hover:border-2 hover:border-teal-500 hover:bg-gradient-to-tr hover:rounded-3xl transizione  hover:from-black hover:to-neutral-800">{titolobottone}</a>
 </div>
+
+
+
+
+
+
+</div>
+</div>
+
+<!--
+{alieno ? "rounded-full border-teal-500" : "rounded-2xl border-teal-950 hover:border-teal-500"}
+-->
