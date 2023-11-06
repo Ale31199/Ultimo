@@ -154,7 +154,7 @@
 </div>
 
 
-<div class="h-[600px] w-[100%] flex justify-center relative top-[15%]">
+<div class="h-[600px] w-[100%] flex justify-center relative top-[15%] xl:trasform xl:scale-[110%] xl:overflow-hidden">
   <div class="w-[350px] md:w-[360px] lg:w-[360px] h-[550px] {active ? "bg-gradient-to-tl from-black to-neutral-950": ""} relative top-[0%] rounded-2xl bg-black flex justify-center border-solid border-2 border-gray-700 shadow-xl bg-gradient-to-tl from-black to-gray-950">  
     <div>
     <p class="text-white tracking-[6px] md:tracking-[6px] font-extrabold text-[25px] sm:text-[25px] lg:text-[25px] md:text-[25px] cursor-default">THE CALCULATOR</p>
@@ -207,5 +207,9 @@
   @keyframes effe {
     from{opacity: 0;}
     to{opacity: 1;}
+  }
+
+  .zoom{
+    zoom: 130%;
   }
 </style>
