@@ -11,20 +11,51 @@ import chat from './ximg/chat.png';
 // @ts-ignore
 import ita from '/src/routes/xflies/xtesto.json';
 
+
+let home= false
+ let skills = false
+ let progetti = true
+
+  // @ts-ignore
+  const selezionaPag=(pagina)=>{
+    switch (pagina) {
+      case 'home':
+        home = true
+        skills =false
+        progetti=false
+        break;
+
+        case 'skills':
+          skills = true
+          home = false
+          progetti = false
+          break;
+
+          case 'progetti':
+            progetti = true
+            home = false
+            skills= false
+            break;
+    
+      default: home= false;
+              skills = false;
+              progetti = false
+        break;
+    }
+  }
+
 </script>
 
 <div>
-  <div class="bg-black flex-auto relative top-5 w-auto h-24 items-center border-b-2 white flex rounded-3xl ">
-  <h1  class="text-white text-4xl font-bold flex relative left-[50px] justify-center cursor-default">HomeCode<h1 class="animate-pulse text-white">|</h1></h1>
+  <div class="bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-800 flex-auto relative top-5 w-auto h-24 items-center border-b-2 white flex rounded-3xl ">
+  <h1  class="text-white text-4xl font-bold flex relative left-[68px] justify-center cursor-default">HomeCode<h1 class="effetto text-white">|</h1></h1>
   </div>
-
-  <div class="bg-zinc-800 h-10 flex-auto flex flex-row items-center justify-between relative top-12  rounded-lg md:w-[60%] md:left-[35%] md:-top-12 "> 
-  <a href="/" class=" text-white font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500">Home</a>
-  <a href="/skills" class=" text-white font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500">Skills</a>
-  <a href="/progetti" class=" text-white font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500">Progetti</a>
+  <div class="bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-800 h-10 flex-auto flex flex-row items-center justify-between relative top-12 rounded-xl md:w-[50%] md:left-[45%] md:-top-12 "> 
+  <a href="/" class=" font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {home ? "border-b-2 rounded-sm border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('home')}">Home</a>
+  <a href="/skills" class="  font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {skills ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('skills')}">Skills</a>
+  <a href="/progetti" class="  font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('progetti')}">Progetti</a>
   </div>
 </div>
-
 
 <div class="bg-black w-[100%] h-[3800px] sm:h-[4500px] md:h-[4500px] lg:h-[4500px] rounded-3xl relative top-36 flex justify-center ">
   <div class="w-[90%] h-[5%] flex flex-col">
@@ -92,6 +123,15 @@ import ita from '/src/routes/xflies/xtesto.json';
 </div>
 
 <style>
+
+.effetto{
+    animation: 1s infinite alternate-reverse effe;
+  }
+  @keyframes effe {
+    from{opacity: 0;}
+    to{opacity: 1;}
+  }
+  
   .animazione{
     animation: 2s infinite alternate-reverse saluta;
   }

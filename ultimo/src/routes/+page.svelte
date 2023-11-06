@@ -62,7 +62,7 @@
     <h1  class="text-white text-4xl font-bold flex relative left-[68px] justify-center cursor-default">HomeCode<h1 class="effetto text-white">|</h1></h1>
     </div>
 
-    <div class="bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-800 h-10 flex-auto flex flex-row items-center justify-between relative top-12 rounded-xl md:w-[60%] md:left-[35%] md:-top-12 "> 
+    <div class="bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-800 h-10 flex-auto flex flex-row items-center justify-between relative top-12 rounded-xl md:w-[50%] md:left-[45%] md:-top-12 "> 
     <a href="/" class=" font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {home ? "border-b-2 rounded-sm border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('home')}">Home</a>
     <a href="/skills" class=" text-white font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {skills ? "border-b-2 border-teal-500":""}" on:click="{()=>selezionaPag('skills')}">Skills</a>
     <a href="/progetti" class=" text-white font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500":""}" on:click="{()=>selezionaPag('progetti')}">Progetti</a>
@@ -71,7 +71,7 @@
 
 
 <div class="bg-black w-auto sm:h-[1700px] h-[1900px] md:h-[1700px] lg:h-[1450px] xl:h-[1550px] rounded-3xl relative top-36 border-teal-500 border-b-4 border-r-4 flex justify-center ">
-    <img alt="io" src={io} class="w-[25%] top-[1.5%] left-[5%] sm:w-[25%] sm:left-[5%] sm:top-[1%] md:left-[5%] md:top-[1%] rounded-full md:w-[25%] lg:w-[20%] 2xl:w-[18%] border-2 border-teal-500 absolute"/>
+    <img alt="io" src={io} class="w-[25%] top-[1.5%] left-[5%] sm:w-[25%] sm:left-[5%] sm:top-[1%] md:left-[5%] md:top-[1%] rounded-full md:w-[25%] lg:w-[20%] 2xl:w-[15%] border-2 border-teal-500 absolute"/>
     <h1 class="text-teal-500 font-bold text-4xl sm:text-6xl sm:top-[1%] lg:top-[2.5%] md:text-7xl absolute top-7 md:top-8 left-[35%] lg:left-[27%] ">{ita.testo.titolo}</h1>
 
     <div class="w-[80%] sm:w-[60%] md:w-[80%] h-[240px] lg:h-[100px] text-sm md:text-lg lg:text-base absolute top-[10.5%] sm:top-[14%] md:top-[18%] lg:top-[20%] md:left-[10%] rounded-xl grid grid-cols-1 grid-rows-4 md:grid-cols-1 md:grid-rows-4 md:gap-x-[1%] lg:grid-cols-2 lg:grid-rows-2 lg:gap-x-[1%] lg:gap-y-[0%] items-center ">
