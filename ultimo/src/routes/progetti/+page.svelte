@@ -150,16 +150,16 @@ let home= false
 <div style="padding-bottom: 10%" class="bg-black w-[100%] lg:w-[80%] sm:h-[920px] md:h-[920px] lg:h-[920px] h-[920px] relative  mb-[10%] rounded-3xl flex justify-center">
   <div class="grid grid-cols-2 grid-rows-2 gap-5 justify-center items-center w-[90%] md:w-[80%] h-[290px] absolute top-[5%] ">
     <div on:click="{()=>scegliApp('X-FLIES')}" on:click="{()=>scegliA()}" class="cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-teal-950 hover:border-2 hover:border-teal-500 flex items-center justify-center {alieno ? "rounded-full border-teal-500 border-2 transizione ombraA" : "rounded-2xl border-teal-950 border-2 transizione"}">
-      <img src={alien} alt="spotify" class="w-[120px] sm:w-[140px]" />
+      <img src={alien} alt="spotify" class="w-[110px] sm:w-[140px]" />
     </div>
     <div on:click="{()=>scegliApp('SPOTIFY')}" on:click="{()=>scegliS()}" class="cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-green-950 hover:border-2 hover:border-green-500 flex items-center justify-center  {spot ? "rounded-full border-green-500 border-2 transizione ombraS" : "rounded-2xl border-2 border-green-950 transizione"}">
-      <img src={spotify} alt="spotify" class="w-[120px] sm:w-[120px]" />
+      <img src={spotify} alt="spotify" class="w-[110px] sm:w-[120px]" />
     </div>
     <div on:click="{()=>scegliApp('PIXEL NIGHTMARE')}" on:click="{()=>scegliP()}" class="cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-violet-950 hover:border-2 hover:border-violet-500  flex items-center justify-center {night ? "rounded-full border-violet-500 border-2 transizione ombraP" : "rounded-2xl border-2 border-violet-950 transizione"}">
-      <img src={pixel} alt="spotify" class="w-[120px] sm:w-[140px]" />
+      <img src={pixel} alt="spotify" class="w-[110px] sm:w-[140px]" />
     </div> 
     <div on:click="{()=>scegliApp('THE CALCULATOR')}" on:click="{()=>scegliC()}" class="cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-red-950 hover:border-2 hover:border-red-500  flex items-center justify-center {cal ? "rounded-full border-red-500 border-2 transizione ombraC" : "rounded-2xl border-2 border-red-950 transizione"}">
-      <img src={calculator} alt="spotify" class="w-[120px] sm:w-[120px]" />
+      <img src={calculator} alt="spotify" class="w-[110px] sm:w-[120px]" />
     </div>
   </div>
 
