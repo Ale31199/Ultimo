@@ -124,7 +124,7 @@
                 <h1 class="absolute bottom-8 bg-neutral-950 rounded-3xl w-[80%] text-center p-3 font-semibold text-teal-500 border-teal-950 border-2">{ita.skills.b}</h1>
                 </div>
 
-                <div class="bg-gradient-to-bl to-neutral-600 from-neutral-950 border-2 border-neutral-600 sm:h-[520px] h-[490px] md:w-[350px] w-[300px] lg:w-[285px] xl:w-[350px] 2xl:w-[400px] flex justify-center relative top-10 rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-white hover:border-[5px]">
+                <div class="bg-gradient-to-bl to-neutral-600 from-neutral-950 border-2 border-neutral-600 sm:h-[520px] h-[490px] md:w-[320px] w-[300px] lg:w-[285px] xl:w-[350px] 2xl:w-[400px] flex justify-center relative top-10 rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-white hover:border-[5px]">
                   <img src={github} alt="html" class="w-[120px] md:w-[150px] lg:w-[135px] absolute top-8 sm:top-6 lg:top-[30px] invert" />
                   <h1 class="bg-white flex flex-row w-[100%] h-[10%] absolute top-[36%] font-extrabold text-5xl justify-center items-center">GITHUB</h1>
                   <p class="absolute text-[13px] sm:text-[14px] lg:text-[13px] xl:text-[15px] 2xl:text-[16px] top-[50%] w-[90%] text-justify">{ita.skills.github}</p>
