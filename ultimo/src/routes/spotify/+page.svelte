@@ -297,222 +297,324 @@ let homee= false
 </div>
 
 
-<div class="invisible md:visible grid grid-cols-1 grid-rows-2 bg-gradient-to-tr from-black to-neutral-950 border-2 border-neutral-950 w-[7%] h-[598px] rounded-xl absolute top-[25%] lg:left-[10%] {openlibrary ? "md:w-[25%] lg:w-[12%]": "lg:w-[4%]"}">
-  <div class="w-[100%] h-[50%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl flex justify-items-center items-center {openlibrary ? "md:h-[30%]": ""} ">
-   <div class="grid grid-cols-1 grid-rows-4 w-[100%] h-[100%] justify-items-center items-center relative {openlibrary ? "md:grid-cols-2 md:grid-rows-2 md:w-[60%] h-[30%] gap-y-[150%]": ""}">
-     <img src={home} alt="home" class="w-[40%] lg:w-[25%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[30%]": ""}"/>
-     <p class="text-neutral-500 text-sm relative cursor-default {openlibrary ? "text-xl left-[0%]": ""}">Home</p>
-     <img src={src} alt="home" class="w-[40%] lg:w-[25%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[30%]": ""}"/>
-     <p class="text-neutral-500 text-sm relative cursor-default {openlibrary ? "text-xl left-[0%]": ""}">Search</p>
-   </div>
-  </div>
 
-  <div class="w-[100%] h-[70%] absolute top-[30%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl {openlibrary ? "overflow-y-auto": "overflow-y-hidden"} overflow-x-hidden">
-    <button class="flex items-center sticky bottom-[90%]" >
-   <div on:click="{()=>openLib()}" class="grid grid-cols-1 grid-rows-2 justify-items-center items-center sticky top-[90%] {openlibrary ? "md:grid-cols-2 grid-rows-1 md:w-[60%] md:h-[30%] md:bg-transparent": "bg-neutral-900 rounded-lg shadow-sm shadow-black"}">
-   <img src={library} alt="home" class="w-[40%] lg:w-[25%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[35%]": ""}"/>
-     <p class="text-neutral-500 text-sm relative {openlibrary ? "text-xl left-[0%]": ""}">Library</p>
-   </div>
-  </button>
+<div class="flex justify-center w-[100%] h-[800px] xl:h-[1000px]">
 
-   <div class="grid grid-cols-1 absolute grid-rows-11 w-[100%] top-[15%] gap-y-3 justify-items-center items-center">
-    <div class=" w-[80%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 " on:click="{playV}">
+
+
+  <div class="flex justify-center items-center transform sm:scale-[120%] xl:scale-[140%] absolute xl:top-[20%]">
+
+
+  
+
+    <div class="invisible md:visible grid grid-cols-1 grid-rows-2 bg-gradient-to-tr from-black to-neutral-950 border-2 border-neutral-950 w-[7%] h-[570px] rounded-xl absolute top-[10%] md:left-[-290px] lg:left-[-375px] {openlibrary ? "md:w-[200px] lg:w-[200px]": "lg:w-[80px] md:w-[70px]"}">
+      <div class="w-[100%] h-[50%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl flex justify-items-center items-center {openlibrary ? "md:h-[30%]": ""} ">
+      <div class="grid grid-cols-1 grid-rows-4 w-[100%] h-[100%] justify-items-center items-center relative {openlibrary ? "md:grid-cols-2 md:grid-rows-2 md:w-[60%] h-[30%] gap-y-[150%]": ""}">
+        <img src={home} alt="home" class="w-[40%] lg:w-[25%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[30%]": ""}"/>
+        <p class="text-neutral-500 text-sm relative cursor-default {openlibrary ? "text-xl left-[0%]": ""}">Home</p>
+        <img src={src} alt="home" class="w-[40%] lg:w-[25%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[30%]": ""}"/>
+        <p class="text-neutral-500 text-sm relative cursor-default {openlibrary ? "text-xl left-[0%]": ""}">Search</p>
+      </div>
+      </div>
+  
+      <div class="w-[100%] absolute bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl {openlibrary ? "overflow-y-auto top-[19.5%] h-[460px] ": "overflow-y-auto top-[33%] h-[380px]"} overflow-x-hidden">
+      <button class="flex items-center sticky bottom-[90%]" >
+      <div on:click="{()=>openLib()}" class="grid grid-cols-1 grid-rows-2 justify-items-center items-center sticky top-[90%] {openlibrary ? "md:grid-cols-2 grid-rows-1 md:w-[60%] md:h-[30%] md:bg-transparent": "bg-neutral-900 rounded-lg shadow-sm shadow-black"}">
+      <img src={library} alt="home" class="w-[40%] lg:w-[25%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[35%]": ""}"/>
+      <p class="text-neutral-500 text-sm relative {openlibrary ? "text-xl left-[0%]": ""}">Library</p>
+      </div>
+      </button>
+  
+      <div class="grid grid-cols-1 absolute grid-rows-11 w-[100%] top-[15%] gap-y-3 justify-items-center items-center  ">
+      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 " on:click="{playV}">
       <img src={r1} alt="star" class=" {openlibrary ? "md:w-[35%]": ""} w-[100%] rounded-lg cursor-pointer  hover:border-green-400 hover:border-2 "/>
       <div class="{openlibrary ? "visible": "invisible"} flex flex-col justify-start absolute top-[3%] left-[40%] w-[100%]">
-        <p class="text-white font-semibold text-[10px] relative ">Born Villain</p>
-        <p class="text-neutral-700 text-[10px] relative ">Marilyn Manson</p>
+      <p class="text-white font-semibold text-[10px] relative ">Born Villain</p>
+      <p class="text-neutral-700 text-[10px] relative ">Marilyn Manson</p>
       </div>
-    </div>
-    <div class=" w-[80%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700" on:click="{playBa}">
+      </div>
+
+      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700" on:click="{playBa}">
       <img src={r9} alt="star"   class=" {openlibrary ? "md:w-[35%]": ""} w-[100%] rounded-lg cursor-pointer  hover:border-green-400 hover:border-2"/>
-      <div class="{openlibrary ? "visible": "invisible"} flex flex-col justify-start absolute top-[17.5%] left-[40%] w-[100%]">
-        <p class="text-white font-semibold text-[10px]">Bad</p>
-        <p class="text-neutral-700 text-[10px] relative ">Michael Jackson</p>
+      <div class="{openlibrary ? "visible": "invisible"} flex flex-col justify-start absolute top-[18%] left-[40%] w-[100%]">
+      <p class="text-white font-semibold text-[10px]">Bad</p>
+      <p class="text-neutral-700 text-[10px] relative ">Michael Jackson</p>
       </div>
-    </div>
-    <div class=" w-[80%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 " on:click="{playMa}">
+      </div>
+
+      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 " on:click="{playMa}">
       <img src={r5} alt="star"  class=" {openlibrary ? "md:w-[35%]": ""} w-[100%] rounded-lg cursor-pointer  hover:border-green-400 hover:border-2"/>
-      <div class="{openlibrary ? "visible": "invisible"} flex flex-col justify-start absolute top-[32%] left-[40%] w-[100%]">
-        <p class="text-white font-semibold text-[10px]">Enter The Matrix</p>
-        <p class="text-neutral-700 text-[10px] relative ">Aurora</p>
+      <div class="{openlibrary ? "visible": "invisible"} flex flex-col justify-start absolute top-[33%] left-[40%] w-[100%]">
+      <p class="text-white font-semibold text-[10px]">Enter The Matrix</p>
+      <p class="text-neutral-700 text-[10px] relative ">Aurora</p>
       </div>
-    </div>
-    <div class=" w-[80%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 " on:click="{playC}">
+      </div>
+
+      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 " on:click="{playC}">
       <img src={r3} alt="star"  class="{openlibrary ? "md:w-[35%]": ""} w-[100%] rounded-lg cursor-pointer  hover:border-green-400 hover:border-2"/>
-       <div class="{openlibrary ? "visible": "invisible"} flex flex-col justify-start absolute top-[47%] left-[40%] w-[100%]">
-        <p class="text-white font-semibold text-[10px]">Self Control</p>
-        <p class="text-neutral-700 text-[10px] relative ">Laura Branigan</p>
+      <div class="{openlibrary ? "visible": "invisible"} flex flex-col justify-start absolute top-[47%] left-[40%] w-[100%]">
+      <p class="text-white font-semibold text-[10px]">Self Control</p>
+      <p class="text-neutral-700 text-[10px] relative ">Laura Branigan</p>
       </div>
-    </div>
-    <div class=" w-[80%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700"  on:click="{playS}">
+      </div>
+
+      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700"  on:click="{playS}">
       <img src={r10} alt="star"  class="{openlibrary ? "md:w-[35%]": ""} w-[100%] rounded-lg cursor-pointer hover:border-green-400 hover:border-2"/>
       <div class="{openlibrary ? "visible": "invisible"} flex flex-col justify-start absolute top-[61.5%] left-[40%] w-[100%]">
-        <p class="text-white font-semibold text-[10px]">Someday</p>
-        <p class="text-neutral-700 text-[10px] relative ">Nickelback</p>
+      <p class="text-white font-semibold text-[10px]">Someday</p>
+      <p class="text-neutral-700 text-[10px] relative ">Nickelback</p>
       </div>
-    </div>
-    <div class=" w-[80%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700"  on:click="{playB}">
+      </div>
+
+      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700"  on:click="{playB}">
       <img src={r2} alt="star"   class="{openlibrary ? "md:w-[35%]": ""} w-[100%] rounded-lg cursor-pointer hover:border-green-400 hover:border-2"/>
-      <div class="{openlibrary ? "visible": "invisible"} flex flex-col justify-start absolute top-[75.5%] left-[40%] w-[100%]">
-        <p class="text-white font-semibold text-[10px]">Burn Into The Ground</p>
-        <p class="text-neutral-700 text-[10px] relative ">Nickelback</p>
+      <div class="{openlibrary ? "visible": "invisible"} flex flex-col justify-start absolute top-[76%] left-[40%] w-[100%]">
+      <p class="text-white font-semibold text-[10px]">Burn Into The Ground</p>
+      <p class="text-neutral-700 text-[10px] relative ">Nickelback</p>
       </div>
-    </div>
-    <div class=" w-[80%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700"  on:click="{playW}">
+      </div>
+
+      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700"  on:click="{playW}">
       <img src={r8} alt="star"  class="{openlibrary ? "md:w-[35%]": ""} w-[100%] rounded-lg cursor-pointer hover:border-green-400 hover:border-2"/>
       <div class="{openlibrary ? "visible": "invisible"} flex flex-col  justify-start absolute top-[91%] left-[40%] w-[100%]">
-        <p class="text-white font-semibold text-[10px]">This Means War</p>
-        <p class="text-neutral-700 text-[10px] relative ">Nickelback</p>
-      </div>
-    </div>
-    
-   </div>
-  </div>
-</div>
-
-
-
-
-<div class="bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 w-[100%]  h-[700px]  lg:h-[600px] rounded-3xl relative top-[100px] bottom-6 flex justify-center overflow-auto {openlibrary ? "lg:w-[80%] md:w-[70%] lg:left-[18%] md:left-[30%] md:h-[600px]": "md:w-[90%] md:left-[9%] lg:w-[90%] md:h-[600px]"}">
-  <div class="w-[100%] h-[10%] absolute top-[0%] flex justify-between bg-neutral-900 mb-[10%]">
-   <p class="text-white font-bold font-sans text-lg sm:text-2xl lg:text-3xl left-[5%] top-[25%] absolute cursor-pointer">Good evening</p>
-   <img src={devices} alt="user" class="w-[8%] sm:w-[7%] md:w-[5%] lg:w-[2.5%] invert absolute right-[20%] md:right-[15%] md:cursor-not-allowed top-[25%] md:top-[20%]"/>
-   <img src={user} alt="user" class="w-[8%] sm:w-[6.5%] md:w-[4%] lg:w-[2%] invert absolute right-[5%] md:cursor-not-allowed top-[25%]"/>
-  </div>
-  
-  <div class="grid grid-cols-2 grid-rows-3 lg:grid-cols-2 lg:grid-rows-3 w-[100%] lg:w-[80%] h-[30%] absolute top-[15%] gap-2">
-    <div class="w-[90%] h-[90%] bg-neutral-900 rounded-md ml-4 md:left-[5%] md:relative flex items-center cursor-pointer hover:bg-gradient-to-tr from-black to-neutral-700 hover:border-2 hover:border-neutral-700 ">
-     <img src={hrt} alt="heart" class="w-[39.5%] sm:w-[21%] md:w-[14%] lg:w-[9.5%] bg-gradient-to-br from-purple-300 to-purple-800 p-[15px] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
-     <p class="text-xs lg:text-base font-semibold text-white absolute  sm:left-[17%] cursor-not-allowed {openlibrary ? "md:left-[26%]": "left-[24%]"}">Liked Songs</p>
-    </div>
-    <div on:click="{playM}" class="w-[90%] h-[90%] bg-neutral-900 rounded-md mr-4 flex items-center cursor-pointer hover:bg-gradient-to-tr from-black to-neutral-700 hover:border-2 hover:border-neutral-700 ">
-     <img src={r4} alt="heart" class="w-[39.5%] sm:w-[22.5%] md:w-[14%] lg:w-[9.5%] rounded-s-md  {openlibrary ? "md:w-[18%]": ""} "/>
-     <p class="text-xs lg:text-base font-semibold text-white absolute right-[5%] sm:right-[10%] w-[25%] md:right-[13.5%] whitespace-nowrap overflow-hidden text-ellipsis">Metallica's Playlist</p>
-    </div>
-    <div on:click="{playE}" class="w-[90%] h-[90%] bg-neutral-900 rounded-md ml-4 md:left-[5%] md:relative flex items-center cursor-pointer hover:bg-gradient-to-tr from-black to-neutral-700 hover:border-2 hover:border-neutral-700  ">
-    <img src={r6} alt="heart" class="w-[39.5%] sm:w-[22.5%] md:w-[14%] lg:w-[9.5%] rounded-s-md {openlibrary ? " md:w-[18%]": ""}"/>
-    <p class="text-xs lg:text-base font-semibold text-white absolute  sm:left-[17%] {openlibrary ? "md:left-[26%]": "left-[24%]"} w-[23%] md:w-[50%] whitespace-nowrap overflow-hidden text-ellipsis">Eminem's Playlist</p>
-    </div>
-    <div on:click="{playW}" class="w-[90%] h-[90%] bg-neutral-900 rounded-md mr-4 flex items-center cursor-pointer hover:bg-gradient-to-tr from-black to-neutral-700 hover:border-2 hover:border-neutral-700  ">
-    <img src={r8} alt="heart" class="w-[39.5%] sm:w-[22.5%] md:w-[14%] lg:w-[9.5%] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
-    <p class="text-xs lg:text-base font-semibold text-white absolute right-[5%] sm:right-[10%] w-[25%] md:right-[13.5%] whitespace-nowrap overflow-hidden text-ellipsis">Nickelback's Playlist</p>
-    </div>
-    <div on:click="{playS}" class="w-[90%] h-[90%] bg-neutral-900 rounded-md ml-4 md:left-[5%] md:relative flex items-center cursor-pointer hover:bg-gradient-to-tr from-black to-neutral-700 hover:border-2 hover:border-neutral-700  ">
-      <img src={r10} alt="heart" class="w-[39.5%] sm:w-[22.5%] md:w-[14%] lg:w-[9.5%] rounded-s-md {openlibrary ? " md:w-[18%]": ""}"/>
-      <p class="text-xs lg:text-base font-semibold text-white absolute  sm:left-[17%] {openlibrary ? "md:left-[26%]": "left-[24%]"} w-[23%] md:w-[50%] whitespace-nowrap overflow-hidden text-ellipsis">Best of Nickelback</p>
-    </div>
-    <div on:click="{playC}" class="w-[90%] h-[90%] bg-neutral-900 rounded-md mr-4 flex items-center cursor-pointer hover:bg-gradient-to-tr from-black to-neutral-700 hover:border-2 hover:border-neutral-700  ">
-      <img src={r3} alt="heart" class="w-[39.5%] sm:w-[22.5%] md:w-[14%] lg:w-[9.5%] rounded-s-md {openlibrary ? "md:w-[18%]": ""}"/>
-      <p class="text-xs lg:text-base font-semibold text-white absolute right-[5%] sm:right-[10%] w-[25%] md:right-[13.5%] whitespace-nowrap overflow-hidden text-ellipsis">Laura Branigam's Playlist</p>
-    </div>
-  </div>
-
-
-  <div class="grid grid-cols-1 grid-rows-3 absolute w-[100%] h-[110%] md:h-[150%] lg:h-[180%] top-[50%] lg:top-[55%] {openlibrary ? "md:h-[100%]": ""} ">
-
-    <div class="grid grid-cols-1 grid-rows-2 w-[100%] lg:w-[70%] h-[80%]  lg:h-[80%] top-[0%] relative  overflow-x-scroll sm:overflow-hidden {openlibrary ? "md:h-[90%] lg:w-[80%] lg:h-[90%] md:overflow-auto  lg:overflow-hidden": "md:h-[80%] md:overflow-hidden"} ">
-    <p class="font-bold text-base lg:text-2xl text-white relative left-[5%] top-[5%] {openlibrary ? "md:text-2xl": ""}">Brani Preferiti</p>
-    <div class="grid grid-cols-4 grid-rows-3 absolute w-[160%] sm:w-[90%] h-[70%] top-[15%] left-[5%] right-[5%] rounded-lg gap-x-3 {openlibrary ? "md:h-[55%] md:w-[120%] lg:w-[70%]": " md:w-[80%]"} ">
-      <img src={r1} alt="artist" on:click="{playV}" class="w-[100%]  rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-      <img src={r7} alt="artist" on:click="{playBo}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-      <img src={r5} alt="artist" on:click="{playMa}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-      <img src={r9} alt="artist" on:click="{playBa}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-      <p class="text-white relative top-[170%] lg:top-[190%] left-[5%] text-xs lg:text-base h-[20%] {openlibrary ? "md:top-[270%]": "md:top-[170%]"}">Born Villain</p>
-      <p class="text-white relative top-[170%] lg:top-[190%] left-[5%] text-xs lg:text-base h-[20%] {openlibrary ? "md:top-[270%]": "md:top-[170%]"}">Because We Can</p>
-      <p class="text-white relative top-[170%] lg:top-[190%] left-[5%] text-xs lg:text-base h-[20%] {openlibrary ? "md:top-[270%]": "md:top-[170%]"}">Enter The Matrix</p>
-      <p class="text-white relative top-[170%] lg:top-[190%] left-[5%] text-xs lg:text-base h-[20%] {openlibrary ? "md:top-[270%]": "md:top-[170%]"}">Bad</p>
-      <p class="text-neutral-700 relative top-[100%] lg:top-[120%] left-[5%] text-xs lg:text-base h-[20%] {openlibrary ? "md:top-[200%]": "md:top-[100%]"}">Marilyn Manson</p>
-      <p class="text-neutral-700 relative top-[100%] lg:top-[120%] left-[5%] text-xs lg:text-base h-[20%] {openlibrary ? "md:top-[200%]": "md:top-[100%]"}">Bon Jovi</p>
-      <p class="text-neutral-700 relative top-[100%] lg:top-[120%] left-[5%] text-xs lg:text-base h-[20%] {openlibrary ? "md:top-[200%]": "md:top-[100%]"}">Aurora</p>
-      <p class="text-neutral-700 relative top-[100%] lg:top-[120%] left-[5%] text-xs lg:text-base h-[20%] {openlibrary ? "md:top-[200%]": "md:top-[100%]"}">Michael Jackson</p>
-    </div>
-    </div>
-
-    <div class="grid grid-cols-1 grid-rows-2 w-[100%] lg:w-[100%] h-[80%] lg:h-[80%] top-[-10%] relative barra barra1  overflow-x-auto lg:overflow-hidden {openlibrary ? "md:h-[90%] lg:h-[80%]": "md:h-[80%]"}">
-      <p class="font-bold text-base lg:text-2xl text-white relative left-[5%] lg:left-[4%] top-[5%] {openlibrary ? "md:text-2xl": ""}">Ultimi aggiunti</p>
-      <div class="grid grid-cols-5 grid-rows-3 absolute w-[200%] sm:w-[110%] lg:w-[70%] h-[78%] top-[15%] left-[5%] lg:left-[4%] right-[5%] rounded-lg gap-x-3  {openlibrary ? "md:h-[60%] lg:h-[61%] md:w-[150%] ": "md:w-[100%]"} ">
-        <img src={r6} alt="artist" on:click="{playE}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-        <img src={r8} alt="artist" on:click="{playW}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-        <img src={star} alt="artist" on:click="{playit}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-        <img src={r5} alt="artist" on:click="{playMa}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-        <img src={r4} alt="artist" on:click="{playM}" class="w-[100%] rounded-lg cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-        <p class="text-white relative top-[160%] left-[5%] text-xs lg:text-base h-[20%] {openlibrary ? "md:top-[240%] lg:top-[190%]": "md:top-[160%]"}">All Eyes On Me</p>
-        <p class="text-white relative top-[160%] left-[5%] text-xs lg:text-base h-[20%] {openlibrary ? "md:top-[240%] lg:top-[190%]": "md:top-[160%]"}">This Means War</p>
-        <p class="text-white relative top-[160%] left-[5%] text-xs lg:text-base h-[30%] {openlibrary ? "md:top-[240%] lg:top-[190%]": "md:top-[160%]"} overflow-hidden whitespace-nowrap text-ellipsis md:overflow-hidden md:whitespace-nowrap md:text-ellipsis md:w-[80%] {openlibrary ? "md:h-[35%] md:h-[35%] lg:-h[35%]": ""}  ">Starfield Official Soundtrack</p>
-        <p class="text-white relative top-[160%] left-[5%] text-xs lg:text-base h-[20%] {openlibrary ? "md:top-[240%] lg:top-[190%]": "md:top-[160%]"}">Enter The Matrix</p>
-        <p class="text-white relative top-[160%] left-[5%] text-xs lg:text-base h-[20%] {openlibrary ? "md:top-[240%] lg:top-[190%]": "md:top-[160%]"}">Master Of Puppets</p>
-        <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs lg:text-base h-[20%] {openlibrary ? "md:top-[170%] lg:top-[120%]": "md:top-[90%]"}">Eminem</p>
-        <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs lg:text-base h-[20%] {openlibrary ? "md:top-[170%] lg:top-[120%]": "md:top-[90%]"}">Nickelback</p>
-        <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs lg:text-base h-[30%] {openlibrary ? "md:top-[170%] lg:top-[120%] md:h-[35%] lg:-h[35%]": "md:top-[90%]"} overflow-hidden whitespace-nowrap text-ellipsis ">Bethesda Games Studio</p>
-        <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs lg:text-base h-[20%] {openlibrary ? "md:top-[170%] lg:top-[120%]": "md:top-[90%]"}">Aurora</p>
-        <p class="text-neutral-700 relative top-[90%] left-[5%] text-xs lg:text-base h-[20%] {openlibrary ? "md:top-[170%] lg:top-[120%]": "md:top-[90%]"}">Metallica</p>
+      <p class="text-white font-semibold text-[10px]">This Means War</p>
+      <p class="text-neutral-700 text-[10px] relative ">Nickelback</p>
       </div>
       </div>
-
-      <div class="grid grid-cols-1 grid-rows-2 w-[100%] md:w-[100%] lg:w-[70%] lg:h-[80%] h-[70%] top-[-10%] lg:top-[-20%] relative sm:overflow-hidden overflow-x-auto  {openlibrary ? "md:h-[90%] lg-w[100%] lg:h-[70%] md:overflow-auto  lg:overflow-hidden": "md:h-[80%]  md:overflow-hidden"} ">
-        <p class="font-bold text-base lg:text-2xl text-white relative left-[5%] top-[5%] {openlibrary ? "md:text-2xl": ""}">Artisti Preferiti</p>
-        <div class="grid grid-cols-4 grid-rows-2 absolute w-[160%] sm:w-[95%] h-[70%] top-[15%] left-[5%] right-[5%] rounded-lg gap-x-3 justify-items-center {openlibrary ? "md:h-[55%] lg:h-[55%] md:w-[120%] lg:w-[70%]": " md:w-[80%]"} ">
-          <img src={star} alt="artist" on:click="{playit}" class="w-[100%] rounded-full cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-          <img src={r4} alt="artist" on:click="{playM}" class="w-[100%] rounded-full cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-          <img src={r3} alt="artist" on:click="{playC}" class="w-[100%] rounded-full cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-          <img src={r2} alt="artist" on:click="{playB}" class="w-[100%] rounded-full cursor-pointer hover:duration-1000 hover:ease-in-out hover:border-solid hover:border-green-400 hover:border-2"/>
-          <p class="text-white relative top-[110%] text-xs font-semibold lg:text-base h-[30%] overflow-hidden whitespace-nowrap text-ellipsis {openlibrary ? "md:top-[170%] lg:top-[110%]": "md:top-[110%]"} ">Bethesda Games Studio</p>
-          <p class="text-white relative top-[110%] text-xs font-semibold lg:text-base h-[30%] overflow-hidden whitespace-nowrap text-ellipsis {openlibrary ? "md:top-[170%] lg:top-[110%]": "md:top-[110%]"}">Metallica</p>
-          <p class="text-white relative top-[110%] text-xs font-semibold lg:text-base h-[30%] overflow-hidden whitespace-nowrap text-ellipsis {openlibrary ? "md:top-[170%] lg:top-[110%]": "md:top-[110%]"}">Laura Branigan</p>
-          <p class="text-white relative top-[110%] text-xs font-semibold lg:text-base h-[30%] overflow-hidden whitespace-nowrap text-ellipsis {openlibrary ? "md:top-[170%] lg:top-[110%]": "md:top-[110%]"}">Nickelback</p>
-        </div>
-        </div>
-  </div>
-
-    <div class="sticky bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 w-[100%] h-[10%] top-[90%] flex justify-between rounded-2xl md:invisible">
-      <div class="grid grid-cols-3 grid-rows-2 h-[100%] justify-items-center top-[100%]">
-       <img src={home} alt="home" class="w-[30%] sm:w-[15%] invert-[0.5] relative top-[10%] hover:invert"/>
-       <img src={src} alt="home" class="w-[30%] sm:w-[15%] invert-[0.5] relative top-[10%] hover:invert"/>
-       <img src={library} alt="home" class="w-[30%] sm:w-[15%] invert-[0.5] relative top-[10%] hover:invert"/>
-       <p class="text-neutral-500 text-sm">Home</p>
-       <p class="text-neutral-500 text-sm">Search</p>
-       <p class="text-neutral-500 text-sm">Library</p>
+      
       </div>
     </div>
-
-</div>
-
-<div class="flex w-[95%] md:w-[92%] lg:w-[80%] h-[10%] absolute bottom-[1%] lg:right-[10%] rounded-2xl invisible md:visible border-2 border-neutral-900 bg-gradient-to-tr from-black to-neutral-900">
-  <div class="w-[30%] h-[60%] rounded-lg absolute top-[20%] left-[0%]  flex flex-row  items-center cursor-default" >
-    <img src={artist} alt="artist" class="w-[30%] lg:w-[20%] rounded-xl border-green-400 border-2"/>
-    <div class="absolute left-[35%] lg:left-[25%]">
-    <p class="text-base text-white overflow-hidden text-ellipsis whitespace-nowrap">{song}</p>
-    <p class="text-sm text-neutral-700  overflow-hidden text-ellipsis whitespace-nowrap">{name}</p>
-    </div>
   </div>
 
-  <div class="flex flex-row justify-between items-center w-[30%] absolute top-[30%] lg:top-[20%] left-[35%]">
-     <img src={shuffle} alt="shuffle" class="invert-[0.5] w-[5%] cursor-pointer"/>
-     <img src={prev} alt="prev" class="invert w-[4%] cursor-pointer"/>
-     <img src={play} alt="play" class="invert w-[5%]  cursor-pointer"/>
-     <img src={prev} alt="prev" class="invert w-[4%] rotate-180  cursor-pointer"/>
-     <img src={repeat} alt="repeat" class="invert-[0.5] w-[5%]  cursor-pointer"/>
-  </div>
-  <div class="flex flex-row justify-between items-center w-[30%] h-[5%] absolute top-[60%] left-[35%] rounded-lg">
-    <p class="text-neutral-700 mr-4">0:38</p>
-    <div class="w-[100%] bg-neutral-800 h-[100%] rounded-lg">
-      <div class="w-[37%] bg-white h-[100%] rounded-lg">.</div>
-    </div>
-    <p class="text-neutral-700 ml-4">3:14</p>
+
+
+ <div class="flex bg-gradient-to-tr from-black to-neutral-900 w-[330px] sm:w-[500px] h-[600px] md:h-[570px] border-2 border-neutral-900 rounded-2xl absolute top-[15%] sm:top-[20%]  md:top-[10%]  md:right-[-290px] lg:right-[-380px] {openlibrary ? "md:w-[360px] lg:w-[550px]": "md:w-[500px] lg:w-[670px]"}">
+ <div class="flex w-[100%] h-[80px] items-center bg-gradientto-tr from-black to-neutral-900 rounded-2xl absolute border-b-2 shadow-md shadow-black border-neutral-900 top-[0%]">
+  <p class="absolute left-[5%] text-white font-bold text-[20px] ">Good Morning</p>
+  <img src={user} alt="src" class="w-[20px] absolute right-[5%] invert cursor-not-allowed"/>
+ <img src={friends} alt="src" class="w-[25px] absolute right-[20%] invert cursor-not-allowed"/>
  </div>
 
- <div class="flex flex-row justify-between items-center w-[10%] absolute top-[30%] lg:top-[20%] right-[5%]">
-  <img src={medium} alt="shuffle" class="invert w-[15%]  cursor-pointer"/>
-  <img src={queue} alt="prev" class="invert w-[15%]  cursor-pointer"/>
-  <img src={mic} alt="play" class="invert w-[15%]  cursor-pointer"/>
-  <img src={library2} alt="prev" class="invert w-[15%]  cursor-pointer"/>
-</div>
+ <div class="flex flex-col absolute top-[15%] md:top-[17%] w-[100%] h-[420px] md:h-[460px]  bg-transparent rounded-2xl border-2 border-neutral-900 md:border-0 overflow-auto overflow-x-hidden barra barra2">
+  <div class="flex absolute w-[100%] h-[500px] sm:h-[250px] {openlibrary ? "md:h-[500px] lg:h-[250px]": "md:h-[250px] lg:h-[250px]"}">
+    <div class="grid grid-cols-1 grid-rows-6 sm:grid-cols-2 sm:grid-rows-3 w-[100%] justify-items-center items-center {openlibrary ? "md:grid-cols-1 md:grid-rows-6 lg:grid-cols-2 lg:grid-rows-3": "md:grid-cols-2 md:grid-rows-3 lg:grid-cols-2 lg:grid-rows-3 "}">
+      <div class="flex relative w-[270px] sm:w-[200px] h-[60px] top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px]": "md:w-[200px] lg:w-[300px]"} bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl items-center cursor-not-allowed hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
+        <img  src={hrt} alt="star" class="w-[50px] h-[50px] p-3 bg-gradient-to-tr from-yellow-950 to-yellow-500 invert rounded-2xl left-[5px] relative"/>
+        <p class="text-white font-semibold absolute left-[70px] text-[13px] ">Lista Brani Preferiti</p>
+      </div>
+      <div on:click="{playit}" class="flex relative w-[270px] sm:w-[200px] h-[60px] top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px]": "md:w-[200px] lg:w-[300px]"}  bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl cursor-pointer items-center hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
+        <img  src={star} alt="star" class="w-[50px] h-[50px] bg-gradient-to-tr from-yellow-950 to-yellow-500 rounded-2xl left-[5px] relative"/>
+        <p class="text-white font-semibold absolute left-[70px] text-[13px]">Starfield's Playlist</p>
+      </div>
+      <div on:click="{playV}" class="flex relative w-[270px] sm:w-[200px] h-[60px] top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px]": "md:w-[200px] lg:w-[300px]"}  bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl cursor-pointer items-center hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
+        <img  src={r1} alt="star" class="w-[50px] h-[50px] bg-gradient-to-tr from-yellow-950 to-yellow-500 rounded-2xl left-[5px] relative"/>
+        <p class="text-white font-semibold absolute left-[70px] text-[13px]">Marilyn Manson's Playlist</p>
+      </div>
+      <div on:click="{playB}" class="flex relative w-[270px] sm:w-[200px] h-[60px]  top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px]": "md:w-[200px] lg:w-[300px]"} bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl cursor-pointer items-center hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
+        <img  src={r2} alt="star" class="w-[50px] h-[50px] bg-gradient-to-tr from-yellow-950 to-yellow-500 rounded-2xl left-[5px] relative"/>
+        <p class="text-white font-semibold absolute left-[70px] text-[13px]">Nickelback's Playlist</p>
+      </div>
+      <div on:click="{playC}" class="flex relative w-[270px] sm:w-[200px] h-[60px] top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px]": "md:w-[200px] lg:w-[300px]"}  bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl cursor-pointer items-center hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
+        <img  src={r3} alt="star" class="w-[50px] h-[50px] bg-gradient-to-tr from-yellow-950 to-yellow-500 rounded-2xl left-[5px] relative"/>
+        <p class="text-white font-semibold absolute left-[70px] text-[13px]">Laura Branigan's Playlist</p>
+      </div>
+      <div on:click="{playM}" class="flex relative w-[270px] sm:w-[200px] h-[60px] top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px]": "md:w-[200px] lg:w-[300px]"}  bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl cursor-pointer items-center hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
+        <img  src={r4} alt="star" class="w-[50px] h-[50px] bg-gradient-to-tr from-yellow-950 to-yellow-500 rounded-2xl left-[5px] relative"/>
+        <p class="text-white font-semibold absolute left-[70px] text-[13px]">Metallica's Playlist</p>
+      </div>
+    </div>
 
- <div class="flex flex-row justify-between items-center w-[10%] h-[5%] absolute top-[60%] right-[5%] rounded-lg">
-   <div class="w-[100%] bg-neutral-800 h-[100%] rounded-lg">
-     <div class="w-[73%] bg-white h-[100%] rounded-lg">.</div>
-   </div>
-</div>
+  </div>
+
+
+  <div class="flex justify-center flex-row w-[100%] h-[800px] absolute top-[550px] sm:top-[300px] {openlibrary ? "md:top-[450px] lg:top-[300px] md:tranfosrm md:scale-[80%] lg:scale-[100%]": "md:top-[300px] lg:top-[300px]  md:transform md:scale-[100%]"} ">
+    <p class="absolute top-[0px] left-[15px] w-[100%] font-bold text-xl text-white">Brani Preferiti</p>
+    <div class="flex flex-col items-center absolute top-[40px] justify-center w-[100%] h-[200px] overflow-auto">
+      <div class="w-[100%] h-[200px]  grid grid-cols-4 grid-rows-1 justify-items-center items-center">
+        <div on:click="{playit}" class="flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[50px] sm:left-[30px] {openlibrary ? "md:left-[40px] lg:left-[15px]": "md:left-[30px] lg:left-[2px]"} rounded-xl p-1 relative ">
+        <img src={star} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
+        <div class="relative top-[5px] left-[10px]">
+          <p class="text-white font-semibold text-[11px]">Starfield Soundtrack</p>
+          <p class="text-neutral-500 font-medium text-[10px]">Bethesda Games Studio</p>
+        </div>
+        </div>
+        <div on:click="{playV}" class="flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[140px] sm:left-[70px] {openlibrary ? "md:left-[120px] lg:left-[45px]": "md:left-[70px] lg:left-[2px]"}  rounded-xl p-1 relative ">
+          <img src={r1} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
+          <div class="relative top-[2] left-[10px]">
+            <p class="text-white font-semibold text-[11px]">Born Villain</p>
+            <p class="text-neutral-500 font-medium text-[10px]">Marilyn Manson</p>
+          </div>
+          </div>
+          <div on:click="{playB}" class="flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[230px] sm:left-[109px] {openlibrary ? "md:left-[200px] lg:left-[75px]": "md:left-[109px] lg:left-[2px]"}  rounded-xl p-1 relative ">
+            <img src={r2} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
+            <div class="relative top-[5px] left-[10px]">
+              <p class="text-white font-semibold text-[11px]">Burn Into The Ground</p>
+              <p class="text-neutral-500 font-medium text-[10px]">Nickelback</p>
+            </div>
+            </div>
+            <div on:click="{playC}" class="flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[320px] sm:left-[150px] {openlibrary ? "md:left-[280px] lg:left-[103px]": "md:left-[150px] lg:left-[2px]"} rounded-xl p-1 relative ">
+              <img src={r3} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
+              <div class="relative top-[5px] left-[10px]">
+                <p class="text-white font-semibold text-[11px]">Self Control</p>
+                <p class="text-neutral-500 font-medium text-[10px]">Laura Branigan</p>
+              </div>
+              </div>
+      </div>
+    </div>
+
+
+    <p class="absolute top-[280px] left-[15px] font-bold text-xl w-[100%] text-white">Aggiunti di recente</p>
+    <div class="flex flex-col items-center absolute top-[320px] justify-center w-[100%] h-[200px] overflow-auto">
+      <div class="w-[100%] h-[200px]  grid grid-cols-5 grid-rows-1 justify-items-center items-center">
+        <div on:click="{playM}" class="flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[58px] sm:left-[42px] {openlibrary ? "md:left-[50px] lg:left-[27px]": "md:left-[42px] lg:left-[18px]"} rounded-xl p-1 relative ">
+        <img src={r4} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
+        <div class="relative top-[5px] left-[10px]">
+          <p class="text-white font-semibold text-[11px]">Master of Puppets</p>
+          <p class="text-neutral-500 font-medium text-[10px]">Metallica</p>
+        </div>
+        </div>
+        <div on:click="{playMa}" class="flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[165px] sm:left-[106px] {openlibrary ? "md:left-[146px] lg:left-[83px]": "md:left-[106px] lg:left-[50px]"} rounded-xl p-1 relative ">
+          <img src={r5} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
+          <div class="relative top-[5px] left-[10px]">
+            <p class="text-white font-semibold text-[11px]">Enter The Matrix</p>
+            <p class="text-neutral-500 font-medium text-[10px]">Aurora</p>
+          </div>
+          </div>
+          <div on:click="{playE}" class="flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[272px] sm:left-[170px] {openlibrary ? "md:left-[243px] lg:left-[138px]": "md:left-[170px] lg:left-[82px]"} rounded-xl p-1 relative ">
+            <img src={r6} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
+            <div class="relative top-[5px] left-[10px]">
+              <p class="text-white font-semibold text-[11px]">All Eyes On Me</p>
+              <p class="text-neutral-500 font-medium text-[10px]">Eminem</p>
+            </div>
+            </div>
+            <div on:click="{playBo}" class="flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[380px] sm:left-[235px] {openlibrary ? "md:left-[341px] lg:left-[194px]": "md:left-[235px] lg:left-[115px]"} rounded-xl p-1 relative ">
+              <img src={r7} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
+              <div class="relative top-[5px] left-[10px]">
+                <p class="text-white font-semibold text-[11px]">Because We Can</p>
+                <p class="text-neutral-500 font-medium text-[10px]">Bon Jovi</p>
+              </div>
+              </div>
+              <div on:click="{playBa}" class="flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[490px] sm:left-[300px] {openlibrary ? "md:left-[440px] lg:left-[250px]": "md:left-[300px] lg:left-[147px]"} rounded-xl p-1 relative ">
+              <img src={r9} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
+              <div class="relative top-[5px] left-[10px]">
+                <p class="text-white font-semibold text-[11px]">Bad</p>
+                <p class="text-neutral-500 font-medium text-[10px]">Michael Jackson</p>
+              </div>
+              </div>
+      </div>
+    </div>
+
+     <p class="absolute top-[560px] left-[15px] font-bold text-xl w-[100%] text-white">Artisti Seguiti</p>
+    <div class="flex flex-col items-center absolute top-[600px] justify-center w-[100%] h-[200px] overflow-auto">
+      <div class="w-[100%] h-[200px] grid grid-cols-4 grid-rows-1 justify-items-center items-center">
+        <div on:click="{playW}" class="flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[50px] sm:left-[30px] {openlibrary ? "md:left-[40px] lg:left-[15px]": "md:left-[30px] lg:left-[2px]"}  rounded-xl p-1 relative ">
+        <img src={r8} alt="star" class="w-[150px] h-[130px] rounded-full p-1"/>
+        <div class="relative top-[5px] flex w-[100%] justify-center">
+          <p class="text-white font-semibold text-[11px]">Nickelback</p>
+        </div>
+        </div>
+        <div on:click="{playBa}" class="flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[140px] sm:left-[70px] {openlibrary ? "md:left-[120px] lg:left-[45px]": "md:left-[70px] lg:left-[2px]"} rounded-xl p-1 relative ">
+          <img src={r9} alt="star" class="w-[150px] h-[130px] rounded-full p-1"/>
+          <div class="relative top-[5px] flex w-[100%] justify-center">
+            <p class="text-white font-semibold text-[11px]">Micheal Jackson</p>
+          </div>
+          </div>
+          <div on:click="{playE}" class="flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[230px] sm:left-[109px] {openlibrary ? "md:left-[200px] lg:left-[75px]": "md:left-[109px] lg:left-[2px]"} rounded-xl p-1 relative ">
+            <img src={r6} alt="star" class="w-[150px] h-[130px] p-1 rounded-full"/>
+            <div class="relative top-[5px] flex w-[100%] justify-center">
+              <p class="text-white font-semibold text-[11px]">Eminem</p>
+            </div>
+            </div>
+            <div on:click="{playV}" class="flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[320px] sm:left-[150px] {openlibrary ? "md:left-[280px] lg:left-[103px]": "md:left-[150px] lg:left-[2px]"} rounded-xl p-1 relative ">
+              <img src={r1} alt="star" class="w-[150px] h-[130px] p-1 rounded-full"/>
+              <div class="relative top-[5px] flex w-[100%] justify-center">
+                <p class="text-white font-semibold text-[11px]">Marilyn Manson</p>
+              </div>
+              </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+ </div>
+
+
+
+
+    <div class="visible md:invisible flex justify-between w-[100%] h-[80px] items-center bg-gradient-to-tr from-black to-neutral-900 rounded-2xl sticky border-t-2 border-neutral-900 top-[100%]">
+      <div class="grid grid-cols-3 grid-rows-1 w-[100%] justify-items-center items-center absolute top-[15%]">
+        <div class="flex justify-center ">
+          <img src={home} alt="src" class="w-[30px] absolute invert-[0.5] cursor-not-allowed hover:invert "/>
+          <p class="text-neutral-500 font-semibold relative top-[30px]">Home</p>
+        </div>
+        <div class="flex justify-center" >
+          <img src={src} alt="src" class="w-[25px] absolute invert-[0.5] cursor-not-allowed hover:invert"/>
+          <p class="text-neutral-500 font-semibold relative top-[30px] ">Cerca</p>
+        </div>
+        <div class="flex justify-center">
+          <img src={library} alt="src" class="w-[25px] absolute invert-[0.5] cursor-not-allowed hover:invert"/>
+          <p class="text-neutral-500 font-semibold relative top-[30px] ">Libreria</p>
+        </div>
+        
+      </div>
+    </div>
+    </div>
+
+ </div>
+
+
+
+
+
+
+
+
+
+
+  <div class="flex w-[95%] md:w-[700px] lg:w-[900px] xl:scale-[115%] xl:bottom-[-15%] h-[10%] absolute bottom-[1%]  rounded-2xl invisible md:visible border-2 border-neutral-900 bg-gradient-to-tr from-black to-neutral-900">
+    <div class="w-[30%] h-[60%] rounded-lg absolute top-[20%] left-[0%]  flex flex-row  items-center cursor-default" >
+      <img src={artist} alt="artist" class="w-[30%] md:w-[80px] lg:w-[80px] rounded-xl border-green-400 border-2"/>
+      <div class="absolute left-[45%] lg:left-[35%]">
+      <p class="text-base text-white overflow-hidden text-ellipsis whitespace-nowrap">{song}</p>
+      <p class="text-sm text-neutral-700  overflow-hidden text-ellipsis whitespace-nowrap">{name}</p>
+      </div>
+    </div>
+
+    <div class="flex flex-row justify-between items-center w-[30%] absolute top-[30%] lg:top-[20%] left-[35%]">
+      <img src={shuffle} alt="shuffle" class="invert-[0.5] w-[5%] cursor-pointer"/>
+      <img src={prev} alt="prev" class="invert w-[4%] cursor-pointer"/>
+      <img src={play} alt="play" class="invert w-[5%]  cursor-pointer"/>
+      <img src={prev} alt="prev" class="invert w-[4%] rotate-180  cursor-pointer"/>
+      <img src={repeat} alt="repeat" class="invert-[0.5] w-[5%]  cursor-pointer"/>
+    </div>
+    <div class="flex flex-row justify-between items-center w-[30%] h-[5%] absolute top-[60%] left-[35%] rounded-lg">
+      <p class="text-neutral-700 mr-4">0:38</p>
+      <div class="w-[100%] bg-neutral-800 h-[100%] rounded-lg">
+        <div class="w-[37%] bg-white h-[100%] rounded-lg">.</div>
+      </div>
+      <p class="text-neutral-700 ml-4">3:14</p>
+  </div>
+
+  <div class="flex flex-row justify-between items-center w-[10%] absolute top-[30%] lg:top-[20%] right-[5%]">
+    <img src={medium} alt="shuffle" class="invert w-[15%]  cursor-pointer"/>
+    <img src={queue} alt="prev" class="invert w-[15%]  cursor-pointer"/>
+    <img src={mic} alt="play" class="invert w-[15%]  cursor-pointer"/>
+    <img src={library2} alt="prev" class="invert w-[15%]  cursor-pointer"/>
+  </div>
+
+  <div class="flex flex-row justify-between items-center w-[10%] h-[5%] absolute top-[60%] right-[5%] rounded-lg">
+    <div class="w-[100%] bg-neutral-800 h-[100%] rounded-lg">
+      <div class="w-[73%] bg-white h-[100%] rounded-lg">.</div>
+    </div>
+  </div>
+  </div>
+
+
+
 </div>
 
 
@@ -526,7 +628,7 @@ let homee= false
     to{opacity: 1;}
   }
   .barra::-webkit-scrollbar-track{
-      background-color: black;
+      background-color: transparent;
     }
     .barra2::-webkit-scrollbar-thumb{
       background-color: rgb(53, 53, 53);
