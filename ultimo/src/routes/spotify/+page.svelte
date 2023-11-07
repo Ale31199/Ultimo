@@ -51,81 +51,176 @@ const openLibra=()=>{
   openlibra = !openlibra
 }
 
-let playing = false;
 let audio = starfield;
-let playthis;
-
-let advillain = false;
 let audiovillain = villain;
-let playvillain;
-
-let adburn = false;
 let audioburn = burn;
-let playburn;
-
-let adcontrol = false;
 let audiocontrol = selfcontrol;
-let playselfcontrol;
-
-let adpuppets = false;
 let audiomaster = masterpuppets;
-let playmaster;
-
-let admatrix = false;
 let audiomatrix = entermatrix;
-let playmatrix;
-
-let adbon = false;
-let audiobon = becausebonjovi;
-let playbon;
-
-let adwar = false;
+let audiobon = becausebonjovi
 let audiowar = thismeanswar;
-let playwar;
-
-let adeyes = false;
 let audioeyes = alleyes;
-let playeyes;
-
-let adbad = false;
 let audiobad = bad;
-let playbad;
-
-let adsome = false;
 let audiosome = someday;
-let playsome;
-
-
-let artist = music
-let song = ''
-let name = ''
-/*
-let brano;
 
 
 
-const musica=(canzone)=>{
-  const switch (canzone) {
-    case 'starfield':
-    canzoni[0]
-    brano = new Audio(links[0])
-    brano.play()
-      break;
+
+let artist = music;
+let song = '';
+let name = '';
+let url;
+let brano = null;
+let stato = false;
+let riproduzione = 0
+let plause = play
+
+let durata= 0
+let secondi = Math.floor(durata % 60)
+let minuti  = Math.floor(durata / 60)
+
+let min = Math.floor(riproduzione / 60)
+let sec = Math.floor(riproduzione % 60)
+
+
+
+const musica = (canzone) => {
+  if (stato) {
+    brano.pause();
+    stato = false;
+    plause = play
+  } else {
+    switch (canzone) {
+      case 'starfield':
+        artist = star;
+        song = 'Starfield Official...';
+        name = 'Bethesda Games St...';
+        url = links[0];
+        plause = pausee
+        break;
+
       case 'born':
-    canzoni[10]
-    brano = new Audio(links[1])
-    brano.play()
-      break;
+        artist = r1;
+        song = 'Born Villain';
+        name = 'Marilyn Manson';
+        url = links[1];
+        plause = pausee
+        break;
+
       case 'master':
-    canzoni[3]
-    brano = new Audio(links[4])
-    brano.play()
-      break;
-  
-    default: brano.pause()
-      break;
+        artist = r4;
+        song = 'Master of Puppets';
+        name = 'Metallica';
+        url = links[4];
+        plause = pausee
+        break;
+
+        case 'burn' :
+        artist= r2,
+        song= "Burn Into The Ground",
+        name= "Nickelback",
+        url= links[2]
+        plause = pausee
+        break
+
+        case 'self' :
+        artist=r3,
+        song= "Self Control",
+        name= "Laura Branigan",
+        url= links[3]
+        plause = pausee
+        break
+
+        case 'matrix' :
+        artist=r5,
+        song= "Enter The Matrix",
+        name= "Aurora",
+        url= links[5]
+        plause = pausee
+        break
+
+        case 'bon' :
+        artist= r7,
+        song= "Because We Can",
+        name= "Bon Jovi",
+        url= links[6]
+        plause = pausee
+        break
+
+        case 'war' :
+        artist=r8,
+        song= "This Means War",
+        name= "Nickelback",
+        url= links[7] 
+        plause = pausee
+        break
+
+        case 'eyes' :
+        artist= r6,
+        song= "All Eyes On Me",
+        name= "Eminem",
+        url= links[8]
+        plause = pausee
+        break
+
+        case 'bad' :
+        artist= r9,
+        song= "Bad",
+        name= "Michael Jackson",
+        url= links[9]
+        plause = pausee
+        break
+
+        case 'someday' :
+        artist= r10,
+        song= "Someday",
+        name= "Nickelback",
+        url= links[10]
+        plause = pausee
+        break
+
+      default:
+        break;
+    }
+
+    if (url) {
+      brano = new Audio(url);
+      plause = pausee
+      brano.currentTime = riproduzione
+      brano.addEventListener('canplay', ()=>{
+        brano.play();
+        stato = true
+        durata = brano.duration
+        secondi = Math.floor(durata % 60)
+        minuti = Math.floor(durata / 60)
+        })
+      
+      brano.addEventListener('timeupdate', ()=>{
+      riproduzione = brano.currentTime
+      min = Math.floor(riproduzione / 60)
+      sec = Math.floor(riproduzione % 60)
+      let progressobarra = (riproduzione / durata) * 100
+      player.style.width = `${progressobarra}%`
+      })
+
+
+      
+      brano.addEventListener('ended', ()=>{
+        riproduzione = 0
+        durata = 0
+        plause = play
+        stato = false
+        artist = music
+        name = ''
+        song = ''
+        player.style.width = '0'
+      })
+
+    }
   }
-}
+};
+
+
 
 const links = [
 audio = starfield,
@@ -141,247 +236,6 @@ audiobad = bad,
 audiosome = someday
 ]
 
-
-const canzoni = [
-  {artist: star,
-  song = 'Starfield Official...',
-  name = 'Bethesda Games St...',
-  url = links[0]
-  },
-
-  {artist = r2,
-    song = "Burn Into The Ground",
-    name = "Nickelback",
-    url = links[1]
-  },
-
-  {artist = r3,
-    song = "Self Control",
-    name = "Laura Branigan",
-    url = links[2]
-  },
-
-  { artist = r4,
-    song = "Master of Puppets",
-    name = "Metallica",
-    url = links[3]
-  },
-
-  {  artist = r5,
-    song = "Enter The Matrix",
-    name = "Aurora",
-    url = links[4]
-  },
-
-  {  artist = r7,
-    song = "Because We Can",
-    name = "Bon Jovi",
-    url = links[5]
-  },
-
-  {  artist = r8,
-    song = "This Means War",
-    name = "Nickelback",
-    url = links[6]
-  },
-
-  { artist = r6,
-    song = "All Eyes On Me",
-    name = "Eminem",
-    url = links[7]
-  },
-
-  {   artist = r9,
-    song = "Bad",
-    name = "Michael Jackson",
-    url = links[8]
-  },
-
-  { artist = r10,
-    song = "Someday",
-    name = "Nickelback",
-    url = links[9]
-  },
-
-  {  artist = r1,
-    song = "Born Villain",
-    name = "Marilyn Manson",
-    url = links[10]
-  }
-]
-
-*/
-
-
-
-
-
-
-
-
-
-
-const playit=()=>{
-  if (!playing){
-    playthis = new Audio(audio)
-    playthis.play()
-    artist = star
-    song = "Starfield Official..."
-    name = "Bethesda Games St..."
-    if (adburn){
-      playburn.pause()
-    }
-    if (adcontrol){
-      playselfcontrol.pause()
-    }
-} else{
-  playthis.pause()
-}
-playing = !playing
-}
-
-const playB=()=>{
-  if (!adburn){
-    playburn = new Audio(audioburn)
-    playburn.play()
-    artist = r2
-    song = "Burn Into The Ground"
-    name = "Nickelback"
-    if (playing){
-      playthis.pause()
-    }
-    if (adcontrol){
-      playselfcontrol.pause()
-    }
-} else{
-  playburn.pause()
-}
-adburn = !adburn
-}
-
-
-const playC=()=>{
-  if (!adcontrol){
-    playselfcontrol = new Audio(audiocontrol)
-    playselfcontrol.play()
-    artist = r3
-    song = "Self Control"
-    name = "Laura Branigan"
-    if (adburn){
-      playburn.pause()
-    }
-    if (playing){
-      playthis.pause()
-    }
-} else{
-  playselfcontrol.pause()
-}
-adcontrol = !adcontrol
-}
-
-const playM=()=>{
-  if (!adpuppets){
-    playmaster = new Audio(audiomaster)
-    playmaster.play()
-    artist = r4
-    song = "Master of Puppets"
-    name = "Metallica"
-} else{
-  playmaster.pause()
-}
-adpuppets = !adpuppets
-}
-
-const playMa=()=>{
-  if (!admatrix){
-    playmatrix = new Audio(audiomatrix)
-    playmatrix.play()
-    artist = r5
-    song = "Enter The Matrix"
-    name = "Aurora"
-} else{
-  playmatrix.pause()
-}
-admatrix = !admatrix
-}
-
-const playBo=()=>{
-  if (!adbon){
-    playbon = new Audio(audiobon)
-    playbon.play()
-    artist = r7
-    song = "Because We Can"
-    name = "Bon Jovi"
-} else{
-  playbon.pause()
-}
-adbon = !adbon
-}
-
-const playW=()=>{
-  if (!adwar){
-    playwar = new Audio(audiowar)
-    playwar.play()
-    artist = r8
-    song = "This Means War"
-    name = "Nickelback"
-} else{
-  playwar.pause()
-}
-adwar = !adwar
-}
-
-const playE=()=>{
-  if (!adeyes){
-    playeyes = new Audio(audioeyes)
-    playeyes.play()
-    artist = r6
-    song = "All Eyes On Me"
-    name = "Eminem"
-} else{
-  playeyes.pause()
-}
-adeyes = !adeyes
-}
-
-const playBa=()=>{
-  if (!adbad){
-    playbad = new Audio(audiobad)
-    playbad.play()
-    artist = r9
-    song = "Bad"
-    name = "Michael Jackson"
-} else{
-  playbad.pause()
-}
-adbad = !adbad
-}
-
-const playS=()=>{
-  if (!adsome){
-    playsome = new Audio(audiosome)
-    playsome.play()
-    artist = r10
-    song = "Someday"
-    name = "Nickelback"
-} else{
-  playsome.pause()
-}
-adsome = !adsome
-}
-
-const playV=()=>{
-  if (!advillain){
-    playvillain = new Audio(audiovillain)
-    playvillain.play()
-    artist = r1
-    song = "Born Villain"
-    name = "Marilyn Manson"
-} else{
-  playvillain.pause()
-}
-advillain = !advillain
-}
 
 
 let homee= false
@@ -456,7 +310,7 @@ let homee= false
       </button>
   
       <div class="grid grid-cols-1 absolute grid-rows-11 w-[100%] top-[15%] gap-y-3 justify-items-center items-center  ">
-      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 " on:click="{playV}">
+      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 " on:click="{()=>musica('born')}">
       <img src={r1} alt="star" class=" {openlibrary ? "md:w-[35%]": ""} w-[100%] rounded-lg cursor-pointer  hover:border-green-400 hover:border-2 "/>
       <div class="{openlibrary ? "visible": "invisible"} flex flex-col justify-start absolute top-[3%] left-[40%] w-[100%]">
       <p class="text-white font-semibold text-[10px] relative ">Born Villain</p>
@@ -464,7 +318,7 @@ let homee= false
       </div>
       </div>
 
-      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700" on:click="{playBa}">
+      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700" on:click="{()=>musica('bad')}">
       <img src={r9} alt="star"   class=" {openlibrary ? "md:w-[35%]": ""} w-[100%] rounded-lg cursor-pointer  hover:border-green-400 hover:border-2"/>
       <div class="{openlibrary ? "visible": "invisible"} flex flex-col justify-start absolute top-[18%] left-[40%] w-[100%]">
       <p class="text-white font-semibold text-[10px]">Bad</p>
@@ -472,7 +326,7 @@ let homee= false
       </div>
       </div>
 
-      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 " on:click="{playMa}">
+      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 " on:click="{()=>musica('matrix')}">
       <img src={r5} alt="star"  class=" {openlibrary ? "md:w-[35%]": ""} w-[100%] rounded-lg cursor-pointer  hover:border-green-400 hover:border-2"/>
       <div class="{openlibrary ? "visible": "invisible"} flex flex-col justify-start absolute top-[33%] left-[40%] w-[100%]">
       <p class="text-white font-semibold text-[10px]">Enter The Matrix</p>
@@ -480,7 +334,7 @@ let homee= false
       </div>
       </div>
 
-      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 " on:click="{playC}">
+      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 " on:click="{()=>musica('self')}">
       <img src={r3} alt="star"  class="{openlibrary ? "md:w-[35%]": ""} w-[100%] rounded-lg cursor-pointer  hover:border-green-400 hover:border-2"/>
       <div class="{openlibrary ? "visible": "invisible"} flex flex-col justify-start absolute top-[47%] left-[40%] w-[100%]">
       <p class="text-white font-semibold text-[10px]">Self Control</p>
@@ -488,7 +342,7 @@ let homee= false
       </div>
       </div>
 
-      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700"  on:click="{playS}">
+      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700"  on:click="{()=>musica('someday')}">
       <img src={r10} alt="star"  class="{openlibrary ? "md:w-[35%]": ""} w-[100%] rounded-lg cursor-pointer hover:border-green-400 hover:border-2"/>
       <div class="{openlibrary ? "visible": "invisible"} flex flex-col justify-start absolute top-[61.5%] left-[40%] w-[100%]">
       <p class="text-white font-semibold text-[10px]">Someday</p>
@@ -496,7 +350,7 @@ let homee= false
       </div>
       </div>
 
-      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700"  on:click="{playB}">
+      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700"  on:click="{()=>musica('burn')}">
       <img src={r2} alt="star"   class="{openlibrary ? "md:w-[35%]": ""} w-[100%] rounded-lg cursor-pointer hover:border-green-400 hover:border-2"/>
       <div class="{openlibrary ? "visible": "invisible"} flex flex-col justify-start absolute top-[76%] left-[40%] w-[100%]">
       <p class="text-white font-semibold text-[10px]">Burn Into The Ground</p>
@@ -504,7 +358,7 @@ let homee= false
       </div>
       </div>
 
-      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700"  on:click="{playW}">
+      <div class=" w-[95%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl cursor-pointer hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700"  on:click="{()=>musica('war')}">
       <img src={r8} alt="star"  class="{openlibrary ? "md:w-[35%]": ""} w-[100%] rounded-lg cursor-pointer hover:border-green-400 hover:border-2"/>
       <div class="{openlibrary ? "visible": "invisible"} flex flex-col  justify-start absolute top-[91%] left-[40%] w-[100%]">
       <p class="text-white font-semibold text-[10px]">This Means War</p>
@@ -529,23 +383,23 @@ let homee= false
         <img  src={hrt} alt="star" class="w-[50px] h-[50px] p-3 bg-gradient-to-tr from-yellow-950 to-yellow-500 invert rounded-2xl left-[5px] relative"/>
         <p class="text-white font-semibold absolute left-[70px] text-[13px] ">Lista Brani Preferiti</p>
       </div>
-      <div on:click="{playit}" class="flex relative w-[270px] sm:w-[200px] h-[60px] top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px]": "md:w-[200px] lg:w-[300px]"}  bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl cursor-pointer items-center hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
+      <div on:click="{()=>musica('starfield')}" class="flex relative w-[270px] sm:w-[200px] h-[60px] top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px]": "md:w-[200px] lg:w-[300px]"}  bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl cursor-pointer items-center hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
         <img  src={star} alt="star" class="w-[50px] h-[50px] bg-gradient-to-tr from-yellow-950 to-yellow-500 rounded-2xl left-[5px] relative"/>
         <p class="text-white font-semibold absolute left-[70px] text-[13px]">Starfield's Playlist</p>
       </div>
-      <div on:click="{playV}" class="flex relative w-[270px] sm:w-[200px] h-[60px] top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px]": "md:w-[200px] lg:w-[300px]"}  bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl cursor-pointer items-center hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
+      <div on:click="{()=>musica('born')}" class="flex relative w-[270px] sm:w-[200px] h-[60px] top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px]": "md:w-[200px] lg:w-[300px]"}  bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl cursor-pointer items-center hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
         <img  src={r1} alt="star" class="w-[50px] h-[50px] bg-gradient-to-tr from-yellow-950 to-yellow-500 rounded-2xl left-[5px] relative"/>
         <p class="text-white font-semibold absolute left-[70px] text-[13px]">Marilyn Manson's Playlist</p>
       </div>
-      <div on:click="{playB}" class="flex relative w-[270px] sm:w-[200px] h-[60px]  top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px]": "md:w-[200px] lg:w-[300px]"} bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl cursor-pointer items-center hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
+      <div on:click="{()=>musica('burn')}" class="flex relative w-[270px] sm:w-[200px] h-[60px]  top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px]": "md:w-[200px] lg:w-[300px]"} bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl cursor-pointer items-center hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
         <img  src={r2} alt="star" class="w-[50px] h-[50px] bg-gradient-to-tr from-yellow-950 to-yellow-500 rounded-2xl left-[5px] relative"/>
         <p class="text-white font-semibold absolute left-[70px] text-[13px]">Nickelback's Playlist</p>
       </div>
-      <div on:click="{playC}" class="flex relative w-[270px] sm:w-[200px] h-[60px] top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px]": "md:w-[200px] lg:w-[300px]"}  bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl cursor-pointer items-center hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
+      <div on:click="{()=>musica('self')}" class="flex relative w-[270px] sm:w-[200px] h-[60px] top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px]": "md:w-[200px] lg:w-[300px]"}  bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl cursor-pointer items-center hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
         <img  src={r3} alt="star" class="w-[50px] h-[50px] bg-gradient-to-tr from-yellow-950 to-yellow-500 rounded-2xl left-[5px] relative"/>
         <p class="text-white font-semibold absolute left-[70px] text-[13px]">Laura Branigan's Playlist</p>
       </div>
-      <div on:click="{playM}" class="flex relative w-[270px] sm:w-[200px] h-[60px] top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px]": "md:w-[200px] lg:w-[300px]"}  bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl cursor-pointer items-center hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
+      <div on:click="{()=>musica('master')}" class="flex relative w-[270px] sm:w-[200px] h-[60px] top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px]": "md:w-[200px] lg:w-[300px]"}  bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl cursor-pointer items-center hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
         <img  src={r4} alt="star" class="w-[50px] h-[50px] bg-gradient-to-tr from-yellow-950 to-yellow-500 rounded-2xl left-[5px] relative"/>
         <p class="text-white font-semibold absolute left-[70px] text-[13px]">Metallica's Playlist</p>
       </div>
@@ -556,28 +410,28 @@ let homee= false
     <p class="absolute top-[0px] left-[15px] w-[100%] font-bold text-xl text-white">Brani Preferiti</p>
     <div class="flex flex-col items-center absolute top-[40px] justify-center w-[100%] h-[200px] overflow-auto">
       <div class="w-[100%] h-[200px]  grid grid-cols-4 grid-rows-1 justify-items-center items-center">
-        <div on:click="{playit}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[50px] sm:left-[30px] {openlibrary ? "md:left-[40px] lg:left-[15px]": "md:left-[30px] lg:left-[2px]"} rounded-xl p-1 relative ">
+        <div on:click="{()=>musica('starfield')}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[50px] sm:left-[30px] {openlibrary ? "md:left-[40px] lg:left-[15px]": "md:left-[30px] lg:left-[2px]"} rounded-xl p-1 relative ">
         <img src={star} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
         <div class="relative top-[5px] left-[10px]">
           <p class="text-white font-semibold text-[11px]">Starfield Soundtrack</p>
           <p class="text-neutral-500 font-medium text-[10px]">Bethesda Games Studio</p>
         </div>
         </div>
-        <div on:click="{playV}" class=" cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[140px] sm:left-[70px] {openlibrary ? "md:left-[120px] lg:left-[45px]": "md:left-[70px] lg:left-[2px]"}  rounded-xl p-1 relative ">
+        <div on:click="{()=>musica('born')}" class=" cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[140px] sm:left-[70px] {openlibrary ? "md:left-[120px] lg:left-[45px]": "md:left-[70px] lg:left-[2px]"}  rounded-xl p-1 relative ">
           <img src={r1} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
-          <div class="relative top-[2] left-[10px]">
+          <div class="relative top-[5px] left-[10px]">
             <p class="text-white font-semibold text-[11px]">Born Villain</p>
             <p class="text-neutral-500 font-medium text-[10px]">Marilyn Manson</p>
           </div>
           </div>
-          <div on:click="{playB}" class=" cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[230px] sm:left-[109px] {openlibrary ? "md:left-[200px] lg:left-[75px]": "md:left-[109px] lg:left-[2px]"}  rounded-xl p-1 relative ">
+          <div on:click="{()=>musica('burn')}" class=" cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[230px] sm:left-[109px] {openlibrary ? "md:left-[200px] lg:left-[75px]": "md:left-[109px] lg:left-[2px]"}  rounded-xl p-1 relative ">
             <img src={r2} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
             <div class="relative top-[5px] left-[10px]">
               <p class="text-white font-semibold text-[11px]">Burn Into The Ground</p>
               <p class="text-neutral-500 font-medium text-[10px]">Nickelback</p>
             </div>
             </div>
-            <div on:click="{playC}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[320px] sm:left-[150px] {openlibrary ? "md:left-[280px] lg:left-[103px]": "md:left-[150px] lg:left-[2px]"} rounded-xl p-1 relative ">
+            <div on:click="{()=>musica('self')}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[320px] sm:left-[150px] {openlibrary ? "md:left-[280px] lg:left-[103px]": "md:left-[150px] lg:left-[2px]"} rounded-xl p-1 relative ">
               <img src={r3} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
               <div class="relative top-[5px] left-[10px]">
                 <p class="text-white font-semibold text-[11px]">Self Control</p>
@@ -590,35 +444,35 @@ let homee= false
     <p class="absolute top-[280px] left-[15px] font-bold text-xl w-[100%] text-white">Aggiunti di recente</p>
     <div class="flex flex-col items-center absolute top-[320px] justify-center w-[100%] h-[200px] overflow-auto">
       <div class="w-[100%] h-[200px]  grid grid-cols-5 grid-rows-1 justify-items-center items-center">
-        <div on:click="{playM}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[58px] sm:left-[42px] {openlibrary ? "md:left-[50px] lg:left-[27px]": "md:left-[42px] lg:left-[18px]"} rounded-xl p-1 relative ">
+        <div on:click="{()=>musica('master')}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[58px] sm:left-[42px] {openlibrary ? "md:left-[50px] lg:left-[27px]": "md:left-[42px] lg:left-[18px]"} rounded-xl p-1 relative ">
         <img src={r4} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
         <div class="relative top-[5px] left-[10px]">
           <p class="text-white font-semibold text-[11px]">Master of Puppets</p>
           <p class="text-neutral-500 font-medium text-[10px]">Metallica</p>
         </div>
         </div>
-        <div on:click="{playMa}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[165px] sm:left-[106px] {openlibrary ? "md:left-[146px] lg:left-[83px]": "md:left-[106px] lg:left-[50px]"} rounded-xl p-1 relative ">
+        <div on:click="{()=>musica('matrix')}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[165px] sm:left-[106px] {openlibrary ? "md:left-[146px] lg:left-[83px]": "md:left-[106px] lg:left-[50px]"} rounded-xl p-1 relative ">
           <img src={r5} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
           <div class="relative top-[5px] left-[10px]">
             <p class="text-white font-semibold text-[11px]">Enter The Matrix</p>
             <p class="text-neutral-500 font-medium text-[10px]">Aurora</p>
           </div>
           </div>
-          <div on:click="{playE}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[272px] sm:left-[170px] {openlibrary ? "md:left-[243px] lg:left-[138px]": "md:left-[170px] lg:left-[82px]"} rounded-xl p-1 relative ">
+          <div on:click="{()=>musica('eyes')}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[272px] sm:left-[170px] {openlibrary ? "md:left-[243px] lg:left-[138px]": "md:left-[170px] lg:left-[82px]"} rounded-xl p-1 relative ">
             <img src={r6} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
             <div class="relative top-[5px] left-[10px]">
               <p class="text-white font-semibold text-[11px]">All Eyes On Me</p>
               <p class="text-neutral-500 font-medium text-[10px]">Eminem</p>
             </div>
             </div>
-            <div on:click="{playBo}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[380px] sm:left-[235px] {openlibrary ? "md:left-[341px] lg:left-[194px]": "md:left-[235px] lg:left-[115px]"} rounded-xl p-1 relative ">
+            <div on:click="{()=>musica('bon')}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[380px] sm:left-[235px] {openlibrary ? "md:left-[341px] lg:left-[194px]": "md:left-[235px] lg:left-[115px]"} rounded-xl p-1 relative ">
               <img src={r7} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
               <div class="relative top-[5px] left-[10px]">
                 <p class="text-white font-semibold text-[11px]">Because We Can</p>
                 <p class="text-neutral-500 font-medium text-[10px]">Bon Jovi</p>
               </div>
               </div>
-              <div on:click="{playBa}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[490px] sm:left-[300px] {openlibrary ? "md:left-[440px] lg:left-[250px]": "md:left-[300px] lg:left-[147px]"} rounded-xl p-1 relative ">
+              <div on:click="{()=>musica('bad')}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[490px] sm:left-[300px] {openlibrary ? "md:left-[440px] lg:left-[250px]": "md:left-[300px] lg:left-[147px]"} rounded-xl p-1 relative ">
               <img src={r9} alt="star" class="w-[150px] h-[130px] rounded-2xl"/>
               <div class="relative top-[5px] left-[10px]">
                 <p class="text-white font-semibold text-[11px]">Bad</p>
@@ -631,25 +485,25 @@ let homee= false
      <p class="absolute top-[560px] left-[15px] font-bold text-xl w-[100%] text-white">Artisti Seguiti</p>
     <div class="flex flex-col items-center absolute top-[600px] justify-center w-[100%] h-[200px] overflow-auto">
       <div class="w-[100%] h-[200px] grid grid-cols-4 grid-rows-1 justify-items-center items-center">
-        <div on:click="{playW}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[50px] sm:left-[30px] {openlibrary ? "md:left-[40px] lg:left-[15px]": "md:left-[30px] lg:left-[2px]"}  rounded-xl p-1 relative ">
+        <div on:click="{()=>musica('war')}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[50px] sm:left-[30px] {openlibrary ? "md:left-[40px] lg:left-[15px]": "md:left-[30px] lg:left-[2px]"}  rounded-xl p-1 relative ">
         <img src={r8} alt="star" class="w-[150px] h-[130px] rounded-full p-1"/>
         <div class="relative top-[5px] flex w-[100%] justify-center">
           <p class="text-white font-semibold text-[11px]">Nickelback</p>
         </div>
         </div>
-        <div on:click="{playBa}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[140px] sm:left-[70px] {openlibrary ? "md:left-[120px] lg:left-[45px]": "md:left-[70px] lg:left-[2px]"} rounded-xl p-1 relative ">
+        <div on:click="{()=>musica('bad')}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[140px] sm:left-[70px] {openlibrary ? "md:left-[120px] lg:left-[45px]": "md:left-[70px] lg:left-[2px]"} rounded-xl p-1 relative ">
           <img src={r9} alt="star" class="w-[150px] h-[130px] rounded-full p-1"/>
           <div class="relative top-[5px] flex w-[100%] justify-center">
             <p class="text-white font-semibold text-[11px]">Micheal Jackson</p>
           </div>
           </div>
-          <div on:click="{playE}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[230px] sm:left-[109px] {openlibrary ? "md:left-[200px] lg:left-[75px]": "md:left-[109px] lg:left-[2px]"} rounded-xl p-1 relative ">
+          <div on:click="{()=>musica('eyes')}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[230px] sm:left-[109px] {openlibrary ? "md:left-[200px] lg:left-[75px]": "md:left-[109px] lg:left-[2px]"} rounded-xl p-1 relative ">
             <img src={r6} alt="star" class="w-[150px] h-[130px] p-1 rounded-full"/>
             <div class="relative top-[5px] flex w-[100%] justify-center">
               <p class="text-white font-semibold text-[11px]">Eminem</p>
             </div>
             </div>
-            <div on:click="{playV}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[320px] sm:left-[150px] {openlibrary ? "md:left-[280px] lg:left-[103px]": "md:left-[150px] lg:left-[2px]"} rounded-xl p-1 relative ">
+            <div on:click="{()=>musica('born')}" class="cursor-pointer flex flex-col w-[150px] h-[180px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700 justify-center justify-items-center left-[320px] sm:left-[150px] {openlibrary ? "md:left-[280px] lg:left-[103px]": "md:left-[150px] lg:left-[2px]"} rounded-xl p-1 relative ">
               <img src={r1} alt="star" class="w-[150px] h-[130px] p-1 rounded-full"/>
               <div class="relative top-[5px] flex w-[100%] justify-center">
                 <p class="text-white font-semibold text-[11px]">Marilyn Manson</p>
@@ -669,11 +523,11 @@ let homee= false
         </div>
         <div class="flex justify-center" >
           <img src={src} alt="src" class="w-[25px] absolute invert-[0.5] cursor-not-allowed hover:invert"/>
-          <p class="text-neutral-500 font-semibold relative top-[30px] ">Cerca</p>
+          <p class="text-neutral-500 font-semibold relative top-[30px] ">Search</p>
         </div>
         <div class="flex justify-center">
           <img src={library} alt="src" class="w-[25px] absolute invert-[0.5] cursor-not-allowed hover:invert"/>
-          <p class="text-neutral-500 font-semibold relative top-[30px] ">Libreria</p>
+          <p class="text-neutral-500 font-semibold relative top-[30px] ">Library</p>
         </div>
         
       </div>
@@ -696,16 +550,16 @@ let homee= false
     <div class="flex flex-row justify-between items-center w-[40%] absolute top-[30%] lg:top-[20%] left-[40%] lg:left-[35%]">
       <img src={shuffle} alt="shuffle" class="invert-[0.5] w-[5%] cursor-pointer"/>
       <img src={prev} alt="prev" class="invert w-[4%] cursor-pointer"/>
-      <img src={play} alt="play" class="invert w-[5%]  cursor-pointer"/>
+      <img src={plause} on:click="{()=>musica()}" alt="play" class="invert w-[5%]  cursor-pointer"/>
       <img src={prev} alt="prev" class="invert w-[4%] rotate-180  cursor-pointer"/>
       <img src={repeat} alt="repeat" class="invert-[0.5] w-[5%]  cursor-pointer"/>
     </div>
     <div class="flex flex-row justify-between items-center w-[40%] h-[5%] absolute top-[60%] left-[40%] lg:left-[35%] rounded-lg">
-      <p class="text-neutral-700 mr-4 text-xs">0:38</p>
+      <p class="text-neutral-700 mr-4 text-xs">{min}:{sec}</p>
       <div class="w-[100%] bg-neutral-800 h-[100%] rounded-lg">
-        <div class="w-[17%] bg-white h-[100%] rounded-lg">.</div>
+        <div id="player" class=" bg-white h-[100%] rounded-lg">.</div>
       </div>
-      <p class="text-neutral-700 ml-4 text-xs">3:14</p>
+      <p class="text-neutral-700 ml-4 text-xs">{minuti}:{secondi}</p>
   </div>
 
   <div class="flex flex-row justify-between items-center w-[10%] absolute top-[30%] lg:top-[20%] right-[5%]">
@@ -738,6 +592,11 @@ let homee= false
     .barra2::-webkit-scrollbar-thumb{
       background-color: rgb(53, 53, 53);
       border-radius: 30px;
+    }
+
+
+    #player{
+      width: 0%;
     }
   
 </style>
