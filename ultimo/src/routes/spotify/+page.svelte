@@ -39,6 +39,7 @@ import becausebonjovi from './songs/becausebonjovi.mp3';
 import thismeanswar from './songs/thismeanswar.mp3';
 import bad from './songs/bad.mp3';
 import someday from './songs/someday.mp3';
+	//import { rollupVersion } from 'vite';
 
 
 let openlibrary = false;
@@ -88,8 +89,8 @@ const musica = (canzone) => {
   if (stato) {
     brano.pause();
     stato = false;
-    plause = play
-  } else {
+    plause = play 
+  }else {
     switch (canzone) {
       case 'starfield':
         artist = star;
@@ -183,12 +184,11 @@ const musica = (canzone) => {
         break;
     }
 
-  
 
-      if (url) {
+      if (url){
       brano = new Audio(url);
       plause = pausee
-      brano.currentTime = riproduzione
+      brano.currentTime = 0
       brano.addEventListener('canplay', ()=>{
         brano.play();
         stato = true
@@ -212,15 +212,64 @@ const musica = (canzone) => {
         secondi = 0
         plause = play
         stato = false
-        artist = music
-        name = ''
-        song = ''
         player.style.width = '0'
       })
-
     }
   }
 };
+
+let autopla = false;
+
+const autoplay = () => {
+  if (autopla) {
+    autopla = false;
+  } else {
+    autopla = true;
+    brano.addEventListener('ended', () => {
+      brano = new Audio(url);
+      brano.addEventListener('canplay', () => {
+        brano.play();
+        plause = pausee;
+        durata = brano.duration;
+        secondi = Math.floor(durata % 60);
+        minuti = Math.floor(durata / 60);
+      });
+
+      brano.addEventListener('timeupdate', () => {
+        riproduzione = brano.currentTime;
+        min = Math.floor(riproduzione / 60);
+        sec = Math.floor(riproduzione % 60);
+        let progressobarra = (riproduzione / durata) * 100;
+        player.style.width = `${progressobarra}%`;
+      });
+
+      brano.addEventListener('ended', ()=>{
+        min = 0
+        sec = 0
+        minuti = 0 
+        secondi = 0
+        plause = play
+        stato = false
+        player.style.width = '0'
+      })
+    });
+  }
+};
+
+
+const mettipausa=()=>{
+  if (stato){
+    riproduzione= brano.currentTime
+    brano.pause()
+    stato = false
+    plause = play
+  } else{
+    riproduzione= brano.currentTime
+    brano.play()
+    stato = true
+    plause = pausee
+  }
+}
 
 
 const mutasong=()=>{
@@ -563,9 +612,9 @@ let homee= false
     <div class="flex flex-row justify-between items-center w-[40%] absolute top-[30%] lg:top-[20%] left-[40%] lg:left-[35%]">
       <img src={shuffle} alt="shuffle" class="invert-[0.5] w-[5%] cursor-pointer"/>
       <img src={prev} alt="prev" class="invert w-[4%] cursor-pointer"/>
-      <img src={plause} on:click="{()=>musica()}" alt="play" class="invert w-[5%]  cursor-pointer"/>
+      <img src={plause} on:click="{mettipausa}" alt="play" class="invert w-[5%]  cursor-pointer"/>
       <img src={prev} alt="prev" class="invert w-[4%] rotate-180  cursor-pointer"/>
-      <img src={repeat} alt="repeat" class="invert-[0.5] w-[5%]  cursor-pointer"/>
+      <img src={repeat} alt="repeat" on:click="{()=>autoplay()}" class="{autopla ? "invert": "invert-[0.5]"}  w-[5%]  cursor-pointer"/>
     </div>
     <div class="flex flex-row justify-between items-center w-[40%] h-[5%] absolute top-[60%] left-[40%] lg:left-[35%] rounded-lg">
       <p class="text-neutral-700 mr-4 text-xs">{min}:{sec}</p>
