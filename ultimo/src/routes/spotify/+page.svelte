@@ -354,11 +354,11 @@ let homee= false
   <div class="flex justify-center items-center transform sm:scale-[120%] xl:scale-[140%] absolute xl:top-[20%] top-[35%] sm:top-[25%] md:top-[15%]">
 
     <div class="invisible md:visible grid grid-cols-1 grid-rows-2 bg-gradient-to-tr from-black to-neutral-950 border-2 border-neutral-950 w-[7%] h-[570px] rounded-xl absolute top-[10%] md:left-[-290px] lg:left-[-375px] {openlibrary ? "md:w-[200px] lg:w-[200px]": "lg:w-[80px] md:w-[70px]"}">
-      <div class="w-[100%] h-[50%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl flex justify-items-center items-center {openlibrary ? "md:h-[30%]": ""} ">
-      <div class="grid grid-cols-1 grid-rows-4 w-[100%] h-[100%] justify-items-center items-center relative {openlibrary ? "md:grid-cols-2 md:grid-rows-2 md:w-[60%] h-[30%] gap-y-[150%]": ""}">
-        <img src={home} alt="home" class="w-[40%] lg:w-[25%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[30%]": ""}"/>
+      <div class="w-[100%] h-[50%] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 rounded-xl flex justify-items-center items-center shadow-lg shadow-black {openlibrary ? "md:h-[30%]": ""} ">
+      <div class="grid grid-cols-1 grid-rows-4 w-[100%] h-[100%] justify-items-center items-center relative  {openlibrary ? "md:grid-cols-2 md:grid-rows-2 md:w-[60%] h-[30%] gap-y-[150%]": ""}">
+        <img src={home} alt="home" class="w-[40%] lg:w-[25%] invert-[0.5] relative top-[10%] hover:invert cursor-not-allowed {openlibrary ? "md:w-[30%]": ""}"/>
         <p class="text-neutral-500 text-sm relative cursor-default {openlibrary ? "text-xl left-[0%]": ""}">Home</p>
-        <img src={src} alt="home" class="w-[40%] lg:w-[25%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[30%]": ""}"/>
+        <img src={src} alt="home" class="w-[40%] lg:w-[25%] invert-[0.5] relative top-[10%] hover:invert cursor-not-allowed {openlibrary ? "md:w-[30%]": ""}"/>
         <p class="text-neutral-500 text-sm relative cursor-default {openlibrary ? "text-xl left-[0%]": ""}">Search</p>
       </div>
       </div>
@@ -609,14 +609,14 @@ let homee= false
       </div>
     </div>
 
-    <div class="flex flex-row justify-between items-center w-[40%] absolute top-[30%] lg:top-[20%] left-[40%] lg:left-[35%]">
-      <img src={shuffle} alt="shuffle" class="invert-[0.5] w-[5%] cursor-pointer"/>
-      <img src={prev} alt="prev" class="invert w-[4%] cursor-pointer"/>
-      <img src={plause} on:click="{mettipausa}" alt="play" class="invert w-[5%]  cursor-pointer"/>
-      <img src={prev} alt="prev" class="invert w-[4%] rotate-180  cursor-pointer"/>
+    <div class="flex flex-row justify-between items-center w-[40%] absolute top-[16%] lg:top-[16%] left-[40%] lg:left-[35%]">
+      <img src={shuffle} alt="shuffle" class="invert-[0.5] w-[5%] cursor-not-allowed"/>
+      <img src={prev} alt="prev" class="invert w-[4%] cursor-not-allowed"/>
+      <img src={plause} on:click="{mettipausa}" alt="play" class="invert w-[13%] lg:w-[10%]  bg-white rounded-full p-2 cursor-pointer"/>
+      <img src={prev} alt="prev" class="invert w-[4%] rotate-180  cursor-not-allowed"/>
       <img src={repeat} alt="repeat" on:click="{()=>autoplay()}" class="{autopla ? "invert": "invert-[0.5]"}  w-[5%]  cursor-pointer"/>
     </div>
-    <div class="flex flex-row justify-between items-center w-[40%] h-[5%] absolute top-[60%] left-[40%] lg:left-[35%] rounded-lg">
+    <div class="flex flex-row justify-between items-center w-[40%] h-[5%] absolute top-[70%] left-[40%] lg:left-[35%] rounded-lg">
       <p class="text-neutral-700 mr-4 text-xs">{min}:{sec}</p>
       <div class="w-[100%] bg-neutral-800 h-[100%] rounded-lg">
         <div id="player" class=" bg-white h-[100%] rounded-lg">.</div>
@@ -624,14 +624,14 @@ let homee= false
       <p class="text-neutral-700 ml-4 text-xs">{minuti}:{secondi}</p>
   </div>
 
-  <div class="flex flex-row justify-between items-center w-[10%] absolute top-[30%] lg:top-[20%] right-[5%]">
+  <div class="flex flex-row justify-between items-center w-[10%] absolute top-[30%] lg:top-[30%] md:right-[2%] lg:right-[5%]">
     <img on:click="{mutasong}" src={muta} alt="shuffle" class="invert w-[20%]  cursor-pointer"/>
     <img src={queue} alt="prev" class="invert w-[20%]  cursor-not-allowed"/>
     <img src={mic} alt="play" class="invert w-[20%]  cursor-not-allowed"/>
     <img src={library2} alt="prev" class="invert w-[20%]  cursor-not-allowed"/>
   </div>
 
-  <div class="flex flex-row justify-between items-center w-[10%] h-[5%] absolute top-[60%] right-[5%] rounded-lg">
+  <div class="flex flex-row justify-between items-center w-[10%] h-[5%] absolute top-[60%] md:right-[2%] lg:right-[5%] rounded-lg">
     <div class="w-[100%] bg-neutral-800 h-[100%] rounded-lg">
       <div class="{mutato ? "w-[0%]": "w-[73%]"} bg-white h-[100%] rounded-lg">.</div>
     </div>
