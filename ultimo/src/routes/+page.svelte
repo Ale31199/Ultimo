@@ -72,8 +72,8 @@
 
 
 
-<div class="flex justify-center w-[100%]">
-<div class="bg-black w-[100%] sm:h-[1700px] h-[1900px] md:h-[1700px] lg:h-[1450px] xl:h-[1550px] rounded-3xl relative top-36 border-teal-500 border-b-4 border-r-4 flex justify-center ">
+<div class="flex justify-center w-[100%] sm:h-[1900px] h-[2200px] md:h-[1900px] lg:h-[1650px] xl:h-[1750px]">
+<div class="bg-black w-[100%] sm:h-[1700px] h-[2000px] md:h-[1700px] lg:h-[1450px] xl:h-[1550px] rounded-3xl relative top-36 border-teal-500 border-b-4 border-r-4 flex justify-center ">
     <img alt="io" src={io} class="w-[25%] top-[1.5%] left-[5%] sm:w-[25%] sm:left-[5%] sm:top-[1%] md:left-[5%] md:top-[1%] rounded-full md:w-[25%] lg:w-[20%] 2xl:w-[15%] border-2 border-teal-500 absolute"/>
     <h1 class="text-teal-500 font-bold text-4xl sm:text-6xl sm:top-[1%] lg:top-[2.5%] md:text-7xl absolute top-7 md:top-8 left-[35%] lg:left-[27%] ">{ita.testo.titolo}</h1>
 
@@ -87,7 +87,7 @@
   
 
 
-    <div class="w-[310px] sm:w-[500px] md:w-[600px] lg:w-[750px] 2xl:w-[1000px] h-[1400px] sm:h-[1200px] md:h-[1100px] lg:h-[1000px] xl:h-[1100px] absolute bottom-[0%] sm:bottom-[0%] bg-gradient-to-bl from-neutral-800 to-neutral-950 border-2 border-neutral-800 grid grid-cols-1 grid-rows-3 justify-items-center text-justify rounded-3xl">
+    <div class="w-[310px] sm:w-[500px] md:w-[600px] lg:w-[750px] 2xl:w-[1000px] h-[1500px] sm:h-[1200px] md:h-[1100px] lg:h-[1000px] xl:h-[1100px] absolute bottom-[0%] sm:bottom-[0%] bg-gradient-to-bl from-neutral-800 to-neutral-950 border-2 border-neutral-800 grid grid-cols-1 grid-rows-3 justify-items-center text-justify rounded-3xl">
       
       <div class="flex flex-col items-center">
     <p class="text-justify ml-4 mr-4 text-2xl relative top-[3%] sm:top-[5%] md:top-[3%] lg:top-[7%] md:text-3xl lg:text-4xl  font-extrabold" >Chi sono?</p>
