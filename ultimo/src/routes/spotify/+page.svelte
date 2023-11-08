@@ -72,16 +72,16 @@ let name = '';
 let url;
 let brano = null;
 let stato = false;
-let riproduzione = 0
 let plause = play
+let mutato = false
+let muta = medium
 
 let durata= 0
 let secondi = Math.floor(durata % 60)
 let minuti  = Math.floor(durata / 60)
-
+let riproduzione = 0
 let min = Math.floor(riproduzione / 60)
 let sec = Math.floor(riproduzione % 60)
-
 
 
 const musica = (canzone) => {
@@ -183,7 +183,9 @@ const musica = (canzone) => {
         break;
     }
 
-    if (url) {
+  
+
+      if (url) {
       brano = new Audio(url);
       plause = pausee
       brano.currentTime = riproduzione
@@ -203,11 +205,11 @@ const musica = (canzone) => {
       player.style.width = `${progressobarra}%`
       })
 
-
-      
       brano.addEventListener('ended', ()=>{
-        riproduzione = 0
-        durata = 0
+        min = 0
+        sec = 0
+        minuti = 0 
+        secondi = 0
         plause = play
         stato = false
         artist = music
@@ -220,6 +222,17 @@ const musica = (canzone) => {
   }
 };
 
+
+const mutasong=()=>{
+  if (mutato && brano.muted){
+      muta = medium
+      brano.muted = false
+      }else{
+      muta = mute
+      brano.muted = true
+    }
+    mutato = !mutato
+}
 
 
 const links = [
@@ -305,7 +318,7 @@ let homee= false
       <button class="flex items-center sticky bottom-[90%]" >
       <div on:click="{()=>openLib()}" class="grid grid-cols-1 grid-rows-2 justify-items-center items-center sticky top-[90%] {openlibrary ? "md:grid-cols-2 grid-rows-1 md:w-[60%] md:h-[30%] md:bg-transparent": "bg-neutral-900 rounded-lg shadow-sm shadow-black"}">
       <img src={library} alt="home" class="w-[40%] lg:w-[25%] invert-[0.5] relative top-[10%] hover:invert cursor-pointer {openlibrary ? "md:w-[35%]": ""}"/>
-      <p class="text-neutral-500 text-sm relative {openlibrary ? "text-xl left-[0%]": ""}">Library</p>
+      <p class="text-neutral-500 text-sm relative {openlibrary ? "text-xl left-[10%]": ""}">Library</p>
       </div>
       </button>
   
@@ -563,15 +576,15 @@ let homee= false
   </div>
 
   <div class="flex flex-row justify-between items-center w-[10%] absolute top-[30%] lg:top-[20%] right-[5%]">
-    <img src={medium} alt="shuffle" class="invert w-[20%]  cursor-pointer"/>
-    <img src={queue} alt="prev" class="invert w-[20%]  cursor-pointer"/>
-    <img src={mic} alt="play" class="invert w-[20%]  cursor-pointer"/>
-    <img src={library2} alt="prev" class="invert w-[20%]  cursor-pointer"/>
+    <img on:click="{mutasong}" src={muta} alt="shuffle" class="invert w-[20%]  cursor-pointer"/>
+    <img src={queue} alt="prev" class="invert w-[20%]  cursor-not-allowed"/>
+    <img src={mic} alt="play" class="invert w-[20%]  cursor-not-allowed"/>
+    <img src={library2} alt="prev" class="invert w-[20%]  cursor-not-allowed"/>
   </div>
 
   <div class="flex flex-row justify-between items-center w-[10%] h-[5%] absolute top-[60%] right-[5%] rounded-lg">
     <div class="w-[100%] bg-neutral-800 h-[100%] rounded-lg">
-      <div class="w-[73%] bg-white h-[100%] rounded-lg">.</div>
+      <div class="{mutato ? "w-[0%]": "w-[73%]"} bg-white h-[100%] rounded-lg">.</div>
     </div>
   </div>
   </div>
@@ -597,6 +610,7 @@ let homee= false
 
     #player{
       width: 0%;
+      transition: 0.2s;
     }
   
 </style>
