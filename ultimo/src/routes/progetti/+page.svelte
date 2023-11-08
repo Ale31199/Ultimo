@@ -91,8 +91,8 @@ case 'THE CALCULATOR':
   return '/calcolatrice'
 break
 default:
-  titolo = ita.progetti.benvenuti,
-  descrizione = ita.progetti.desc
+    titolo = ita.progetti.benvenuti,
+    descrizione = ita.progetti.desc
 break
   }
 }
