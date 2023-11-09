@@ -44,6 +44,39 @@ let home= false
     }
   }
 
+  
+ let homex= true
+ let biglietti = false
+ let xshop = false
+
+  // @ts-ignore
+  const selezionaPagx=(paginax)=>{
+    switch (paginax) {
+      case 'homex':
+        home = true
+        skills =false
+        progetti=false
+        break;
+
+        case 'biglietti':
+          skills = true
+          home = false
+          progetti = false
+          break;
+
+          case 'xshop':
+            progetti = true
+            home = false
+            skills= false
+            break;
+    
+      default: home= false;
+              skills = false;
+              progetti = false
+        break;
+    }
+  }
+
 </script>
 
 <div>
@@ -69,9 +102,9 @@ let home= false
 
   
     <div class="bg-gradient-to-br from-gray-950 to-teal-950 md:bg-gradient-to-br md:from-black md:to-neutral-900 h-[1%] flex-auto flex flex-row items-center justify-between relative top-12  rounded-lg md:w-[50%] md:left-[45%] md:-top-[41%] "> 
-    <a href="/xflies" class=" text-white font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500">Home</a>
-    <a href="/xflies/biglietti" class=" text-white font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500">Biglietti</a>
-    <a href="/xflies/shop" class=" text-white font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500">X-Shop</a>
+    <a href="/xflies" on:click="{()=>selezionaPagx('homex')}" class=" font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {homex ? "text-teal-500 border-b-2 border-teal-500": "text-white"}">Home</a>
+    <a href="/xflies/biglietti" on:click="{()=>selezionaPagx('biglietti')}" class=" font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {biglietti ? "text-teal-500 border-b-2 border-teal-500": "text-white"}">Biglietti</a>
+    <a href="/xflies/shop" on:click="{()=>selezionaPagx('xshop')}" class="  font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {xshop ? "text-teal-500 border-b-2 border-teal-500": "text-white"}">X-Shop</a>
     </div>
 
     <div class="flex w-[100%] justify-center">

@@ -179,6 +179,39 @@ const tempo =()=>{
     }
   }
 
+  
+ let homex= false
+ let biglietti = true
+ let xshop = false
+
+  // @ts-ignore
+  const selezionaPagx=(paginax)=>{
+    switch (paginax) {
+      case 'homex':
+        home = true
+        skills =false
+        progetti=false
+        break;
+
+        case 'biglietti':
+          skills = true
+          home = false
+          progetti = false
+          break;
+
+          case 'xshop':
+            progetti = true
+            home = false
+            skills= false
+            break;
+    
+      default: home= false;
+              skills = false;
+              progetti = false
+        break;
+    }
+  }
+
 
 </script>
 
@@ -214,11 +247,12 @@ const tempo =()=>{
   
 
   
-    <div class="bg-gradient-to-br from-gray-950 to-teal-950 md:bg-gradient-to-br md:from-black md:to-neutral-900 h-[1%]  lg:h-[2%] lg:top-[1.5%] md:absolute md:h-[1.5%] md:top-[0.8%] flex-auto flex flex-row items-center justify-between lg:absolute relative top-12  rounded-lg md:w-[50%] md:left-[45%] "> 
-    <a href="/xflies" class=" text-white font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500">Home</a>
-    <a href="/xflies/biglietti" class=" text-white font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500">Biglietti</a>
-    <a href="/xflies/shop" class=" text-white font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500">X-Shop</a>
-    </div>
+    <div class="bg-gradient-to-br from-gray-950 to-teal-950 md:bg-gradient-to-br md:from-black md:to-neutral-900 h-[1%] flex-auto flex flex-row items-center justify-between relative top-12  rounded-lg md:w-[50%] md:left-[45%] md:-top-[41%] "> 
+      <a href="/xflies" on:click="{()=>selezionaPagx('homex')}" class=" font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {homex ? "text-teal-500 border-b-2 border-teal-500": "text-white"}">Home</a>
+      <a href="/xflies/biglietti" on:click="{()=>selezionaPagx('biglietti')}" class=" font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {biglietti ? "text-teal-500 border-b-2 border-teal-500": "text-white"}">Biglietti</a>
+      <a href="/xflies/shop" on:click="{()=>selezionaPagx('xshop')}" class="  font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {xshop ? "text-teal-500 border-b-2 border-teal-500": "text-white"}">X-Shop</a>
+      </div>
+  
 
     <div class="flex justify-center items-center absolute top-[340px] sm:top-[400px] left-[10%] text-[12px] font-light  md:rounded-xl   lg:rounded-xl lg:h-[1.5%] md:top-[380px] lg:top-[180px] md:left-[25%] lg:left-[25%]  md:w-[50%]  bg-neutral-950 p-3 rounded-xl w-[80%]">
       <p class="text-teal-500 font-bold" >{frasi}</p>
