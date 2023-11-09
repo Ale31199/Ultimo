@@ -28,6 +28,7 @@ import r9 from './im/R10.jpg';
 import r10 from './im/R11 .jpg';
 import hrt from './im/heart.png';
 import user from './im/user.png';
+import arrow from  './im/arrow.png';
 import starfield from './songs/starfield.mp3';
 import villain from './songs/bornvillain.mp3';
 import burn from './songs/burninto.mp3';
@@ -203,6 +204,9 @@ const musica = (canzone) => {
       sec = Math.floor(riproduzione % 60)
       let progressobarra = (riproduzione / durata) * 100
       player.style.width = `${progressobarra}%`
+      let progressobarraa = (riproduzione / durata) * 100;
+      playerr.style.width = `${progressobarraa}%`;
+      
       })
 
       brano.addEventListener('ended', ()=>{
@@ -213,6 +217,7 @@ const musica = (canzone) => {
         plause = play
         stato = false
         player.style.width = '0'
+        playerr.style.width = '0'
       })
     }
   }
@@ -241,6 +246,8 @@ const autoplay = () => {
         sec = Math.floor(riproduzione % 60);
         let progressobarra = (riproduzione / durata) * 100;
         player.style.width = `${progressobarra}%`;
+        let progressobarraa = (riproduzione / durata) * 100;
+        playerr.style.width = `${progressobarraa}%`;
       });
 
       brano.addEventListener('ended', ()=>{
@@ -251,6 +258,7 @@ const autoplay = () => {
         plause = play
         stato = false
         player.style.width = '0'
+        playerr.style.width = '0'
       })
     });
   }
@@ -330,6 +338,13 @@ let homee= false
               progetti = false
         break;
     }
+  }
+
+
+  let apriplayer = false
+
+  const apriPlayer=()=>{
+    apriplayer = !apriplayer
   }
 
 
@@ -439,6 +454,7 @@ let homee= false
  </div>
 
  <div class="flex flex-col absolute top-[15%] md:top-[17%] w-[100%] h-[420px] md:h-[460px]  bg-transparent rounded-2xl border-2 border-neutral-900 md:border-0 overflow-auto overflow-x-hidden barra barra2">
+
   <div class="flex absolute w-[100%] h-[500px] sm:h-[250px] {openlibrary ? "md:h-[500px] lg:h-[250px]": "md:h-[250px] lg:h-[250px]"}">
     <div class="grid grid-cols-1 grid-rows-6 sm:grid-cols-2 sm:grid-rows-3 w-[100%] justify-items-center items-center {openlibrary ? "md:grid-cols-1 md:grid-rows-6 lg:grid-cols-2 lg:grid-rows-3": "md:grid-cols-2 md:grid-rows-3 lg:grid-cols-2 lg:grid-rows-3 "}">
       <div class="flex relative w-[270px] sm:w-[200px] h-[60px] top-[10px] {openlibrary ? "md:w-[270px] lg:w-[250px] 2xl:w-[350px]": "md:w-[200px] lg:w-[300px]  2xl:w-[400px]"} bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-800 rounded-xl items-center cursor-not-allowed hover:bg-gradient-to-tr hover:from-black hover:to-neutral-700 hover:border-2 hover:border-neutral-700">
@@ -573,9 +589,54 @@ let homee= false
               </div>
       </div>
     </div>
-  </div>
- </div>
 
+    <div class="flex flex-col items-center absolute top-[800px] justify-center w-[100%] h-[100px] overflow-auto">
+      
+    </div>
+
+   
+
+  </div>
+
+  
+  <div class="md:invisible {apriplayer ? "h-[630px] top-[0%]": "h-[60px] top-[85.5%]"} flex items-center w-[100%]  rounded-xl bg-gradient-to-tr from-black to-gray-800 border-2 border-gray-800 sticky shadow-xl shadow-black">
+    <div class="flex  items-center absolute {apriplayer ? "w-[100%] top-[15%] h-[200px]": "w-[60%] top-[2%] left-[2%] h-[40px] "}">
+      <img src={artist} alt="artist" class=" {apriplayer ? "w-[70%] right-[15%] absolute bg-transparent rounded-[20px] sm:w-[55%] sm:left-[23%] ": "w-[20%] sm:w-[13%] sm:left-[5%] sm:absolute rounded-xl  bg-gray-500 shadow-inner shadow-black"} " />
+      <div class="flex flex-col absolute  w-[80%] h-[40px] {apriplayer ? "left-[5%] top-[235px]": "left-[25%] sm:left-[21%] top-[4px]"}">
+        <p class="text-[12px] font-semibold text-white {apriplayer ? "text-[15px]":"text-[12px]"} ">{song}</p>
+        <p class="text-[11px] text-neutral-600 {apriplayer ? "text-[12px]":"text-[11px]"}">{name}</p>
+      </div>
+    </div>
+
+    <div class="w-[100%] flex justify-center absolute md:invisible top-[90%]">
+      <div class="{apriplayer ? "visible top-[50%]":"invisible"} w-[80%] absolute flex flex-row justify-between">
+        <img src={shuffle} alt="shuffle" class="w-[7%] sm:w-[5%] sm:h-[5%] invert-[0.5]" />
+        <img src={prev} alt="shuffle" class="w-[7%] sm:w-[6%] sm:h-[6%] invert relative right-[5%]" />
+        <img src={plause} alt="plause" on:click="{mettipausa}" class="{apriplayer ? "top-[-50%] right-[42%] bg-white p-2 rounded-full w-[15%] invert-0 visible sm:w-[10%] sm:right-[44%]": "top-[-210%] right-[17%] sm:right-[10%] w-[7%] sm:w-[5%] sm:top-[-160%] invert visible"} md:invisible absolute " />
+        <img src={prev} alt="shuffle" class="w-[7%] sm:w-[6%] sm:h-[6%] invert rotate-180 relative left-[5%]" />
+        <img src={repeat} alt="shuffle" on:click="{()=>autoplay()}" class="w-[7%] sm:w-[5%] sm:h-[5%]  {autopla ? "invert": "invert-[0.5]"} " />
+      </div>
+    </div>
+    
+    <div class=" flex justify-center w-[100%] absolute bottom-[12%] md:invisible {apriplayer ? "visible": "invisible"}">
+    <div class="flex justify-between w-[88%]">
+     <p class="text-neutral-700 text-xs">{min}:{sec}</p>
+      <p class="text-neutral-700 text-xs">{minuti}:{secondi}</p>
+     </div>
+     </div>
+    
+     <div class="flex justify-center w-[100%] md:invisible">
+        <div class="w-[90%] absolute bottom-[16%] {apriplayer ? "h-[1%]": "h-[5%]"} ">
+          <div class="w-[100%] bg-neutral-800 h-[100%] rounded-lg">
+            <div id="playerr" class=" bg-white h-[100%] rounded-lg">.</div>
+          </div>
+        </div>
+     </div>
+     <img src={arrow} alt="arrow" on:click="{()=>apriPlayer()}" class="w-[7%] {apriplayer ? "ruota2 bottom-[92%] sm:w-[5%]": "bottom-[37%] sm:w-[5%] sm:bottom-[35.5%] "} right-[5%]  absolute invert animate-bounce" />
+    </div>
+  </div>
+
+ 
 
     <div class="visible md:invisible flex justify-between w-[100%] h-[80px] items-center bg-gradient-to-tr from-black to-neutral-900 rounded-2xl sticky border-t-2 border-neutral-900 top-[100%]">
       <div class="grid grid-cols-3 grid-rows-1 w-[100%] justify-items-center items-center absolute top-[15%]">
@@ -656,10 +717,21 @@ let homee= false
       border-radius: 30px;
     }
 
+    .ruota{
+      rotate: -180deg;
+    }
+    .ruota2{
+      rotate: 180deg;
+    }
+
 
     #player{
       width: 0%;
       transition: 0.2s;
     }
-  
+
+    #playerr{
+      width: 0%;
+      transition: 0.2s;
+    }
 </style>
