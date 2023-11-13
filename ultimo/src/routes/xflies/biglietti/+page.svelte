@@ -378,11 +378,12 @@ const tempo =()=>{
         </div>
 
         <div class="grid grid-cols-1 grid-rows-11 w-[100%] h-[350px] sm:h-[450px] gap-y-[20px] bg-gradient-to-tr from-black to-neutral-950 border-b-2 border-gray-600 absolute top-[50px] sm:top-[60px] rounded-2xl overflow-y-auto overflow-x-hidden justify-items-center">
-        <div class="flex items-center bg-gradient-to-tr from-black to-neutral-700 border-2 border-neutral-700 w-[90%] h-[90px] rounded-2xl relative top-[10%] justify-center text-center cursor-default">
+        
+          <div class="flex items-center bg-gradient-to-tr from-black to-neutral-700 border-2 border-neutral-700 w-[90%] h-[90px] rounded-2xl relative top-[10%] justify-center text-center cursor-default">
           <img src={terra} alt="terra" class="w-[70px] animazione absolute left-[5%] top-[10%]" />
           <p class="text-teal-500 text-3xl font-semibold absolute top-[20%] left-[34%] tracking-wide">{ita.biglietti.lanettuno}</p>
           <p class="text-teal-500 text-2xl font-semibold absolute top-[50%] left-[34%]">{ita.biglietti.pterra}</p>
-        </div>
+          </div>
 
       </div>
 
@@ -396,7 +397,7 @@ const tempo =()=>{
 
       <div class="flex justify-center w-[100%] h-[100px] bottom-[130px] absolute">
         <p class="text-white font-bold text-lg">Seleziona tipo di pagamento:</p>
-        <div class="flex justify-around w-[90%] h-[60px] absolute top-[30%] bg-black rounded-xl items-center">
+        <div class="flex justify-around w-[90%] h-[60px] absolute top-[30%] bg-black rounded-xl border-2 border-gray-800 items-center">
           <img src={visa} alt="visa" on:click="{()=>selezionacard('visa')}" class="{visacard ? "border-b-4 border-teal-500":"border-none"} w-[15%] h-[80%] sm:h-[100%]  cursor-pointer " />
           <img src={paypal} alt="visa" on:click="{()=>selezionacard('paypal')}" class="{paypalcard ? "border-b-4 border-teal-500 mt-3 pb-1":"border-none"} w-[15%] h-[70%] sm:h-[80%] sm:w-[10%] pb-1 mt-3 cursor-pointer " />
           <img src={american} alt="visa" on:click="{()=>selezionacard('american')}" class="{americancard ? "border-b-4 border-teal-500":"border-none"} w-[15%] h-[80%] sm:h-[100%] cursor-pointer " />
