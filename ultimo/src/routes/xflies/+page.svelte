@@ -93,7 +93,7 @@ let home= false
 <div class="bg-black w-[100%] h-[3800px] sm:h-[4500px] md:h-[4500px] lg:h-[4500px] rounded-3xl relative top-36 flex justify-center ">
   <div class="w-[90%] h-[5%] flex flex-col">
     <div class="bg-gradient-to-br from-gray-950 to-teal-950 flex-auto relative top-5 w-[100%] h-[30%] items-center teal-500 flex rounded-3xl ">
-    <img src={alien} alt="alien" class="w-[30%] sm:w-[20%] md:w-[10%]  md:left-[4%] relative" />
+    <img src={alien} alt="alien" class="w-[80px] sm:w-[90px] md:left-[4%] relative" />
     <div class="flex flex-col  md:left-[5%] relative">
     <h1  class="text-white text-4xl flex relative left-[0px] font-thin justify-center tracking-[10px] cursor-default">X-FLIES</h1>
      <p class="text-white text-sm italic">Your First Alien Space Travel</p>
@@ -111,31 +111,31 @@ let home= false
 
     <div class="grid grid-cols-1 grid-rows-3 justify-items-center absolute top-[8%]  w-[290px] sm:w-[500px] md:w-[600px] lg:w-[800px] 2xl:w-[1200px] h-[10%] sm:h-[15%] lg:h-[15%] sm:bg-gradient-to-tr from-black to-neutral-900 sm:border-2 sm:border-neutral-900 rounded-3xl">
       <img src={hand} alt="hand" class="w-[130px] sm:w-[170px] lg:w-[200px] relative top-[0%] animazione" />
-      <p class="text-teal-500 text-3xl sm:text-4xl lg:text-5xl sm:top-[-8%] lg:top-[10%] relative ">Benvenuti su X-Flies!</p>
+      <p class="text-teal-500 text-3xl sm:text-4xl lg:text-5xl top-[8%] sm:top-[-8%] lg:top-[10%] relative ">Benvenuti su X-Flies!</p>
       <p class="text-white text-justify text-[13px] md:text-[14px] lg:text-[15px] 2xl:text-[18px] absolute top-[50%] sm:top-[40%] lg:top-[50%] sm:w-[80%] md:w-[530px] lg:w-[730px] 2xl:w-[1100px]">{ita.homepage.benvenuto}</p>
     </div>
 
     <div class="grid grid-cols-1 grid-rows-3 justify-items-center absolute top-[27%] sm:top-[26%] w-[290px] sm:w-[500px] md:w-[600px] lg:w-[800px] 2xl:w-[1200px] h-[9%] sm:h-[16%] lg:h-[16%] sm:bg-gradient-to-tr from-black to-neutral-900 sm:border-2 sm:border-neutral-900 rounded-3xl">
       <img src={alien1} alt="hand" class="w-[110px] sm:w-[190px] lg:w-[200px] relative top-[5%] md:top-[20%]" />
-      <p class="text-teal-500 text-2xl sm:text-4xl lg:text-5xl sm:top-[-8%] md:top-[10%] md:text-4xl lg:top-[15%] relative ">Messaggio Per Gli Umani</p>
+      <p class="text-teal-500 text-2xl sm:text-4xl lg:text-5xl top-[8%] sm:top-[-8%] md:top-[10%] md:text-4xl lg:top-[15%] relative ">Messaggio Per Gli Umani</p>
       <p class="text-white text-justify text-[13px] md:text-[14px] lg:text-[15px] 2xl:text-[18px] absolute top-[50%] md:top-[46%]  sm:top-[40%] lg:top-[50%] sm:w-[80%] md:w-[530px] lg:w-[730px] 2xl:w-[1100px]">{ita.homepage.messaggio}</p>
     </div>
     
     <div class="grid grid-cols-1 grid-rows-3 justify-items-center absolute top-[46%] sm:top-[45%] w-[290px] sm:w-[500px] md:w-[600px] lg:w-[800px] 2xl:w-[1200px] h-[10%] sm:h-[14%] lg:h-[14%] sm:bg-gradient-to-tr from-black to-neutral-900 sm:border-2 sm:border-neutral-900 rounded-3xl">
       <img src={ufo} alt="hand" class="w-[140px] sm:w-[200px] md:w-[250px] lg:w-[250px] relative top-[10%] md:top-[5%] animazione2" />
-      <p class="text-teal-500 text-2xl sm:text-3xl lg:text-5xl sm:top-[5%] md:top-[20%] md:text-4xl lg:top-[15%] relative ">L'Eccellenza dei Nostri Piloti</p>
+      <p class="text-teal-500 text-2xl sm:text-3xl lg:text-5xl top-[8%] sm:top-[5%] md:top-[20%] md:text-4xl lg:top-[15%] relative ">L'Eccellenza dei Nostri Piloti</p>
       <p class="text-white text-justify text-[13px] md:text-[14px] lg:text-[15px] 2xl:text-[18px] absolute top-[50%] md:top-[50%] sm:top-[45%] lg:top-[51%] sm:w-[80%] md:w-[530px] lg:w-[730px] 2xl:w-[1100px]">{ita.homepage.piloti}</p>
     </div>
 
     <div class=" grid grid-cols-1 grid-rows-3 justify-items-center absolute top-[61.5%] sm:top-[62%] w-[290px] sm:w-[500px] md:w-[600px] lg:w-[800px] 2xl:w-[1200px] h-[10%] sm:h-[18%] lg:h-[18%] sm:bg-gradient-to-tr from-black to-neutral-900 sm:border-2 sm:border-neutral-900 rounded-3xl">
       <img src={alien3} alt="hand" class="w-[110px] sm:w-[200px] lg:w-[230px] relative top-[10%] md:top-[25%]" />
-      <p class="text-teal-500 text-2xl sm:text-4xl lg:text-5xl sm:top-[-8%] md:top-[13%] md:text-4xl lg:top-[20%] relative ">Licenze di Volo su XFlies</p>
+      <p class="text-teal-500 text-2xl sm:text-4xl lg:text-5xl top-[8%] sm:top-[-8%] md:top-[13%] md:text-4xl lg:top-[20%] relative ">Licenze di Volo su XFlies</p>
       <p class="text-white text-justify text-[13px] md:text-[14px] lg:text-[15px] 2xl:text-[18px] absolute top-[50%] md:top-[46%]  sm:top-[40%] lg:top-[50%] sm:w-[80%] md:w-[530px] lg:w-[730px] 2xl:w-[1100px]">{ita.homepage.licenze}</p>
     </div>
 
     <div class=" grid grid-cols-1 grid-rows-3 justify-items-center absolute top-[83.5%] sm:top-[83%] w-[290px] sm:w-[500px] md:w-[600px] lg:w-[800px] 2xl:w-[1200px] h-[10%] sm:h-[14%] lg:h-[15%] sm:bg-gradient-to-tr from-black to-neutral-900 sm:border-2 sm:border-neutral-900 rounded-3xl">
       <img src={area51} alt="hand" class="w-[140px] sm:w-[200px] md:w-[250px] lg:w-[270px] relative top-[6%]" />
-      <p class="text-teal-500 text-3xl sm:text-4xl lg:text-5xl md:top-[20%] md:text-4xl lg:top-[15%] relative ">L'Area 51 su XFlies</p>
+      <p class="text-teal-500 text-3xl sm:text-4xl lg:text-5xl top-[8%] md:top-[20%] md:text-4xl lg:top-[15%] relative ">L'Area 51 su XFlies</p>
       <p class="text-white text-justify text-[13px] md:text-[14px] lg:text-[15px] 2xl:text-[18px] absolute top-[50%] md:top-[50%]  sm:top-[45%] lg:top-[50%] sm:w-[80%] md:w-[530px] lg:w-[730px] 2xl:w-[1100px]">{ita.homepage.area}</p>
     </div>
 
