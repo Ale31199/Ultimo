@@ -29,16 +29,16 @@
 		"laurano": "Urano",
 		"lasistema": "Interspazio",
 		"lamercurio": "Mercurio",
-		"pterra": "€499",
-		"pluna": "€499",
-		"pmarte": "€699",
-		"pgiove": "€2499",
-		"pnettuno": "€1299",
-		"psaturno": "€2999",
-		"pvenere": "€2299",
-		"pplutone": "€3999",
-		"purano": "€1499",
-		"psistema": "",
-		"pmercurio": "€1799"
+		"pterra": 499,
+		"pluna": 499,
+		"pmarte": 699,
+		"pgiove": 2499,
+		"pnettuno": 1299,
+		"psaturno": 2999,
+		"pvenere": 2299,
+		"pplutone": 3999,
+		"purano": 1499,
+		"psistema": 1799,
+		"pmercurio": 1799
 	}
 }

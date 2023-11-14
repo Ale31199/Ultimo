@@ -22,6 +22,7 @@ import trash from '/src/routes/xflies/ximg/trash.png';
 
 // @ts-ignore
 import ita from '/src/routes/xflies/xtesto.json';
+	import { redirect } from '@sveltejs/kit';
 
 
 let pianeta = luna;
@@ -304,98 +305,157 @@ prezzoitem: ita.biglietti.psistema
 let calcolo;
 let count = 0
 let prezzo;
+let numart;
+let numcount = 0
 
  let carrello = []
 
  const aggiungiCarrello=(articolo)=>{
+  if(attiva || attiva2){
   switch(articolo){
     case 'terra': 
     const artTerra = articoli.find(item=> item.titoloitem === ita.biglietti.laterra)
      carrello = [...carrello, artTerra]
-     prezzo = 499
+     prezzo = ita.biglietti.pterra
      calcolo = prezzo += count
      count = calcolo
+     numart = numcount + 1
+     numcount = numart
+     attiva = false
     break;
     case 'giove': 
     const artGiove = articoli.find(item=> item.titoloitem === ita.biglietti.lagiove)
      carrello = [...carrello, artGiove]
-     prezzo = 2499
+     prezzo = ita.biglietti.pgiove
      calcolo = prezzo += count
      count = calcolo
+     numart = numcount + 1
+     numcount = numart
+     attiva2 = false
     break;
     case 'mercurio': 
     const artmercurio = articoli.find(item=> item.titoloitem === ita.biglietti.lamercurio)
      carrello = [...carrello, artmercurio]
-     prezzo = 1799
+     prezzo = ita.biglietti.pmercurio
      calcolo = prezzo += count
      count = calcolo
+     numart = numcount + 1
+     numcount = numart
+     attiva3 = false
     break;
     case 'nettuno': 
     const artnettuno = articoli.find(item=> item.titoloitem === ita.biglietti.lanettuno)
      carrello = [...carrello, artnettuno]
-     prezzo = 1299
+     prezzo = ita.biglietti.pnettuno
      calcolo = prezzo += count
      count = calcolo
+     numart = numcount + 1
+     numcount = numart
+     attiva4= false
     break;
     case 'plutone': 
     const artplutone = articoli.find(item=> item.titoloitem === ita.biglietti.laplutone)
      carrello = [...carrello, artplutone]
-     prezzo = 3999
+     prezzo = ita.biglietti.pplutone
      calcolo = prezzo += count
      count = calcolo
+     numart = numcount + 1
+     numcount = numart
+     attiva5= false
     break;
     case 'saturno': 
     const artsaturno = articoli.find(item=> item.titoloitem === ita.biglietti.lasaturno)
      carrello = [...carrello, artsaturno]
-     prezzo = 2999
+     prezzo = ita.biglietti.psaturno
      calcolo = prezzo += count
      count = calcolo
+     numart = numcount + 1
+     numcount = numart
+     attiva6 = false
     break;
      case 'urano': 
     const arturano = articoli.find(item=> item.titoloitem === ita.biglietti.laurano)
      carrello = [...carrello, arturano]
-     prezzo = 1499
+     prezzo = ita.biglietti.purano
      calcolo = prezzo += count
      count = calcolo
+     numart = numcount + 1
+     numcount = numart
+     attiva7 = false
     break;
      case 'venere': 
     const artvenere = articoli.find(item=> item.titoloitem === ita.biglietti.lavenere)
      carrello = [...carrello, artvenere]
-     prezzo = 2299
+     prezzo = ita.biglietti.pvenere
      calcolo = prezzo += count
      count = calcolo
+     numart = numcount + 1
+     numcount = numart
+     attiva8= false
      break;
     case 'luna': 
     const artluna = articoli.find(item=> item.titoloitem === ita.biglietti.laluna)
      carrello = [...carrello, artluna]
-     prezzo = 499
+     prezzo = ita.biglietti.pluna
      calcolo = prezzo += count
      count = calcolo
+     numart = numcount + 1
+     numcount = numart
+     attiva9 = false
     break;
     case 'marte': 
     const artmarte = articoli.find(item=> item.titoloitem === ita.biglietti.lamarte)
      carrello = [...carrello, artmarte]
-     prezzo = 699
+     prezzo = ita.biglietti.pmarte
      calcolo = prezzo += count
      count = calcolo
+     numart = numcount + 1
+     numcount = numart
+     attiva10= false
     break;
     case 'sistema': 
     const artsistema = articoli.find(item=> item.titoloitem === ita.biglietti.lasistema)
      carrello = [...carrello, artsistema]
-     prezzo = 1799
+     prezzo = ita.biglietti.psistema
      calcolo = prezzo += count
      count = calcolo
+     numart = numcount + 1
+     numcount = numart
+     attiva11= false
     break;
     default:
       break;
   }
  }
-
-
-
- const elimina=()=>{
-  carrello.pop(articoli)
  }
+ 
+ //da sistemare!!
+
+
+ const elimina=(articolo, chiave)=>{
+carrello = carrello.filter(item=> item !== articolo)
+     numart = numcount - 1
+     numcount = numart
+     const ilprezzo = articolo.prezzoitem
+     count = count - ilprezzo
+     
+     
+    
+ }
+
+
+ let attiva = true
+ let attiva2 = true
+ let attiva3 = true
+ let attiva4 = true
+ let attiva5 = true
+ let attiva6 = true
+ let attiva7 = true
+ let attiva8 = true
+ let attiva9 = true
+ let attiva10 = true
+ let attiva11= true
+
 
 
 
@@ -456,63 +516,68 @@ let prezzo;
         <button on:click="{()=>selezionaViaggioNext()}" class="bg-neutral-900 text-teal-500 rounded-lg relative w-[40%] ml-5 text-xl cursor-pointer hover:border-2 hover:border-teal-500 ">&gt;</button>
       </div>
 
-      <button class="shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer {grey ? "bg-neutral-400 text-black font-semibold transizione" : ""}{blue ? "bg-blue-900 font-semibold text-white transizione" : ""}{red ? "bg-red-950 font-semibold text-white transizione" : ""} ">Prenota {paga}</button>
+      <button on:click="{()=>aggiungiCarrello('luna')}" class="{grey ? "visibile":"invisible"}  {attiva9 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{attiva9 ? `Prenota ${paga}`: "Articolo aggiunto al carrello"}</button>
+       
+      <button on:click="{()=>aggiungiCarrello('marte')}" class="{red ? "visibile":"invisible"} {attiva10 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{attiva10 ? `Prenota ${paga}`: "Articolo aggiunto al carrello"}</button>
+    
+      <button on:click="{()=>aggiungiCarrello('sistema')}" class="{blue ? "visibile":"invisible"} {attiva11 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{attiva11 ? `Prenota ${paga}`: "Articolo aggiunto al carrello"}</button>
+    
     </div>
 
     <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[20%] sm:top-[18%] lg:top-[33%] lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={terra} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] animazione md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.laterra}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.terra}</p>
-      <button on:click="{()=>aggiungiCarrello('terra')}" class="absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer ">Prenota {ita.biglietti.laterra}</button>
+      <button on:click="{()=>aggiungiCarrello('terra')}" class=" {attiva ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva ? `Prenota ${ita.biglietti.laterra}`: "Articolo aggiunto al carrello"}</button>
     </div>
 
     <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[30%] sm:top-[28%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[33%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={giove} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] animazione md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.lagiove}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.giove}</p>
-      <button on:click="{()=>aggiungiCarrello('giove')}" class="absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer ">Prenota {ita.biglietti.lagiove}</button>
+      <button on:click="{()=>aggiungiCarrello('giove')}" class=" {attiva2 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva2 ? `Prenota ${ita.biglietti.lagiove}`: "Articolo aggiunto al carrello"}</button>
     </div>
     
     <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[40%] sm:top-[38%] lg:top-[50%] lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={mercurio} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] animazione lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.lamercurio}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%] sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.mercurio}</p>
-      <button on:click="{()=>aggiungiCarrello('mercurio')}" class="absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer ">Prenota {ita.biglietti.lamercurio}</button>
+      <button on:click="{()=>aggiungiCarrello('mercurio')}" class=" {attiva3 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva3 ? `Prenota ${ita.biglietti.lamercurio}`: "Articolo aggiunto al carrello"}</button>
     </div>
 
     <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[50%] sm:top-[48%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[50%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={nettuno} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] animazione lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.lanettuno}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.nettuno}</p>
-      <button on:click="{()=>aggiungiCarrello('nettuno')}" class="absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer ">Prenota {ita.biglietti.lanettuno}</button>
+      <button on:click="{()=>aggiungiCarrello('nettuno')}" class=" {attiva4 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva4 ? `Prenota ${ita.biglietti.lanettuno}`: "Articolo aggiunto al carrello"}</button>
     </div>
 
     <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[60%] sm:top-[58%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[67%] lg:left-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={plutone} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] animazione lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.laplutone}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.plutone}</p>
-      <button on:click="{()=>aggiungiCarrello('plutone')}" class="absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer ">Prenota {ita.biglietti.laplutone}</button>
+      <button on:click="{()=>aggiungiCarrello('plutone')}" class=" {attiva5 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva5 ? `Prenota ${ita.biglietti.laplutone}`: "Articolo aggiunto al carrello"}</button>
     </div>
 
     <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[70%] sm:top-[68%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[67%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={saturno} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.lasaturno}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%] sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.saturno}</p>
-      <button on:click="{()=>aggiungiCarrello('saturno')}" class="absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer ">Prenota {ita.biglietti.lasaturno}</button>
+      <button on:click="{()=>aggiungiCarrello('saturno')}" class=" {attiva6 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva6 ? `Prenota ${ita.biglietti.lasaturno}`: "Articolo aggiunto al carrello"}</button>
     </div>
 
     <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[80%] sm:top-[78%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[84%] lg:left-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={urano} alt="hand" class="w-[35%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.laurano}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.urano}</p>
-      <button on:click="{()=>aggiungiCarrello('urano')}" class="absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer ">Prenota {ita.biglietti.laurano}</button>
+      <button on:click="{()=>aggiungiCarrello('urano')}" class=" {attiva7 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva7 ? `Prenota ${ita.biglietti.laurano}`: "Articolo aggiunto al carrello"}</button>
     </div>
 
     <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[90%] sm:top-[88%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[84%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={venere} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%] animazione" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.lavenere}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.venere}</p>
-      <button on:click="{()=>aggiungiCarrello('venere')}" class="absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer ">Prenota {ita.biglietti.lavenere}</button>
+      <button on:click="{()=>aggiungiCarrello('venere')}" class=" {attiva8 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva8 ? `Prenota ${ita.biglietti.lavenere}`: "Articolo aggiunto al carrello"}</button>
     </div>
 
     </div>
@@ -523,7 +588,7 @@ let prezzo;
     <div class=" {opencart ? "visible": "invisible"}  bg-gradient-to-tr from-black to-gray-600 border-2 border-gray-600 w-[350px] sm:w-[550px] h-[660px] sm:h-[760px] md:h-[760px] lg:h-[760px] md:right-[7%] fixed bottom-[0%] flex justify-center ombracar rounded-xl overflow-y-auto ">
 
         <div class="flex flex-row justify-center items-center absolute top-0 sm:top-2 w-[100%] h-[8%] rounded-b-xl">
-        <p class="text-white font-bold text-3xl tracking-[3px] ">CARRELLO</p>
+        <p class="text-white font-bold text-3xl tracking-[3px] ">CARRELLO:({numcount})</p>
         </div>
 
         <div class="grid grid-cols-1 grid-rows-11 w-[100%] h-[350px] sm:h-[450px] gap-y-[20px] bg-gradient-to-tr from-black to-neutral-950 border-b-2 border-gray-600 absolute top-[50px] sm:top-[60px] rounded-2xl overflow-y-auto overflow-x-hidden justify-items-center">
@@ -532,8 +597,8 @@ let prezzo;
           <div class="flex items-center bg-gradient-to-tr from-black to-neutral-700 border-2 border-neutral-700 w-[90%] h-[90px] rounded-2xl relative top-[10%] justify-center text-center cursor-default">
           <img src={item.imgitem} alt="terra" class="w-[50px] md:w-[70px] animazione absolute left-[5%] " />
           <p class="text-teal-500 text-xl md:text-3xl font-semibold absolute top-[20%] md:top-[10%] left-[28%] md:left-[34%] tracking-wide">{item.titoloitem}</p>
-          <p class="text-teal-500 text-lg md:text-2xl font-semibold absolute top-[50%] left-[28%] md:left-[34%]">{item.prezzoitem}</p>
-          <img src={trash} alt='trash' on:click="{()=>elimina()}" class="invert bg-cyan-500 rounded-full absolute right-[5%] border-2 border-cyan-800 md:p-2 p-1 w-[30px] md:w-[40px] cursor-pointer" />
+          <p class="text-teal-500 text-lg md:text-2xl font-semibold absolute top-[50%] left-[28%] md:left-[34%]">€{item.prezzoitem}</p>
+          <img src={trash} alt='trash' on:click="{()=>elimina(item)}" class="invert bg-cyan-500 rounded-full absolute right-[5%] border-2 border-cyan-800 md:p-2 p-1 w-[30px] md:w-[40px] cursor-pointer" />
           </div>
         {/each}
          
@@ -562,7 +627,11 @@ let prezzo;
 
 
     <button on:click="{apricarrello}"  class="{opencart  ? "invisible": "right-[10%] sm:right-[5%] md:right-[5%] 2xl:right-[6%] fixed"}  w-[70px] sm:w-[80px] bg-black border-teal-500 border-2 shadow-lg shadow-teal-950 p-5 rounded-full bottom-[5%]  cursor-pointer hover:bg-teal-950 ">
+      <div class="flex justify-center w-[100%]">
+        <p class="text-black font-bold p-1 rounded-full bg-teal-500 ">{numcount}</p>
+        </div>
       <img src={cart} alt="cart" class="invert w-[100%]"/>
+      
     </button>
 
    
