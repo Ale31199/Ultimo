@@ -18,6 +18,7 @@ import visa from '/src/routes/xflies/ximg/visa.png';
 import alien from '/src/routes/xflies/ximg/alien.png';
 import cart from  '/src/routes/xflies/ximg/shopping-cart.png';
 import trash from '/src/routes/xflies/ximg/trash.png';
+import arrow from '/src/routes/xflies/ximg/arrow.png';
 
 
 // @ts-ignore
@@ -132,7 +133,7 @@ const tempo =()=>{
         scorrifrasi()
 
 
-        let opencart = true
+        let opencart = false
 
         const apricarrello=()=>{
          opencart = !opencart
@@ -473,6 +474,17 @@ carrello = carrello.filter(item=> item !== articolo)
  let attiva9 = true
  let attiva10 = true
 
+ let disattiva = true
+ let disattiva1 = true
+ let disattiva2 = true
+ let disattiva3 = true
+ let disattiva4 = true
+ let disattiva5 = true
+ let disattiva6= true
+ let disattiva7 = true
+ let disattiva8 = true
+ let disattiva9 = true
+ let disattiva10 = true
 
 
  let email = ''
@@ -485,13 +497,13 @@ carrello = carrello.filter(item=> item !== articolo)
  let riselezionapagamento = 'Seleziona tipo di pagamento:'
  let conferma = false
  let grazie = false
- let completato = `Grazie ${nome} per il tuo acquisto!`
- let dati = `Riceverai a breve una mail all'indirizzo: ${email}, contenente i biglietti/articoli acquistati! Ci auguriamo che possano essere di tuo gradimento. In caso di problemi o bisogno di assistenza, non esitare a contattarci alla nostra email: xfliesassistance@gmail.com`
+ let completato = `Grazie per il tuo acquisto!`
+ let dati = `Riceverai a breve una mail al tuo indirizzo di posta, contenente i biglietti/articoli acquistati! Ci auguriamo che possano essere di tuo gradimento. In caso di problemi o bisogno di assistenza, non esitare a contattarci alla nostra email: xfliesassistance@gmail.com`
  let randomnumber= '1234567890'
  let id = Math.floor(Math.random() * randomnumber.length)
 
  const confermaAcq=()=>{
-  if(carrello && (visacard === false && paypalcard === false && mastercard === false && americancard === false)){
+  if(visacard === false && paypalcard === false && mastercard === false && americancard === false){
     riselezionapagamento = 'Per effettuare il pagamento seleziona una carta'
     setTimeout(()=>{
     riselezionapagamento = 'Seleziona tipo di pagamento:'
@@ -503,22 +515,17 @@ carrello = carrello.filter(item=> item !== articolo)
   }
   if(email === '' || nome === '' || cognome === ''){
     oblemail = 'Email*'
-  setTimeout(()=>{
-    oblemail = 'Email (Campo obbligatorio)'
-  }, 5000)
-  
-  oblnome = 'Nome*'
-  setTimeout(()=>{
-    oblnome = 'Nome (Campo obbligatorio)'
-  }, 5000)
-  
-  oblcognome = 'Cognome*'
-  setTimeout(()=>{
-    oblcognome = 'Cognome (Campo obbligatorio)'
-  }, 5000)
-  
-  } else{
-   grazie = true
+    oblnome = 'Nome*'
+    oblcognome = 'Cognome*'
+  } else if (email !== '' || nome !== '' || cognome !== ''){
+    grazie = true
+   setTimeout(()=>{
+    grazie = false
+   }, 10000)
+   email = ''
+   nome = ''
+   cognome = ''
+   conferma = false
    numcount = 0
    count = 0
    compra = 'Acquista'
@@ -526,7 +533,47 @@ carrello = carrello.filter(item=> item !== articolo)
    paypalcard = false
    mastercard = false
    americancard = false
+   attiva = true
+   attiva1 = true
+   attiva2 = true
+   attiva3 = true
+   attiva4 = true
+   attiva5 = true
+   attiva6= true
+   attiva7 = true
+   attiva8 = true
+   attiva9 = true
+   attiva10 = true
+  
   }
+
+
+  if (conferma === true){
+    disattiva = false
+      disattiva1 = false
+      disattiva2 = false
+      disattiva3 = false
+      disattiva4 = false
+      disattiva5 = false
+      disattiva6= false
+      disattiva7 = false
+      disattiva8 = false
+      disattiva9 = false
+      disattiva10 = false
+  } else {
+    disattiva = true
+      disattiva1 = true
+      disattiva2 = true
+      disattiva3 = true
+      disattiva4 = true
+      disattiva5 = true
+      disattiva6= true
+      disattiva7 = true
+      disattiva8 = true
+      disattiva9 = true
+      disattiva10 = true
+  }
+
 }
 
 const Email=(event)=>{
@@ -539,6 +586,25 @@ const Cognome=(event)=>{
   cognome = event.target.value
 }
 
+
+
+const qt=(event)=>{
+  const selezionaqt = parseInt(event.target.value)
+  if(selezionaqt === 1){
+   count = count
+   count = count * 1
+  }else if(selezionaqt === 2){
+    count = count
+   count = count * 2
+  }else if(selezionaqt === 3){
+   count = count * 3
+  }else if(selezionaqt === 4){
+   count = count * 4
+  }else if(selezionaqt === 5){
+   count = count * 5
+  }
+
+}
 
 </script>
 
@@ -597,11 +663,11 @@ const Cognome=(event)=>{
         <button on:click="{()=>selezionaViaggioNext()}" class="bg-neutral-900 text-teal-500 rounded-lg relative w-[40%] ml-5 text-xl cursor-pointer hover:border-2 hover:border-teal-500 ">&gt;</button>
       </div>
 
-      <button disabled={!attiva8} on:click="{()=>aggiungiCarrello('luna')}" class="{grey ? "visibile":"invisible"}  {attiva8 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{attiva8 ? `Prenota ${paga}`: "Articolo aggiunto al carrello"}</button>
+      <button disabled={!attiva8 || !disattiva8} on:click="{()=>aggiungiCarrello('luna')}" class="{grey ? "visibile":"invisible"}  {attiva8 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{attiva8 ? `Prenota ${paga}`: "Articolo aggiunto al carrello"}</button>
        
-      <button disabled={!attiva9} on:click="{()=>aggiungiCarrello('marte')}" class="{red ? "visibile":"invisible"} {attiva9 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{attiva9 ? `Prenota ${paga}`: "Articolo aggiunto al carrello"}</button>
+      <button disabled={!attiva9 || !disattiva9} on:click="{()=>aggiungiCarrello('marte')}" class="{red ? "visibile":"invisible"} {attiva9 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{attiva9 ? `Prenota ${paga}`: "Articolo aggiunto al carrello"}</button>
     
-      <button disabled={!attiva10} on:click="{()=>aggiungiCarrello('sistema')}" class="{blue ? "visibile":"invisible"} {attiva10 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{attiva10 ? `Prenota ${paga}`: "Articolo aggiunto al carrello"}</button>
+      <button disabled={!attiva10 || !disattiva10} on:click="{()=>aggiungiCarrello('sistema')}" class="{blue ? "visibile":"invisible"} {attiva10 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{attiva10 ? `Prenota ${paga}`: "Articolo aggiunto al carrello"}</button>
     
     </div>
 
@@ -609,56 +675,56 @@ const Cognome=(event)=>{
       <img src={terra} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] animazione md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.laterra}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.terra}</p>
-      <button disabled={!attiva} on:click="{()=>aggiungiCarrello('terra')}" class=" {attiva ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva ? `Prenota ${ita.biglietti.laterra}`: "Articolo aggiunto al carrello"}</button>
+      <button disabled={!attiva || !disattiva} on:click="{()=>aggiungiCarrello('terra')}" class=" {attiva ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva ? `Prenota ${ita.biglietti.laterra}`: "Articolo aggiunto al carrello"}</button>
     </div>
 
     <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[30%] sm:top-[28%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[33%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={giove} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] animazione md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.lagiove}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.giove}</p>
-      <button disabled={!attiva1} on:click="{()=>aggiungiCarrello('giove')}" class=" {attiva1 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva1 ? `Prenota ${ita.biglietti.lagiove}`: "Articolo aggiunto al carrello"}</button>
+      <button disabled={!attiva1 || !disattiva1} on:click="{()=>aggiungiCarrello('giove')}" class=" {attiva1 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva1 ? `Prenota ${ita.biglietti.lagiove}`: "Articolo aggiunto al carrello"}</button>
     </div>
     
     <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[40%] sm:top-[38%] lg:top-[50%] lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={mercurio} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] animazione lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.lamercurio}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%] sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.mercurio}</p>
-      <button disabled={!attiva2} on:click="{()=>aggiungiCarrello('mercurio')}" class=" {attiva2 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva2 ? `Prenota ${ita.biglietti.lamercurio}`: "Articolo aggiunto al carrello"}</button>
+      <button disabled={!attiva2 || !disattiva2} on:click="{()=>aggiungiCarrello('mercurio')}" class=" {attiva2 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva2 ? `Prenota ${ita.biglietti.lamercurio}`: "Articolo aggiunto al carrello"}</button>
     </div>
 
     <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[50%] sm:top-[48%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[50%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={nettuno} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] animazione lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.lanettuno}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.nettuno}</p>
-      <button disabled={!attiva3} on:click="{()=>aggiungiCarrello('nettuno')}" class=" {attiva3 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva3 ? `Prenota ${ita.biglietti.lanettuno}`: "Articolo aggiunto al carrello"}</button>
+      <button disabled={!attiva3 || !disattiva3} on:click="{()=>aggiungiCarrello('nettuno')}" class=" {attiva3 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva3 ? `Prenota ${ita.biglietti.lanettuno}`: "Articolo aggiunto al carrello"}</button>
     </div>
 
     <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[60%] sm:top-[58%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[67%] lg:left-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={plutone} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] animazione lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.laplutone}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.plutone}</p>
-      <button disabled={!attiva4} on:click="{()=>aggiungiCarrello('plutone')}" class=" {attiva4 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva4 ? `Prenota ${ita.biglietti.laplutone}`: "Articolo aggiunto al carrello"}</button>
+      <button disabled={!attiva4 || !disattiva4} on:click="{()=>aggiungiCarrello('plutone')}" class=" {attiva4 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva4 ? `Prenota ${ita.biglietti.laplutone}`: "Articolo aggiunto al carrello"}</button>
     </div>
 
     <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[70%] sm:top-[68%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[67%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={saturno} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.lasaturno}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%] sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.saturno}</p>
-      <button disabled={!attiva5} on:click="{()=>aggiungiCarrello('saturno')}" class=" {attiva5 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva5 ? `Prenota ${ita.biglietti.lasaturno}`: "Articolo aggiunto al carrello"}</button>
+      <button disabled={!attiva5 || !disattiva5} on:click="{()=>aggiungiCarrello('saturno')}" class=" {attiva5 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva5 ? `Prenota ${ita.biglietti.lasaturno}`: "Articolo aggiunto al carrello"}</button>
     </div>
 
     <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[80%] sm:top-[78%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[84%] lg:left-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={urano} alt="hand" class="w-[35%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.laurano}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.urano}</p>
-      <button disabled={!attiva6} on:click="{()=>aggiungiCarrello('urano')}" class=" {attiva6 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva6 ? `Prenota ${ita.biglietti.laurano}`: "Articolo aggiunto al carrello"}</button>
+      <button disabled={!attiva6 || !disattiva6} on:click="{()=>aggiungiCarrello('urano')}" class=" {attiva6 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva6 ? `Prenota ${ita.biglietti.laurano}`: "Articolo aggiunto al carrello"}</button>
     </div>
 
     <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[90%] sm:top-[88%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[84%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-3xl border-2 border-neutral-900">
       <img src={venere} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%] animazione" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{ita.biglietti.lavenere}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{ita.biglietti.venere}</p>
-      <button disabled={!attiva7} on:click="{()=>aggiungiCarrello('venere')}" class=" {attiva7 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva7 ? `Prenota ${ita.biglietti.lavenere}`: "Articolo aggiunto al carrello"}</button>
+      <button disabled={!attiva7 || !disattiva7} on:click="{()=>aggiungiCarrello('venere')}" class=" {attiva7 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva7 ? `Prenota ${ita.biglietti.lavenere}`: "Articolo aggiunto al carrello"}</button>
     </div>
 
     </div>
@@ -668,36 +734,43 @@ const Cognome=(event)=>{
     <div class="flex justify-center w-[100%]">
     <div class=" {opencart ? "visible": "invisible"}  bg-gradient-to-tr from-black to-gray-600 border-2 border-gray-600 w-[350px] sm:w-[550px] h-[660px] sm:h-[760px] md:h-[760px] lg:h-[760px] md:right-[7%] fixed bottom-[0%] flex justify-center ombracar rounded-xl overflow-y-auto ">
 
-        <div class="flex flex-row justify-center items-center absolute top-0 sm:top-2 w-[100%] h-[8%] rounded-b-xl">
-        <p class="text-white font-bold text-3xl tracking-[3px] ">CARRELLO - {numcount}</p>
+        <div class="flex flex-row justify-center items-center absolute top-0 sm:top-0 w-[100%] h-[8%] rounded-b-xl">
+        <p class="text-white font-bold text-xl  sm:text-3xl tracking-[3px] ">CARRELLO: {numcount}</p>
         </div>
 
         <div class="grid grid-cols-1 grid-rows-11 w-[100%] h-[350px] sm:h-[450px] gap-y-[20px] bg-gradient-to-tr from-black to-neutral-950 border-b-2 border-gray-600 absolute top-[50px] sm:top-[60px] rounded-2xl overflow-y-auto overflow-x-hidden justify-items-center">
-
-          <div class="{conferma ? "visible": "invisible"} {opencart ? "visible": "invisible"} flex items-center bg-gradient-to-tr from-black to-neutral-700 border-2 border-neutral-700 w-[90%] h-[290px] sm:h-[370px] rounded-2xl absolute top-[10%] justify-center text-center cursor-default">
-            <p class="text-teal-500 text-xl md:text-3xl font-semibold absolute top-[2%] md:top-[2%] tracking-wide">Inserisci i tuoi dati:</p>
-            <p class="text-white font-bold mr-2 absolute top-[15%]">{oblemail}</p>
-            <input bind:value={email} type="email" on:input="{Email}" class="w-[60%] sm:w-[50%] rounded-md outline-none p-1 text-base absolute top-[25%]" maxlength="50" placeholder="Email..." />
-            <p class="text-white font-bold mr-2 absolute top-[45%]">{oblnome}</p>
-            <input bind:value={nome} type="text" on:input="{Nome}" class="w-[60%] sm:w-[50%] rounded-md outline-none p-1 text-base absolute top-[55%]" maxlength="20" placeholder="Nome..." />
-            <p class="text-white font-bold mr-2 absolute top-[75%]">{oblcognome}</p>
-            <input bind:value={cognome} type="text" on:input="{Cognome}" class="w-[60%] sm:w-[50%] rounded-md outline-none p-1 text-base absolute top-[85%]" maxlength="20" placeholder="Cognome..." />
-            </div>
-
-          <div class="{grazie ? "visible": "invisible"} {opencart ? "visible": "invisible"} flex items-center bg-gradient-to-tr from-black to-neutral-700 border-2 border-neutral-700 w-[90%] h-[290px] sm:h-[370px] rounded-2xl absolute top-[10%] justify-center text-center cursor-default">
-            <img src={alien} alt="terra" class="w-[70px] md:w-[100px] absolute left-[5%] " />
-            <p class="text-teal-500 text-xl md:text-3xl font-semibold absolute top-[20%] md:top-[10%] left-[28%] md:left-[34%] tracking-wide">{completato}</p>
-            <p class="text-teal-500 text-base md:text-xl font-semibold absolute top-[50%] left-[28%] md:left-[30%]">{dati}</p>
-            </div>
 
           {#each carrello as item (item.titoloitem)}
           <div class="flex items-center bg-gradient-to-tr from-black to-neutral-700 border-2 border-neutral-700 w-[90%] h-[90px] rounded-2xl relative top-[10%] justify-center text-center cursor-default">
           <img src={item.imgitem} alt="terra" class="w-[50px] md:w-[70px] animazione absolute left-[5%] " />
           <p class="text-teal-500 text-xl md:text-3xl font-semibold absolute top-[20%] md:top-[10%] left-[28%] md:left-[34%] tracking-wide">{item.titoloitem}</p>
           <p class="text-teal-500 text-lg md:text-2xl font-semibold absolute top-[50%] left-[28%] md:left-[34%]">€{item.prezzoitem}</p>
+          <select class="absolute right-[20%] w-[50px] rounded-sm outline-none" on:change="{()=>qt(event)}">
+            <option value=1 >1</option>
+            <option value=2 >2</option>
+            <option value=3 >3</option>
+            <option value=4 >4</option>
+            <option value=5 >5</option>
+          </select>
           <img src={trash} alt='trash' on:click="{()=>elimina(item)}" class="invert bg-cyan-500 rounded-full absolute right-[5%] border-2 border-cyan-800 md:p-2 p-1 w-[30px] md:w-[40px] cursor-pointer" />
           </div>
         {/each}
+
+        <div class="{conferma ? "visible": "invisible"} {opencart ? "visible": "invisible"} flex items-center bg-gradient-to-tr from-black to-neutral-700 border-2 border-neutral-700 w-[90%] h-[290px] sm:h-[350px] rounded-2xl absolute top-[10%] justify-center text-center cursor-default">
+          <p class="text-teal-500 text-xl md:text-3xl font-semibold absolute top-[2%] md:top-[2%] tracking-wide">Inserisci i tuoi dati:</p>
+          <p class="text-white font-bold mr-2 absolute top-[15%]">{oblemail}</p>
+          <input bind:value={email} type="email" on:input="{Email}" class="w-[60%] sm:w-[50%] rounded-md outline-none p-1 text-base absolute top-[25%]" maxlength="50" placeholder="Email..." />
+          <p class="text-white font-bold mr-2 absolute top-[45%]">{oblnome}</p>
+          <input bind:value={nome} type="text" on:input="{Nome}" class="w-[60%] sm:w-[50%] rounded-md outline-none p-1 text-base absolute top-[55%]" maxlength="20" placeholder="Nome..." />
+          <p class="text-white font-bold mr-2 absolute top-[75%]">{oblcognome}</p>
+          <input bind:value={cognome} type="text" on:input="{Cognome}" class="w-[60%] sm:w-[50%] rounded-md outline-none p-1 text-base absolute top-[85%]" maxlength="20" placeholder="Cognome..." />
+          </div>
+
+        <div class="{grazie ? "visible": "invisible"} {opencart ? "visible": "invisible"} flex items-center bg-gradient-to-tr from-black to-neutral-700 border-2 border-neutral-700 w-[90%] h-[290px] sm:h-[350px] rounded-2xl absolute top-[10%] justify-center text-justify cursor-default">
+          <p class="text-teal-500 text-xl md:text-3xl font-semibold absolute top-[10%] md:top-[10%] tracking-wide">{completato}</p>
+          <p class="text-teal-500 text-sm md:text-xl font-semibold absolute top-[30%] w-[80%]">{dati}</p>
+          </div>
+
       </div>
 
       <div on:click="{()=>confermaAcq()}" class="{opencart ? "visible transizione2" : "invisible"} flex justify-center text-center w-[180px] h-[50px] sm:w-[260px] sm:h-[70px] absolute items-center bg-black border-green-500 border-2 shadow-lg shadow-green-950 p-5 rounded-full bottom-[40px] left-[10%] cursor-pointer hover:bg-green-950 ">
@@ -709,7 +782,7 @@ const Cognome=(event)=>{
       </button>
 
       <div class="flex justify-center w-[100%] h-[100px] bottom-[130px] absolute">
-        <p class="text-white font-bold text-lg">{riselezionapagamento}</p>
+        <p class="text-white font-bold text-sm sm:text-lg">{riselezionapagamento}</p>
         <div class="flex justify-around w-[90%] h-[60px] absolute top-[30%] bg-black rounded-xl border-2 border-gray-800 items-center">
           <img src={visa} alt="visa" on:click="{()=>selezionacard('visa')}" class="{visacard ? "border-b-4 border-teal-500":"border-none"} w-[15%] h-[80%] sm:h-[100%] sm:w-[13%] cursor-pointer " />
           <img src={paypal} alt="visa" on:click="{()=>selezionacard('paypal')}" class="{paypalcard ? "border-b-4 border-teal-500 mt-3 pb-1":"border-none"} w-[15%] h-[70%] sm:h-[80%] sm:w-[10%] pb-1 mt-3 cursor-pointer " />
@@ -724,10 +797,9 @@ const Cognome=(event)=>{
 
     <button on:click="{apricarrello}"  class="{opencart  ? "invisible": "right-[10%] sm:right-[5%] md:right-[5%] 2xl:right-[6%] fixed"}  w-[70px] sm:w-[80px] bg-black border-teal-500 border-2 shadow-lg shadow-teal-950 p-5 rounded-full bottom-[5%]  cursor-pointer hover:bg-teal-950 ">
       <div class="flex justify-center w-[100%]">
-        <p class="text-black font-bold p-1 rounded-full bg-teal-500 ">{numcount}</p>
+        <p class="text-black font-bold p-1 rounded-full bg-teal-500 relative top-[14px] left-[2px] border-2 border-black">{numcount}</p>
         </div>
       <img src={cart} alt="cart" class="invert w-[100%]"/>
-      
     </button>
 
    
