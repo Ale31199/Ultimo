@@ -508,6 +508,8 @@ carrello = carrello.filter(item=> item !== articolo)
     setTimeout(()=>{
     riselezionapagamento = 'Seleziona tipo di pagamento:'
    }, 5000)
+  }else if(carrello.length === 0){
+
   }else{
     carrello = []
     conferma = true
@@ -521,7 +523,7 @@ carrello = carrello.filter(item=> item !== articolo)
     grazie = true
    setTimeout(()=>{
     grazie = false
-   }, 10000)
+   }, 15000)
    email = ''
    nome = ''
    cognome = ''
@@ -587,24 +589,12 @@ const Cognome=(event)=>{
 }
 
 
-
 const qt=(event)=>{
   const selezionaqt = parseInt(event.target.value)
-  if(selezionaqt === 1){
-   count = count
-   count = count * 1
-  }else if(selezionaqt === 2){
-    count = count
-   count = count * 2
-  }else if(selezionaqt === 3){
-   count = count * 3
-  }else if(selezionaqt === 4){
-   count = count * 4
-  }else if(selezionaqt === 5){
-   count = count * 5
-  }
-
+   count = prezzo * selezionaqt
+   
 }
+
 
 </script>
 
@@ -743,8 +733,8 @@ const qt=(event)=>{
           {#each carrello as item (item.titoloitem)}
           <div class="flex items-center bg-gradient-to-tr from-black to-neutral-700 border-2 border-neutral-700 w-[90%] h-[90px] rounded-2xl relative top-[10%] justify-center text-center cursor-default">
           <img src={item.imgitem} alt="terra" class="w-[50px] md:w-[70px] animazione absolute left-[5%] " />
-          <p class="text-teal-500 text-xl md:text-3xl font-semibold absolute top-[20%] md:top-[10%] left-[28%] md:left-[34%] tracking-wide">{item.titoloitem}</p>
-          <p class="text-teal-500 text-lg md:text-2xl font-semibold absolute top-[50%] left-[28%] md:left-[34%]">€{item.prezzoitem}</p>
+          <p class="text-teal-500 text-xl md:text-3xl font-semibold absolute top-[20%] md:top-[10%] left-[26%] md:left-[32%] tracking-wide">{item.titoloitem}</p>
+          <p class="text-teal-500 text-lg md:text-2xl font-semibold absolute top-[50%] left-[26%] md:left-[32%]">€{item.prezzoitem}</p>
           <select class="absolute right-[20%] w-[50px] rounded-sm outline-none" on:change="{()=>qt(event)}">
             <option value=1 >1</option>
             <option value=2 >2</option>
@@ -796,10 +786,11 @@ const qt=(event)=>{
 
 
     <button on:click="{apricarrello}"  class="{opencart  ? "invisible": "right-[10%] sm:right-[5%] md:right-[5%] 2xl:right-[6%] fixed"}  w-[70px] sm:w-[80px] bg-black border-teal-500 border-2 shadow-lg shadow-teal-950 p-5 rounded-full bottom-[5%]  cursor-pointer hover:bg-teal-950 ">
-      <div class="flex justify-center w-[100%]">
-        <p class="text-black font-bold p-1 rounded-full bg-teal-500 relative top-[14px] left-[2px] border-2 border-black">{numcount}</p>
-        </div>
+      
       <img src={cart} alt="cart" class="invert w-[100%]"/>
+      <div class="flex justify-center w-[100%]">
+        <p class="text-black font-bold p-1 rounded-full bg-teal-500 absolute top-[-15px] left-[25px] sm:left-[30px]">{numcount}</p>
+        </div>
     </button>
 
    
