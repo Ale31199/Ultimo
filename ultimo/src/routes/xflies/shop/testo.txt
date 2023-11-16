@@ -1,4 +1,4 @@
- import atom from '/src/routes/xflies/ximgshop/atom.png';
+  import atom from '/src/routes/xflies/ximgshop/atom.png';
   import bionic from '/src/routes/xflies/ximgshop/bionic-hand.png';
   import bitcoin from '/src/routes/xflies/ximgshop/bitcoin.png';
   import blaster from '/src/routes/xflies/ximgshop/blaster.png';
