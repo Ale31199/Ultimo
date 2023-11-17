@@ -1,0 +1,50 @@
+{
+	"storia": {
+		"t0": "Welcome to Pixel Nightmare! The interactive adventure game where every decision you make can have different consequences on the event of the story. Are you ready to help you escape the mysterious place where you have been imprisoned?",
+
+		"r0": ["Yes, I'm ready to help free him", "Maybe not now, I'm a little scared at the moment"],
+		"t1": "Chapter One: Awakening in the Castle: the protagonist wakes up in a dark and dusty cell inside an ancient pixelated castle. His mind is clouded, but he immediately hears a distorted voice coming from a glitchy device he held in his hand. It is you, the one who will help him escape from this cursed place. After looking around, the protagonist finds two options and can communicate directly with you: protagonist: 'Hello? Can anyone hear me? It's like I'm trapped in a pixelated nightmare ... can you hear me?",
+
+		"r1": "I hear you loud and clear!",
+
+		"t2": "Oh, that's understandable, I'm sorry to hear that you're not ready to help the poor glitch ... don't worry, you can come back anytime to start the adventure. Just reload the page to restart the game.",
+		"t3": "Oh thank God! Somehow I'm trapped here and I have no idea how I got to this horrible place. Now that you're here, maybe you can help me give me some advice on what to do. Like right now, what should I do? Explore the cell for some clues and maybe find something useful or check the broken window?",
+		"r2": ["Explore the cell and see what you can find.", "Check the broken window"],
+
+		"t4": "I checked the cell and found a corpse with a letter inside his jacket pocket.The letter says `I don't have much time left, but in case you are reading this check the mfosinibcisris...`. The letter looks pretty old and worn, which means I can't read the rest of it. Damn, we have to find something else here ... oh look I found a knife! He could have used it to defend himself against someone or something! Should I take it? ...",
+		"r3": ["Sure! It can be super useful for later!", "No, leave it there. No one will hurt you."],
+
+		"t5": "Okay, let me see ... oh shit, I can't go through ... the window is too small for me to get out ... what do I do now? ...",
+		"r4": ["Ohh gee, then go ahead and check the cell"],
+
+		"t6": "Ok then, wise choice I will only take it in cas.... oh wait...omg no, no no no...the guard is coming! But I got the knife, so I will kill him before he kills me...ok ok, what should I do? Tell me quickly! *guard approaches the cell*.",
+		"r5": ["Hide behind the corpse and fake your death", "Fight directly"],
+
+		"t7": "Oh no, no no no...the guard is coming in, fuck no! I have to do something... *guard gets closer to the cell* QUICK!!!",
+		"r6": ["Hide behind the corpse and fake your death", "Fight directly"],
+
+		"t8": "Okay, good idea.. I'm too afraid to die here also because I don't know how to fight, so I'll fake my death behind this rotten body and hope it will go away... *guard opens the cell*.",
+		"r7": "Wait Glitchy...",
+
+		"t9": "He is opening the cell! I will hide the device so I can fight him, wait for me, I hope to come back, if not.... well, thanks for your help <3... *Hide the device*",
+		"r8": "Wait Glitchy...",
+
+		"t10": "Are you sure?... Well I will but I'm so fucking scared it seems too loud *guard opens cell *. Please don't arrrrhghgjkvmfklmskrskn *connection lost...game over*.",
+		"r9": "Try again...",
+
+		"t11": "Heyyy...are you still here?...he's gone! Fortunately for me, I was not killed. But now there is a problem, I have to find another way if I don't want to be killed next time, what do you think.... GOD the key! He dropped the key on the floor, I didn't notice it so I was so scared. Damn that's lucky!, Ok now let's get out ....",
+		"r10": "Wowww that's great! Yes, now open the cell.",
+
+		"t12": "Heyyy...are you still here?...I did it, I killed him! I took some time, sorry if I made you wait so long, I had to cover my cuts I got from the fight...now he's dead, fuck I have to hide him with the other body...I even found the key to get out! Amazing isn't it? Now I wonder, should I disguise myself with his clothes? So no one will suspect or should I leave before they see me?",
+		"r11": ["Disguise and camouflage yourself to get out", "Just get out before you get caught"],
+
+		"t13": "Phew! It was quite a risk, but thanks to your guidance, I managed to escape from that cell. However, as I step out into the corridor, I realize that this castle is far from abandoned. The air is heavy with an eerie silence and there is a sense of foreboding hanging in the atmosphere. As I look ahead, I see more paths stretching out before me. To the left, there is a Grand Staircase leading upward; it has worn and ancient steps. To the right, there is a narrow passage disappearing into the darkness. I can't help but feel a chill down my spine as I consider the possibilities.",
+		"r12": "Continue.",
+
+		"t14": "Once again, I need your help. Which path should I choose? Should I climb the Great Staircase, hoping to find answers on the higher planes? Or should I venture into the mysterious depths of the narrow passage? I trust your judgment and am counting on your guidance to navigate the dangers of this castle and discover the truth behind my imprisonment here.",
+		"r13": ["Ascend the Great Staircase", " Explore the Mysterious Depths."],
+
+		"t15": "Continue -- thank you for playing this demo!",
+		"progetti": "Projects"
+	}
+}

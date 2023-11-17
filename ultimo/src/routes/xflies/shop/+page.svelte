@@ -30,72 +30,89 @@
   
   // @ts-ignore
   import ita from '/src/routes/xflies/xtesto.json';
-    import { redirect } from '@sveltejs/kit';
+    //import { redirect } from '@sveltejs/kit';
+   //@ts-ignore
+    import eng from '/src/routes/xflies/xtestoeng.json';
+
+import { lingua } from './lingua.js';
+
+
+const TraduciPagina=(linguatraduci)=>{
+  switch(linguatraduci){
+    case 'ita':
+      lingua.set(ita)
+      break;
+    case 'eng':
+      lingua.set(eng)
+    break;
+  }
+}
+
   
   
   let pianeta = atom;
-  let titolo = 'Atomo'
-  let desc = ita.shop.atomo
+  let titolo = $lingua.shop.laatomo
+  let desc = $lingua.shop.atomo
   let grey = true
   let blue = false
   let red = false
-  let paga = 'Atomo'
+  let paga = $lingua.shop.laatomo
   
   
   
   const selezionaViaggioNext=()=>{
     if(pianeta === atom){
     pianeta = bionic
-    titolo = 'Braccio Bionico';
-    desc = ita.shop.braccio
+    titolo = $lingua.shop.labraccio;
+    desc = $lingua.shop.braccio
     red = true
     blue = false
     grey = false
-    paga = 'Braccio Bionico'
+    paga = $lingua.shop.labraccio
     } else if (pianeta === bionic){
   pianeta = bitcoin
-  titolo = 'Bitcoin'
-  desc = ita.shop.bitcoin
+  titolo = $lingua.shop.labitcoin
+  desc = $lingua.shop.bitcoin
     blue = true
     red= false
      grey = false
-     paga = 'Bitcoin'
+     paga = $lingua.shop.labitcoin
     } else if(pianeta === bitcoin){
       pianeta = atom
-      titolo = 'Atomo'
-      desc = ita.shop.atomo
+      titolo = $lingua.shop.laatomo
+      desc = $lingua.shop.atomo
     grey = true
     red = false
     blue = false
-    paga = 'Atomo'
+    paga = $lingua.shop.laatomo
     }
   }
   
   const selezionaViaggioPrev=()=>{
     if(pianeta === bitcoin){
     pianeta = bionic
-    titolo = 'Braccio Bionico';
-    desc = ita.shop.braccio
+    titolo = $lingua.shop.labraccio;
+    desc = $lingua.shop.braccio
     red = true
     blue = false
     grey = false
-    paga = 'Braccio Bionico'
+    paga = $lingua.shop.labraccio
     } else if (pianeta === atom){
   pianeta = bitcoin
-  titolo = 'Bitcoin'
-  desc = ita.shop.bitcoin
+  titolo = $lingua.shop.labitcoin
+  desc = $lingua.shop.bitcoin
     blue = true
     red = false
     grey = false
-    paga = 'Bitcoin'
+    paga = $lingua.shop.labitcoin
     } else if(pianeta === bionic){
       pianeta = atom
-      titolo = 'Atomo'
-      desc = ita.shop.atomo
+      titolo = $lingua.shop.laatomo
+      desc = $lingua.shop.atomo
     grey = true
     red = false
     blue = false
-    paga = 'Atomo'
+    paga = $lingua.shop.laatomo
     }
   }
   
@@ -110,22 +127,22 @@
    tempo()
   
    const rand = [
-          "I nostri computer sono i più potenti nell'universo!",
-          "I nostri jetpack sono sempre verificati e testati per un uso sicuro!",
-          "Occhio a non usare troppo il teletrasporto o potresti smolecolarti!",
-          "Le nostre Ram sono in offerta, acquista ora!!",
-          "Le batterie ad alta capacità caricano tutto quello che vuoi in pochi secondi.",
-          "Il blaster se lo usi troppo scotta! Scotta di sconto del 30%!!",
-          "Il telescopio ti permette di vedere loooontanissimo!",
-          "Quando guidi l'auto volante non troverai mai semafori davanti a te!",
-          "Il braccio bionico è 10 volte più forte di un braccio umano!",
-          "Il robot fa tutto quello che non vuoi fare tu! Conviene comprarlo!",
-          "Il nostro sito è sempre online anche contro un attacco EMP!!",
-          "Con il nostro kit chimico puoi creare delle pozioni super potenti!",
-          "Ci è giunta voce che il nostro sito è il migliore sulla galassia",
-          "Benvenuto sul nostro shop su Xshop! Acquista oggetti provenienti dallo spazio!"];
+        $lingua.homepage.aa,
+        $lingua.homepage.bb,
+        $lingua.homepage.cc,
+        $lingua.homepage.dd,
+        $lingua.homepage.ee,
+        $lingua.homepage.ff,
+        $lingua.homepage.gg,
+        $lingua.homepage.hh,
+        $lingua.homepage.ii,
+        $lingua.homepage.jj,
+        $lingua.homepage.kk,
+        $lingua.homepage.ll,
+        $lingua.homepage.mm,
+        $lingua.homepage.nn];
   
-          let frasi = 'Benvenuto sul nostro shop su Xshop! Acquista oggetti provenienti dallo spazio!'
+          let frasi = $lingua.homepage.nn
   
           const scorrifrasi=()=>{
             const scorri = setInterval(()=>{
@@ -255,104 +272,104 @@
   
    const articoli = [{
     imgitem: atom,
-  titoloitem: ita.shop.laatomo,  //0
-  prezzoitem: ita.shop.patomo
+  titoloitem: $lingua.shop.laatomo,  //0
+  prezzoitem: $lingua.shop.patomo
    },
    {
   imgitem: bionic,
-  titoloitem: ita.shop.labraccio, //1
-  prezzoitem: ita.shop.pbraccio
+  titoloitem: $lingua.shop.labraccio, //1
+  prezzoitem: $lingua.shop.pbraccio
    },
    {
     imgitem: bitcoin,
-  titoloitem: ita.shop.labitcoin, //2
-  prezzoitem: ita.shop.pbitcoin
+  titoloitem: $lingua.shop.labitcoin, //2
+  prezzoitem: $lingua.shop.pbitcoin
    },
    {
   imgitem: blaster,
-  titoloitem: ita.shop.lablaster, //3
-  prezzoitem: ita.shop.pblaster
+  titoloitem: $lingua.shop.lablaster, //3
+  prezzoitem: $lingua.shop.pblaster
    },
    {
   imgitem: chemistry,
-  titoloitem: ita.shop.lakit, //4
-  prezzoitem: ita.shop.pkit
+  titoloitem: $lingua.shop.lakit, //4
+  prezzoitem: $lingua.shop.pkit
    },
    {
   imgitem: computer,
-  titoloitem: ita.shop.lacomputer, //5
-  prezzoitem: ita.shop.pcomputer
+  titoloitem: $lingua.shop.lacomputer, //5
+  prezzoitem: $lingua.shop.pcomputer
    },
    {
   imgitem: cpu,
-  titoloitem: ita.shop.lacpu,  //6
-  prezzoitem: ita.shop.pcpu
+  titoloitem: $lingua.shop.lacpu,  //6
+  prezzoitem: $lingua.shop.pcpu
    },
    {
   imgitem: dna,
-  titoloitem: ita.shop.ladna,  //7
-  prezzoitem: ita.shop.pdna
+  titoloitem: $lingua.shop.ladna,  //7
+  prezzoitem: $lingua.shop.pdna
    },
    {
   imgitem: energy,
-  titoloitem: ita.shop.laenergia, //8
-  prezzoitem: ita.shop.penergia
+  titoloitem: $lingua.shop.laenergia, //8
+  prezzoitem: $lingua.shop.penergia
    },
    {
   imgitem: flycar,
-  titoloitem: ita.shop.laauto, //9
-  prezzoitem: ita.shop.pauto
+  titoloitem: $lingua.shop.laauto, //9
+  prezzoitem: $lingua.shop.pauto
    },
    {
   imgitem: hologram,
-  titoloitem: ita.shop.laologramma, //10
-  prezzoitem: ita.shop.pologramma
+  titoloitem: $lingua.shop.laologramma, //10
+  prezzoitem: $lingua.shop.pologramma
    },
    {
   imgitem: jetpack,
-  titoloitem: ita.shop.lajetpack, //11
-  prezzoitem: ita.shop.pjetpack
+  titoloitem: $lingua.shop.lajetpack, //11
+  prezzoitem: $lingua.shop.pjetpack
    },
    {
   imgitem: ram,
-  titoloitem: ita.shop.laram, //12
-  prezzoitem: ita.shop.pram
+  titoloitem: $lingua.shop.laram, //12
+  prezzoitem: $lingua.shop.pram
    },
 
    {
   imgitem: robot,
-  titoloitem: ita.shop.larobot, //13
-  prezzoitem: ita.shop.probot
+  titoloitem: $lingua.shop.larobot, //13
+  prezzoitem: $lingua.shop.probot
    },
    {
   imgitem: rocket,
-  titoloitem: ita.shop.larazzo, //14
-  prezzoitem: ita.shop.prazzo
+  titoloitem: $lingua.shop.larazzo, //14
+  prezzoitem: $lingua.shop.prazzo
    },
    {
   imgitem: spaceship,
-  titoloitem: ita.shop.lanave, //15
-  prezzoitem: ita.shop.pnave
+  titoloitem: $lingua.shop.lanave, //15
+  prezzoitem: $lingua.shop.pnave
    },
    {
   imgitem: teleport,
-  titoloitem: ita.shop.lateletrasporto, //16
-  prezzoitem: ita.shop.pteletrasporto
+  titoloitem: $lingua.shop.lateletrasporto, //16
+  prezzoitem: $lingua.shop.pteletrasporto
    },
    {
   imgitem: telescope,
-  titoloitem: ita.shop.latelescopio, //17
-  prezzoitem: ita.shop.ptelescopio
+  titoloitem: $lingua.shop.latelescopio, //17
+  prezzoitem: $lingua.shop.ptelescopio
    },
    {
   imgitem: titanium,
-  titoloitem: ita.shop.latitanio, //18
-  prezzoitem: ita.shop.ptitanio
+  titoloitem: $lingua.shop.latitanio, //18
+  prezzoitem: $lingua.shop.ptitanio
    },
    {
   imgitem: transformer,
-  titoloitem: ita.shop.labatteria, //19
-  prezzoitem: ita.shop.pbatteria
+  titoloitem: $lingua.shop.labatteria, //19
+  prezzoitem: $lingua.shop.pbatteria
    },
   ]
   
@@ -369,7 +386,7 @@
       case 'atomo': 
        const artAtomo = articoli[0]
        carrello = [...carrello, artAtomo]
-       prezzo = ita.shop.patomo
+       prezzo = $lingua.shop.patomo
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -379,7 +396,7 @@
       case 'braccio': 
       const artBraccio = articoli[1]
        carrello = [...carrello, artBraccio]
-       prezzo = ita.shop.pbraccio
+       prezzo = $lingua.shop.pbraccio
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -389,7 +406,7 @@
       case 'bitcoin': 
       const artbitcoin = articoli[2]
        carrello = [...carrello, artbitcoin]
-       prezzo = ita.shop.pbitcoin
+       prezzo = $lingua.shop.pbitcoin
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -399,7 +416,7 @@
       case 'blaster': 
       const artblaster = articoli[3]
        carrello = [...carrello, artblaster]
-       prezzo = ita.shop.pblaster
+       prezzo = $lingua.shop.pblaster
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -409,7 +426,7 @@
       case 'kit': 
       const artkit = articoli[4]
        carrello = [...carrello, artkit]
-       prezzo = ita.shop.pkit
+       prezzo = $lingua.shop.pkit
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -419,7 +436,7 @@
       case 'computer': 
       const artcomputer = articoli[5]
        carrello = [...carrello, artcomputer]
-       prezzo = ita.shop.pcomputer
+       prezzo = $lingua.shop.pcomputer
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -429,7 +446,7 @@
        case 'cpu': 
       const artcpu = articoli[6]
        carrello = [...carrello, artcpu]
-       prezzo = ita.shop.pcpu
+       prezzo = $lingua.shop.pcpu
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -439,7 +456,7 @@
        case 'dna': 
       const artdna = articoli[7]
        carrello = [...carrello, artdna]
-       prezzo = ita.shop.pdna
+       prezzo = $lingua.shop.pdna
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -449,7 +466,7 @@
       case 'energia': 
       const artenergia = articoli[8]
        carrello = [...carrello, artenergia]
-       prezzo = ita.shop.penergia
+       prezzo = $lingua.shop.penergia
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -459,7 +476,7 @@
       case 'auto': 
       const artauto = articoli[9]
        carrello = [...carrello, artauto]
-       prezzo = ita.shop.pauto
+       prezzo = $lingua.shop.pauto
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -469,7 +486,7 @@
       case 'ologramma': 
       const artologramma = articoli[10]
        carrello = [...carrello, artologramma]
-       prezzo = ita.shop.pologramma
+       prezzo = $lingua.shop.pologramma
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -479,7 +496,7 @@
       case 'jetpack': 
       const artjetpack = articoli[11]
        carrello = [...carrello, artjetpack]
-       prezzo = ita.shop.pjetpack
+       prezzo = $lingua.shop.pjetpack
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -489,7 +506,7 @@
       case 'ram': 
       const artram = articoli[12]
        carrello = [...carrello, artram]
-       prezzo = ita.shop.pram
+       prezzo = $lingua.shop.pram
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -499,7 +516,7 @@
       case 'robot': 
       const artrobot = articoli[13]
        carrello = [...carrello, artrobot]
-       prezzo = ita.shop.probot
+       prezzo = $lingua.shop.probot
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -509,7 +526,7 @@
       case 'razzo': 
       const artrazzo = articoli[14]
        carrello = [...carrello, artrazzo]
-       prezzo = ita.shop.prazzo
+       prezzo = $lingua.shop.prazzo
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -519,7 +536,7 @@
       case 'nave': 
       const artnave = articoli[15]
        carrello = [...carrello, artnave]
-       prezzo = ita.shop.pnave
+       prezzo = $lingua.shop.pnave
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -529,7 +546,7 @@
       case 'teletrasporto': 
       const artteletrasporto = articoli[16]
        carrello = [...carrello, artteletrasporto]
-       prezzo = ita.shop.pteletrasporto
+       prezzo = $lingua.shop.pteletrasporto
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -539,7 +556,7 @@
       case 'telescopio': 
       const arttelescopio = articoli[17]
        carrello = [...carrello, arttelescopio]
-       prezzo = ita.shop.ptelescopio
+       prezzo = $lingua.shop.ptelescopio
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -549,7 +566,7 @@
       case 'titanio': 
       const arttitanio = articoli[18]
        carrello = [...carrello, arttitanio]
-       prezzo = ita.shop.ptitanio
+       prezzo = $lingua.shop.ptitanio
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -559,7 +576,7 @@
       case 'batteria': 
       const artbatteria = articoli[19]
        carrello = [...carrello, artbatteria]
-       prezzo = ita.shop.pbatteria
+       prezzo = $lingua.shop.pbatteria
        calcolo = prezzo += count
        count = calcolo
        numart = numcount + 1
@@ -580,45 +597,45 @@
        const ilprezzo = articolo.prezzoitem
        count = count - ilprezzo
   
-       if (articolo.titoloitem === ita.shop.laatomo) {
+       if (articolo.titoloitem === $lingua.shop.laatomo) {
           attiva = true;
-      } if (articolo.titoloitem === ita.shop.labraccio) {
+      } if (articolo.titoloitem === $lingua.shop.labraccio) {
           attiva1 = true;
-      }  if (articolo.titoloitem === ita.shop.labitcoin) {
+      }  if (articolo.titoloitem === $lingua.shop.labitcoin) {
           attiva2 = true;
-      } if (articolo.titoloitem === ita.shop.lablaster) {
+      } if (articolo.titoloitem === $lingua.shop.lablaster) {
           attiva3 = true;
-      }  if (articolo.titoloitem === ita.shop.lakit) {
+      }  if (articolo.titoloitem === $lingua.shop.lakit) {
           attiva4 = true;
-      } if (articolo.titoloitem === ita.shop.lacomputer) {
+      } if (articolo.titoloitem === $lingua.shop.lacomputer) {
           attiva5 = true;
-      }  if (articolo.titoloitem === ita.shop.lacpu) {
+      }  if (articolo.titoloitem === $lingua.shop.lacpu) {
           attiva6 = true;
-      } if (articolo.titoloitem === ita.shop.ladna) {
+      } if (articolo.titoloitem === $lingua.shop.ladna) {
           attiva7 = true;
-      }  if (articolo.titoloitem === ita.shop.laenergia) {
+      }  if (articolo.titoloitem === $lingua.shop.laenergia) {
           attiva8 = true;
-      } if (articolo.titoloitem === ita.shop.laauto) {
+      } if (articolo.titoloitem === $lingua.shop.laauto) {
           attiva9 = true;
-      } if (articolo.titoloitem === ita.shop.laologramma) {
+      } if (articolo.titoloitem === $lingua.shop.laologramma) {
           attiva10 = true;
-      } if (articolo.titoloitem === ita.shop.lajetpack) {
+      } if (articolo.titoloitem === $lingua.shop.lajetpack) {
           attiva11 = true;
-      } if (articolo.titoloitem === ita.shop.laram) {
+      } if (articolo.titoloitem === $lingua.shop.laram) {
           attiva12 = true;
-      } if (articolo.titoloitem === ita.shop.larobot) {
+      } if (articolo.titoloitem === $lingua.shop.larobot) {
           attiva13 = true;
-      } if (articolo.titoloitem === ita.shop.larazzo) {
+      } if (articolo.titoloitem === $lingua.shop.larazzo) {
           attiva14 = true;
-      } if (articolo.titoloitem === ita.shop.lanave) {
+      } if (articolo.titoloitem === $lingua.shop.lanave) {
           attiva15 = true;
-      } if (articolo.titoloitem === ita.shop.lateletrasporto) {
+      } if (articolo.titoloitem === $lingua.shop.lateletrasporto) {
           attiva16 = true;
-      } if (articolo.titoloitem === ita.shop.latelescopio) {
+      } if (articolo.titoloitem === $lingua.shop.latelescopio) {
           attiva17 = true;
-      } if (articolo.titoloitem === ita.shop.latitanio) {
+      } if (articolo.titoloitem === $lingua.shop.latitanio) {
           attiva18 = true;
-      } if (articolo.titoloitem === ita.shop.labatteria) {
+      } if (articolo.titoloitem === $lingua.shop.labatteria) {
           attiva19 = true;
       }
    }
@@ -667,49 +684,49 @@
   
   
    let email = ''
-   let nome = ''
-   let cognome = ''
-   let oblemail = 'Email*'
-   let oblnome = 'Nome*'
-   let oblcognome = 'Cognome*'
-   let compra = 'Acquista'
-   let riselezionapagamento = 'Seleziona tipo di pagamento:'
-   let conferma = false
-   let grazie = false
-   let completato = `Grazie per il tuo acquisto!`
-   let dati = `Riceverai a breve una mail al tuo indirizzo di posta, contenente i biglietti/articoli acquistati! Ci auguriamo che possano essere di tuo gradimento. In caso di problemi o bisogno di assistenza, non esitare a contattarci alla nostra email: xfliesassistance@gmail.com`
-   let randomnumber= '1234567890'
-   let id = Math.floor(Math.random() * randomnumber.length)
-  
-   const confermaAcq=()=>{
-    if(visacard === false && paypalcard === false && mastercard === false && americancard === false){
-      riselezionapagamento = 'Per effettuare il pagamento seleziona una carta'
-      setTimeout(()=>{
-      riselezionapagamento = 'Seleziona tipo di pagamento:'
-     }, 5000)
-    }else if(carrello.length === 0){
-  
-    }else{
-      carrello = []
-      conferma = true
-      compra = 'Conferma Acquisto'
-    }
-    if(email === '' || nome === '' || cognome === ''){
-      oblemail = 'Email*'
-      oblnome = 'Nome*'
-      oblcognome = 'Cognome*'
-    } else if (email !== '' || nome !== '' || cognome !== ''){
-      grazie = true
-     setTimeout(()=>{
-      grazie = false
-     }, 15000)
-     email = ''
-     nome = ''
-     cognome = ''
-     conferma = false
-     numcount = 0
-     count = 0
-     compra = 'Acquista'
+ let nome = ''
+ let cognome = ''
+ let oblemail = 'Email'
+ let oblnome = $lingua.homepage.nome
+ let oblcognome = $lingua.homepage.cognome
+ let compra = $lingua.homepage.acquista
+ let riselezionapagamento = $lingua.homepage.pagamento
+ let conferma = false
+ let grazie = false
+ let completato = $lingua.homepage.grazie
+ let dati = $lingua.homepage.grmes
+ let randomnumber= '1234567890'
+ let id = Math.floor(Math.random() * randomnumber.length)
+
+ const confermaAcq=()=>{
+  if(visacard === false && paypalcard === false && mastercard === false && americancard === false){
+    riselezionapagamento = $lingua.homepage.effettua
+    setTimeout(()=>{
+    riselezionapagamento = $lingua.homepage.pagamento
+   }, 5000)
+  }else if(carrello.length === 0){
+
+  }else{
+    carrello = []
+    conferma = true
+    compra = $lingua.homepage.acquista
+  }
+  if(email === '' || nome === '' || cognome === ''){
+    oblemail = 'Email'
+    oblnome = $lingua.homepage.nome
+    oblcognome = $lingua.homepage.cognome
+  } else if (email !== '' || nome !== '' || cognome !== ''){
+    grazie = true
+   setTimeout(()=>{
+    grazie = false
+   }, 15000)
+   email = ''
+   nome = ''
+   cognome = ''
+   conferma = false
+   numcount = 0
+   count = 0
+   compra = $lingua.homepage.acquista
      visacard = false
      paypalcard = false
      mastercard = false
@@ -811,9 +828,14 @@
     <div class="bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-800 h-10 flex-auto flex flex-row items-center justify-between relative top-12 rounded-xl md:w-[50%] md:left-[45%] md:-top-12 "> 
     <a href="/" class=" font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {home ? "border-b-2 rounded-sm border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('home')}">Home</a>
     <a href="/skills" class="  font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {skills ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('skills')}">Skills</a>
-    <a href="/progetti" class="  font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('progetti')}">Progetti</a>
-    </div>
-  </div>
+    <a href="/progetti" class=" text-white font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500":""}" on:click="{()=>selezionaPag('progetti')}">{$lingua.homepage.progetti}</a>
+</div>
+</div>
+
+<select on:change="{(event)=>TraduciPagina(event.target.value)}" class="w-[100px] absolute top-[30%] sm:top-[20%] md:top-[13%] bg-gradient-to-tr p-2 from-white to-neutral-300 border-2 border-neutral-300 rounded-2xl invert">
+<option value="ita">Italiano</option>
+<option value="eng">English</option>
+</select>
   
   
   <div class="bg-black w-[100%] h-[5500px] sm:h-[6500px] md:h-[5500px] lg:h-[3000px] rounded-3xl relative top-36 flex justify-center ">
@@ -858,9 +880,9 @@
           <button on:click="{()=>selezionaViaggioPrev()}" class="bg-neutral-900 text-teal-500 rounded-lg relative w-[40%] mr-5 text-xl cursor-pointer hover:border-2 hover:border-teal-50">&lt;</button>
           <button on:click="{()=>selezionaViaggioNext()}" class="bg-neutral-900 text-teal-500 rounded-lg relative w-[40%] ml-5 text-xl cursor-pointer hover:border-2 hover:border-teal-500 ">&gt;</button>
         </div>
-        <button disabled={!attiva || !disattiva} on:click="{()=>aggiungiCarrello('atomo')}" class="{grey ? "visibile":"invisible"}  {attiva ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-green-900 text-white font-semibold" : ""}{blue ? "bg-yellow-700 font-semibold text-white" : ""}{red ? "bg-violet-950 font-semibold text-white" : ""} ">{attiva ? `Acquista ${paga}`: "Articolo aggiunto al carrello"}</button>
-        <button disabled={!attiva1 || !disattiva1} on:click="{()=>aggiungiCarrello('braccio')}" class="{red ? "visibile":"invisible"} {attiva1 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-green-900 text-white font-semibold" : ""}{blue ? "bg-yellow-700 font-semibold text-white" : ""}{red ? "bg-violet-950 font-semibold text-white" : ""} ">{attiva1 ? `Acquista ${paga}`: "Articolo aggiunto al carrello"}</button>
-        <button disabled={!attiva2 || !disattiva2} on:click="{()=>aggiungiCarrello('bitcoin')}" class="{blue ? "visibile":"invisible"} {attiva2 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-green-900 text-white font-semibold" : ""}{blue ? "bg-yellow-700 font-semibold text-white" : ""}{red ? "bg-violet-950 font-semibold text-white" : ""} ">{attiva2 ? `Acquista ${paga}`: "Articolo aggiunto al carrello"}</button>
+        <button disabled={!attiva || !disattiva} on:click="{()=>aggiungiCarrello('atomo')}" class="{grey ? "visibile":"invisible"}  {attiva ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-green-900 text-white font-semibold" : ""}{blue ? "bg-yellow-700 font-semibold text-white" : ""}{red ? "bg-violet-950 font-semibold text-white" : ""} ">{attiva ? `${$lingua.homepage.acquista} ${paga}`: `${$lingua.homepage.aggiunto}`}</button>
+        <button disabled={!attiva1 || !disattiva1} on:click="{()=>aggiungiCarrello('braccio')}" class="{red ? "visibile":"invisible"} {attiva1 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-green-900 text-white font-semibold" : ""}{blue ? "bg-yellow-700 font-semibold text-white" : ""}{red ? "bg-violet-950 font-semibold text-white" : ""} ">{attiva1 ? `${$lingua.homepage.acquista} ${paga}`: `${$lingua.homepage.aggiunto}`}</button>
+        <button disabled={!attiva2 || !disattiva2} on:click="{()=>aggiungiCarrello('bitcoin')}" class="{blue ? "visibile":"invisible"} {attiva2 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-green-900 text-white font-semibold" : ""}{blue ? "bg-yellow-700 font-semibold text-white" : ""}{red ? "bg-violet-950 font-semibold text-white" : ""} ">{attiva2 ? `${$lingua.homepage.acquista} ${paga}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
 
 
@@ -868,58 +890,58 @@
   
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={blaster} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.lablaster}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%] md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.blaster}</p>
-        <button disabled={!attiva3 || !disattiva3} on:click="{()=>aggiungiCarrello('blaster')}" class=" {attiva3 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva3 ? `Acquista ${ita.shop.lablaster}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lablaster}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%] md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.blaster}</p>
+        <button disabled={!attiva3 || !disattiva3} on:click="{()=>aggiungiCarrello('blaster')}" class=" {attiva3 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva3 ? `${$lingua.homepage.acquista} ${$lingua.shop.lablaster}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={chemistry} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.lakit}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.kit}</p>
-        <button disabled={!attiva4 || !disattiva4} on:click="{()=>aggiungiCarrello('kit')}" class=" {attiva4 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva4 ? `Acquista ${ita.shop.lakit}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lakit}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.kit}</p>
+        <button disabled={!attiva4 || !disattiva4} on:click="{()=>aggiungiCarrello('kit')}" class=" {attiva4 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva4 ? `${$lingua.homepage.acquista} ${$lingua.shop.lakit}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
       
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={computer} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.lacomputer}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.computer}</p>
-        <button disabled={!attiva5 || !disattiva5} on:click="{()=>aggiungiCarrello('computer')}" class=" {attiva5 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva5 ? `Acquista ${ita.shop.lacomputer}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lacomputer}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.computer}</p>
+        <button disabled={!attiva5 || !disattiva5} on:click="{()=>aggiungiCarrello('computer')}" class=" {attiva5 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva5 ? `${$lingua.homepage.acquista} ${$lingua.shop.lacomputer}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={cpu} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.lacpu}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.cpu}</p>
-        <button disabled={!attiva6 || !disattiva6} on:click="{()=>aggiungiCarrello('cpu')}" class=" {attiva6 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva6 ? `Acquista ${ita.shop.lacpu}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lacpu}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.cpu}</p>
+        <button disabled={!attiva6 || !disattiva6} on:click="{()=>aggiungiCarrello('cpu')}" class=" {attiva6 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva6 ? `${$lingua.homepage.acquista} ${$lingua.shop.lacpu}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={dna} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.ladna}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.dna}</p>
-        <button disabled={!attiva7 || !disattiva7} on:click="{()=>aggiungiCarrello('dna')}" class=" {attiva7 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva7 ? `Acquista ${ita.shop.ladna}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.ladna}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.dna}</p>
+        <button disabled={!attiva7 || !disattiva7} on:click="{()=>aggiungiCarrello('dna')}" class=" {attiva7 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva7 ? `${$lingua.homepage.acquista} ${$lingua.shop.ladna}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative   w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={energy} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.laenergia}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.energia}</p>
-        <button disabled={!attiva8 || !disattiva8} on:click="{()=>aggiungiCarrello('energia')}" class=" {attiva8 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva8 ? `Acquista ${ita.shop.laenergia}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.laenergia}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.energia}</p>
+        <button disabled={!attiva8 || !disattiva8} on:click="{()=>aggiungiCarrello('energia')}" class=" {attiva8 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva8 ? `${$lingua.homepage.acquista} ${$lingua.shop.laenergia}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={flycar} alt="hand" class="w-[35%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.laauto}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.auto}</p>
-        <button disabled={!attiva9 || !disattiva9} on:click="{()=>aggiungiCarrello('auto')}" class=" {attiva9 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva9 ? `Acquista ${ita.shop.laauto}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.laauto}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.auto}</p>
+        <button disabled={!attiva9 || !disattiva9} on:click="{()=>aggiungiCarrello('auto')}" class=" {attiva9 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva9 ? `${$lingua.homepage.acquista} ${$lingua.shop.laauto}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={hologram} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.laologramma}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.ologramma}</p>
-        <button disabled={!attiva10 || !disattiva10} on:click="{()=>aggiungiCarrello('ologramma')}" class=" {attiva10 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva10 ? `Acquista ${ita.shop.laologramma}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.laologramma}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.ologramma}</p>
+        <button disabled={!attiva10 || !disattiva10} on:click="{()=>aggiungiCarrello('ologramma')}" class=" {attiva10 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva10 ? `${$lingua.homepage.acquista} ${$lingua.shop.laologramma}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
 
 
@@ -928,65 +950,65 @@
 
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={jetpack} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.lajetpack}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%] md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.jetpack}</p>
-        <button disabled={!attiva11 || !disattiva11} on:click="{()=>aggiungiCarrello('jetpack')}" class=" {attiva11 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva11 ? `Acquista ${ita.shop.lajetpack}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lajetpack}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%] md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.jetpack}</p>
+        <button disabled={!attiva11 || !disattiva11} on:click="{()=>aggiungiCarrello('jetpack')}" class=" {attiva11 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva11 ? `${$lingua.homepage.acquista} ${$lingua.shop.lajetpack}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={ram} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.laram}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.ram}</p>
-        <button disabled={!attiva12 || !disattiva12} on:click="{()=>aggiungiCarrello('ram')}" class=" {attiva12 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva12 ? `Acquista ${ita.shop.laram}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.laram}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.ram}</p>
+        <button disabled={!attiva12 || !disattiva12} on:click="{()=>aggiungiCarrello('ram')}" class=" {attiva12 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva12 ? `${$lingua.homepage.acquista} ${$lingua.shop.laram}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
       
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={robot} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.larobot}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.robot}</p>
-        <button disabled={!attiva13 || !disattiva13} on:click="{()=>aggiungiCarrello('robot')}" class=" {attiva13 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva13 ? `Acquista ${ita.shop.larobot}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.larobot}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.robot}</p>
+        <button disabled={!attiva13 || !disattiva13} on:click="{()=>aggiungiCarrello('robot')}" class=" {attiva13 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva13 ? `${$lingua.homepage.acquista} ${$lingua.shop.larobot}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={rocket} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.larazzo}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.razzo}</p>
-        <button disabled={!attiva14 || !disattiva14} on:click="{()=>aggiungiCarrello('razzo')}" class=" {attiva14 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva14 ? `Acquista ${ita.shop.larazzo}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.larazzo}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.razzo}</p>
+        <button disabled={!attiva14 || !disattiva14} on:click="{()=>aggiungiCarrello('razzo')}" class=" {attiva14 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva14 ? `${$lingua.homepage.acquista} ${$lingua.shop.larazzo}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={spaceship} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.lanave}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.nave}</p>
-        <button disabled={!attiva15 || !disattiva15} on:click="{()=>aggiungiCarrello('nave')}" class=" {attiva15 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva15 ? `Acquista ${ita.shop.lanave}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lanave}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.nave}</p>
+        <button disabled={!attiva15 || !disattiva15} on:click="{()=>aggiungiCarrello('nave')}" class=" {attiva15 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva15 ? `${$lingua.homepage.acquista} ${$lingua.shop.lanave}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative   w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={teleport} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.lateletrasporto}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.teletrasporto}</p>
-        <button disabled={!attiva16 || !disattiva16} on:click="{()=>aggiungiCarrello('teletrasporto')}" class=" {attiva16 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva16 ? `Acquista ${ita.shop.lateletrasporto}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lateletrasporto}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.teletrasporto}</p>
+        <button disabled={!attiva16 || !disattiva16} on:click="{()=>aggiungiCarrello('teletrasporto')}" class=" {attiva16 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva16 ? `${$lingua.homepage.acquista} ${$lingua.shop.lateletrasporto}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={telescope} alt="hand" class="w-[35%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.latelescopio}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.telescopio}</p>
-        <button disabled={!attiva17 || !disattiva17} on:click="{()=>aggiungiCarrello('telescopio')}" class=" {attiva17 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva17 ? `Acquista ${ita.shop.latelescopio}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.latelescopio}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.telescopio}</p>
+        <button disabled={!attiva17 || !disattiva17} on:click="{()=>aggiungiCarrello('telescopio')}" class=" {attiva17 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva17 ? `${$lingua.homepage.acquista} ${$lingua.shop.latelescopio}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={titanium} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.latitanio}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.titanio}</p>
-        <button disabled={!attiva18 || !disattiva18} on:click="{()=>aggiungiCarrello('titanio')}" class=" {attiva18 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva18 ? `Acquista ${ita.shop.latitanio}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.latitanio}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.titanio}</p>
+        <button disabled={!attiva18 || !disattiva18} on:click="{()=>aggiungiCarrello('titanio')}" class=" {attiva18 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva18 ? `${$lingua.homepage.acquista} ${$lingua.shop.latitanio}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
 
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={transformer} alt="hand" class="w-[35%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
-        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{ita.shop.labatteria}</p>
-        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{ita.shop.batteria}</p>
-        <button disabled={!attiva19 || !disattiva19} on:click="{()=>aggiungiCarrello('batteria')}" class=" {attiva19 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva19 ? `Acquista ${ita.shop.labatteria}`: "Articolo aggiunto al carrello"}</button>
+        <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.labatteria}</p>
+        <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.batteria}</p>
+        <button disabled={!attiva19 || !disattiva19} on:click="{()=>aggiungiCarrello('batteria')}" class=" {attiva19 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva19 ? `${$lingua.homepage.acquista} ${$lingua.shop.labatteria}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
      
@@ -1000,7 +1022,7 @@
       <div class=" {opencart ? "visible": "invisible"}  bg-gradient-to-tr from-black to-gray-600 border-2 border-gray-600 w-[350px] sm:w-[550px] h-[660px] sm:h-[760px] md:h-[760px] lg:h-[760px] md:right-[7%] fixed bottom-[0%] flex justify-center ombracar rounded-xl overflow-y-auto ">
   
           <div class="flex flex-row justify-center items-center absolute top-0 sm:top-0 w-[100%] h-[8%] rounded-b-xl">
-          <p class="text-white font-bold text-xl  sm:text-3xl tracking-[3px] ">CARRELLO: {numcount}</p>
+          <p class="text-white font-bold text-xl  sm:text-3xl tracking-[3px] ">{$lingua.homepage.carrello} {numcount}</p>
           </div>
   
           <div class="grid grid-cols-1 grid-rows-11 w-[100%] h-[350px] sm:h-[450px] gap-y-[20px] bg-gradient-to-tr from-black to-neutral-950 border-b-2 border-gray-600 absolute top-[50px] sm:top-[60px] rounded-2xl overflow-y-auto overflow-x-hidden justify-items-center">
@@ -1022,7 +1044,7 @@
           {/each}
   
           <div class="{conferma ? "visible": "invisible"} {opencart ? "visible": "invisible"} flex items-center bg-gradient-to-tr from-black to-neutral-700 border-2 border-neutral-700 w-[90%] h-[290px] sm:h-[350px] rounded-2xl absolute top-[10%] justify-center text-center cursor-default">
-            <p class="text-teal-500 text-xl md:text-3xl font-semibold absolute top-[2%] md:top-[2%] tracking-wide">Inserisci i tuoi dati:</p>
+            <p class="text-teal-500 text-xl md:text-3xl font-semibold absolute top-[2%] md:top-[2%] tracking-wide">{$lingua.homepage.dati}</p>
             <p class="text-white font-bold mr-2 absolute top-[15%]">{oblemail}</p>
             <input bind:value={email} type="email" on:input="{Email}" class="w-[60%] sm:w-[50%] rounded-md outline-none p-1 text-base absolute top-[25%]" maxlength="50" placeholder="Email..." />
             <p class="text-white font-bold mr-2 absolute top-[45%]">{oblnome}</p>

@@ -5,6 +5,20 @@
   import calculator from '/src/routes/img/calculator.png';
   // @ts-ignore
   import ita from '/src/routes/textITA.json';
+  import eng from '/src/routes/textENG.json';
+
+  import { lingua } from './lingua.js';
+
+  const TraduciPagina=(linguatraduci)=>{
+    switch(linguatraduci){
+      case 'ita':
+        lingua.set(ita)
+        break;
+      case 'eng':
+        lingua.set(eng)
+      break;
+    }
+  }
 
 
  let alieno = false;
@@ -59,40 +73,40 @@
  }
  
 
-let titolo = ita.progetti.benvenuto;
-let descrizione = ita.progetti.desc;
-let titolobottone = 'Scegli un progetto per iniziare'
+let titolo = $lingua.progetti.benvenuto;
+let descrizione = $lingua.progetti.desc;
+let titolobottone = $lingua.progetti.scegli
 
 // @ts-ignore
 const scegliApp=(app)=>{
   switch(app){
 case 'X-FLIES':
   titolo = 'X-FLIES';
-  descrizione = ita.progetti.alien;
-  titolobottone = 'Prova X-Flies'
+  descrizione = $lingua.progetti.alien;
+  titolobottone = $lingua.progetti.provaX
   return '/xflies'
 break
 case 'SPOTIFY':
   titolo = 'SPOTIFY',
-  descrizione = ita.progetti.spotify,
-  titolobottone = 'Prova Spotify'
+  descrizione = $lingua.progetti.spotify,
+  titolobottone = $lingua.progetti.provaS
   return '/spotify'
 break
 case 'PIXEL NIGHTMARE':
   titolo = 'PIXEL NIGHTMARE',
-  descrizione = ita.progetti.pixel,
-  titolobottone = 'Prova Pixel Nightmare'
+  descrizione = $lingua.progetti.pixel,
+  titolobottone = $lingua.progetti.provaP
   return '/pixelnightmare'
 break
 case 'THE CALCULATOR':
   titolo = 'THE CALCULATOR',
-  descrizione = ita.progetti.calculator,
-  titolobottone = 'Prova The Calculator'
+  descrizione = $lingua.progetti.calculator,
+  titolobottone = $lingua.progetti.provaC
   return '/calcolatrice'
 break
 default:
-    titolo = ita.progetti.benvenuti,
-    descrizione = ita.progetti.desc
+    titolo = $lingua.progetti.benvenuti,
+    descrizione = $lingua.progetti.desc
 break
   }
 }
@@ -141,10 +155,14 @@ let home= false
   <div class="bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-800 h-10 flex-auto flex flex-row items-center justify-between relative top-12 rounded-xl md:w-[50%] md:left-[45%] md:-top-12 "> 
   <a href="/" class=" font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {home ? "border-b-2 rounded-sm border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('home')}">Home</a>
   <a href="/skills" class="  font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {skills ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('skills')}">Skills</a>
-  <a href="/progetti" class="  font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('progetti')}">Progetti</a>
+  <a href="/progetti" class="  font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('progetti')}">{$lingua.testo.progetti}</a>
   </div>
 </div>
 
+<select on:change="{(event)=>TraduciPagina(event.target.value)}" class="w-[100px] absolute top-[30%] sm:top-[20%]  md:top-[13%] bg-gradient-to-tr p-2 from-white to-neutral-300 border-2 border-neutral-300 rounded-2xl invert">
+  <option value="ita">Italiano</option>
+  <option value="eng">English</option>
+  </select>
 
 <div class="relative top-36 h-[1000px] w-[100%] flex justify-center">
 <div style="padding-bottom: 10%" class="bg-black w-[100%] lg:w-[80%] sm:h-[920px] md:h-[920px] lg:h-[920px] h-[920px] relative  mb-[10%] rounded-3xl flex justify-center">

@@ -5,140 +5,155 @@
 
   // @ts-ignore
   import sto from '/src/routes/pixelnightmare/story.json';
+   // @ts-ignore
+  import stoeng from '/src/routes/pixelnightmare/storyeng.json';
+
+  import { lingua } from './lingua.js';
+
+const TraduciPagina=(linguatraduci)=>{
+  switch(linguatraduci){
+    case 'ita':
+      lingua.set(sto)
+      break;
+    case 'eng':
+      lingua.set(stoeng)
+    break;
+  }
+}
 
 
 
       /////////////////////////////////////////////////////////////////////
-      let text = sto.storia.t0
-      let choice1 = sto.storia.r0[0]
-      let choice2 = sto.storia.r0[1]
+      let text = $lingua.storia.t0
+      let choice1 = $lingua.storia.r0[0]
+      let choice2 = $lingua.storia.r0[1]
 
       // @ts-ignore
       const GStory=(risp)=>{
-    if(text === sto.storia.t0 && risp === sto.storia.r0[0]){
+    if(text === $lingua.storia.t0 && risp === $lingua.storia.r0[0]){
       setTimeout(()=>{
-      text = sto.storia.t1
-      choice1 = sto.storia.r1
+      text = $lingua.storia.t1
+      choice1 = $lingua.storia.r1
       choice2 = ''
     },1500)
-    } else if(text === sto.storia.t1 && risp === sto.storia.r1){
+    } else if(text === $lingua.storia.t1 && risp === $lingua.storia.r1){
       setTimeout(()=>{
-      text = sto.storia.t3
-      choice1= sto.storia.r2[0]
-      choice2=sto.storia.r2[1]
+      text = $lingua.storia.t3
+      choice1= $lingua.storia.r2[0]
+      choice2=$lingua.storia.r2[1]
     }, 1500)
-    } else if(text === sto.storia.t0 && risp === sto.storia.r0[1]){
+    } else if(text === $lingua.storia.t0 && risp === $lingua.storia.r0[1]){
       setTimeout(()=>{
-      text= sto.storia.t2
+      text= $lingua.storia.t2
       choice1=''
       choice2=''
     }, 1500)
-    }else if(text === sto.storia.t3 && risp === sto.storia.r2[0]){
+    }else if(text === $lingua.storia.t3 && risp === $lingua.storia.r2[0]){
       setTimeout(()=>{
-      text=sto.storia.t4
-      choice1=sto.storia.r3[0]
-      choice2=sto.storia.r3[1]
+      text=$lingua.storia.t4
+      choice1=$lingua.storia.r3[0]
+      choice2=$lingua.storia.r3[1]
     }, 1500)
-    }else if(text === sto.storia.t3 && risp === sto.storia.r2[1]){
+    }else if(text === $lingua.storia.t3 && risp === $lingua.storia.r2[1]){
       setTimeout(()=>{
-      text= sto.storia.t5
-      choice1=sto.storia.r4[0]
+      text= $lingua.storia.t5
+      choice1=$lingua.storia.r4[0]
       choice2=''
     }, 1500)
-    }else if(text === sto.storia.t5 && risp === sto.storia.r4[0]){
+    }else if(text === $lingua.storia.t5 && risp === $lingua.storia.r4[0]){
       setTimeout(()=>{
-      text= sto.storia.t4
-      choice1= sto.storia.r3[0]
-      choice2= sto.storia.r3[1] 
+      text= $lingua.storia.t4
+      choice1= $lingua.storia.r3[0]
+      choice2= $lingua.storia.r3[1] 
     }, 1500)
 
-    }else if(text === sto.storia.t4 && risp === sto.storia.r3[0]){
+    }else if(text === $lingua.storia.t4 && risp === $lingua.storia.r3[0]){
       setTimeout(()=>{
-      text= sto.storia.t6
-      choice1= sto.storia.r5[0]
-      choice2= sto.storia.r5[1]
+      text= $lingua.storia.t6
+      choice1= $lingua.storia.r5[0]
+      choice2= $lingua.storia.r5[1]
     }, 1500)
-    }else if(text === sto.storia.t4 && risp === sto.storia.r3[1]){
+    }else if(text === $lingua.storia.t4 && risp === $lingua.storia.r3[1]){
       setTimeout(()=>{
-      text= sto.storia.t7
-      choice1= sto.storia.r6[0]
-      choice2= sto.storia.r6[1]
+      text= $lingua.storia.t7
+      choice1= $lingua.storia.r6[0]
+      choice2= $lingua.storia.r6[1]
     }, 1500)
-    }else if(text === sto.storia.t6 && risp === sto.storia.r5[0]){
+    }else if(text === $lingua.storia.t6 && risp === $lingua.storia.r5[0]){
       setTimeout(()=>{
-      text= sto.storia.t8
-      choice1= sto.storia.r7
+      text= $lingua.storia.t8
+      choice1= $lingua.storia.r7
       choice2= ''
     }, 1500)
-    }else if(text === sto.storia.t6 && risp === sto.storia.r5[1]){
+    }else if(text === $lingua.storia.t6 && risp === $lingua.storia.r5[1]){
       setTimeout(()=>{
-      text = sto.storia.t9
-      choice1= sto.storia.r8
+      text = $lingua.storia.t9
+      choice1= $lingua.storia.r8
       choice2=''
     }, 1500)
-    }else if(text === sto.storia.t7 && risp === sto.storia.r6[0]){
+    }else if(text === $lingua.storia.t7 && risp === $lingua.storia.r6[0]){
       setTimeout(()=>{
-      text= sto.storia.t8
-      choice1= sto.storia.r7
+      text= $lingua.storia.t8
+      choice1= $lingua.storia.r7
       choice2= ''
     }, 1500)
-    }else if(text === sto.storia.t7 && risp === sto.storia.r6[1]){
+    }else if(text === $lingua.storia.t7 && risp === $lingua.storia.r6[1]){
       setTimeout(()=>{
-      text= sto.storia.t10
-      choice1= sto.storia.r9
+      text= $lingua.storia.t10
+      choice1= $lingua.storia.r9
       choice2= ''
     }, 1500)
-    }else if(text === sto.storia.t10 && risp === sto.storia.r9){
+    }else if(text === $lingua.storia.t10 && risp === $lingua.storia.r9){
       setTimeout(()=>{
-      text= sto.storia.t7
-      choice1=sto.storia.r6[0]
-      choice2=sto.storia.r6[1]
+      text= $lingua.storia.t7
+      choice1=$lingua.storia.r6[0]
+      choice2=$lingua.storia.r6[1]
     }, 1500)
-    }else if(text === sto.storia.t8 && risp === sto.storia.r7){
+    }else if(text === $lingua.storia.t8 && risp === $lingua.storia.r7){
       setTimeout(()=>{
-      text= sto.storia.t11
-      choice1= sto.storia.r10
+      text= $lingua.storia.t11
+      choice1= $lingua.storia.r10
       choice2=''
     }, 1500)
-    }else if(text === sto.storia.t9 && risp === sto.storia.r8){
+    }else if(text === $lingua.storia.t9 && risp === $lingua.storia.r8){
       setTimeout(()=>{
-      text= sto.storia.t12
-      choice1= sto.storia.r11[0]
-      choice2= sto.storia.r11[1]
+      text= $lingua.storia.t12
+      choice1= $lingua.storia.r11[0]
+      choice2= $lingua.storia.r11[1]
     }, 1500)
-    }else if(text === sto.storia.t11 && risp === sto.storia.r10){
+    }else if(text === $lingua.storia.t11 && risp === $lingua.storia.r10){
       setTimeout(()=>{
-      text= sto.storia.t13
-      choice1= sto.storia.r12
+      text= $lingua.storia.t13
+      choice1= $lingua.storia.r12
       choice2= ''
     }, 1500)
-    }else if(text === sto.storia.t12 && risp === sto.storia.r11[0]){
+    }else if(text === $lingua.storia.t12 && risp === $lingua.storia.r11[0]){
       setTimeout(()=>{
-      text= sto.storia.t13
-      choice1= sto.storia.r12
+      text= $lingua.storia.t13
+      choice1= $lingua.storia.r12
       choice2= ''
     }, 1500)
-    }else if(text === sto.storia.t12 && risp === sto.storia.r11[1]){
+    }else if(text === $lingua.storia.t12 && risp === $lingua.storia.r11[1]){
       setTimeout(()=>{
-      text= sto.storia.t13
-      choice1= sto.storia.r12
+      text= $lingua.storia.t13
+      choice1= $lingua.storia.r12
       choice2= ''
     }, 1500)
-    }else if(text === sto.storia.t13 && risp === sto.storia.r12){
+    }else if(text === $lingua.storia.t13 && risp === $lingua.storia.r12){
       setTimeout(()=>{
-      text= sto.storia.t14
-      choice1= sto.storia.r13[0]
-      choice2= sto.storia.r13[1]
+      text= $lingua.storia.t14
+      choice1= $lingua.storia.r13[0]
+      choice2= $lingua.storia.r13[1]
     }, 1500)
-    }else if(text === sto.storia.t14 && risp === sto.storia.r13[0]){
+    }else if(text === $lingua.storia.t14 && risp === $lingua.storia.r13[0]){
       setTimeout(()=>{
-      text= sto.storia.t15
+      text= $lingua.storia.t15
       choice1=''
       choice2=''
     }, 1500)
-    }else if(text === sto.storia.t14 && risp === sto.storia.r13[1]){
+    }else if(text === $lingua.storia.t14 && risp === $lingua.storia.r13[1]){
       setTimeout(()=>{
-      text= sto.storia.t15
+      text= $lingua.storia.t15
       choice1=''
       choice2=''
     }, 1500)
@@ -198,9 +213,14 @@ let home= false
   <div class="bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-800 h-10 flex-auto flex flex-row items-center justify-between relative top-12 rounded-xl md:w-[50%] md:left-[45%] md:-top-12 "> 
   <a href="/" class=" font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {home ? "border-b-2 rounded-sm border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('home')}">Home</a>
   <a href="/skills" class="  font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {skills ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('skills')}">Skills</a>
-  <a href="/progetti" class="  font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('progetti')}">Progetti</a>
+  <a href="/progetti" class="  font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('progetti')}">{$lingua.storia.progetti}</a>
   </div>
 </div>
+
+<select on:change="{(event)=>TraduciPagina(event.target.value)}" class="w-[100px] absolute top-[28%] sm:top-[20%] md:top-[13%] bg-gradient-to-tr p-2 from-white to-neutral-300 border-2 border-neutral-300 rounded-2xl invert">
+  <option value="ita">Italiano</option>
+  <option value="eng">English</option>
+  </select>
 
 <div class="flex justify-center w-[100%] h-[680px] relative top-[15%]">
 <div class="w-[400px] sm:w-[500px] md:w-[700px] lg:w-[1000px] h-[600px]  rounded-3xl relative top-[0%] bottom-[20%] flex justify-center ">
