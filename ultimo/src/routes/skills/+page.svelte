@@ -6,6 +6,8 @@
   import php from '/src/routes/img/php.png';
   import sql from '/src/routes/img/mysql.png';
   import github from '/src/routes/img/github.png';
+  import svelte from '/src/routes/img/svelte.png';
+  import tailwind from '/src/routes/img/tailwind.png';
   import ita from '/src/routes/textITA.json';
 
   
@@ -78,9 +80,9 @@
 
 
 <div class="flex justify-center w-[100%]">
-<div class="bg-black w-[100%] sm:h-[4500px] md:h-[2500px] lg:h-[1900px] h-[4000px] relative top-36 rounded-3xl flex justify-center">
+<div class="bg-black w-[100%] sm:h-[5300px] md:h-[3000px] lg:h-[1900px] h-[5300px] relative top-36 rounded-3xl flex justify-center">
   
-    <div class="grid lg:grid-cols-3 lg:grid-rows-3 w-[100%] gap-1 sm:grid-cols-1 md:grid-cols-2 justify-items-center">
+    <div class="grid lg:grid-cols-3 lg:grid-rows-3 w-[100%] gap-6 sm:grid-cols-1 md:grid-cols-2 justify-items-center">
 
       <div class="bg-gradient-to-bl to-orange-950 from-neutral-950 border-2 border-orange-950 sm:h-[520px] md:w-[320px] w-[300px] sm:w-[500px] lg:w-[285px] xl:w-[350px] 2xl:w-[400px] h-[490px] flex justify-center relative top-10 rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-orange-600 hover:border-[5px]">
       <img src={html} alt="html" class="w-[120px]  md:w-[150px] lg:w-[135px] absolute top-8 sm:top-6  lg:top-[30px]" />
@@ -109,6 +111,20 @@
             <p class="absolute text-[13px] sm:text-[16px] md:text-[14px] lg:text-[13px] xl:text-[15px] 2xl:text-[16px] top-[50%] w-[90%] text-justify">{ita.skills.react}</p>
             <h1 class="absolute bottom-4 bg-neutral-950 rounded-3xl w-[80%] text-center p-3 font-semibold text-teal-500 border-blue-950 border-2">{ita.skills.m}</h1>
             </div>
+
+            <div class="bg-gradient-to-bl to-orange-950 from-neutral-950 border-2 border-orange-950 sm:h-[520px] h-[490px] md:w-[320px] w-[300px] sm:w-[500px] lg:w-[285px]  xl:w-[350px] 2xl:w-[400px] flex justify-center relative top-10 rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-orange-600 hover:border-[5px]">
+              <img src={svelte} alt="html" class="w-[120px] md:w-[150px] lg:w-[135px] absolute top-8 sm:top-6 lg:top-[30px]" />
+              <h1 class="bg-orange-600 flex flex-row w-[100%] h-[10%] absolute top-[36%] font-extrabold text-5xl justify-center items-center">SVELTE</h1>
+              <p class="absolute text-[13px] sm:text-[16px] md:text-[14px] lg:text-[13px] xl:text-[15px] 2xl:text-[16px] top-[50%] w-[90%] text-justify">{ita.skills.svelte}</p>
+              <h1 class="absolute bottom-4 bg-neutral-950 rounded-3xl w-[80%] text-center p-3 font-semibold text-teal-500 border-orange-950 border-2">{ita.skills.m}</h1>
+              </div>
+
+              <div class="bg-gradient-to-bl to-blue-950 from-neutral-950 border-2 border-blue-950 sm:h-[520px] h-[490px] md:w-[320px] w-[300px] sm:w-[500px] lg:w-[285px]  xl:w-[350px] 2xl:w-[400px] flex justify-center relative top-10 rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-blue-600 hover:border-[5px]">
+                <img src={tailwind} alt="html" class="w-[120px] md:w-[150px] lg:w-[135px] absolute top-8 sm:top-6 lg:top-[30px]" />
+                <h1 class="bg-blue-600 flex flex-row w-[100%] h-[10%] absolute top-[36%] font-extrabold text-5xl justify-center items-center">TAILWIND</h1>
+                <p class="absolute text-[13px] sm:text-[16px] md:text-[14px] lg:text-[13px] xl:text-[15px] 2xl:text-[16px] top-[50%] w-[90%] text-justify">{ita.skills.tailwind}</p>
+                <h1 class="absolute bottom-4 bg-neutral-950 rounded-3xl w-[80%] text-center p-3 font-semibold text-teal-500 border-blue-950 border-2">{ita.skills.m}</h1>
+                </div>
 
             <div class="bg-gradient-to-bl to-violet-950 from-neutral-950 border-2 border-violet-950 sm:h-[520px] h-[490px] md:w-[320px] w-[300px] sm:w-[500px] lg:w-[285px]  xl:w-[350px] 2xl:w-[400px] flex justify-center relative top-10 rounded-3xl hover:transition hover:ease-in-out hover:duration-1000 hover:border-solid hover:border-violet-400 hover:border-[5px]">
               <img src={php} alt="html" class="w-[120px] md:w-[150px] lg:w-[135px] absolute top-8 sm:top-6 lg:top-[30px]" />
