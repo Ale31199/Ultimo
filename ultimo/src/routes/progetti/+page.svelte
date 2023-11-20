@@ -5,10 +5,10 @@
   import calculator from '/src/routes/img/calculator.png';
   // @ts-ignore
   import ita from '/src/routes/textITA.json';
+  // @ts-ignore
   import eng from '/src/routes/textENG.json';
 
   import { lingua } from './lingua.js';
-
   const TraduciPagina=(linguatraduci)=>{
     switch(linguatraduci){
       case 'ita':
@@ -21,6 +21,9 @@
   }
 
 
+
+//mettere un reload per la traduzione che aggiorna il testo
+
  let alieno = false;
  let spot = false;
  let night = false;
@@ -29,53 +32,44 @@
 
 
  const scegliA=()=>{
-  if(alieno){
-    alieno = false
-  } else {
-    alieno = true
+  alieno = true
   spot = false;
   night = false;
   cal = false;
   }
- }
+ 
 
  const scegliS=()=>{
-  if(spot){
-    spot = false
-  } else {
     spot = true
   alieno = false;
   night = false;
   cal = false;
   }
- }
 
  const scegliP=()=>{
-  if(night){
-    night = false
-  } else {
     night = true
   spot = false;
   alieno = false;
   cal = false;
   }
- }
 
  const scegliC=()=>{
-  if(cal){
-    cal = false
-  } else {
     cal = true
   spot = false;
   night = false;
   alieno = false;
   }
- }
  
 
-let titolo = $lingua.progetti.benvenuto;
-let descrizione = $lingua.progetti.desc;
-let titolobottone = $lingua.progetti.scegli
+
+
+
+
+$: titolo = $lingua.progetti.benvenuto;
+$: descrizione = $lingua.progetti.desc;
+$: titolobottone = $lingua.progetti.scegli
+
+
 
 // @ts-ignore
 const scegliApp=(app)=>{

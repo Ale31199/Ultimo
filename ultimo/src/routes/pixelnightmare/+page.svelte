@@ -24,11 +24,14 @@ const TraduciPagina=(linguatraduci)=>{
 
 
       /////////////////////////////////////////////////////////////////////
-      let text = $lingua.storia.t0
-      let choice1 = $lingua.storia.r0[0]
-      let choice2 = $lingua.storia.r0[1]
+
+
+      $: text = $lingua.storia.t0
+      $: choice1 = $lingua.storia.r0[0]
+      $: choice2 = $lingua.storia.r0[1]
 
       // @ts-ignore
+      
       const GStory=(risp)=>{
     if(text === $lingua.storia.t0 && risp === $lingua.storia.r0[0]){
       setTimeout(()=>{
@@ -160,6 +163,7 @@ const TraduciPagina=(linguatraduci)=>{
     }
   }
 
+
   let audioElement;
   let soundcho = choices
 
@@ -216,6 +220,7 @@ let home= false
   <a href="/progetti" class="  font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('progetti')}">{$lingua.storia.progetti}</a>
   </div>
 </div>
+
 
 <select on:change="{(event)=>TraduciPagina(event.target.value)}" class="w-[100px] absolute top-[28%] sm:top-[20%] md:top-[13%] bg-gradient-to-tr p-2 from-white to-neutral-300 border-2 border-neutral-300 rounded-2xl invert">
   <option value="ita">Italiano</option>

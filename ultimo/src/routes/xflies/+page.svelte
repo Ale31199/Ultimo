@@ -102,7 +102,7 @@ let home= false
   <div class="bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-800 h-10 flex-auto flex flex-row items-center justify-between relative top-12 rounded-xl md:w-[50%] md:left-[45%] md:-top-12 "> 
   <a href="/" class=" font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {home ? "border-b-2 rounded-sm border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('home')}">Home</a>
   <a href="/skills" class="  font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {skills ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('skills')}">Skills</a>
-  <a href="/progetti" class=" text-white font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500":""}" on:click="{()=>selezionaPag('progetti')}">{$lingua.homepage.progetti}</a>
+  <a href="/progetti" class=" font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('progetti')}">{$lingua.homepage.progetti}</a>
     </div>
 </div>
 
@@ -144,7 +144,7 @@ let home= false
     
     <div class="grid grid-cols-1 grid-rows-3 justify-items-center absolute top-[46%] sm:top-[45%] w-[290px] sm:w-[500px] md:w-[600px] lg:w-[800px] 2xl:w-[1200px] h-[10%] sm:h-[14%] lg:h-[14%] sm:bg-gradient-to-tr from-black to-neutral-900 sm:border-2 sm:border-neutral-900 rounded-3xl">
       <img src={ufo} alt="hand" class="w-[140px] sm:w-[200px] md:w-[250px] lg:w-[250px] relative top-[10%] md:top-[5%] animazione2" />
-      <p class="text-teal-500 text-2xl sm:text-3xl lg:text-5xl top-[8%] sm:top-[5%] md:top-[20%] md:text-4xl lg:top-[15%] relative ">{$lingua.homepage.pil}</p>
+      <p class="text-teal-500 text-[22px] sm:text-3xl lg:text-5xl top-[8%] sm:top-[5%] md:top-[20%] md:text-4xl lg:top-[15%] relative ">{$lingua.homepage.pil}</p>
       <p class="text-white text-justify text-[13px] md:text-[14px] lg:text-[15px] 2xl:text-[18px] absolute top-[50%] md:top-[50%] sm:top-[45%] lg:top-[51%] sm:w-[80%] md:w-[530px] lg:w-[730px] 2xl:w-[1100px]">{$lingua.homepage.piloti}</p>
     </div>
 

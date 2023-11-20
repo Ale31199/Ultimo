@@ -2,6 +2,24 @@
   import gameboy from '/src/routes/calcolatrice/gameboy.gif';
   import devil from '/src/routes/calcolatrice/littledevil.gif';
   import sticky from '/src/routes/calcolatrice/sticky.gif';
+  //@ts-ignore
+  import ita from '/src/routes/textITA.json';
+  //@ts-ignore
+  import eng from '/src/routes/textENG.json';
+
+  import {lingua} from './lingua.js'
+
+  const TraduciPagina=(linguatraduci)=>{
+    switch (linguatraduci) {
+      case 'ita':
+        lingua.set(ita)
+        break;
+        case 'eng':
+          lingua.set(eng)
+      default:
+        break;
+    }
+  }
 
   let count = '';
   const reset = 'Reset';
@@ -41,36 +59,36 @@
       }
     }
 
-  const frasi = [
-    'Benvenuto su The Calculator', 
-    'Ricorda: 2+2 è uguale 4',
-    'Come te la passi?',
-    'Sono sempre qui per aiutarti',
-    'Mi fa piacere che tu mi stia usando :)',
-    "E' un giorno stupendo per calcolare!",
-    '109 97 116 104',
-    'Stai andando alla grande!',
-    'Sei un genio/a!',
-    'Io sono Sticky!',
-    'Beep Boop Boop Beep...',
-    'Vuoi un caffè?',
-    'Uhhhh la mia schiena...',
-    'Si, vivo dentro questo rettangolo nero',
-    'Spero ti stia divertendo ^_^',
-    'Stai leggendo tutto quello che dico vero?',
-    'Fermo! fissami per 5 secondi!',
-    'Usami per i tuoi compiti',
-    'GUARDA DIETRO DI TE!!',
-    'Bisogno di una pausa?',
-    'Dimmi i tuoi segreti',
-    'Mettiti comodo e fai i tuoi calcoli con me!',
-    'Non fare 666!!!',
-    'Prova a fare 666...',
-    'Prova a fare 101010...',
-    'Sto sempre in piedi',
+  $: frasi = [
+ $lingua.progetti.a,
+ $lingua.progetti.b,
+ $lingua.progetti.c,
+ $lingua.progetti.d,
+ $lingua.progetti.e,
+ $lingua.progetti.f,
+ $lingua.progetti.g,
+ $lingua.progetti.h,
+ $lingua.progetti.i,
+ $lingua.progetti.j,
+ $lingua.progetti.k,
+ $lingua.progetti.l,
+ $lingua.progetti.m,
+ $lingua.progetti.n,
+ $lingua.progetti.o,
+ $lingua.progetti.p,
+ $lingua.progetti.q,
+ $lingua.progetti.r,
+ $lingua.progetti.s,
+ $lingua.progetti.u,
+ $lingua.progetti.v,
+ $lingua.progetti.w,
+ $lingua.progetti.x,
+ $lingua.progetti.y,
+ $lingua.progetti.z,
+ $lingua.progetti.zz
   ]
 
-  let newfrasi = 'Sono stato programmato da Alessio Santillo'
+  $: newfrasi = $lingua.progetti.programmato
 
   const generaRandom=()=>{
     const random = setInterval(()=>{
@@ -85,12 +103,22 @@
 
   let active = false;
   const hellMode=()=>{
-    active = !active
+    if (active){
+      active = false
+    }else{
+      active  = true
+      pix = false
+    }
   }
 
   let pix = false
   const pixelMode=()=>{
-    pix= !pix
+    if (pix){
+      pix = false
+    }else{
+      pix  = true
+      active = false
+    }
   }
 
 
@@ -153,8 +181,13 @@
   </div>
 </div>
 
+<select on:change="{(event)=>TraduciPagina(event.target.value)}" class="w-[100px] absolute top-[30%] sm:top-[20%]  md:top-[13%] bg-gradient-to-tr p-2 from-white to-neutral-300 border-2 border-neutral-300 rounded-2xl invert">
+  <option value="ita">Italiano</option>
+  <option value="eng">English</option>
+  </select>
 
-<div class="h-[600px] w-[100%] flex justify-center relative top-[15%] xl:trasform xl:scale-[110%] xl:overflow-hidden">
+
+<div class="h-[600px] w-[100%] flex justify-center relative top-[18%] sm:top-[15%] xl:trasform xl:scale-[110%] xl:overflow-hidden">
   <div class="w-[350px] md:w-[360px] lg:w-[360px] h-[550px] {active ? "bg-gradient-to-tl from-black to-neutral-950": ""} relative top-[0%] rounded-2xl bg-black flex justify-center border-solid border-2 border-gray-700 shadow-xl bg-gradient-to-tl from-black to-gray-950">  
     <div>
     <p class="text-white tracking-[6px] md:tracking-[6px] font-extrabold text-[25px] sm:text-[25px] lg:text-[25px] md:text-[25px] cursor-default">THE CALCULATOR</p>

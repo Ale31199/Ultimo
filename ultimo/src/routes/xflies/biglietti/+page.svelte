@@ -18,7 +18,7 @@ import visa from '/src/routes/xflies/ximg/visa.png';
 import alien from '/src/routes/xflies/ximg/alien.png';
 import cart from  '/src/routes/xflies/ximg/shopping-cart.png';
 import trash from '/src/routes/xflies/ximg/trash.png';
-import arrow from '/src/routes/xflies/ximg/arrow.png';
+import cross from '/src/routes/xflies/ximg/cross.png';
 
 
 // @ts-ignore
@@ -42,12 +42,12 @@ const TraduciPagina=(linguatraduci)=>{
 }
 
 let pianeta = luna;
-let titolo = $lingua.homepage.via1
-let desc = $lingua.biglietti.luna
+$: titolo = $lingua.homepage.via1
+$: desc = $lingua.biglietti.luna
 let grey = true
 let blue = false
 let red = false
-let paga = $lingua.biglietti.laluna
+$: paga = $lingua.biglietti.laluna
 
 
 
@@ -117,11 +117,10 @@ const tempo =()=>{
 }
  tempo()
 
- const rand = [
+ $: rand = [
         $lingua.homepage.a,
         $lingua.homepage.b,
         $lingua.homepage.c,
-        $lingua.homepage.d,
         $lingua.homepage.e,
         $lingua.homepage.f,
         $lingua.homepage.g,
@@ -134,7 +133,7 @@ const tempo =()=>{
         $lingua.homepage.n,
         $lingua.homepage.o];
 
-        let frasi = $lingua.homepage.a
+        $: frasi = $lingua.homepage.a
 
         const scorrifrasi=()=>{
           const scorri = setInterval(()=>{
@@ -259,10 +258,10 @@ const tempo =()=>{
 
 
  let imgitem;
- let titoloitem = 'Nessun Articolo'
- let prezzoitem = ''
+ $: titoloitem = 'Nessun Articolo'
+ $: prezzoitem = ''
 
- const articoli = [{
+ $: articoli = [{
   imgitem: terra,
 titoloitem: $lingua.biglietti.laterra,  //0
 prezzoitem: $lingua.biglietti.pterra
@@ -507,14 +506,14 @@ carrello = carrello.filter(item=> item !== articolo)
  let nome = ''
  let cognome = ''
  let oblemail = 'Email'
- let oblnome = $lingua.homepage.nome
- let oblcognome = $lingua.homepage.cognome
- let compra = $lingua.homepage.acquista
- let riselezionapagamento = $lingua.homepage.pagamento
+ $: oblnome = $lingua.homepage.nome
+ $: oblcognome = $lingua.homepage.cognome
+ $: compra = $lingua.homepage.acquista
+ $: riselezionapagamento = $lingua.homepage.pagamento
  let conferma = false
  let grazie = false
- let completato = $lingua.homepage.grazie
- let dati = $lingua.homepage.grmes
+ $: completato = $lingua.homepage.grazie
+ $: dati = $lingua.homepage.grmes
  let randomnumber= '1234567890'
  let id = Math.floor(Math.random() * randomnumber.length)
 
@@ -621,7 +620,7 @@ const qt=(event)=>{
   <div class="bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-800 h-10 flex-auto flex flex-row items-center justify-between relative top-12 rounded-xl md:w-[50%] md:left-[45%] md:-top-12 "> 
   <a href="/" class=" font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {home ? "border-b-2 rounded-sm border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('home')}">Home</a>
   <a href="/skills" class="  font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {skills ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('skills')}">Skills</a>
-  <a href="/progetti" class=" text-white font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500":""}" on:click="{()=>selezionaPag('progetti')}">{$lingua.homepage.progetti}</a>
+  <a href="/progetti" class=" font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('progetti')}">{$lingua.homepage.progetti}</a>
 </div>
 </div>
 
@@ -652,7 +651,7 @@ const qt=(event)=>{
   
     <div class="bg-gradient-to-br from-gray-950 to-teal-950 md:bg-gradient-to-br md:from-black md:to-neutral-900 h-[10px] flex-auto flex flex-row items-center justify-between relative top-12 md:absolute  rounded-lg md:w-[50%] md:h-[50px] md:left-[45%] md:top-[1%] "> 
       <a href="/xflies" on:click="{()=>selezionaPagx('homex')}" class=" font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {homex ? "text-teal-500 border-b-2 border-teal-500": "text-white"}">Home</a>
-      <a href="/xflies/biglietti" on:click="{()=>selezionaPagx('biglietti')}" class=" font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {biglietti ? "text-teal-500 border-b-2 border-teal-500": "text-white"}">Biglietti</a>
+      <a href="/xflies/biglietti" on:click="{()=>selezionaPagx('biglietti')}" class=" font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {biglietti ? "text-teal-500 border-b-2 border-teal-500": "text-white"}">{$lingua.homepage.biglietti}</a>
       <a href="/xflies/shop" on:click="{()=>selezionaPagx('xshop')}" class="  font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {xshop ? "text-teal-500 border-b-2 border-teal-500": "text-white"}">X-Shop</a>
       </div>
   
@@ -750,6 +749,7 @@ const qt=(event)=>{
 
         <div class="grid grid-cols-1 grid-rows-11 w-[100%] h-[350px] sm:h-[450px] gap-y-[20px] bg-gradient-to-tr from-black to-neutral-950 border-b-2 border-gray-600 absolute top-[50px] sm:top-[60px] rounded-2xl overflow-y-auto overflow-x-hidden justify-items-center">
 
+
           {#each carrello as item (item.titoloitem)}
           <div class="flex items-center bg-gradient-to-tr from-black to-neutral-700 border-2 border-neutral-700 w-[90%] h-[90px] rounded-2xl relative top-[10%] justify-center text-center cursor-default">
           <img src={item.imgitem} alt="terra" class="w-[50px] md:w-[70px] animazione absolute left-[5%] " />
@@ -787,8 +787,8 @@ const qt=(event)=>{
         <p class="invert w-[100%] sm:text-base md:text-xl text-sm font-bold">{compra} €{count} </p>
       </div>
 
-      <button on:click="{apricarrello}"  class="{opencart  ? "right-[30px] sm:right-[10%] md:right-[10%] 2xl:right-[10%] absolute": "invisible"}  w-[70px] sm:w-[80px] bg-black border-teal-500 border-2 shadow-lg shadow-teal-950 p-5 rounded-full bottom-[5%]  cursor-pointer hover:bg-teal-950">
-        <img src={cart} alt="cart" class="invert w-[100%]"/>
+      <button on:click="{apricarrello}"  class="{opencart  ? "right-[30px] sm:right-[10%] md:right-[10%] 2xl:right-[10%] absolute": "invisible"}  w-[50px] sm:w-[60px] bg-black border-red-500 border-2 shadow-lg shadow-red-950 p-1 sm:p-1 rounded-full  bottom-[6%] sm:bottom-[6%]  cursor-pointer hover:bg-red-950">
+        <img src={cross} alt="cart" class="invert w-[100%]"/>
       </button>
 
       <div class="flex justify-center w-[100%] h-[100px] bottom-[130px] absolute">

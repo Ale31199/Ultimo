@@ -26,6 +26,8 @@
   import alien from '/src/routes/xflies/ximg/alien.png';
   import cart from  '/src/routes/xflies/ximg/shopping-cart.png';
   import trash from '/src/routes/xflies/ximg/trash.png';
+  import cross from '/src/routes/xflies/ximg/cross.png';
+  import src from '/src/routes/xflies/ximg/search.png';
   
   
   // @ts-ignore
@@ -51,12 +53,12 @@ const TraduciPagina=(linguatraduci)=>{
   
   
   let pianeta = atom;
-  let titolo = $lingua.shop.laatomo
-  let desc = $lingua.shop.atomo
+  $: titolo = $lingua.shop.laatomo
+  $: desc = $lingua.shop.atomo
   let grey = true
   let blue = false
   let red = false
-  let paga = $lingua.shop.laatomo
+  $: paga = $lingua.shop.laatomo
   
   
   
@@ -126,7 +128,7 @@ const TraduciPagina=(linguatraduci)=>{
   }
    tempo()
   
-   const rand = [
+   $: rand = [
         $lingua.homepage.aa,
         $lingua.homepage.bb,
         $lingua.homepage.cc,
@@ -142,7 +144,7 @@ const TraduciPagina=(linguatraduci)=>{
         $lingua.homepage.mm,
         $lingua.homepage.nn];
   
-          let frasi = $lingua.homepage.nn
+          $: frasi = $lingua.homepage.nn
   
           const scorrifrasi=()=>{
             const scorri = setInterval(()=>{
@@ -267,10 +269,10 @@ const TraduciPagina=(linguatraduci)=>{
   
   
    let imgitem;
-   let titoloitem = 'Nessun Articolo'
-   let prezzoitem = ''
+   $: titoloitem = 'Nessun Articolo'
+   $: prezzoitem = ''
   
-   const articoli = [{
+   $: articoli = [{
     imgitem: atom,
   titoloitem: $lingua.shop.laatomo,  //0
   prezzoitem: $lingua.shop.patomo
@@ -372,6 +374,7 @@ const TraduciPagina=(linguatraduci)=>{
   prezzoitem: $lingua.shop.pbatteria
    },
   ]
+
   
   let calcolo;
   let count = 0
@@ -687,14 +690,14 @@ const TraduciPagina=(linguatraduci)=>{
  let nome = ''
  let cognome = ''
  let oblemail = 'Email'
- let oblnome = $lingua.homepage.nome
- let oblcognome = $lingua.homepage.cognome
- let compra = $lingua.homepage.acquista
- let riselezionapagamento = $lingua.homepage.pagamento
+ $: oblnome = $lingua.homepage.nome
+ $: oblcognome = $lingua.homepage.cognome
+ $: compra = $lingua.homepage.acquista
+ $: riselezionapagamento = $lingua.homepage.pagamento
  let conferma = false
  let grazie = false
- let completato = $lingua.homepage.grazie
- let dati = $lingua.homepage.grmes
+ $: completato = $lingua.homepage.grazie
+ $: dati = $lingua.homepage.grmes
  let randomnumber= '1234567890'
  let id = Math.floor(Math.random() * randomnumber.length)
 
@@ -818,6 +821,50 @@ const TraduciPagina=(linguatraduci)=>{
      
   }
   
+
+  
+  const tags = ["atomo", //0
+"braccio ", //1
+"bitcoin", //2
+"blaster", //3
+"kit", //4
+"computer", //5
+"cpu", //6
+"dna", //7
+"energia", //8
+"auto", //9
+"ologramma", //10
+"jetpack", //11
+"ram", //12
+"robot", //13
+"razzo", //14
+"nave", //15
+"teletrasporto", //16
+"telescopio", //17
+"titanio", //18
+"batteria", //19
+"atom", //20
+"bionic", //21
+"bitcoin", //22
+"blaster", //23
+"kit", //24
+"computer", //25
+"cpu", //26
+"dNA.", //27
+"energy.", //28
+"hologram.", //29
+"jetpack", //30
+"ram.", //31
+"robot", //32
+"rocket.", //33
+"ship", //34
+"teleporter", //35
+"telescope", //36
+"titanium", //37
+"battery."] //38
+
+let ricerca= ''
+
   
   </script>
   
@@ -828,7 +875,7 @@ const TraduciPagina=(linguatraduci)=>{
     <div class="bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-800 h-10 flex-auto flex flex-row items-center justify-between relative top-12 rounded-xl md:w-[50%] md:left-[45%] md:-top-12 "> 
     <a href="/" class=" font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {home ? "border-b-2 rounded-sm border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('home')}">Home</a>
     <a href="/skills" class="  font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {skills ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('skills')}">Skills</a>
-    <a href="/progetti" class=" text-white font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500":""}" on:click="{()=>selezionaPag('progetti')}">{$lingua.homepage.progetti}</a>
+    <a href="/progetti" class="  font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('progetti')}">{$lingua.homepage.progetti}</a>
 </div>
 </div>
 
@@ -860,16 +907,18 @@ const TraduciPagina=(linguatraduci)=>{
     
       <div class="bg-gradient-to-br from-gray-950 to-teal-950 md:bg-gradient-to-br md:from-black md:to-neutral-900 h-[10px] flex-auto flex flex-row items-center justify-between relative top-12 md:absolute  rounded-lg md:w-[50%] md:h-[50px] md:left-[45%] md:top-[1%] "> 
         <a href="/xflies" on:click="{()=>selezionaPagx('homex')}" class=" font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {homex ? "text-teal-500 border-b-2 border-teal-500": "text-white"}">Home</a>
-        <a href="/xflies/biglietti" on:click="{()=>selezionaPagx('biglietti')}" class=" font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {biglietti ? "text-teal-500 border-b-2 border-teal-500": "text-white"}">Biglietti</a>
+        <a href="/xflies/biglietti" on:click="{()=>selezionaPagx('biglietti')}" class=" font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {biglietti ? "text-teal-500 border-b-2 border-teal-500": "text-white"}">{$lingua.homepage.biglietti}</a>
         <a href="/xflies/shop" on:click="{()=>selezionaPagx('xshop')}" class="  font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {xshop ? "text-teal-500 border-b-2 border-teal-500": "text-white"}">X-Shop</a>
         </div>
     
   
         <div class="flex justify-center w-[100%]">
-      <div class="flex justify-center items-center absolute top-[340px] sm:top-[380px] text-[12px] font-light  md:rounded-xl   lg:rounded-xl lg:h-[1.5%] md:top-[260px] lg:top-[180px] md:w-[70%]  bg-neutral-950 p-3 rounded-xl w-[80%]">
-        <p class="text-teal-500 font-bold" >{frasi}</p>
-         </div>
-        </div>
+      <input bind:value={ricerca} placeholder={$lingua.homepage.cerca} class="flex text-white pl-[20%] sm:pl-[8%] justify-center items-center absolute top-[340px] sm:top-[380px] text-[12px] font-bold  md:rounded-xl   lg:rounded-xl lg:h-[1.5%] md:top-[260px] lg:top-[180px] md:w-[60%] outline-none  bg-neutral-800 p-3 rounded-xl w-[80%] sm:w-[60%]"/>
+        <img src={src} alt="search" class="w-[30px] absolute invert left-[14%] sm:left-[22%] top-[345px] sm:top-[386px] md:top-[265px] lg:top-[186px]" />
+    </div>
+
+
+   
   
       <div class="flex w-[100%] justify-center">
       <div class="{grey ? "bg-gradient-to-tr from-black to-green-950 border-green-950  border-2 transizione" : ""} {blue ? "bg-gradient-to-tr from-black to-yellow-700 border-yellow-700 border-2 transizione " : ""} {red ? "bg-gradient-to-tr from-black to-violet-950 border-violet-950 border-2 transizione " : ""} transizione grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[8%] sm:top-[7%] md:top-[330px] lg:top-[240px] w-[300px] sm:w-[400px] md:w-[680px] h-[550px] sm:h-[590px] md:h-[600px] lg:h-[700px] lg:w-[80%] rounded-[80px]">
@@ -888,7 +937,7 @@ const TraduciPagina=(linguatraduci)=>{
 
       <div class="grid grid-cols-1 grid-rows-17 lg:grid-cols-2 lg:grid-rows-9 w-[100%] h-[13500px] sm:h-[16000px] md:h-[13500px] lg:h-[6500px] bg-black rounded-b-3xl absolute top-[20%] sm:top-[18%] md:top-[20%] lg:top-[35%] justify-items-center">
   
-      <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div  class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={blaster} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lablaster}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%] md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.blaster}</p>
@@ -943,10 +992,6 @@ const TraduciPagina=(linguatraduci)=>{
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.ologramma}</p>
         <button disabled={!attiva10 || !disattiva10} on:click="{()=>aggiungiCarrello('ologramma')}" class=" {attiva10 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva10 ? `${$lingua.homepage.acquista} ${$lingua.shop.laologramma}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
-
-
-
-
 
       <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={jetpack} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
@@ -1011,10 +1056,9 @@ const TraduciPagina=(linguatraduci)=>{
         <button disabled={!attiva19 || !disattiva19} on:click="{()=>aggiungiCarrello('batteria')}" class=" {attiva19 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva19 ? `${$lingua.homepage.acquista} ${$lingua.shop.labatteria}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-     
       </div>
-
       </div>
+      
   
   
   
@@ -1064,8 +1108,8 @@ const TraduciPagina=(linguatraduci)=>{
           <p class="invert w-[100%] sm:text-base md:text-xl text-sm font-bold">{compra} €{count} </p>
         </div>
   
-        <button on:click="{apricarrello}"  class="{opencart  ? "right-[30px] sm:right-[10%] md:right-[10%] 2xl:right-[10%] absolute": "invisible"}  w-[70px] sm:w-[80px] bg-black border-teal-500 border-2 shadow-lg shadow-teal-950 p-5 rounded-full bottom-[5%]  cursor-pointer hover:bg-teal-950">
-          <img src={cart} alt="cart" class="invert w-[100%]"/>
+        <button on:click="{apricarrello}"  class="{opencart  ? "right-[30px] sm:right-[10%] md:right-[10%] 2xl:right-[10%] absolute": "invisible"}  w-[50px] sm:w-[60px] bg-black border-red-500 border-2 shadow-lg shadow-red-950 p-1 sm:p-1 rounded-full  bottom-[6%] sm:bottom-[6%]  cursor-pointer hover:bg-red-950">
+          <img src={cross} alt="cart" class="invert w-[100%]"/>
         </button>
   
         <div class="flex justify-center w-[100%] h-[100px] bottom-[130px] absolute">
