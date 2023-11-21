@@ -823,47 +823,44 @@ const TraduciPagina=(linguatraduci)=>{
   
 
   
-  const tags = ["atomo", //0
-"braccio ", //1
-"bitcoin", //2
-"blaster", //3
-"kit", //4
-"computer", //5
-"cpu", //6
-"dna", //7
-"energia", //8
-"auto", //9
-"ologramma", //10
-"jetpack", //11
-"ram", //12
-"robot", //13
-"razzo", //14
-"nave", //15
-"teletrasporto", //16
-"telescopio", //17
-"titanio", //18
-"batteria", //19
-"atom", //20
-"bionic", //21
-"bitcoin", //22
-"blaster", //23
-"kit", //24
-"computer", //25
-"cpu", //26
-"dNA.", //27
-"energy.", //28
-"hologram.", //29
-"jetpack", //30
-"ram.", //31
-"robot", //32
-"rocket.", //33
-"ship", //34
-"teleporter", //35
-"telescope", //36
-"titanium", //37
-"battery."] //38
+  const tags = {
+atomo: ['atomo', 'Atomo', 'Atom', 'atom'],
+bracci: ['Braccio', 'braccio', 'Bionic', 'bionic'],
+bitcoi: ['Bitcoin, bitcoin'],
+blaste: ['Blaster', 'blaster'],
+ki: ['Kit', 'kit', 'Chemical', 'chemical'],
+compute: ['Computer', 'computer', 'Pc', 'pc'],
+cp: ['Cpu', 'cpu'],
+dn: ['Dna', 'dna'],
+energi: ['Energia', 'energia', 'Energy', 'energy'],
+aut: ['Auto', 'auto', 'flying', 'Flying'],
+ologram: ['Ologramma', 'ologramma', 'Hologram', 'hologram'] ,
+jetpac: ['Jetpack', 'jetpack'],
+ra: ['Ram', 'ram'],
+robo: ['Robot', 'robot'],
+razz: ['Razzo', 'razzo', 'rocket', 'Rocket'],
+nav: ['Nave', 'nave', 'Spaceship', 'spaceship'],
+teletrasport: ['Teletrasporto', 'trasporto', 'Teleport', 'teleport'],
+telescopi: ['Telesscopio', 'telescopio', 'Telescope', 'telescope'],
+titani: ['Titanio', 'titanio', 'titanium', 'Titanium'],
+batteri: ['Batteria', 'batteria', 'Battery', 'battery']
+  }
 
-let ricerca= ''
+let ricerca = ''
+
+const cerca=(event)=>{
+  if(event.key === 'Enter'){
+ricerca = event.target.value
+tag()
+}
+}
+
+const tag=()=>{
+const chiaviTag = Object.keys(tags)
+if(chiaviTag.includes(ricerca)){
+  ricerca = ''
+}
+}
 
   
   </script>
@@ -913,7 +910,7 @@ let ricerca= ''
     
   
         <div class="flex justify-center w-[100%]">
-      <input bind:value={ricerca} placeholder={$lingua.homepage.cerca} class="flex text-white pl-[20%] sm:pl-[8%] justify-center items-center absolute top-[340px] sm:top-[380px] text-[12px] font-bold  md:rounded-xl   lg:rounded-xl lg:h-[1.5%] md:top-[260px] lg:top-[180px] md:w-[60%] outline-none  bg-neutral-800 p-3 rounded-xl w-[80%] sm:w-[60%]"/>
+      <input bind:value={ricerca} on:keyup="{()=>cerca()}" placeholder={$lingua.homepage.cerca} class="flex text-white pl-[20%] sm:pl-[8%] justify-center items-center absolute top-[340px] sm:top-[380px] text-[12px] font-bold  md:rounded-xl   lg:rounded-xl lg:h-[1.5%] md:top-[260px] lg:top-[180px] md:w-[60%] outline-none  bg-neutral-800 p-3 rounded-xl w-[80%] sm:w-[60%]"/>
         <img src={src} alt="search" class="w-[30px] absolute invert left-[14%] sm:left-[22%] top-[345px] sm:top-[386px] md:top-[265px] lg:top-[186px]" />
     </div>
 
@@ -937,7 +934,7 @@ let ricerca= ''
 
       <div class="grid grid-cols-1 grid-rows-17 lg:grid-cols-2 lg:grid-rows-9 w-[100%] h-[13500px] sm:h-[16000px] md:h-[13500px] lg:h-[6500px] bg-black rounded-b-3xl absolute top-[20%] sm:top-[18%] md:top-[20%] lg:top-[35%] justify-items-center">
   
-      <div  class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div data-value={{display: ricerca === '' || tags.blaste.includes(ricerca) ? 'block': 'none'}} class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={blaster} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lablaster}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%] md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.blaster}</p>
