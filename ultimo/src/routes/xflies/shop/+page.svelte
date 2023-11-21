@@ -823,67 +823,33 @@ const TraduciPagina=(linguatraduci)=>{
   
 
   
-  const tags = {
-atomo: ['atomo', 'Atomo', 'Atom', 'atom'],
-bracci: ['Braccio', 'braccio', 'Bionic', 'bionic'],
-bitcoi: ['Bitcoin, bitcoin'],
-blaste: ['Blaster', 'blaster'],
-ki: ['Kit', 'kit', 'Chemical', 'chemical'],
-compute: ['Computer', 'computer', 'Pc', 'pc'],
-cp: ['Cpu', 'cpu'],
-dn: ['Dna', 'dna'],
-energi: ['Energia', 'energia', 'Energy', 'energy'],
-aut: ['Auto', 'auto', 'flying', 'Flying'],
-ologram: ['Ologramma', 'ologramma', 'Hologram', 'hologram'] ,
-jetpac: ['Jetpack', 'jetpack'],
-ra: ['Ram', 'ram'],
-robo: ['Robot', 'robot'],
-razz: ['Razzo', 'razzo', 'rocket', 'Rocket'],
-nav: ['Nave', 'nave', 'Spaceship', 'spaceship'],
-teletrasport: ['Teletrasporto', 'trasporto', 'Teleport', 'teleport'],
-telescopi: ['Telesscopio', 'telescopio', 'Telescope', 'telescope'],
-titani: ['Titanio', 'titanio', 'titanium', 'Titanium'],
-batteri: ['Batteria', 'batteria', 'Battery', 'battery']
-  }
+   
+  const tags = [
+  { key: 'atomo', values: ['atomo', 'Atomo', 'Atom', 'atom'] },
+  { key: 'bracci', values: ['Braccio', 'braccio', 'Bionic', 'bionic'] },
+  { key: 'bitcoi', values: ['Bitcoin', 'bitcoin'] },
+  { key: 'blaste', values: ['Blaster', 'blaster'] },
+  { key: 'ki', values: ['Kit', 'kit', 'Chemical', 'chemical'] },
+  { key: 'compute', values: ['Computer', 'computer', 'Pc', 'pc'] },
+  { key: 'cp', values: ['Cpu', 'cpu'] },
+  { key: 'dn', values: ['Dna', 'dna'] },
+  { key: 'energi', values: ['Energia', 'energia', 'Energy', 'energy'] },
+  { key: 'aut', values: ['Auto', 'auto', 'flying', 'Flying'] },
+  { key: 'ologram', values: ['Ologramma', 'ologramma', 'Hologram', 'hologram'] },
+  { key: 'jetpac', values: ['Jetpack', 'jetpack'] },
+  { key: 'ra', values: ['Ram', 'ram'] },
+  { key: 'robo', values: ['Robot', 'robot'] },
+  { key: 'razz', values: ['Razzo', 'razzo', 'rocket', 'Rocket'] },
+  { key: 'nav', values: ['Nave', 'nave', 'Spaceship', 'spaceship'] },
+  { key: 'teletrasport', values: ['Teletrasporto', 'trasporto', 'Teleport', 'teleport'] },
+  { key: 'telescopi', values: ['Telesscopio', 'telescopio', 'Telescope', 'telescope'] },
+  { key: 'titani', values: ['Titanio', 'titanio', 'titanium', 'Titanium'] },
+  { key: 'batteri', values: ['Batteria', 'batteria', 'Battery', 'battery'] },
+];
 
 let ricerca = ''
-
-let showblaster = ricerca === tags.blaste[0] || tags.blaste[1]
-let showkit = ricerca === tags.ki[0] || tags.ki[1] || tags.ki[2] || tags.ki[3]
-let showcomputer = ricerca === tags.compute[0] || tags.compute[1]
-let showcpu = ricerca === tags.cp[0] || tags.cp[1]
-let showdna = ricerca === tags.dn[0] || tags.dn[1]
-let showenergia = ricerca === tags.energi[0] || tags.energi[1] || tags.energi[2] || tags.energi[3]
-let showauto = ricerca === tags.aut[0] || tags.aut[1] || tags.aut[2] || tags.aut[3]
-let showologramma = ricerca === tags.ologram[0] || tags.ologram[1] || tags.ologram[2] || tags.ologram[3]
-let showjetpack = ricerca === tags.jetpac[0] || tags.jetpac[1]
-let showram = ricerca === tags.ra[0] || tags.ra[1]
-let showrobot = ricerca === tags.robo[0] || tags.robo[1]
-let showrazzo = ricerca === tags.razz[0] || tags.razz[1] || tags.razz[2] || tags.razz[3]
-let shownave = ricerca === tags.nav[0] || tags.nav[1] || tags.nav[2] || tags.nav[3]
-let showteletra = ricerca === tags.teletrasport[0] || tags.teletrasport[1] || tags.teletrasport[2] || tags.teletrasport[3]
-let showtele = ricerca === tags.telescopi[0] || tags.telescopi[1] || tags.telescopi[2] || tags.telescopi[3]
-let showtitanio = ricerca === tags.titani[0] || tags.titani[1] || tags.titani[2] || tags.titani[3]
-let showbatteria = ricerca === tags.batteri[0] || tags.batteri[1] || tags.batteri[2] || tags.batteri[3]
-
-let seeblaster = true
-let seekit = true
-let seecomputer = true
-let seecpu = true
-let seedna = true
-let seeenergia =true
-let seeauto = true
-let seeologramma =true
-let seejetpack = true
-let seeram = true
-let seerobot = true
-let seerazzo = true
-let seenave = true
-let seeteletra = true
-let seetele = true
-let seetitanio = true
-let seebatteria = true
-
+let trovato = true
+let nascondialtri = false
 
 const cerca=(event)=>{
   if(event.key === 'Enter'){
@@ -892,25 +858,20 @@ tag()
 }
 }
 
-const tag=()=>{
-  if(showblaster){
-  seeblaster = true
-  seekit = !seekit
- seecomputer = !seecomputer
- seecpu = !seecpu
- seedna = !seedna
- seeenergia =!seeenergia
- seeauto = !seeauto
- seeologramma =!seeologramma
- seejetpack = !seejetpack
- seeram = !seeram
- seerobot = !seerobot
- seerazzo = !seerazzo
- seenave = !seenave
- seeteletra = !seeteletra
- seetele = !seetele
- seetitanio = !seetitanio
- seebatteria = !seebatteria
+const tag=(index)=>{
+if (ricerca = tags[index].values[index].toLowerCase()){
+trovato = true
+nascondialtri = true
+}
+
+if (ricerca === ''){
+trovato = true
+}
+
+if (ricerca !== tags[index].values[index].toLowerCase()){
+  nascondialtri = true
+}else{
+  nascondialtri = false
 }
 }
 
@@ -988,7 +949,7 @@ const tag=()=>{
 
       <div class="grid grid-cols-1 grid-rows-17 lg:grid-cols-2 lg:grid-rows-9 w-[100%] h-[13500px] sm:h-[16000px] md:h-[13500px] lg:h-[6500px] bg-black rounded-b-3xl absolute top-[20%] sm:top-[18%] md:top-[20%] lg:top-[35%] justify-items-center">
   
-      <div class="{seeblaster ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={blaster} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lablaster}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%] md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.blaster}</p>
@@ -996,7 +957,7 @@ const tag=()=>{
       </div>
    
      
-      <div class="{seekit ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={chemistry} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lakit}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.kit}</p>
@@ -1004,105 +965,105 @@ const tag=()=>{
       </div>
       
       
-      <div class="{seecomputer ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={computer} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lacomputer}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.computer}</p>
         <button disabled={!attiva5 || !disattiva5} on:click="{()=>aggiungiCarrello('computer')}" class=" {attiva5 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva5 ? `${$lingua.homepage.acquista} ${$lingua.shop.lacomputer}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{seecpu ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={cpu} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lacpu}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.cpu}</p>
         <button disabled={!attiva6 || !disattiva6} on:click="{()=>aggiungiCarrello('cpu')}" class=" {attiva6 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva6 ? `${$lingua.homepage.acquista} ${$lingua.shop.lacpu}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{seedna ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={dna} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.ladna}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.dna}</p>
         <button disabled={!attiva7 || !disattiva7} on:click="{()=>aggiungiCarrello('dna')}" class=" {attiva7 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva7 ? `${$lingua.homepage.acquista} ${$lingua.shop.ladna}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{seeenergia ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative   w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative   w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={energy} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.laenergia}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.energia}</p>
         <button disabled={!attiva8 || !disattiva8} on:click="{()=>aggiungiCarrello('energia')}" class=" {attiva8 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva8 ? `${$lingua.homepage.acquista} ${$lingua.shop.laenergia}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{seeauto ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={flycar} alt="hand" class="w-[35%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.laauto}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.auto}</p>
         <button disabled={!attiva9 || !disattiva9} on:click="{()=>aggiungiCarrello('auto')}" class=" {attiva9 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva9 ? `${$lingua.homepage.acquista} ${$lingua.shop.laauto}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{seeologramma ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={hologram} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.laologramma}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.ologramma}</p>
         <button disabled={!attiva10 || !disattiva10} on:click="{()=>aggiungiCarrello('ologramma')}" class=" {attiva10 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva10 ? `${$lingua.homepage.acquista} ${$lingua.shop.laologramma}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
 
-      <div class="{seejetpack ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={jetpack} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lajetpack}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%] md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.jetpack}</p>
         <button disabled={!attiva11 || !disattiva11} on:click="{()=>aggiungiCarrello('jetpack')}" class=" {attiva11 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva11 ? `${$lingua.homepage.acquista} ${$lingua.shop.lajetpack}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{seeram ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={ram} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.laram}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.ram}</p>
         <button disabled={!attiva12 || !disattiva12} on:click="{()=>aggiungiCarrello('ram')}" class=" {attiva12 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva12 ? `${$lingua.homepage.acquista} ${$lingua.shop.laram}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
       
-      <div class="{seerobot ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={robot} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.larobot}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.robot}</p>
         <button disabled={!attiva13 || !disattiva13} on:click="{()=>aggiungiCarrello('robot')}" class=" {attiva13 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva13 ? `${$lingua.homepage.acquista} ${$lingua.shop.larobot}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{seerazzo ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={rocket} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.larazzo}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.razzo}</p>
         <button disabled={!attiva14 || !disattiva14} on:click="{()=>aggiungiCarrello('razzo')}" class=" {attiva14 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva14 ? `${$lingua.homepage.acquista} ${$lingua.shop.larazzo}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{seenave ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={spaceship} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lanave}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.nave}</p>
         <button disabled={!attiva15 || !disattiva15} on:click="{()=>aggiungiCarrello('nave')}" class=" {attiva15 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva15 ? `${$lingua.homepage.acquista} ${$lingua.shop.lanave}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{seeteletra ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative   w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative   w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={teleport} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lateletrasporto}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.teletrasporto}</p>
         <button disabled={!attiva16 || !disattiva16} on:click="{()=>aggiungiCarrello('teletrasporto')}" class=" {attiva16 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva16 ? `${$lingua.homepage.acquista} ${$lingua.shop.lateletrasporto}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{seetele ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={telescope} alt="hand" class="w-[35%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.latelescopio}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.telescopio}</p>
         <button disabled={!attiva17 || !disattiva17} on:click="{()=>aggiungiCarrello('telescopio')}" class=" {attiva17 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva17 ? `${$lingua.homepage.acquista} ${$lingua.shop.latelescopio}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{seetitanio ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={titanium} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.latitanio}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.titanio}</p>
         <button disabled={!attiva18 || !disattiva18} on:click="{()=>aggiungiCarrello('titanio')}" class=" {attiva18 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva18 ? `${$lingua.homepage.acquista} ${$lingua.shop.latitanio}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
 
-      <div class="{seebatteria ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={transformer} alt="hand" class="w-[35%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.labatteria}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.batteria}</p>
