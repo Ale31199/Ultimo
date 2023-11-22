@@ -28,10 +28,11 @@
   import trash from '/src/routes/xflies/ximg/trash.png';
   import cross from '/src/routes/xflies/ximg/cross.png';
   import src from '/src/routes/xflies/ximg/search.png';
-  
+  import info from '/src/routes/xflies/ximg/information.png';
+  import reload from '/src/routes/xflies/ximg/reload.png';
   
   // @ts-ignore
-  import ita from '/src/routes/xflies/xtesto.json';
+   import ita from '/src/routes/xflies/xtesto.json';
     //import { redirect } from '@sveltejs/kit';
    //@ts-ignore
     import eng from '/src/routes/xflies/xtestoeng.json';
@@ -822,60 +823,420 @@ const TraduciPagina=(linguatraduci)=>{
   }
   
 
-  
-   
-  const tags = [
-  { key: 'atomo', values: ['atomo', 'Atomo', 'Atom', 'atom'] },
-  { key: 'bracci', values: ['Braccio', 'braccio', 'Bionic', 'bionic'] },
-  { key: 'bitcoi', values: ['Bitcoin', 'bitcoin'] },
-  { key: 'blaste', values: ['Blaster', 'blaster'] },
-  { key: 'ki', values: ['Kit', 'kit', 'Chemical', 'chemical'] },
-  { key: 'compute', values: ['Computer', 'computer', 'Pc', 'pc'] },
-  { key: 'cp', values: ['Cpu', 'cpu'] },
-  { key: 'dn', values: ['Dna', 'dna'] },
-  { key: 'energi', values: ['Energia', 'energia', 'Energy', 'energy'] },
-  { key: 'aut', values: ['Auto', 'auto', 'flying', 'Flying'] },
-  { key: 'ologram', values: ['Ologramma', 'ologramma', 'Hologram', 'hologram'] },
-  { key: 'jetpac', values: ['Jetpack', 'jetpack'] },
-  { key: 'ra', values: ['Ram', 'ram'] },
-  { key: 'robo', values: ['Robot', 'robot'] },
-  { key: 'razz', values: ['Razzo', 'razzo', 'rocket', 'Rocket'] },
-  { key: 'nav', values: ['Nave', 'nave', 'Spaceship', 'spaceship'] },
-  { key: 'teletrasport', values: ['Teletrasporto', 'trasporto', 'Teleport', 'teleport'] },
-  { key: 'telescopi', values: ['Telesscopio', 'telescopio', 'Telescope', 'telescope'] },
-  { key: 'titani', values: ['Titanio', 'titanio', 'titanium', 'Titanium'] },
-  { key: 'batteri', values: ['Batteria', 'batteria', 'Battery', 'battery'] },
-];
+  const tags = {
+  blaste: ['Blaster', 'blaster'],
+  ki: ['Kit', 'kit', 'Chemical', 'chemical'],
+  compute: ['Computer', 'computer', 'Pc', 'pc'],
+  cp: ['Cpu', 'cpu'],
+  dn: ['Dna', 'dna'],
+  energi: ['Energia', 'energia', 'Energy', 'energy'],
+  aut: ['Auto', 'auto', 'flying', 'Flying'],
+  ologram: ['Ologramma', 'ologramma', 'Hologram', 'hologram'],
+  jetpac: ['Jetpack', 'jetpack'],
+  ra: ['Ram', 'ram'],
+  robo: ['Robot', 'robot'],
+  razz: ['Razzo', 'razzo', 'rocket', 'Rocket'],
+  nav: ['Nave', 'nave', 'Spaceship', 'spaceship'],
+  teletrasport: ['Teletrasporto', 'trasporto', 'Teleport', 'teleport'],
+  telescopi: ['Telesscopio', 'telescopio', 'Telescope', 'telescope'],
+  titani: ['Titanio', 'titanio', 'titanium', 'Titanium'],
+  batteri: ['Batteria', 'batteria', 'Battery', 'battery'],
+    };
 
-let ricerca = ''
-let trovato = true
-let nascondialtri = false
-
-const cerca=(event)=>{
+ let ricerca = ''
+ let showblaster = true
+ let showkit = true
+ let showcomputer = true
+ let showcpu = true
+ let showdna = true
+ let showenergia = true
+ let showauto = true
+ let showologramma = true
+ let showjetpack = true
+ let showram = true
+ let showrobot = true
+ let showrazzo =true
+ let shownave = true
+ let showteleta = true
+ let showtele = true
+ let showtitanio = true
+ let showbatteria = true
+ let back = false
+ const cerca=(event)=>{
   if(event.key === 'Enter'){
 ricerca = event.target.value
 tag()
 }
 }
 
-const tag=(index)=>{
-if (ricerca = tags[index].values[index].toLowerCase()){
-trovato = true
-nascondialtri = true
+
+const indietro=()=>{
+    ricerca = ''
+    back = true
+    showblaster = true
+showkit = true
+showcomputer = true
+showcpu = true
+showdna = true
+showenergia = true
+showauto = true
+showologramma = true
+showjetpack = true
+showram = true
+showrobot = true
+showrazzo = true
+shownave = true
+showteleta = true
+showtele = true
+showtitanio = true
+showbatteria = true
 }
 
-if (ricerca === ''){
-trovato = true
+ const tag = () => {
+ 
+  if(tags.blaste.includes(ricerca)){
+    ricerca = ''
+showblaster = true
+showkit = false
+showcomputer = false
+showcpu = false
+showdna = false
+showenergia = false
+showauto = false
+showologramma = false
+showjetpack = false
+showram = false
+showrobot = false
+showrazzo = false
+shownave = false
+showteleta = false
+showtele = false
+showtitanio = false
+showbatteria = false
 }
-
-if (ricerca !== tags[index].values[index].toLowerCase()){
-  nascondialtri = true
-}else{
-  nascondialtri = false
+if(tags.ki.includes(ricerca)){
+    ricerca = ''
+showblaster = false
+showkit = true
+showcomputer = false
+showcpu = false
+showdna = false
+showenergia = false
+showauto = false
+showologramma = false
+showjetpack = false
+showram = false
+showrobot = false
+showrazzo = false
+shownave = false
+showteleta = false
+showtele = false
+showtitanio = false
+showbatteria = false
 }
+if(tags.compute.includes(ricerca)){
+    ricerca = ''
+showblaster = false
+showkit = false
+showcomputer = true
+showcpu = false
+showdna = false
+showenergia = false
+showauto = false
+showologramma = false
+showjetpack = false
+showram = false
+showrobot = false
+showrazzo = false
+shownave = false
+showteleta = false
+showtele = false
+showtitanio = false
+showbatteria = false
 }
+if(tags.cp.includes(ricerca)){
+    ricerca = ''
+showblaster = false
+showkit = false
+showcomputer = false
+showcpu = true
+showdna = false
+showenergia = false
+showauto = false
+showologramma = false
+showjetpack = false
+showram = false
+showrobot = false
+showrazzo = false
+shownave = false
+showteleta = false
+showtele = false
+showtitanio = false
+showbatteria = false
+}
+if(tags.dn.includes(ricerca)){
+    ricerca = ''
+showblaster = false
+showkit = false
+showcomputer = false
+showcpu = false
+showdna = true
+showenergia = false
+showauto = false
+showologramma = false
+showjetpack = false
+showram = false
+showrobot = false
+showrazzo = false
+shownave = false
+showteleta = false
+showtele = false
+showtitanio = false
+showbatteria = false
+}
+if(tags.energi.includes(ricerca)){
+    ricerca = ''
+showblaster = false
+showkit = false
+showcomputer = false
+showcpu = false
+showdna = false
+showenergia = true
+showauto = false
+showologramma = false
+showjetpack = false
+showram = false
+showrobot = false
+showrazzo = false
+shownave = false
+showteleta = false
+showtele = false
+showtitanio = false
+showbatteria = false
+}
+if(tags.aut.includes(ricerca)){
+    ricerca = ''
+showblaster = false
+showkit = false
+showcomputer = false
+showcpu = false
+showdna = false
+showenergia = false
+showauto = true
+showologramma = false
+showjetpack = false
+showram = false
+showrobot = false
+showrazzo = false
+shownave = false
+showteleta = false
+showtele = false
+showtitanio = false
+showbatteria = false
+}
+if(tags.ologram.includes(ricerca) ){
+    ricerca = ''
+showblaster = false
+showkit = false
+showcomputer = false
+showcpu = false
+showdna = false
+showenergia = false
+showauto = false
+showologramma = true
+showjetpack = false
+showram = false
+showrobot = false
+showrazzo = false
+shownave = false
+showteleta = false
+showtele = false
+showtitanio = false
+showbatteria = false
+}
+if(tags.jetpac.includes(ricerca)){
+    ricerca = ''
+showblaster = false
+showkit = false
+showcomputer = false
+showcpu = false
+showdna = false
+showenergia = false
+showauto = false
+showologramma = false
+showjetpack = true
+showram = false
+showrobot = false
+showrazzo = false
+shownave = false
+showteleta = false
+showtele = false
+showtitanio = false
+showbatteria = false
+}
+if(tags.ra.includes(ricerca) ){
+    ricerca = ''
+showblaster = false
+showkit = false
+showcomputer = false
+showcpu = false
+showdna = false
+showenergia = false
+showauto = false
+showologramma = false
+showjetpack = false
+showram = true
+showrobot = false
+showrazzo = false
+shownave = false
+showteleta = false
+showtele = false
+showtitanio = false
+showbatteria = false
+}
+if(tags.robo.includes(ricerca)){
+    ricerca = ''
+showblaster = false
+showkit = false
+showcomputer = false
+showcpu = false
+showdna = false
+showenergia = false
+showauto = false
+showologramma = false
+showjetpack = false
+showram = false
+showrobot = true
+showrazzo = false
+shownave = false
+showteleta = false
+showtele = false
+showtitanio = false
+showbatteria = false
+}
+if(tags.razz.includes(ricerca)){
+    ricerca = ''
+showblaster = false
+showkit = false
+showcomputer = false
+showcpu = false
+showdna = false
+showenergia = false
+showauto = false
+showologramma = false
+showjetpack = false
+showram = false
+showrobot = false
+showrazzo = true
+shownave = false
+showteleta = false
+showtele = false
+showtitanio = false
+showbatteria = false
+}
+if(tags.nav.includes(ricerca)){
+    ricerca = ''
+showblaster = false
+showkit = false
+showcomputer = false
+showcpu = false
+showdna = false
+showenergia = false
+showauto = false
+showologramma = false
+showjetpack = false
+showram = false
+showrobot = false
+showrazzo = false
+shownave = true
+showteleta = false
+showtele = false
+showtitanio = false
+showbatteria = false
+}
+if(tags.teletrasport.includes(ricerca)){
+    ricerca = ''
+showblaster = false
+showkit = false
+showcomputer = false
+showcpu = false
+showdna = false
+showenergia = false
+showauto = false
+showologramma = false
+showjetpack = false
+showram = false
+showrobot = false
+showrazzo = false
+shownave = false
+showteleta = true
+showtele = false
+showtitanio = false
+showbatteria = false
+}
+if(tags.telescopi.includes(ricerca)){
+    ricerca = ''
+showblaster = false
+showkit = false
+showcomputer = false
+showcpu = false
+showdna = false
+showenergia = false
+showauto = false
+showologramma = false
+showjetpack = false
+showram = false
+showrobot = false
+showrazzo = false
+shownave = false
+showteleta = false
+showtele = true
+showtitanio = false
+showbatteria = false
+}
+if(tags.titani.includes(ricerca)){
+    ricerca = ''
+showblaster = false
+showkit = false
+showcomputer = false
+showcpu = false
+showdna = false
+showenergia = false
+showauto = false
+showologramma = false
+showjetpack = false
+showram = false
+showrobot = false
+showrazzo = false
+shownave = false
+showteleta = false
+showtele = false
+showtitanio = true
+showbatteria = false
+}
+if(tags.batteri.includes(ricerca) ){
+    ricerca = ''
+showblaster = false
+showkit = false
+showcomputer = false
+showcpu = false
+showdna = false
+showenergia = false
+showauto = false
+showologramma = false
+showjetpack = false
+showram = false
+showrobot = false
+showrazzo = false
+shownave = false
+showteleta = false
+showtele = false
+showtitanio = false
+showbatteria = true
+}
+};
 
-
+  
 
   
   </script>
@@ -925,8 +1286,11 @@ if (ricerca !== tags[index].values[index].toLowerCase()){
     
   
         <div class="flex justify-center w-[100%]">
-      <input bind:value={ricerca} type="text" on:keyup="{(event)=>cerca(event)}" placeholder={$lingua.homepage.cerca} class="flex text-white pl-[20%] sm:pl-[8%] justify-center items-center absolute top-[340px] sm:top-[380px] text-[12px] font-bold  md:rounded-xl   lg:rounded-xl lg:h-[1.5%] md:top-[260px] lg:top-[180px] md:w-[60%] outline-none  bg-neutral-800 p-3 rounded-xl w-[80%] sm:w-[60%]"/>
-        <img src={src} alt="search" class="w-[30px] absolute invert left-[14%] sm:left-[22%] top-[345px] sm:top-[386px] md:top-[265px] lg:top-[186px]" />
+      <input bind:value={ricerca} type="text" on:keyup="{(event)=>cerca(event)}" placeholder={$lingua.homepage.cerca} class="flex text-white pl-[20%] sm:pl-[8%] pr-[25%] sm:pr-[13%] justify-center items-center absolute top-[340px] sm:top-[380px] text-[12px] font-bold  md:rounded-xl   lg:rounded-xl lg:h-[1.5%] md:top-[260px] lg:top-[180px] md:w-[60%] outline-none  bg-neutral-800 p-3 rounded-xl w-[80%] sm:w-[60%]"/>
+        <img src={src} alt="search" class="w-[25px] absolute invert-[0.5] left-[14%] sm:left-[22%] top-[348px] sm:top-[389px] md:top-[268px] lg:top-[189px]" />
+        <img src={info} alt="search" class="hover:most-[visible] w-[20px] absolute invert-[0.5] effetto right-[14%] sm:right-[22%] top-[350px] sm:top-[393px] md:top-[272px] lg:top-[193px] cursor-pointer" />
+        <img src={reload} alt="search" on:click="{()=>indietro()}" class="w-[20px] absolute invert-[0.5] hover:spinna  right-[22%] sm:right-[28%] top-[350px] sm:top-[393px] md:top-[272px] lg:top-[193px] cursor-pointer" />
+        <div class="most rounded-lg absolute top-[310px] sm:top-[350px] text-[12px] text-neutral-300 p-1 font-thin lg:h-[1.5%] md:top-[230px] lg:top-[180px] w-[70%] sm:w-[50%] md:w-[50%] justify-center items-center flex bg-neutral-900">{$lingua.homepage.info}</div>
     </div>
 
 
@@ -947,9 +1311,10 @@ if (ricerca !== tags[index].values[index].toLowerCase()){
       </div>
 
 
-      <div class="grid grid-cols-1 grid-rows-17 lg:grid-cols-2 lg:grid-rows-9 w-[100%] h-[13500px] sm:h-[16000px] md:h-[13500px] lg:h-[6500px] bg-black rounded-b-3xl absolute top-[20%] sm:top-[18%] md:top-[20%] lg:top-[35%] justify-items-center">
+      <div class="{showblaster ? "h-[13500px] sm:h-[16000px] md:h-[13500px] lg:h-[6500px]" : "h-[1000px]"}
+      grid grid-cols-1 grid-rows-17 lg:grid-cols-2 lg:grid-rows-9 w-[100%] bg-black rounded-b-3xl absolute top-[20%] sm:top-[18%] md:top-[20%] lg:top-[35%] justify-items-center">
   
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{showblaster ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={blaster} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lablaster}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%] md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.blaster}</p>
@@ -957,7 +1322,7 @@ if (ricerca !== tags[index].values[index].toLowerCase()){
       </div>
    
      
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{showkit ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={chemistry} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lakit}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.kit}</p>
@@ -965,105 +1330,105 @@ if (ricerca !== tags[index].values[index].toLowerCase()){
       </div>
       
       
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{showcomputer ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={computer} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lacomputer}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.computer}</p>
         <button disabled={!attiva5 || !disattiva5} on:click="{()=>aggiungiCarrello('computer')}" class=" {attiva5 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva5 ? `${$lingua.homepage.acquista} ${$lingua.shop.lacomputer}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{showcpu ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={cpu} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lacpu}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.cpu}</p>
         <button disabled={!attiva6 || !disattiva6} on:click="{()=>aggiungiCarrello('cpu')}" class=" {attiva6 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva6 ? `${$lingua.homepage.acquista} ${$lingua.shop.lacpu}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{showdna ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={dna} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.ladna}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.dna}</p>
         <button disabled={!attiva7 || !disattiva7} on:click="{()=>aggiungiCarrello('dna')}" class=" {attiva7 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva7 ? `${$lingua.homepage.acquista} ${$lingua.shop.ladna}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative   w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{showenergia ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative   w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={energy} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.laenergia}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.energia}</p>
         <button disabled={!attiva8 || !disattiva8} on:click="{()=>aggiungiCarrello('energia')}" class=" {attiva8 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva8 ? `${$lingua.homepage.acquista} ${$lingua.shop.laenergia}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{showauto ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={flycar} alt="hand" class="w-[35%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.laauto}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.auto}</p>
         <button disabled={!attiva9 || !disattiva9} on:click="{()=>aggiungiCarrello('auto')}" class=" {attiva9 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva9 ? `${$lingua.homepage.acquista} ${$lingua.shop.laauto}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{showologramma ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={hologram} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.laologramma}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.ologramma}</p>
         <button disabled={!attiva10 || !disattiva10} on:click="{()=>aggiungiCarrello('ologramma')}" class=" {attiva10 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva10 ? `${$lingua.homepage.acquista} ${$lingua.shop.laologramma}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
 
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{showjetpack ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={jetpack} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lajetpack}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%] md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.jetpack}</p>
         <button disabled={!attiva11 || !disattiva11} on:click="{()=>aggiungiCarrello('jetpack')}" class=" {attiva11 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva11 ? `${$lingua.homepage.acquista} ${$lingua.shop.lajetpack}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{showram ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={ram} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.laram}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.ram}</p>
         <button disabled={!attiva12 || !disattiva12} on:click="{()=>aggiungiCarrello('ram')}" class=" {attiva12 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva12 ? `${$lingua.homepage.acquista} ${$lingua.shop.laram}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
       
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{showrobot ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={robot} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.larobot}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.robot}</p>
         <button disabled={!attiva13 || !disattiva13} on:click="{()=>aggiungiCarrello('robot')}" class=" {attiva13 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva13 ? `${$lingua.homepage.acquista} ${$lingua.shop.larobot}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{showrazzo ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={rocket} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.larazzo}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.razzo}</p>
         <button disabled={!attiva14 || !disattiva14} on:click="{()=>aggiungiCarrello('razzo')}" class=" {attiva14 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva14 ? `${$lingua.homepage.acquista} ${$lingua.shop.larazzo}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{shownave ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={spaceship} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lanave}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.nave}</p>
         <button disabled={!attiva15 || !disattiva15} on:click="{()=>aggiungiCarrello('nave')}" class=" {attiva15 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva15 ? `${$lingua.homepage.acquista} ${$lingua.shop.lanave}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative   w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{showteleta ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative   w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={teleport} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.lateletrasporto}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.teletrasporto}</p>
         <button disabled={!attiva16 || !disattiva16} on:click="{()=>aggiungiCarrello('teletrasporto')}" class=" {attiva16 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva16 ? `${$lingua.homepage.acquista} ${$lingua.shop.lateletrasporto}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{showtele ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={telescope} alt="hand" class="w-[35%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.latelescopio}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.telescopio}</p>
         <button disabled={!attiva17 || !disattiva17} on:click="{()=>aggiungiCarrello('telescopio')}" class=" {attiva17 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva17 ? `${$lingua.homepage.acquista} ${$lingua.shop.latelescopio}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
   
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{showtitanio ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:right-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={titanium} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.latitanio}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.titanio}</p>
         <button disabled={!attiva18 || !disattiva18} on:click="{()=>aggiungiCarrello('titanio')}" class=" {attiva18 ? "absolute p-2 rounded-2xl top-[88%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[88%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva18 ? `${$lingua.homepage.acquista} ${$lingua.shop.latitanio}`: `${$lingua.homepage.aggiunto}`}</button>
       </div>
 
-      <div class="{trovato ? "grid": "hidden"} {nascondialtri ? "hidden": ""} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+      <div class="{showbatteria ? "grid": "hidden"} hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center relative  w-[300px] sm:w-[400px] md:w-[680px] lg:left-[8%] h-[650px] sm:h-[800px] md:h-[600px] lg:h-[680px] lg:w-[80%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
         <img src={transformer} alt="hand" class="w-[35%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
         <p class="text-teal-500 text-4xl  lg:text-5xl top-[-5%] sm:top-[10%] md:top-[40%] md:text-5xl lg:top-[-5%] relative ">{$lingua.shop.labatteria}</p>
         <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[33%]  md:top-[45%]  sm:top-[36%] lg:top-[33%] w-[90%] sm:w-[80%]">{$lingua.shop.batteria}</p>
@@ -1179,6 +1544,18 @@ if (ricerca !== tags[index].values[index].toLowerCase()){
   
     .ombracar{
       box-shadow: black 0px 0px 0px 10px;
+    }
+
+    .spinna{
+      animation: forwards gira 1s ;
+    }
+    @keyframes gira {
+      from{rotate: 0deg}
+      to{rotate:360deg}
+    }
+
+    .most{
+      visibility: hidden;
     }
     
   </style>
