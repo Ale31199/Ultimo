@@ -837,8 +837,8 @@ const TraduciPagina=(linguatraduci)=>{
   robo: ['Robot', 'robot'],
   razz: ['Razzo', 'razzo', 'rocket', 'Rocket'],
   nav: ['Nave', 'nave', 'Spaceship', 'spaceship'],
-  teletrasport: ['Teletrasporto', 'trasporto', 'Teleport', 'teleport'],
-  telescopi: ['Telesscopio', 'telescopio', 'Telescope', 'telescope'],
+  teletrasport: ['Teletrasporto', 'teletrasporto', 'Teleport', 'teleport'],
+  telescopi: ['Telescopio', 'telescopio', 'Telescope', 'telescope'],
   titani: ['Titanio', 'titanio', 'titanium', 'Titanium'],
   batteri: ['Batteria', 'batteria', 'Battery', 'battery'],
     };
@@ -893,7 +893,6 @@ showbatteria = true
 }
 
  const tag = () => {
- 
   if(tags.blaste.includes(ricerca)){
     ricerca = ''
 showblaster = true
