@@ -1303,13 +1303,15 @@ showbatteria = true
         </div>
     
   
-        <div class="flex justify-center w-[100%]">
+        <div class="flex justify-center w-[100%] ">
       <input bind:value={ricerca} type="text" on:keyup="{(event)=>cerca(event)}" placeholder={$lingua.homepage.cerca} class="flex text-white pl-[20%] sm:pl-[8%] pr-[25%] sm:pr-[13%] justify-center items-center absolute top-[340px] sm:top-[380px] text-[12px] font-bold  md:rounded-xl   lg:rounded-xl lg:h-[45px] md:top-[260px] lg:top-[180px] md:w-[60%] outline-none  bg-neutral-800 p-3 rounded-xl w-[80%] sm:w-[60%]"/>
         <img src={src} alt="search" class="w-[25px] absolute invert-[0.5] left-[14%] sm:left-[22%] top-[348px] sm:top-[389px] md:top-[268px] lg:top-[189px]" />
-        <img src={info} alt="search" class="hover:most-[visible] w-[20px] absolute invert-[0.5] effetto right-[14%] sm:right-[22%] top-[350px] sm:top-[393px] md:top-[272px] lg:top-[193px] cursor-pointer" />
-        <img src={reload} alt="search" on:click="{()=>indietro()}" class="w-[20px] absolute invert-[0.5] hover:spinna  right-[22%] sm:right-[28%] top-[350px] sm:top-[393px] md:top-[272px] lg:top-[193px] cursor-pointer" />
-        <div class="most rounded-lg absolute top-[310px] sm:top-[350px] text-[12px] text-neutral-300 p-1 font-thin lg:h-[1.5%] md:top-[230px] lg:top-[180px] w-[70%] sm:w-[50%] md:w-[50%] justify-center items-center flex bg-neutral-900">{$lingua.homepage.info}</div>
-    </div>
+        <img src={reload} alt="search" on:click="{()=>indietro()}" class="w-[20px] absolute invert-[0.5] spinna hover:spinna  right-[22%] sm:right-[28%] top-[350px] sm:top-[393px] md:top-[272px] lg:top-[193px] cursor-pointer" />
+        <div class="group flex justify-center w-[100%]">
+        <img src={info} alt="search" class="hover:visible w-[20px] absolute invert-[0.5] effetto right-[14%] sm:right-[22%] top-[350px] sm:top-[393px] md:top-[272px] lg:top-[193px] cursor-pointer" />
+        <div class="invisible group-hover:visible rounded-lg absolute top-[310px] sm:top-[350px] text-[12px] lg:text-[15px] text-neutral-300 p-1 font-thin lg:h-[45px] md:top-[230px] lg:top-[180px] w-[70%] sm:w-[50%] md:w-[50%] justify-center items-center flex bg-neutral-900">{$lingua.homepage.info}</div>
+        </div>
+      </div>
 
 
    
@@ -1563,16 +1565,50 @@ showbatteria = true
       box-shadow: black 0px 0px 0px 10px;
     }
 
-    .spinna{
-      animation: forwards gira 1s ;
-    }
-    @keyframes gira {
-      from{rotate: 0deg}
-      to{rotate:360deg}
-    }
+    .spinna {
+  animation-name: gira;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes gira {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinna:hover {
+  animation-name: gira-hover;
+}
+
+@keyframes gira-hover {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.esci{
+  animation: forwards ease-in 1s fuori;
+}
+
+@keyframes fuori {
+  0%{filter:blur(5px)}
+  100%{filter: blur(0px);}
+}
+
 
     .most{
       visibility: hidden;
+    }
+
+    .most:hover{
+      visibility: visible;
     }
     
   </style>
