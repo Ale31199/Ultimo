@@ -663,16 +663,16 @@ const qt=(event)=>{
       </div>
 
     <div class="flex w-[100%] justify-center">
-    <div class="{grey ? "bg-gradient-to-tr from-black to-neutral-500 border-neutral-500  border-2 transizione" : ""} {blue ? "bg-gradient-to-tr from-black to-blue-950 border-blue-950 border-2 transizione " : ""} {red ? "bg-gradient-to-tr from-black to-red-950 border-red-950 border-2 transizione " : ""} transizione grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[8%] md:top-[330px] lg:top-[240px] w-[300px] sm:w-[400px] md:w-[680px] h-[10%] sm:h-[8%] md:h-[10%] lg:h-[23%] lg:w-[80%] rounded-[80px]">
-      <img src={pianeta} alt="hand" class="w-[40%] md:w-[25%] lg:w-[220px] relative top-[10%] animazione" />
-      <p class="text-teal-500 text-3xl sm:top-[50%] md:top-[45%] md:text-[40px] lg:text-5xl lg:top-[50%] relative ">{titolo}</p>
-      <p class="text-white text-justify text-[13px] sm:text-[12px] md:text-[15px] lg:text-[16px] 2xl:text-[22px] absolute w-[90%] top-[35%] sm:top-[46%] md:top-[48%] lg:top-[50%]  sm:w-[80%]">{desc}</p>
-      <div class="{grey ? "bg-neutral-500" : ""}{blue ? "bg-neutral-500" : ""}{red ? "bg-neutral-500" : ""} flex justify-center lg:w-[50%] flex-row w-[80%] h-[10%] items-center bg-neutral-500  transizione  rounded-3xl absolute top-[85%]">
+    <div class="{grey ? "bg-gradient-to-r from-black to-neutral-500 border-neutral-500  border-2 transizione" : ""} {blue ? "bg-gradient-to-l from-black to-blue-950 border-blue-950 border-2 transizione " : ""} {red ? "bg-gradient-to-t from-black to-red-950 border-red-950 border-2 transizione " : ""} transizione grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[8%] md:top-[330px] lg:top-[240px] w-[300px] sm:w-[400px] md:w-[680px] h-[10%] sm:h-[8%] md:h-[10%] lg:h-[23%] lg:w-[80%] rounded-[80px]">
+      <img src={pianeta} alt="hand" class="w-[40%] md:w-[25%] lg:w-[220px] relative top-[10%] animazione sfoca" />
+      <p class="text-teal-500 text-3xl sm:top-[50%] md:top-[45%] md:text-[40px] lg:text-5xl lg:top-[50%] relative sfoca2">{titolo}</p>
+      <p class="text-white text-justify text-[13px] sm:text-[12px] md:text-[15px] lg:text-[16px] 2xl:text-[22px] absolute w-[90%] top-[35%] sm:top-[46%] md:top-[48%] lg:top-[50%] sfoca3 sm:w-[80%]">{desc}</p>
+      <div class="sfoca5 {grey ? "bg-neutral-500" : ""}{blue ? "bg-neutral-500" : ""}{red ? "bg-neutral-500" : ""} flex justify-center lg:w-[50%] flex-row w-[80%] h-[10%] items-center bg-neutral-500  transizione  rounded-3xl absolute top-[85%]">
         <button on:click="{()=>selezionaViaggioPrev()}" class="bg-neutral-900 text-teal-500 rounded-lg relative w-[40%] mr-5 text-xl cursor-pointer hover:border-2 hover:border-teal-50">&lt;</button>
         <button on:click="{()=>selezionaViaggioNext()}" class="bg-neutral-900 text-teal-500 rounded-lg relative w-[40%] ml-5 text-xl cursor-pointer hover:border-2 hover:border-teal-500 ">&gt;</button>
       </div>
 
-      <button disabled={!attiva8 || !disattiva8} on:click="{()=>aggiungiCarrello('luna')}" class="{grey ? "visibile":"invisible"}  {attiva8 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{attiva8 ? `${$lingua.homepage.prenota} ${paga}`: `${$lingua.homepage.aggiunto}`}</button>
+      <button disabled={!attiva8 || !disattiva8} on:click="{()=>aggiungiCarrello('luna')}" class="{grey ? "visibile":"invisible"}  {attiva8 ? "shadow-2xl sfoca4 shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{attiva8 ? `${$lingua.homepage.prenota} ${paga}`: `${$lingua.homepage.aggiunto}`}</button>
        
       <button disabled={!attiva9 || !disattiva9} on:click="{()=>aggiungiCarrello('marte')}" class="{red ? "visibile":"invisible"} {attiva9 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{attiva9 ? `${$lingua.homepage.prenota} ${paga}`: `${$lingua.homepage.aggiunto}`}</button>
     
@@ -680,56 +680,56 @@ const qt=(event)=>{
     
     </div>
 
-    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[20%] sm:top-[18%] lg:top-[33%] lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+    <div class="sfoca6 hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[20%] sm:top-[18%] lg:top-[33%] lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
       <img src={terra} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] animazione md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{$lingua.biglietti.laterra}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{$lingua.biglietti.terra}</p>
       <button disabled={!attiva || !disattiva} on:click="{()=>aggiungiCarrello('terra')}" class=" {attiva ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva ? `${$lingua.homepage.prenota} ${$lingua.biglietti.laterra}`: `${$lingua.homepage.aggiunto}`}</button>
     </div>
 
-    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[30%] sm:top-[28%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[33%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+    <div class=" sfoca6 hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[30%] sm:top-[28%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[33%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
       <img src={giove} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] animazione md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{$lingua.biglietti.lagiove}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{$lingua.biglietti.giove}</p>
       <button disabled={!attiva1 || !disattiva1} on:click="{()=>aggiungiCarrello('giove')}" class=" {attiva1 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva1 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.lagiove}`: `${$lingua.homepage.aggiunto}`}</button>
     </div>
     
-    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[40%] sm:top-[38%] lg:top-[50%] lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+    <div class="sfoca6 hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[40%] sm:top-[38%] lg:top-[50%] lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
       <img src={mercurio} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] animazione lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{$lingua.biglietti.lamercurio}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%] sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{$lingua.biglietti.mercurio}</p>
       <button disabled={!attiva2 || !disattiva2} on:click="{()=>aggiungiCarrello('mercurio')}" class=" {attiva2 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva2 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.lamercurio}`: `${$lingua.homepage.aggiunto}`}</button>
     </div>
 
-    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[50%] sm:top-[48%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[50%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+    <div class="sfoca6 hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[50%] sm:top-[48%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[50%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
       <img src={nettuno} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] animazione lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{$lingua.biglietti.lanettuno}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{$lingua.biglietti.nettuno}</p>
       <button disabled={!attiva3 || !disattiva3} on:click="{()=>aggiungiCarrello('nettuno')}" class=" {attiva3 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva3 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.lanettuno}`: `${$lingua.homepage.aggiunto}`}</button>
     </div>
 
-    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[60%] sm:top-[58%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[67%] lg:left-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+    <div class="sfoca6 hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[60%] sm:top-[58%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[67%] lg:left-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
       <img src={plutone} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] animazione lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{$lingua.biglietti.laplutone}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{$lingua.biglietti.plutone}</p>
       <button disabled={!attiva4 || !disattiva4} on:click="{()=>aggiungiCarrello('plutone')}" class=" {attiva4 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva4 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.laplutone}`: `${$lingua.homepage.aggiunto}`}</button>
     </div>
 
-    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[70%] sm:top-[68%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[67%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+    <div class="sfoca6 hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[70%] sm:top-[68%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[67%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
       <img src={saturno} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{$lingua.biglietti.lasaturno}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%] sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{$lingua.biglietti.saturno}</p>
       <button disabled={!attiva5 || !disattiva5} on:click="{()=>aggiungiCarrello('saturno')}" class=" {attiva5 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva5 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.lasaturno}`: `${$lingua.homepage.aggiunto}`}</button>
     </div>
 
-    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[80%] sm:top-[78%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[84%] lg:left-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+    <div class="sfoca6 hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[80%] sm:top-[78%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[84%] lg:left-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
       <img src={urano} alt="hand" class="w-[35%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{$lingua.biglietti.laurano}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{$lingua.biglietti.urano}</p>
       <button disabled={!attiva6 || !disattiva6} on:click="{()=>aggiungiCarrello('urano')}" class=" {attiva6 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva6 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.laurano}`: `${$lingua.homepage.aggiunto}`}</button>
     </div>
 
-    <div class="hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[90%] sm:top-[88%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[84%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
+    <div class="sfoca6 hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[90%] sm:top-[88%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[84%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
       <img src={venere} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%] animazione" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{$lingua.biglietti.lavenere}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{$lingua.biglietti.venere}</p>
@@ -845,7 +845,89 @@ const qt=(event)=>{
   .ombracar{
     box-shadow: black 0px 0px 0px 10px;
   }
-  
+
+
+  .sfoca{
+  animation: forwards 1s sfoc;
+  opacity: 0;
+}
+.sfoca2{
+  animation: forwards 1s sfoc2;
+  animation-delay: 1s;
+  opacity: 0;
+}
+.sfoca3{
+  animation: forwards 1s sfoc3;
+  animation-delay: 2s;
+  opacity: 0;
+}
+.sfoca4{
+  animation: forwards 1s sfoc4;
+  animation-delay: 3s;
+  opacity: 0;
+}
+.sfoca5{
+  animation: forwards 1s sfoc5;
+  animation-delay: 4s;
+  opacity: 0;
+}
+.sfoca6{
+  animation: forwards 1s sfoc6;
+}
+.sfoca7{
+  animation: forwards 1s sfoc7;
+  animation-delay: 6s;
+  opacity: 0;
+}
+.sfoca8{
+  animation: forwards 1s sfoc8;
+  animation-delay: 7s;
+  opacity: 0;
+}
+.sfoca9{
+  animation: forwards 1s sfoc9;
+  animation-delay: 8s;
+  opacity: 0;
+}
+
+@keyframes sfoc {
+  0%{filter: blur(5px); rotate:0deg}
+  100%{filter: blur(0px); opacity: 1; rotate:360deg}
+}
+@keyframes sfoc2 {
+ 0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc3 {
+ 0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc4 {
+0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc5 {
+ 0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc6 {
+ 0%{filter: blur(10px);}
+  100%{filter: blur(0px);}
+}
+@keyframes sfoc7 {
+ 0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc8 {
+ 0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc9 {
+ 0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+
+
 </style>
 
 

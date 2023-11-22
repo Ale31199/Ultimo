@@ -161,21 +161,21 @@ let home= false
 <div class="relative top-36 h-[1000px] w-[100%] flex justify-center">
 <div style="padding-bottom: 10%" class="bg-black w-[100%] lg:w-[80%] sm:h-[920px] md:h-[920px] lg:h-[920px] h-[920px] relative  mb-[10%] rounded-3xl flex justify-center">
   <div class="grid grid-cols-2 grid-rows-2 gap-5 justify-center items-center w-[90%] md:w-[80%] h-[290px] absolute top-[5%] ">
-    <div on:click="{()=>scegliApp('X-FLIES')}" on:click="{()=>scegliA()}" class="cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-teal-950 hover:border-2 hover:border-teal-500 flex items-center justify-center {alieno ? "rounded-full border-teal-500 border-2 transizione ombraA" : "rounded-2xl border-teal-950 border-2 transizione"}">
+    <div on:click="{()=>scegliApp('X-FLIES')}" on:click="{()=>scegliA()}" class=" sfoca cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-teal-950 hover:border-2 hover:border-teal-500 flex items-center justify-center {alieno ? "rounded-full border-teal-500 border-2 transizione ombraA" : "rounded-2xl border-teal-950 border-2 transizione"}">
       <img src={alien} alt="spotify" class="w-[110px] sm:w-[140px]" />
     </div>
-    <div on:click="{()=>scegliApp('SPOTIFY')}" on:click="{()=>scegliS()}" class="cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-green-950 hover:border-2 hover:border-green-500 flex items-center justify-center  {spot ? "rounded-full border-green-500 border-2 transizione ombraS" : "rounded-2xl border-2 border-green-950 transizione"}">
+    <div on:click="{()=>scegliApp('SPOTIFY')}" on:click="{()=>scegliS()}" class="sfoca2 cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-green-950 hover:border-2 hover:border-green-500 flex items-center justify-center  {spot ? "rounded-full border-green-500 border-2 transizione ombraS" : "rounded-2xl border-2 border-green-950 transizione"}">
       <img src={spotify} alt="spotify" class="w-[110px] sm:w-[120px]" />
     </div>
-    <div on:click="{()=>scegliApp('PIXEL NIGHTMARE')}" on:click="{()=>scegliP()}" class="cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-violet-950 hover:border-2 hover:border-violet-500  flex items-center justify-center {night ? "rounded-full border-violet-500 border-2 transizione ombraP" : "rounded-2xl border-2 border-violet-950 transizione"}">
+    <div on:click="{()=>scegliApp('PIXEL NIGHTMARE')}" on:click="{()=>scegliP()}" class="sfoca3 cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-violet-950 hover:border-2 hover:border-violet-500  flex items-center justify-center {night ? "rounded-full border-violet-500 border-2 transizione ombraP" : "rounded-2xl border-2 border-violet-950 transizione"}">
       <img src={pixel} alt="spotify" class="w-[110px] sm:w-[140px]" />
     </div> 
-    <div on:click="{()=>scegliApp('THE CALCULATOR')}" on:click="{()=>scegliC()}" class="cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-red-950 hover:border-2 hover:border-red-500  flex items-center justify-center {cal ? "rounded-full border-red-500 border-2 transizione ombraC" : "rounded-2xl border-2 border-red-950 transizione"}">
+    <div on:click="{()=>scegliApp('THE CALCULATOR')}" on:click="{()=>scegliC()}" class="sfoca4 cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-red-950 hover:border-2 hover:border-red-500  flex items-center justify-center {cal ? "rounded-full border-red-500 border-2 transizione ombraC" : "rounded-2xl border-2 border-red-950 transizione"}">
       <img src={calculator} alt="spotify" class="w-[110px] sm:w-[120px]" />
     </div>
   </div>
 
-<div class="absolute top-[40%] w-[90%] md:w-[80%] h-[510px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-900 rounded-2xl flex flex-col items-center justify-center" >
+<div class="sfoca5 absolute top-[40%] w-[90%] md:w-[80%] h-[510px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-900 rounded-2xl flex flex-col items-center justify-center" >
   <p class="font-bold text-lg sm:text-4xl absolute top-[5%]" >{titolo}</p>
   <p class="w-[80%] text-justify text-[12px] sm:text-[16px] lg:text-[18px] absolute sm:top-[16%] top-[13%]">{descrizione}</p>
   <a href="{ alieno ? scegliApp('X-FLIES') : (spot ? scegliApp('SPOTIFY') : (night ? scegliApp('PIXEL NIGHTMARE') : (cal ? scegliApp('THE CALCULATOR') : '#'))) }" class=" cursor-pointer w-[80%] md:w-[60%] h-[60px] absolute bottom-[5%] rounded-xl border-2 border-teal-500 bg-gradient-to-tr from-black to-neutral-800 text-white hover:text-teal-500 text-sm sm:text-base md:text-lg flex font-bold items-center justify-center hover:border-2 hover:border-white-900 hover:bg-gradient-to-tr hover:rounded-3xl transizione  hover:from-black hover:to-neutral-700">{titolobottone}</a>
@@ -237,4 +237,54 @@ let home= false
     from{box-shadow: darkred 0px 0px 25px 0px;}
     to{box-shadow: darkred 0px 0px 0px 0px;}
   }
+
+
+.sfoca{
+  animation: forwards 1s sfoc;
+  opacity: 0;
+}
+.sfoca2{
+  animation: forwards 1s sfoc2;
+  animation-delay: 1s;
+  opacity: 0;
+}
+.sfoca3{
+  animation: forwards 1s sfoc3;
+  animation-delay: 2s;
+  opacity: 0;
+}
+.sfoca4{
+  animation: forwards 1s sfoc4;
+  animation-delay: 3s;
+  opacity: 0;
+}
+.sfoca5{
+  animation: forwards 1s sfoc5;
+  animation-delay: 4s;
+  opacity: 0;
+}
+
+@keyframes sfoc {
+  0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc2 {
+ 0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc3 {
+ 0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc4 {
+0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc5 {
+ 0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+
+
+
 </style>
