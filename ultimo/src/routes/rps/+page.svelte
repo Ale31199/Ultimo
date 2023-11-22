@@ -59,42 +59,54 @@ import forbici from './imma/scissors.png';
 
 	let result = '';
 
-	let pc = ['Rock', 'Paper', 'Scissors'];
+	$: pc = [$lingua.progetti.carta, $lingua.progetti.forbice, $lingua.progetti.sasso];
 
-	const rock = 'Rock'
-	const paper = 'Paper';
-	const scissors= 'Scissors';
+	$: rock = $lingua.progetti.sasso
+	$: paper = $lingua.progetti.carta;
+	$: scissors= $lingua.progetti.forbice;
+  let wins = 0;
+  let lose = 0;
+  let tie = 0;
 	
 	const RocK=()=>{
 		let pick = RandonPick()
-		if (pick === 'Rock'){
-			result = `You picked ${rock}, pc picked ${rock} it's a tie.`
-		} else if (pick === 'Paper'){
-			result = `You picked ${rock}, pc picked ${paper}, you lose.`
-		} else if (pick === 'Scissors'){
-			result = `You picked ${rock}, pc picked ${scissors}, you win.`
+		if (pick === $lingua.progetti.sasso){
+			result = `${$lingua.progetti.prendi} ${rock}, ${$lingua.progetti.prendipc} ${rock}, ${$lingua.progetti.pari}`
+      tie += 1
+		} else if (pick === $lingua.progetti.carta){
+			result =` ${$lingua.progetti.prendi} ${rock}, ${$lingua.progetti.prendipc} ${paper}, ${$lingua.progetti.perso}`
+      lose += 1
+		} else if (pick === $lingua.progetti.forbice){
+			result = `${$lingua.progetti.prendi} ${rock}, ${$lingua.progetti.prendipc} ${scissors}, ${$lingua.progetti.vinto}`
+      wins += 1
 		}
 	}
 
 	const PapeR=()=>{
 		let pick = RandonPick()
-		if (pick === 'Paper'){
-			result = `You picked ${paper}, pc picked ${paper} it's a tie.`
-		} else if (pick === 'Rock'){
-			result = `You picked ${paper}, pc picked ${rock}, you win.`
-		} else if (pick === 'Scissors'){
-			result = `You picked ${paper}, pc picked ${scissors}, you lose.`
+		if (pick === $lingua.progetti.carta){
+			result = `${$lingua.progetti.prendi} ${paper}, ${$lingua.progetti.prendipc} ${paper}, ${$lingua.progetti.pari}`
+      tie += 1
+		} else if (pick === $lingua.progetti.sasso){
+			result = `${$lingua.progetti.prendi} ${paper}, ${$lingua.progetti.prendipc} ${rock}, ${$lingua.progetti.vinto}`
+      wins += 1
+		} else if (pick === $lingua.progetti.forbice){
+			result = `${$lingua.progetti.prendi} ${paper}, ${$lingua.progetti.prendipc} ${scissors}, ${$lingua.progetti.perso}`
+      lose += 1
 		}
 	}
 
 	const SciS=()=>{
 		let pick = RandonPick()
-		if (pick === 'scissors'){
-			result = `You picked ${scissors}, pc picked ${scissors} it's a tie.`
-		} else if (pick === 'Paper'){
-			result = `You picked ${scissors}, pc picked ${paper}, you win.`
-		} else if (pick === 'Rock'){
-			result = `You picked ${scissors}, pc picked ${rock}, you lose.`
+		if (pick === $lingua.progetti.forbice){
+			result = `${$lingua.progetti.prendi} ${scissors}, ${$lingua.progetti.prendipc} ${scissors}, ${$lingua.progetti.pari}`
+      tie += 1
+		} else if (pick === $lingua.progetti.carta){
+			result = `${$lingua.progetti.prendi} ${scissors}, ${$lingua.progetti.prendipc} ${paper}, ${$lingua.progetti.vinto}`
+      wins += 1
+		} else if (pick === $lingua.progetti.sasso){
+			result = `${$lingua.progetti.prendi} ${scissors}, ${$lingua.progetti.prendipc} ${rock}, ${$lingua.progetti.perso}`
+      lose += 1
 		}
 	}
 
@@ -124,16 +136,35 @@ import forbici from './imma/scissors.png';
   <option value="eng">English</option>
   </select>
 
-<div class="relative top-36 h-[1000px] w-[100%] flex justify-center">
-<div style="padding-bottom: 10%" class="bg-black w-[100%] lg:w-[80%] sm:h-[920px] md:h-[920px] lg:h-[920px] h-[920px] relative  mb-[10%] rounded-3xl flex justify-center">
-  <h1>Rock Paper Scissors</h1>
+<div class="relative top-36 h-[350px] w-[100%] flex justify-center">
+<div style="padding-bottom: 10%" class="bg-black border-2 border-neutral-800 w-[330px] sm:w-[600px] md:scale-125 sm:h-[350px] md:h-[350px] h-[320px] relative  mb-[10%] rounded-3xl flex justify-center">
+  <h1 class="text-3xl sm:text-4xl text-white font-bold absolute top-[20px] sm:top-[20px]">Rock Paper Scissors</h1>
 
-<button  on:click={RocK}>{rock}</button>
-<button  on:click={PapeR}>{paper}</button>
-<button  on:click={SciS}>{scissors}</button>
+<div class="w-[80%] h-[200px] grid gap-7 sm:gap-8 absolute top-[30px] sm:top-[50px] grid-cols-3 grid-rows-1 justify-items-center items-center ">
 
-<p>{result}</p>
+  <div on:click={RocK}>
+    <img src={sasso} alt="sasso" class="cursor-pointer w-[220px] scale-125 sm:scale-100 sm:w-[150px] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 hover:to-neutral-700 hover:border-neutral-700 p-2 md:p-6 rounded-3xl md:rounded-[55px] transition-[2s] hover:rounded-[35px]" />
+  </div>
 
+  <div on:click={PapeR}>
+    <img src={carta} alt="carta" class="cursor-pointer w-[220px] scale-125 sm:scale-100 sm:w-[150px] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 hover:to-neutral-700 hover:border-neutral-700 p-2 md:p-6 rounded-3xl md:rounded-[55px] transition-[2s] hover:rounded-[35px]"  />
+  </div>
+
+  <div on:click={SciS}>
+    <img src={forbici} alt="forbici" class="cursor-pointer w-[220px] scale-125 sm:scale-100 sm:w-[150px] bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-900 hover:to-neutral-700 hover:border-neutral-700 p-2 md:p-6 rounded-3xl md:rounded-[55px] transition-[2s] hover:rounded-[35px]" />
+  </div>
+
+</div>
+
+
+<div class="w-[100%] flex justify-center text-center">
+  <div class="flex w-[80%] sm:w-[70%] text-sm justify-between text-white absolute bottom-[80px] sm:bottom-[74px]">
+    <p class="bg-green-900 p-1 rounded-lg text-white">{$lingua.progetti.vinci} {wins}</p>
+    <p class="bg-neutral-800 p-1 rounded-lg text-white">{$lingua.progetti.pareggi} {tie}</p>
+    <p class="bg-red-900 p-1 rounded-lg text-white">{$lingua.progetti.perdi} {lose}</p>
+  </div>
+<p class="text-white absolute text-xs h-[50px] sm:h-[30px] w-[90%] sm:w-[70%] text-center bottom-5 bg-neutral-900 rounded-md p-2">{result}</p>
+</div>
 
 </div>
 </div>

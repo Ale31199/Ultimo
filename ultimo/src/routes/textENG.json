@@ -70,6 +70,17 @@
 		"x": "Don't do 666!!!",
 		"y": "Try to do 666...",
 		"z": "Try doing 101010...",
-		"zz": "I'm always standing."
+		"zz": "I'm always standing.",
+		"vinci": "Winnings:",
+		"perdi": "Defeats:",
+		"pareggi": "Ties",
+		"prendi": "You have choosen",
+		"prendipc": "Pc has choosen",
+		"vinto": "you win!",
+		"perso": "you lose!",
+		"pari": "it's a tie!",
+		"carta": "paper",
+		"forbice": "scissors",
+		"sasso": "rock"
 	}
 }

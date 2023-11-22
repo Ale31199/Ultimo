@@ -70,6 +70,17 @@
 		"x": "Non fare 666!!!",
 		"y": "Prova a fare 666...",
 		"z": "Prova a fare 101010...",
-		"zz": "Sto sempre in piedi"
+		"zz": "Sto sempre in piedi",
+		"vinci": "Vincite:",
+		"perdi": "Sconfitte:",
+		"pareggi": "Pareggi",
+		"prendi": "Hai scelto",
+		"prendipc": "Pc ha scelto",
+		"vinto": "hai vinto!",
+		"perso": "hai perso!",
+		"pari": "hai pareggiato!",
+		"carta": "carta",
+		"forbice": "forbice",
+		"sasso": "sasso"
 	}
 }
