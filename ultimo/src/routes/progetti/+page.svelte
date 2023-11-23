@@ -308,32 +308,32 @@ let home= false
 }
 .sfoca2{
   animation: forwards 1s sfoc2;
-  animation-delay: 1s;
+  animation-delay: 0.5s;
   opacity: 0;
 }
 .sfoca3{
   animation: forwards 1s sfoc3;
-  animation-delay: 2s;
+  animation-delay: 1s;
   opacity: 0;
 }
 .sfoca4{
   animation: forwards 1s sfoc4;
-  animation-delay: 3s;
+  animation-delay: 1.5s;
   opacity: 0;
 }
 .sfoca5{
   animation: forwards 1s sfoc5;
-  animation-delay: 4s;
+  animation-delay: 2s;
   opacity: 0;
 }
 .sfoca6{
   animation: forwards 1s sfoc6;
-  animation-delay: 5s;
+  animation-delay: 2.5s;
   opacity: 0;
 }
 .sfoca7{
   animation: forwards 1s sfoc7;
-  animation-delay: 6s;
+  animation-delay: 3s;
   opacity: 0;
 }
 

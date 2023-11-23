@@ -163,7 +163,7 @@ import forbici from './imma/scissors.png';
     <p class="bg-neutral-800 p-1 rounded-lg text-white">{$lingua.progetti.pareggi} {tie}</p>
     <p class="bg-red-900 p-1 rounded-lg text-white">{$lingua.progetti.perdi} {lose}</p>
   </div>
-<p class="text-white absolute text-xs h-[50px] sm:h-[30px] w-[90%] sm:w-[70%] text-center bottom-5 bg-neutral-900 rounded-md p-2">{result}</p>
+<p class="text-white absolute text-xs h-[50px] sm:h-[30px] w-[90%] sm:w-[70%] text-center bottom-5 bg-violet-950 rounded-md p-2">{result}</p>
 </div>
 
 </div>

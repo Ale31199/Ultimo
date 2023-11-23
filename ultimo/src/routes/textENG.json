@@ -85,6 +85,11 @@
 		"taskfare": "Task To Complete",
 		"taskcomp": "Task Completed",
 		"aggiungi": "Add a Task...",
-		"lista": "Edit name list..."
+		"lista": "Edit name list...",
+		"nome": "New List",
+		"nome2": "New List 2",
+		"nome3": "New List 3",
+		"nome4": "New List 4",
+		"nome5": "New List 5"
 	}
 }
