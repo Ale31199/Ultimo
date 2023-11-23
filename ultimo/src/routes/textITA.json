@@ -81,6 +81,10 @@
 		"pari": "hai pareggiato!",
 		"carta": "carta",
 		"forbice": "forbice",
-		"sasso": "sasso"
+		"sasso": "sasso",
+		"taskfare": "Task Da Completare",
+		"taskcomp": "Task Completate",
+		"aggiungi": "Aggiungi Task...",
+		"lista": "Modifica nome lista..."
 	}
 }

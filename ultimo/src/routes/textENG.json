@@ -81,6 +81,10 @@
 		"pari": "it's a tie!",
 		"carta": "paper",
 		"forbice": "scissors",
-		"sasso": "rock"
+		"sasso": "rock",
+		"taskfare": "Task To Complete",
+		"taskcomp": "Task Completed",
+		"aggiungi": "Add a Task...",
+		"lista": "Edit name list..."
 	}
 }
