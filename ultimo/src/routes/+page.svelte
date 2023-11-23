@@ -1,5 +1,6 @@
 <script>
   import io from '/src/routes/img/io.jpg';
+  import curriculum from './CurriculumAggiornato2023.pdf';
   // @ts-ignore
   import ita from '/src/routes/textITA.json';
   // @ts-ignore
@@ -64,6 +65,9 @@
     color: white;
   }
 
+  .transizione{
+    transition: 0.7s;
+  }
   .effetto{
     animation: 1s infinite alternate-reverse effe;
   }
@@ -102,7 +106,7 @@
     <p class="bg-neutral-800 inline-flex w-[310px] sm:w-[500px] md:w-[600px] lg:w-[300px] rounded-lg p-1 cursor-default justify-center">Email: alessiosantillo31199@gmail.com</p>
     <p class="bg-neutral-800 inline-flex w-[310px] sm:w-[500px] md:w-[600px] lg:w-[300px] rounded-lg p-1 cursor-default justify-center">{$lingua.testo.tel}: 3898938262</p>
     <a href="https://github.com/Ale31199" class="bg-neutral-800 w-[310px] sm:w-[500px] md:w-[600px] lg:w-[300px] inline-flex rounded-lg p-1 cursor-pointer underline text-teal-500 justify-center">Github: Ale31199 </a>
-    <a href="https://www.linkedin.com/in/alessio-santillo-422186275/" class="bg-neutral-800 w-[310px] sm:w-[500px] md:w-[600px] lg:w-[300px] inline-flex text-teal-500 rounded-lg p-1 cursor-pointer underline justify-center ">LinkedIn: Alessio Santillo</a>
+    <a href={curriculum} class="bg-teal-800 hover:bg-gradient-to-l from-teal-950 to-teal-800 w-[310px] sm:w-[500px] md:w-[600px] lg:w-[300px] inline-flex text-white hover:rounded-2xl transizione rounded-lg p-1 cursor-pointer justify-center ">{$lingua.testo.curr}</a>
     </div>
   
 
@@ -129,4 +133,6 @@
     
 </div>
 </div>
+
+
 
