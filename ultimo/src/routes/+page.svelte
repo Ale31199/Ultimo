@@ -75,6 +75,72 @@
     from{opacity: 0;}
     to{opacity: 1;}
   }
+
+  .sfoca{
+  animation: forwards 1s sfoc;
+  opacity: 0;
+}
+.sfoca2{
+  animation: forwards 1s sfoc2;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+.sfoca3{
+  animation: forwards 1s sfoc3;
+  animation-delay: 1s;
+  opacity: 0;
+}
+.sfoca4{
+  animation: forwards 1s sfoc4;
+  animation-delay: 1.5s;
+  opacity: 0;
+}
+.sfoca5{
+  animation: forwards 1s sfoc5;
+  animation-delay: 2s;
+  opacity: 0;
+}
+.sfoca6{
+  animation: forwards 1s sfoc6;
+  animation-delay: 2.5s;
+  opacity: 0;
+}
+.sfoca7{
+  animation: forwards 1s sfoc7;
+  animation-delay: 3s;
+  opacity: 0;
+}
+
+@keyframes sfoc {
+  0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc2 {
+ 0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc3 {
+ 0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc4 {
+0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc5 {
+ 0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc6 {
+0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc7 {
+ 0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+
+
 </style>
 
 
@@ -90,7 +156,7 @@
     </div>
 </div>
 
-<select on:change="{(event)=>TraduciPagina(event.target.value)}" class="w-[100px] absolute top-[30%] sm:top-[20%] md:top-[13%] bg-gradient-to-tr p-2 from-white to-neutral-300 border-2 border-neutral-300 rounded-2xl invert">
+<select on:change="{(event)=>TraduciPagina(event.target.value)}" class="w-[100px] absolute top-[200px] sm:top-[200px] md:top-[130px] bg-gradient-to-tr p-2 from-white to-neutral-300 border-2 border-neutral-300 rounded-2xl invert">
 <option value="ita">Italiano</option>
 <option value="eng">English</option>
 </select>
@@ -98,20 +164,20 @@
 
 <div class="flex justify-center w-[100%] sm:h-[1900px] h-[2200px] md:h-[1900px] lg:h-[1650px] xl:h-[1750px]">
 <div class="bg-black w-[100%] sm:h-[1700px] h-[2000px] md:h-[1700px] lg:h-[1450px] xl:h-[1550px] rounded-3xl relative top-36 border-teal-500 border-b-4 border-r-4 flex justify-center ">
-    <img alt="io" src={io} class="w-[25%] top-[1.5%] left-[5%] sm:w-[25%] sm:left-[5%] sm:top-[1%] md:left-[5%] md:top-[1%] rounded-full md:w-[25%] lg:w-[20%] 2xl:w-[15%] border-2 border-teal-500 absolute"/>
-    <h1 class="text-teal-500 font-bold text-4xl sm:text-6xl sm:top-[1%] lg:top-[2.5%] md:text-7xl absolute top-7 md:top-8 left-[35%] lg:left-[27%] ">{$lingua.testo.titolo}</h1>
+    <img alt="io" src={io} class="w-[25%] top-[1.5%] left-[5%] sm:w-[25%] sm:left-[5%] sm:top-[1%] md:left-[5%] md:top-[1%] rounded-full md:w-[25%] lg:w-[20%] 2xl:w-[15%] border-2 border-teal-500 absolute sfoca"/>
+    <h1 class="text-teal-500 font-bold text-4xl sm:text-6xl sm:top-[1%] lg:top-[2.5%] md:text-7xl absolute top-7 md:top-8 left-[35%] lg:left-[27%] sfoca ">{$lingua.testo.titolo}</h1>
 
     
-    <div class="w-[100%] lg:w-[80%] xl:w-[60%] h-[240px] lg:h-[100px] text-sm md:text-lg lg:text-base absolute top-[10.5%] sm:top-[14%] md:top-[18%] lg:top-[20%]  rounded-xl grid grid-cols-1 grid-rows-4 md:grid-cols-1 md:grid-rows-4 md:gap-x-[1%] lg:grid-cols-2 lg:grid-rows-2 lg:gap-x-[1%] lg:gap-y-[0%] justify-items-center items-center ">
-    <p class="bg-neutral-800 inline-flex w-[310px] sm:w-[500px] md:w-[600px] lg:w-[300px] rounded-lg p-1 cursor-default justify-center">Email: alessiosantillo31199@gmail.com</p>
-    <p class="bg-neutral-800 inline-flex w-[310px] sm:w-[500px] md:w-[600px] lg:w-[300px] rounded-lg p-1 cursor-default justify-center">{$lingua.testo.tel}: 3898938262</p>
-    <a href="https://github.com/Ale31199" class="bg-neutral-800 w-[310px] sm:w-[500px] md:w-[600px] lg:w-[300px] inline-flex rounded-lg p-1 cursor-pointer underline text-teal-500 justify-center">Github: Ale31199 </a>
-    <a href={curriculum} class="bg-teal-800 hover:bg-gradient-to-l from-teal-950 to-teal-800 w-[310px] sm:w-[500px] md:w-[600px] lg:w-[300px] inline-flex text-white hover:rounded-2xl transizione rounded-lg p-1 cursor-pointer justify-center ">{$lingua.testo.curr}</a>
+    <div class=" w-[100%] lg:w-[80%] xl:w-[60%] h-[240px] lg:h-[100px] text-sm md:text-lg lg:text-base absolute top-[10.5%] sm:top-[14%] md:top-[18%] lg:top-[20%]  rounded-xl grid grid-cols-1 grid-rows-4 md:grid-cols-1 md:grid-rows-4 md:gap-x-[1%] lg:grid-cols-2 lg:grid-rows-2 lg:gap-x-[1%] lg:gap-y-[0%] justify-items-center items-center ">
+    <p class="bg-neutral-800 sfoca2 inline-flex w-[310px] sm:w-[500px] md:w-[600px] lg:w-[300px] rounded-lg p-1 cursor-default justify-center">Email: alessiosantillo31199@gmail.com</p>
+    <p class="bg-neutral-800 sfoca3 inline-flex w-[310px] sm:w-[500px] md:w-[600px] lg:w-[300px] rounded-lg p-1 cursor-default justify-center">{$lingua.testo.tel}: 3898938262</p>
+    <a href="https://github.com/Ale31199" class="bg-neutral-800 sfoca4 w-[310px] sm:w-[500px] md:w-[600px] lg:w-[300px] inline-flex rounded-lg p-1 cursor-pointer underline text-teal-500 justify-center">Github: Ale31199 </a>
+    <a href={curriculum} class="bg-teal-800 sfoca5 hover:bg-gradient-to-l from-teal-950 to-teal-800 w-[310px] sm:w-[500px] md:w-[600px] lg:w-[300px] inline-flex text-white hover:rounded-2xl transizione rounded-lg p-1 cursor-pointer justify-center ">{$lingua.testo.curr}</a>
     </div>
   
 
 
-    <div class="w-[310px] sm:w-[500px] md:w-[600px] lg:w-[750px] 2xl:w-[1000px] h-[1500px] sm:h-[1200px] md:h-[1100px] lg:h-[1000px] xl:h-[1100px] absolute bottom-[0%] sm:bottom-[0%] bg-gradient-to-bl from-neutral-800 to-neutral-950 border-2 border-neutral-800 grid grid-cols-1 grid-rows-3 justify-items-center text-justify rounded-3xl">
+    <div class="w-[310px] sfoca6 sm:w-[500px] md:w-[600px] lg:w-[750px] 2xl:w-[1000px] h-[1500px] sm:h-[1200px] md:h-[1100px] lg:h-[1000px] xl:h-[1100px] absolute bottom-[0%] sm:bottom-[0%] bg-gradient-to-bl from-neutral-800 to-neutral-950 border-2 border-neutral-800 grid grid-cols-1 grid-rows-3 justify-items-center text-justify rounded-3xl">
       
       <div class="flex flex-col items-center">
     <p class="text-justify ml-4 mr-4 text-2xl relative top-[3%] sm:top-[5%] md:top-[3%] lg:top-[7%] md:text-3xl lg:text-4xl  font-extrabold" >{$lingua.testo.chi}</p>

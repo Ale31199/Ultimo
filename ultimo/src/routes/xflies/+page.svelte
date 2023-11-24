@@ -106,10 +106,10 @@ let home= false
     </div>
 </div>
 
-<select on:change="{(event)=>TraduciPagina(event.target.value)}" class="w-[100px] absolute top-[30%] sm:top-[20%] md:top-[13%] bg-gradient-to-tr p-2 from-white to-neutral-300 border-2 border-neutral-300 rounded-2xl invert">
-<option value="ita">Italiano</option>
-<option value="eng">English</option>
-</select>
+<select on:change="{(event)=>TraduciPagina(event.target.value)}" class="w-[100px] absolute top-[200px] sm:top-[200px] md:top-[130px] bg-gradient-to-tr p-2 from-white to-neutral-300 border-2 border-neutral-300 rounded-2xl invert">
+  <option value="ita">Italiano</option>
+  <option value="eng">English</option>
+  </select>
 
 <div class="bg-black w-[100%] h-[3800px] sm:h-[4500px] md:h-[4500px] lg:h-[4500px] rounded-3xl relative top-36 flex justify-center ">
   <div class="w-[90%] h-[5%] flex flex-col">

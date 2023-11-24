@@ -1270,10 +1270,10 @@ showbatteria = true
 </div>
 </div>
 
-<select on:change="{(event)=>TraduciPagina(event.target.value)}" class="w-[100px] absolute top-[30%] sm:top-[20%] md:top-[13%] bg-gradient-to-tr p-2 from-white to-neutral-300 border-2 border-neutral-300 rounded-2xl invert">
-<option value="ita">Italiano</option>
-<option value="eng">English</option>
-</select>
+<select on:change="{(event)=>TraduciPagina(event.target.value)}" class="w-[100px] absolute top-[200px] sm:top-[200px] md:top-[130px] bg-gradient-to-tr p-2 from-white to-neutral-300 border-2 border-neutral-300 rounded-2xl invert">
+  <option value="ita">Italiano</option>
+  <option value="eng">English</option>
+  </select>
   
   
   <div class="bg-black w-[100%]  {backgr ? "h-[5500px] sm:h-[6500px] md:h-[5500px] lg:h-[3000px]" : "h-[1000px]"} rounded-3xl relative top-36 flex justify-center ">
@@ -1303,7 +1303,8 @@ showbatteria = true
         </div>
     
   
-        <div class="flex justify-center w-[100%] sfoca ">
+        <div class="flex justify-center w-[100%] ">
+        <div class="flex justify-center w-[100%] sfoca absolute top-[-20px] lg:top-[0px]">
       <input bind:value={ricerca} type="text" on:keyup="{(event)=>cerca(event)}" placeholder={$lingua.homepage.cerca} class="flex text-white pl-[20%] sm:pl-[8%] pr-[25%] sm:pr-[13%] justify-center items-center absolute top-[340px] sm:top-[380px] text-[12px] font-bold  md:rounded-xl   lg:rounded-xl lg:h-[45px] md:top-[260px] lg:top-[180px] md:w-[60%] outline-none  bg-neutral-800 p-3 rounded-xl w-[80%] sm:w-[60%]"/>
         <img src={src} alt="search" class="w-[25px] absolute invert-[0.5] left-[14%] sm:left-[22%] top-[348px] sm:top-[389px] md:top-[268px] lg:top-[189px]" />
         <img src={reload} alt="search" on:click="{()=>indietro()}" class="w-[20px] absolute invert-[0.5] spinna hover:spinna  right-[22%] sm:right-[28%] top-[350px] sm:top-[393px] md:top-[272px] lg:top-[193px] cursor-pointer" />
@@ -1311,6 +1312,7 @@ showbatteria = true
         <img src={info} alt="search" class="hover:visible w-[20px] absolute invert-[0.5] effetto right-[14%] sm:right-[22%] top-[350px] sm:top-[393px] md:top-[272px] lg:top-[193px] cursor-pointer" />
         <div class="invisible group-hover:visible rounded-lg absolute top-[310px] sm:top-[350px] text-[12px] lg:text-[15px] text-neutral-300 p-1 font-thin lg:h-[45px] md:top-[230px] lg:top-[180px] w-[70%] sm:w-[50%] md:w-[50%] justify-center items-center flex bg-neutral-900">{$lingua.homepage.info}</div>
         </div>
+      </div>
       </div>
 
 
