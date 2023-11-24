@@ -183,13 +183,13 @@
 
     <div class="flex rounded-3xl p-3 w-[100%] justify-center">
       <div class="flex w-[100%] text-neutral-300 font-semibold text-base justify-center">
-        <p class="absolute left-[30px]">{$lingua.progetti.taskfare}</p>
+        <p class="absolute left-[30px] cursor-default">{$lingua.progetti.taskfare}</p>
        <div class="bg-slate-950 bg-opacity-30 rounded-3xl grid grid-cols-1 gap-y-2 p-3 w-[100%] sm:w-[580px] lg:w-[45%] h-[180px] lg:h-[430px] absolute top-[36px] overflow-y-auto overflow-x-hidden">
         {#each tasks as task}
         <div class="flex w-[100%] h-[60px] bg-gradient-to-r from-slate-900 to-slate-500 shadow-md shadow-slate-950 rounded-2xl relative items-center sfoca">
         <img on:click="{()=>completaTask(task)}" src={check} alt="trash" class="w-[23px] absolute left-[10px] invert-[0] cursor-pointer opacity-20 border-2 transizione hover:border-0 hover:w-[22px] rounded-full hover:opacity-100 hover:invert-[1]"/>
         <img on:click="{()=>rimuoviTask(task)}" src={trash} alt="trash" class="w-[20px] absolute right-[10px] invert-[0.8] hover:animate-bounce cursor-pointer hover:invert-[1] border-b-2 border-cyan-400 pb-1"/>
-        <p class="text-neutral-300 font-semibold absolute left-[45px] text-[10px] sm:text-[12px] w-[70%] h-[55px] items-center flex rounded-2xl leading-tight text-start">{task}</p>
+        <p class="text-neutral-300 font-semibold absolute left-[45px] text-[10px] sm:text-[12px] w-[70%] h-[55px] items-center flex rounded-2xl leading-tight text-start cursor-default">{task}</p>
         </div>
         {/each}
        </div>
@@ -199,13 +199,13 @@
 
     <div class="flex rounded-3xl p-3 w-[100%] justify-center">
       <div class="flex w-[100%] text-neutral-300 font-semibold text-base justify-center">
-        <p class="absolute left-[30px] lg:left-[427px] top-[240px] lg:top-[11.5px]">{$lingua.progetti.taskcomp}</p>
+        <p class="absolute left-[30px] lg:left-[427px] top-[240px] lg:top-[11.5px] cursor-default">{$lingua.progetti.taskcomp}</p>
        <div class="bg-slate-950 bg-opacity-30 grid grid-cols-1 rounded-3xl gap-y-2 p-3 w-[100%] sm:w-[580px] lg:w-[45%] h-[180px] lg:h-[430px] absolute top-[265px] lg:top-[36px] overflow-y-auto overflow-x-hidden">
         {#each taskComplete as taskc}
         <div class="flex w-[100%] h-[60px] bg-gradient-to-r from-slate-900 to-slate-500 shadow-md shadow-slate-950 rounded-2xl relative items-center sfoca">
         <img src={check} alt="trash" class="w-[20px] absolute left-[10px] invert-[1] opacity-100">
         <img on:click="{()=>rimuoviTaskC(taskc)}" src={trash} alt="trash" class="w-[20px] absolute right-[10px] invert-[0.8] hover:animate-bounce cursor-pointer hover:invert-[1] border-b-2 border-cyan-400 pb-1"/>
-        <p class="text-neutral-300 font-semibold absolute left-[45px] text-[10px] sm:text-[12px] w-[70%] h-[55px] items-center flex rounded-2xl leading-tight text-start line-through">{taskc}</p>
+        <p class="text-neutral-300 font-semibold absolute left-[45px] text-[10px] sm:text-[12px] w-[70%] h-[55px] items-center flex rounded-2xl leading-tight text-start line-through cursor-default">{taskc}</p>
         </div>
        {/each}
        </div>
