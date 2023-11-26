@@ -1310,7 +1310,7 @@ showbatteria = true
         <img src={reload} alt="search" on:click="{()=>indietro()}" class="w-[20px] absolute invert-[0.5] spinna hover:spinna  right-[22%] sm:right-[28%] top-[350px] sm:top-[393px] md:top-[272px] lg:top-[193px] cursor-pointer" />
         <div class="group flex justify-center w-[100%]">
         <img src={info} alt="search" class="hover:visible w-[20px] absolute invert-[0.5] effetto right-[14%] sm:right-[22%] top-[350px] sm:top-[393px] md:top-[272px] lg:top-[193px] cursor-pointer" />
-        <div class="invisible group-hover:visible rounded-lg absolute top-[310px] sm:top-[350px] text-[12px] lg:text-[15px] text-neutral-300 p-1 font-thin lg:h-[45px] md:top-[230px] lg:top-[180px] w-[70%] sm:w-[50%] md:w-[50%] justify-center items-center flex bg-neutral-900">{$lingua.homepage.info}</div>
+        <div class="invisible group-hover:visible rounded-lg absolute top-[310px] sm:top-[350px] text-[12px] lg:text-[15px] text-neutral-300 p-1 font-thin lg:h-[45px] md:top-[230px] lg:top-[180px] w-[80%] sm:w-[50%] md:w-[50%] justify-center items-center flex bg-neutral-900">{$lingua.homepage.info}  <img src={reload} alt="search" class="w-[15px] invert-[0.5] ml-1 mr-1" />  {$lingua.homepage.info2}</div>
         </div>
       </div>
       </div>
