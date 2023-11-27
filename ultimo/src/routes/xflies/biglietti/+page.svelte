@@ -337,7 +337,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva = false
-     salvaCarrello()
+     
     break;
     case 'giove': 
     const artGiove = articoli[2]
@@ -348,7 +348,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva1 = false
-     salvaCarrello()
+     
     break;
     case 'mercurio': 
     const artmercurio = articoli[7]
@@ -359,7 +359,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva2= false
-     salvaCarrello()
+     
     break;
     case 'nettuno': 
     const artnettuno = articoli[3]
@@ -370,7 +370,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva3 = false
-     salvaCarrello()
+     
     break;
     case 'plutone': 
     const artplutone = articoli[6]
@@ -381,7 +381,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva4 = false
-     salvaCarrello()
+     
     break;
     case 'saturno': 
     const artsaturno = articoli[4]
@@ -392,7 +392,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva5 = false
-     salvaCarrello()
+     
     break;
      case 'urano': 
     const arturano = articoli[8]
@@ -403,7 +403,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva6 = false
-     salvaCarrello()
+     
     break;
      case 'venere': 
     const artvenere = articoli[5]
@@ -414,7 +414,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva7= false
-     salvaCarrello()
+     
      break;
     case 'luna': 
     const artluna = articoli[9]
@@ -425,7 +425,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva8 = false
-     salvaCarrello()
+     
     break;
     case 'marte': 
     const artmarte = articoli[1]
@@ -436,7 +436,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva9= false
-     salvaCarrello()
+     
     break;
     case 'sistema': 
     const artsistema = articoli[10]
@@ -447,27 +447,14 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva10 = false
-     salvaCarrello()
+     
     break;
     default:
       break;
   }
+  salvaCarrello()
  }
  
- onMount(() => {
-    if (typeof window !== 'undefined') {
-      const salvaCar = localStorage.getItem('carrello');
-      if (salvaCar) {
-        carrello = JSON.parse(salvaCar);
-      }
-    }
-  });
-
-  const salvaCarrello = () => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('carrello', JSON.stringify(carrello));
-    }
-  };
 
 
 
@@ -589,7 +576,7 @@ carrello = carrello.filter(item=> item !== articolo)
    attiva8 = true
    attiva9 = true
    attiva10 = true
-  
+  salvaCarrello()
   }
 
 
@@ -638,6 +625,88 @@ const qt=(event)=>{
    
 }
 
+
+onMount(() => {
+    if (typeof window !== 'undefined') {
+      const salvaCar = localStorage.getItem('carrello');
+      const salvaCount = localStorage.getItem('count');
+      const salvanumCount = localStorage.getItem('numcount');
+      const salvaAtt = localStorage.getItem('attiva')
+      const salvaAtt1 = localStorage.getItem('attiva1')
+      const salvaAtt2 = localStorage.getItem('attiva2')
+      const salvaAtt3 = localStorage.getItem('attiva3')
+      const salvaAtt4 = localStorage.getItem('attiva4')
+      const salvaAtt5 = localStorage.getItem('attiva5')
+      const salvaAtt6 = localStorage.getItem('attiva6')
+      const salvaAtt7 = localStorage.getItem('attiva7')
+      const salvaAtt8 = localStorage.getItem('attiva8')
+      const salvaAtt9 = localStorage.getItem('attiva9')
+      const salvaAtt10 = localStorage.getItem('attiva10')
+      if (salvaCar) {
+        carrello = JSON.parse(salvaCar);
+      }
+      if (salvaCount) {
+        count = JSON.parse(salvaCount);
+      }
+      if (salvanumCount) {
+        numcount = JSON.parse(salvanumCount);
+      }
+      if(salvaAtt){
+        attiva = JSON.parse(salvaAtt)
+      }
+      if(salvaAtt1){
+        attiva1 = JSON.parse(salvaAtt1)
+      }
+      if(salvaAtt2){
+        attiva2 = JSON.parse(salvaAtt2)
+      }
+      if(salvaAtt3){
+        attiva3 = JSON.parse(salvaAtt3)
+      }
+      if(salvaAtt4){
+        attiva4 = JSON.parse(salvaAtt4)
+      }
+      if(salvaAtt5){
+        attiva5 = JSON.parse(salvaAtt5)
+      }
+      if(salvaAtt6){
+        attiva6 = JSON.parse(salvaAtt6)
+      }
+      if(salvaAtt7){
+        attiva7 = JSON.parse(salvaAtt7)
+      }
+      if(salvaAtt8){
+        attiva8 = JSON.parse(salvaAtt8)
+      }
+      if(salvaAtt9){
+        attiva9 = JSON.parse(salvaAtt9)
+      }
+      if(salvaAtt10){
+        attiva10 = JSON.parse(salvaAtt10)
+      }
+      
+    }
+
+  });
+
+  const salvaCarrello = () => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('carrello', JSON.stringify(carrello));
+      localStorage.setItem('count', JSON.stringify(count))
+      localStorage.setItem('numcount', JSON.stringify(numcount))
+      localStorage.setItem('attiva', JSON.stringify(attiva))
+      localStorage.setItem('attiva1', JSON.stringify(attiva1))
+      localStorage.setItem('attiva2', JSON.stringify(attiva2))
+      localStorage.setItem('attiva3', JSON.stringify(attiva3))
+      localStorage.setItem('attiva4', JSON.stringify(attiva4))
+      localStorage.setItem('attiva5', JSON.stringify(attiva5))
+      localStorage.setItem('attiva6', JSON.stringify(attiva6))
+      localStorage.setItem('attiva7', JSON.stringify(attiva7))
+      localStorage.setItem('attiva8', JSON.stringify(attiva8))
+      localStorage.setItem('attiva9', JSON.stringify(attiva9))
+      localStorage.setItem('attiva10', JSON.stringify(attiva10))
+    }
+  };
 
 </script>
 
