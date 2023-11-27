@@ -30,6 +30,7 @@
   import src from '/src/routes/xflies/ximg/search.png';
   import info from '/src/routes/xflies/ximg/information.png';
   import reload from '/src/routes/xflies/ximg/reload.png';
+  import {onMount} from 'svelte';
   
   // @ts-ignore
    import ita from '/src/routes/xflies/xtesto.json';
@@ -590,6 +591,7 @@ const TraduciPagina=(linguatraduci)=>{
       default:
         break;
     }
+    salvaCarrello()
    }
    
    
@@ -600,6 +602,7 @@ const TraduciPagina=(linguatraduci)=>{
        numcount = numart
        const ilprezzo = articolo.prezzoitem
        count = count - ilprezzo
+       salvaCarrello()
   
        if (articolo.titoloitem === $lingua.shop.laatomo) {
           attiva = true;
@@ -712,6 +715,7 @@ const TraduciPagina=(linguatraduci)=>{
 
   }else{
     carrello = []
+    salvaCarrello()
     conferma = true
     compra = $lingua.homepage.acquista
   }
@@ -755,7 +759,7 @@ const TraduciPagina=(linguatraduci)=>{
       attiva17 = true
       attiva18 = true
       attiva19 = true
-    
+     salvaCarrello()
     }
   
   
@@ -1254,8 +1258,132 @@ showbatteria = true
 }
 };
 
-  
+onMount(() => {
+    if (typeof window !== 'undefined') {
+      const salvaCar = localStorage.getItem('carrello');
+      const salvaCount = localStorage.getItem('count');
+      const salvanumCount = localStorage.getItem('numcount');
+      const salvaAtt = localStorage.getItem('attiva')
+      const salvaAtt1 = localStorage.getItem('attiva1')
+      const salvaAtt2 = localStorage.getItem('attiva2')
+      const salvaAtt3 = localStorage.getItem('attiva3')
+      const salvaAtt4 = localStorage.getItem('attiva4')
+      const salvaAtt5 = localStorage.getItem('attiva5')
+      const salvaAtt6 = localStorage.getItem('attiva6')
+      const salvaAtt7 = localStorage.getItem('attiva7')
+      const salvaAtt8 = localStorage.getItem('attiva8')
+      const salvaAtt9 = localStorage.getItem('attiva9')
+      const salvaAtt10 = localStorage.getItem('attiva10')
+      const salvaAtt11 = localStorage.getItem('attiva11')
+      const salvaAtt12 = localStorage.getItem('attiva12')
+      const salvaAtt13 = localStorage.getItem('attiva13')
+      const salvaAtt14 = localStorage.getItem('attiva14')
+      const salvaAtt15 = localStorage.getItem('attiva15')
+      const salvaAtt16 = localStorage.getItem('attiva16')
+      const salvaAtt17 = localStorage.getItem('attiva17')
+      const salvaAtt18 = localStorage.getItem('attiva18')
+      const salvaAtt19 = localStorage.getItem('attiva19')
+      if (salvaCar) {
+        carrello = JSON.parse(salvaCar);
+      }
+      if (salvaCount) {
+        count = JSON.parse(salvaCount);
+      }
+      if (salvanumCount) {
+        numcount = JSON.parse(salvanumCount);
+      }
+      if(salvaAtt){
+        attiva = JSON.parse(salvaAtt)
+      }
+      if(salvaAtt1){
+        attiva1 = JSON.parse(salvaAtt1)
+      }
+      if(salvaAtt2){
+        attiva2 = JSON.parse(salvaAtt2)
+      }
+      if(salvaAtt3){
+        attiva3 = JSON.parse(salvaAtt3)
+      }
+      if(salvaAtt4){
+        attiva4 = JSON.parse(salvaAtt4)
+      }
+      if(salvaAtt5){
+        attiva5 = JSON.parse(salvaAtt5)
+      }
+      if(salvaAtt6){
+        attiva6 = JSON.parse(salvaAtt6)
+      }
+      if(salvaAtt7){
+        attiva7 = JSON.parse(salvaAtt7)
+      }
+      if(salvaAtt8){
+        attiva8 = JSON.parse(salvaAtt8)
+      }
+      if(salvaAtt9){
+        attiva9 = JSON.parse(salvaAtt9)
+      }
+      if(salvaAtt10){
+        attiva10 = JSON.parse(salvaAtt10)
+      }
+      if(salvaAtt11){
+        attiva11 = JSON.parse(salvaAtt11)
+      }
+      if(salvaAtt12){
+        attiva12 = JSON.parse(salvaAtt12)
+      }
+      if(salvaAtt13){
+        attiva13 = JSON.parse(salvaAtt13)
+      }
+      if(salvaAtt14){
+        attiva14 = JSON.parse(salvaAtt14)
+      }
+      if(salvaAtt15){
+        attiva15 = JSON.parse(salvaAtt15)
+      }
+      if(salvaAtt16){
+        attiva16 = JSON.parse(salvaAtt16)
+      }
+      if(salvaAtt17){
+        attiva17 = JSON.parse(salvaAtt17)
+      }
+      if(salvaAtt18){
+        attiva18 = JSON.parse(salvaAtt18)
+      }
+      if(salvaAtt19){
+        attiva19 = JSON.parse(salvaAtt19)
+      }
+      
+    }
 
+  });
+
+  const salvaCarrello = () => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('carrello', JSON.stringify(carrello));
+      localStorage.setItem('count', JSON.stringify(count))
+      localStorage.setItem('numcount', JSON.stringify(numcount))
+      localStorage.setItem('attiva', JSON.stringify(attiva))
+      localStorage.setItem('attiva1', JSON.stringify(attiva1))
+      localStorage.setItem('attiva2', JSON.stringify(attiva2))
+      localStorage.setItem('attiva3', JSON.stringify(attiva3))
+      localStorage.setItem('attiva4', JSON.stringify(attiva4))
+      localStorage.setItem('attiva5', JSON.stringify(attiva5))
+      localStorage.setItem('attiva6', JSON.stringify(attiva6))
+      localStorage.setItem('attiva7', JSON.stringify(attiva7))
+      localStorage.setItem('attiva8', JSON.stringify(attiva8))
+      localStorage.setItem('attiva9', JSON.stringify(attiva9))
+      localStorage.setItem('attiva10', JSON.stringify(attiva10))
+      localStorage.setItem('attiva11', JSON.stringify(attiva11))
+      localStorage.setItem('attiva12', JSON.stringify(attiva12))
+      localStorage.setItem('attiva13', JSON.stringify(attiva13))
+      localStorage.setItem('attiva14', JSON.stringify(attiva14))
+      localStorage.setItem('attiva15', JSON.stringify(attiva15))
+      localStorage.setItem('attiva16', JSON.stringify(attiva16))
+      localStorage.setItem('attiva17', JSON.stringify(attiva17))
+      localStorage.setItem('attiva18', JSON.stringify(attiva18))
+      localStorage.setItem('attiva19', JSON.stringify(attiva19))
+    }
+  };
   
   </script>
   

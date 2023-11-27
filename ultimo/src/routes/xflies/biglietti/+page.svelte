@@ -336,7 +336,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     attiva = false
+     battiva = false
      
     break;
     case 'giove': 
@@ -347,7 +347,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     attiva1 = false
+     battiva1 = false
      
     break;
     case 'mercurio': 
@@ -358,7 +358,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     attiva2= false
+     battiva2= false
      
     break;
     case 'nettuno': 
@@ -369,7 +369,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     attiva3 = false
+     battiva3 = false
      
     break;
     case 'plutone': 
@@ -380,7 +380,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     attiva4 = false
+     battiva4 = false
      
     break;
     case 'saturno': 
@@ -391,7 +391,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     attiva5 = false
+     battiva5 = false
      
     break;
      case 'urano': 
@@ -402,7 +402,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     attiva6 = false
+     battiva6 = false
      
     break;
      case 'venere': 
@@ -413,7 +413,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     attiva7= false
+     battiva7= false
      
      break;
     case 'luna': 
@@ -424,7 +424,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     attiva8 = false
+     battiva8 = false
      
     break;
     case 'marte': 
@@ -435,7 +435,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     attiva9= false
+     battiva9= false
      
     break;
     case 'sistema': 
@@ -446,7 +446,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     attiva10 = false
+     battiva10 = false
      
     break;
     default:
@@ -467,41 +467,41 @@ carrello = carrello.filter(item=> item !== articolo)
      salvaCarrello()
 
      if (articolo.titoloitem === $lingua.biglietti.laterra) {
-        attiva = true;
+        battiva = true;
     } if (articolo.titoloitem === $lingua.biglietti.lagiove) {
-        attiva1 = true;
+        battiva1 = true;
     }  if (articolo.titoloitem === $lingua.biglietti.lamercurio) {
-        attiva2 = true;
+        battiva2 = true;
     } if (articolo.titoloitem === $lingua.biglietti.lanettuno) {
-        attiva3 = true;
+        battiva3 = true;
     }  if (articolo.titoloitem === $lingua.biglietti.laplutone) {
-        attiva4 = true;
+        battiva4 = true;
     } if (articolo.titoloitem === $lingua.biglietti.lasaturno) {
-        attiva5 = true;
+        battiva5 = true;
     }  if (articolo.titoloitem === $lingua.biglietti.laurano) {
-        attiva6 = true;
+        battiva6 = true;
     } if (articolo.titoloitem === $lingua.biglietti.lavenere) {
-        attiva7 = true;
+        battiva7 = true;
     }  if (articolo.titoloitem === $lingua.biglietti.laluna) {
-        attiva8 = true;
+        battiva8 = true;
     } if (articolo.titoloitem === $lingua.biglietti.lamarte) {
-        attiva9 = true;
+        battiva9 = true;
     } if (articolo.titoloitem === $lingua.biglietti.lasistema) {
-        attiva10 = true;
+        battiva10 = true;
     }
  }
  
- let attiva = true
- let attiva1 = true
- let attiva2 = true
- let attiva3 = true
- let attiva4 = true
- let attiva5 = true
- let attiva6= true
- let attiva7 = true
- let attiva8 = true
- let attiva9 = true
- let attiva10 = true
+  let battiva = true;
+ let battiva1 = true;
+ let battiva2 = true;
+ let battiva3 = true;
+ let battiva4 = true;
+ let battiva5 = true;
+ let battiva6 = true;
+ let battiva7 = true;
+ let battiva8 = true;
+ let battiva9 = true;
+ let battiva10 = true;
 
  let disattiva = true
  let disattiva1 = true
@@ -565,17 +565,17 @@ carrello = carrello.filter(item=> item !== articolo)
    paypalcard = false
    mastercard = false
    americancard = false
-   attiva = true
-   attiva1 = true
-   attiva2 = true
-   attiva3 = true
-   attiva4 = true
-   attiva5 = true
-   attiva6= true
-   attiva7 = true
-   attiva8 = true
-   attiva9 = true
-   attiva10 = true
+   battiva = true
+   battiva1 = true
+   battiva2 = true
+   battiva3 = true
+   battiva4 = true
+   battiva5 = true
+   battiva6= true
+   battiva7 = true
+   battiva8 = true
+   battiva9 = true
+   battiva10 = true
   salvaCarrello()
   }
 
@@ -631,17 +631,17 @@ onMount(() => {
       const salvaCar = localStorage.getItem('carrello');
       const salvaCount = localStorage.getItem('count');
       const salvanumCount = localStorage.getItem('numcount');
-      const salvaAtt = localStorage.getItem('attiva')
-      const salvaAtt1 = localStorage.getItem('attiva1')
-      const salvaAtt2 = localStorage.getItem('attiva2')
-      const salvaAtt3 = localStorage.getItem('attiva3')
-      const salvaAtt4 = localStorage.getItem('attiva4')
-      const salvaAtt5 = localStorage.getItem('attiva5')
-      const salvaAtt6 = localStorage.getItem('attiva6')
-      const salvaAtt7 = localStorage.getItem('attiva7')
-      const salvaAtt8 = localStorage.getItem('attiva8')
-      const salvaAtt9 = localStorage.getItem('attiva9')
-      const salvaAtt10 = localStorage.getItem('attiva10')
+      const salvaAtt = localStorage.getItem('battiva')
+      const salvaAtt1 = localStorage.getItem('battiva1')
+      const salvaAtt2 = localStorage.getItem('battiva2')
+      const salvaAtt3 = localStorage.getItem('battiva3')
+      const salvaAtt4 = localStorage.getItem('battiva4')
+      const salvaAtt5 = localStorage.getItem('battiva5')
+      const salvaAtt6 = localStorage.getItem('battiva6')
+      const salvaAtt7 = localStorage.getItem('battiva7')
+      const salvaAtt8 = localStorage.getItem('battiva8')
+      const salvaAtt9 = localStorage.getItem('battiva9')
+      const salvaAtt10 = localStorage.getItem('battiva10')
       if (salvaCar) {
         carrello = JSON.parse(salvaCar);
       }
@@ -652,37 +652,37 @@ onMount(() => {
         numcount = JSON.parse(salvanumCount);
       }
       if(salvaAtt){
-        attiva = JSON.parse(salvaAtt)
+        battiva = JSON.parse(salvaAtt)
       }
       if(salvaAtt1){
-        attiva1 = JSON.parse(salvaAtt1)
+        battiva1 = JSON.parse(salvaAtt1)
       }
       if(salvaAtt2){
-        attiva2 = JSON.parse(salvaAtt2)
+        battiva2 = JSON.parse(salvaAtt2)
       }
       if(salvaAtt3){
-        attiva3 = JSON.parse(salvaAtt3)
+        battiva3 = JSON.parse(salvaAtt3)
       }
       if(salvaAtt4){
-        attiva4 = JSON.parse(salvaAtt4)
+        battiva4 = JSON.parse(salvaAtt4)
       }
       if(salvaAtt5){
-        attiva5 = JSON.parse(salvaAtt5)
+        battiva5 = JSON.parse(salvaAtt5)
       }
       if(salvaAtt6){
-        attiva6 = JSON.parse(salvaAtt6)
+        battiva6 = JSON.parse(salvaAtt6)
       }
       if(salvaAtt7){
-        attiva7 = JSON.parse(salvaAtt7)
+        battiva7 = JSON.parse(salvaAtt7)
       }
       if(salvaAtt8){
-        attiva8 = JSON.parse(salvaAtt8)
+        battiva8 = JSON.parse(salvaAtt8)
       }
       if(salvaAtt9){
-        attiva9 = JSON.parse(salvaAtt9)
+        battiva9 = JSON.parse(salvaAtt9)
       }
       if(salvaAtt10){
-        attiva10 = JSON.parse(salvaAtt10)
+        battiva10 = JSON.parse(salvaAtt10)
       }
       
     }
@@ -694,17 +694,17 @@ onMount(() => {
       localStorage.setItem('carrello', JSON.stringify(carrello));
       localStorage.setItem('count', JSON.stringify(count))
       localStorage.setItem('numcount', JSON.stringify(numcount))
-      localStorage.setItem('attiva', JSON.stringify(attiva))
-      localStorage.setItem('attiva1', JSON.stringify(attiva1))
-      localStorage.setItem('attiva2', JSON.stringify(attiva2))
-      localStorage.setItem('attiva3', JSON.stringify(attiva3))
-      localStorage.setItem('attiva4', JSON.stringify(attiva4))
-      localStorage.setItem('attiva5', JSON.stringify(attiva5))
-      localStorage.setItem('attiva6', JSON.stringify(attiva6))
-      localStorage.setItem('attiva7', JSON.stringify(attiva7))
-      localStorage.setItem('attiva8', JSON.stringify(attiva8))
-      localStorage.setItem('attiva9', JSON.stringify(attiva9))
-      localStorage.setItem('attiva10', JSON.stringify(attiva10))
+      localStorage.setItem('battiva', JSON.stringify(battiva))
+      localStorage.setItem('battiva1', JSON.stringify(battiva1))
+      localStorage.setItem('battiva2', JSON.stringify(battiva2))
+      localStorage.setItem('battiva3', JSON.stringify(battiva3))
+      localStorage.setItem('battiva4', JSON.stringify(battiva4))
+      localStorage.setItem('battiva5', JSON.stringify(battiva5))
+      localStorage.setItem('battiva6', JSON.stringify(battiva6))
+      localStorage.setItem('battiva7', JSON.stringify(battiva7))
+      localStorage.setItem('battiva8', JSON.stringify(battiva8))
+      localStorage.setItem('battiva9', JSON.stringify(battiva9))
+      localStorage.setItem('battiva10', JSON.stringify(battiva10))
     }
   };
 
@@ -769,11 +769,11 @@ onMount(() => {
         <button on:click="{()=>selezionaViaggioNext()}" class="bg-neutral-900 text-teal-500 rounded-lg relative w-[40%] ml-5 text-xl cursor-pointer hover:border-2 hover:border-teal-500 ">&gt;</button>
       </div>
 
-      <button disabled={!attiva8 || !disattiva8} on:click="{()=>aggiungiCarrello('luna')}" class="{grey ? "visibile":"invisible"}  {attiva8 ? "shadow-2xl sfoca4 shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{attiva8 ? `${$lingua.homepage.prenota} ${paga}`: `${$lingua.homepage.aggiunto}`}</button>
+      <button disabled={!battiva8 || !disattiva8} on:click="{()=>aggiungiCarrello('luna')}" class="{grey ? "visibile":"invisible"}  {battiva8 ? "shadow-2xl sfoca4 shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{battiva8 ? `${$lingua.homepage.prenota} ${paga}`: `${$lingua.homepage.aggiunto}`}</button>
        
-      <button disabled={!attiva9 || !disattiva9} on:click="{()=>aggiungiCarrello('marte')}" class="{red ? "visibile":"invisible"} {attiva9 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{attiva9 ? `${$lingua.homepage.prenota} ${paga}`: `${$lingua.homepage.aggiunto}`}</button>
+      <button disabled={!battiva9 || !disattiva9} on:click="{()=>aggiungiCarrello('marte')}" class="{red ? "visibile":"invisible"} {battiva9 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{battiva9 ? `${$lingua.homepage.prenota} ${paga}`: `${$lingua.homepage.aggiunto}`}</button>
     
-      <button disabled={!attiva10 || !disattiva10} on:click="{()=>aggiungiCarrello('sistema')}" class="{blue ? "visibile":"invisible"} {attiva10 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{attiva10 ? `${$lingua.homepage.prenota} ${paga}`: `${$lingua.homepage.aggiunto}`}</button>
+      <button disabled={!battiva10 || !disattiva10} on:click="{()=>aggiungiCarrello('sistema')}" class="{blue ? "visibile":"invisible"} {battiva10 ? "shadow-2xl shadow-black absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "shadow-2xl shadow-black text-white bg-teal-800 absolute p-2 rounded-2xl top-[73%] flex w-[80%] lg:w-[50%] justify-center cursor-not-allowed opacity-40"} {grey ? "bg-neutral-400 text-black font-semibold" : ""}{blue ? "bg-blue-900 font-semibold text-white" : ""}{red ? "bg-red-950 font-semibold text-white" : ""} ">{battiva10 ? `${$lingua.homepage.prenota} ${paga}`: `${$lingua.homepage.aggiunto}`}</button>
     
     </div>
 
@@ -781,56 +781,56 @@ onMount(() => {
       <img src={terra} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] animazione md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{$lingua.biglietti.laterra}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{$lingua.biglietti.terra}</p>
-      <button disabled={!attiva || !disattiva} on:click="{()=>aggiungiCarrello('terra')}" class=" {attiva ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva ? `${$lingua.homepage.prenota} ${$lingua.biglietti.laterra}`: `${$lingua.homepage.aggiunto}`}</button>
+      <button disabled={!battiva || !disattiva} on:click="{()=>aggiungiCarrello('terra')}" class=" {battiva ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{battiva ? `${$lingua.homepage.prenota} ${$lingua.biglietti.laterra}`: `${$lingua.homepage.aggiunto}`}</button>
     </div>
 
     <div class=" sfoca6 hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[30%] sm:top-[28%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[33%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
       <img src={giove} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] animazione md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{$lingua.biglietti.lagiove}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{$lingua.biglietti.giove}</p>
-      <button disabled={!attiva1 || !disattiva1} on:click="{()=>aggiungiCarrello('giove')}" class=" {attiva1 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva1 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.lagiove}`: `${$lingua.homepage.aggiunto}`}</button>
+      <button disabled={!battiva1 || !disattiva1} on:click="{()=>aggiungiCarrello('giove')}" class=" {battiva1 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{battiva1 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.lagiove}`: `${$lingua.homepage.aggiunto}`}</button>
     </div>
     
     <div class="sfoca6 hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[40%] sm:top-[38%] lg:top-[50%] lg:left-[8%] w-[300px] sm:w-[400px] md:w-[680px] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
       <img src={mercurio} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] animazione lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{$lingua.biglietti.lamercurio}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%] sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{$lingua.biglietti.mercurio}</p>
-      <button disabled={!attiva2 || !disattiva2} on:click="{()=>aggiungiCarrello('mercurio')}" class=" {attiva2 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva2 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.lamercurio}`: `${$lingua.homepage.aggiunto}`}</button>
+      <button disabled={!battiva2 || !disattiva2} on:click="{()=>aggiungiCarrello('mercurio')}" class=" {battiva2 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{battiva2 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.lamercurio}`: `${$lingua.homepage.aggiunto}`}</button>
     </div>
 
     <div class="sfoca6 hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[50%] sm:top-[48%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[50%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
       <img src={nettuno} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] animazione lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{$lingua.biglietti.lanettuno}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{$lingua.biglietti.nettuno}</p>
-      <button disabled={!attiva3 || !disattiva3} on:click="{()=>aggiungiCarrello('nettuno')}" class=" {attiva3 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva3 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.lanettuno}`: `${$lingua.homepage.aggiunto}`}</button>
+      <button disabled={!battiva3 || !disattiva3} on:click="{()=>aggiungiCarrello('nettuno')}" class=" {battiva3 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{battiva3 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.lanettuno}`: `${$lingua.homepage.aggiunto}`}</button>
     </div>
 
     <div class="sfoca6 hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[60%] sm:top-[58%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[67%] lg:left-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
       <img src={plutone} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] animazione lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{$lingua.biglietti.laplutone}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{$lingua.biglietti.plutone}</p>
-      <button disabled={!attiva4 || !disattiva4} on:click="{()=>aggiungiCarrello('plutone')}" class=" {attiva4 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva4 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.laplutone}`: `${$lingua.homepage.aggiunto}`}</button>
+      <button disabled={!battiva4 || !disattiva4} on:click="{()=>aggiungiCarrello('plutone')}" class=" {battiva4 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{battiva4 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.laplutone}`: `${$lingua.homepage.aggiunto}`}</button>
     </div>
 
     <div class="sfoca6 hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[70%] sm:top-[68%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[67%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
       <img src={saturno} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{$lingua.biglietti.lasaturno}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%] sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{$lingua.biglietti.saturno}</p>
-      <button disabled={!attiva5 || !disattiva5} on:click="{()=>aggiungiCarrello('saturno')}" class=" {attiva5 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva5 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.lasaturno}`: `${$lingua.homepage.aggiunto}`}</button>
+      <button disabled={!battiva5 || !disattiva5} on:click="{()=>aggiungiCarrello('saturno')}" class=" {battiva5 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{battiva5 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.lasaturno}`: `${$lingua.homepage.aggiunto}`}</button>
     </div>
 
     <div class="sfoca6 hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[80%] sm:top-[78%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[84%] lg:left-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
       <img src={urano} alt="hand" class="w-[35%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%]" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{$lingua.biglietti.laurano}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{$lingua.biglietti.urano}</p>
-      <button disabled={!attiva6 || !disattiva6} on:click="{()=>aggiungiCarrello('urano')}" class=" {attiva6 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva6 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.laurano}`: `${$lingua.homepage.aggiunto}`}</button>
+      <button disabled={!battiva6 || !disattiva6} on:click="{()=>aggiungiCarrello('urano')}" class=" {battiva6 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{battiva6 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.laurano}`: `${$lingua.homepage.aggiunto}`}</button>
     </div>
 
     <div class="sfoca6 hover:bg-gradient-to-tr hover:from-black hover:to-gray-700 hover:duration-1000 hover:border-gray-700 hover:border-2 transition-colors  cursor-default grid grid-cols-1 grid-rows-4 justify-items-center absolute top-[90%] sm:top-[88%] w-[300px] sm:w-[400px] md:w-[680px] lg:top-[84%] lg:right-[8%] h-[8%] sm:h-[8%] lg:h-[15%] lg:w-[40%] bg-gradient-to-tr from-black to-neutral-900 rounded-[80px] border-2 border-neutral-900">
       <img src={venere} alt="hand" class="w-[40%] md:w-[25%] lg:w-[120px] relative top-[10%] md:top-[10%] lg:top-[10%] animazione" />
       <p class="text-teal-500 text-5xl  lg:text-5xl top-[25%] sm:top-[50%] md:top-[80%] md:text-5xl lg:top-[35%] relative ">{$lingua.biglietti.lavenere}</p>
       <p class="text-white text-justify text-[12px] sm:text-[15px] lg:text-[14px] 2xl:text-[17px] absolute top-[50%] md:top-[60%]  sm:top-[49%] lg:top-[50%] w-[90%] sm:w-[80%]">{$lingua.biglietti.venere}</p>
-      <button disabled={!attiva7 || !disattiva7} on:click="{()=>aggiungiCarrello('venere')}" class=" {attiva7 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{attiva7 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.lavenere}`: `${$lingua.homepage.aggiunto}`}</button>
+      <button disabled={!battiva7 || !disattiva7} on:click="{()=>aggiungiCarrello('venere')}" class=" {battiva7 ? "absolute p-2 rounded-2xl top-[85%] transizione2 bg-neutral-400 text-black font-semibold flex w-[80%] justify-center hover:bg-neutral-950 hover:border-2 hover:border-teal-500 hover:text-teal-500 cursor-pointer": "absolute p-2 rounded-2xl top-[85%] transizione2 bg-teal-800 text-white font-semibold flex w-[80%] justify-center cursor-not-allowed opacity-40"} ">{battiva7 ? `${$lingua.homepage.prenota} ${$lingua.biglietti.lavenere}`: `${$lingua.homepage.aggiunto}`}</button>
     </div>
 
     </div>
@@ -849,7 +849,7 @@ onMount(() => {
 
           {#each carrello as item (item.titoloitem)}
           <div class="flex items-center bg-gradient-to-tr from-black to-neutral-700 border-2 border-neutral-700 w-[90%] h-[90px] rounded-2xl relative top-[10%] justify-center text-center cursor-default">
-          <img src={item.imgitem} alt="terra" class="w-[50px] md:w-[70px] animazione absolute left-[5%] " />
+          <img src={item.imgitem} alt="terra" class="w-[50px] md:w-[70px] absolute left-[5%] " />
           <p class="text-teal-500 text-xl md:text-3xl font-semibold absolute top-[20%] md:top-[10%] left-[26%] md:left-[32%] tracking-wide">{item.titoloitem}</p>
           <p class="text-teal-500 text-lg md:text-2xl font-semibold absolute top-[50%] left-[26%] md:left-[32%]">€{item.prezzoitem}</p>
           <select class="absolute right-[20%] w-[50px] rounded-sm outline-none" on:change="{()=>qt(event)}">
