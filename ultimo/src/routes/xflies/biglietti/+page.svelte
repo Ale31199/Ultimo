@@ -19,7 +19,7 @@ import alien from '/src/routes/xflies/ximg/alien.png';
 import cart from  '/src/routes/xflies/ximg/shopping-cart.png';
 import trash from '/src/routes/xflies/ximg/trash.png';
 import cross from '/src/routes/xflies/ximg/cross.png';
-
+import {onMount} from 'svelte';
 
 // @ts-ignore
 import ita from '/src/routes/xflies/xtesto.json';
@@ -337,6 +337,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva = false
+     salvaCarrello()
     break;
     case 'giove': 
     const artGiove = articoli[2]
@@ -347,6 +348,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva1 = false
+     salvaCarrello()
     break;
     case 'mercurio': 
     const artmercurio = articoli[7]
@@ -357,6 +359,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva2= false
+     salvaCarrello()
     break;
     case 'nettuno': 
     const artnettuno = articoli[3]
@@ -367,6 +370,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva3 = false
+     salvaCarrello()
     break;
     case 'plutone': 
     const artplutone = articoli[6]
@@ -377,6 +381,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva4 = false
+     salvaCarrello()
     break;
     case 'saturno': 
     const artsaturno = articoli[4]
@@ -387,6 +392,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva5 = false
+     salvaCarrello()
     break;
      case 'urano': 
     const arturano = articoli[8]
@@ -397,6 +403,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva6 = false
+     salvaCarrello()
     break;
      case 'venere': 
     const artvenere = articoli[5]
@@ -407,6 +414,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva7= false
+     salvaCarrello()
      break;
     case 'luna': 
     const artluna = articoli[9]
@@ -417,6 +425,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva8 = false
+     salvaCarrello()
     break;
     case 'marte': 
     const artmarte = articoli[1]
@@ -427,6 +436,7 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva9= false
+     salvaCarrello()
     break;
     case 'sistema': 
     const artsistema = articoli[10]
@@ -437,13 +447,29 @@ let numcount = 0
      numart = numcount + 1
      numcount = numart
      attiva10 = false
+     salvaCarrello()
     break;
     default:
       break;
   }
  }
  
- 
+ onMount(() => {
+    if (typeof window !== 'undefined') {
+      const salvaCar = localStorage.getItem('carrello');
+      if (salvaCar) {
+        carrello = JSON.parse(salvaCar);
+      }
+    }
+  });
+
+  const salvaCarrello = () => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('carrello', JSON.stringify(carrello));
+    }
+  };
+
+
 
  const elimina=(articolo)=>{
 carrello = carrello.filter(item=> item !== articolo)
@@ -451,6 +477,7 @@ carrello = carrello.filter(item=> item !== articolo)
      numcount = numart
      const ilprezzo = articolo.prezzoitem
      count = count - ilprezzo
+     salvaCarrello()
 
      if (articolo.titoloitem === $lingua.biglietti.laterra) {
         attiva = true;
@@ -527,6 +554,7 @@ carrello = carrello.filter(item=> item !== articolo)
 
   }else{
     carrello = []
+     salvaCarrello()
     conferma = true
     compra = $lingua.homepage.acquista
   }
