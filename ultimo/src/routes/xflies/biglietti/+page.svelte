@@ -20,6 +20,7 @@ import cart from  '/src/routes/xflies/ximg/shopping-cart.png';
 import trash from '/src/routes/xflies/ximg/trash.png';
 import cross from '/src/routes/xflies/ximg/cross.png';
 import {onMount} from 'svelte';
+import  {abilitato} from '../store.js';
 
 // @ts-ignore
 import ita from '/src/routes/xflies/xtesto.json';
@@ -336,7 +337,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     battiva = false
+     battiva = $abilitato.batti = false
      
     break;
     case 'giove': 
@@ -347,7 +348,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     battiva1 = false
+     battiva1 =  $abilitato.batti = false
      
     break;
     case 'mercurio': 
@@ -358,7 +359,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     battiva2= false
+     battiva2=  $abilitato.batti = false
      
     break;
     case 'nettuno': 
@@ -369,7 +370,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     battiva3 = false
+     battiva3 =  $abilitato.batti = false
      
     break;
     case 'plutone': 
@@ -380,7 +381,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     battiva4 = false
+     battiva4 =  $abilitato.batti = false
      
     break;
     case 'saturno': 
@@ -391,7 +392,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     battiva5 = false
+     battiva5 =  $abilitato.batti = false
      
     break;
      case 'urano': 
@@ -402,7 +403,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     battiva6 = false
+     battiva6 =  $abilitato.batti = false
      
     break;
      case 'venere': 
@@ -413,7 +414,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     battiva7= false
+     battiva7=  $abilitato.batti = false
      
      break;
     case 'luna': 
@@ -424,7 +425,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     battiva8 = false
+     battiva8 =  $abilitato.batti = false
      
     break;
     case 'marte': 
@@ -435,7 +436,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     battiva9= false
+     battiva9=  $abilitato.batti = false
      
     break;
     case 'sistema': 
@@ -446,7 +447,7 @@ let numcount = 0
      count = calcolo
      numart = numcount + 1
      numcount = numart
-     battiva10 = false
+     battiva10 =  $abilitato.batti = false
      
     break;
     default:
@@ -467,41 +468,41 @@ carrello = carrello.filter(item=> item !== articolo)
      salvaCarrello()
 
      if (articolo.titoloitem === $lingua.biglietti.laterra) {
-        battiva = true;
+        battiva =  $abilitato.batti = true
     } if (articolo.titoloitem === $lingua.biglietti.lagiove) {
-        battiva1 = true;
+        battiva1 =  $abilitato.batti = true
     }  if (articolo.titoloitem === $lingua.biglietti.lamercurio) {
-        battiva2 = true;
+        battiva2 =  $abilitato.batti = true
     } if (articolo.titoloitem === $lingua.biglietti.lanettuno) {
-        battiva3 = true;
+        battiva3 =  $abilitato.batti = true
     }  if (articolo.titoloitem === $lingua.biglietti.laplutone) {
-        battiva4 = true;
+        battiva4 =  $abilitato.batti = true
     } if (articolo.titoloitem === $lingua.biglietti.lasaturno) {
-        battiva5 = true;
+        battiva5 =  $abilitato.batti = true
     }  if (articolo.titoloitem === $lingua.biglietti.laurano) {
-        battiva6 = true;
+        battiva6 =  $abilitato.batti = true
     } if (articolo.titoloitem === $lingua.biglietti.lavenere) {
-        battiva7 = true;
+        battiva7 =  $abilitato.batti = true
     }  if (articolo.titoloitem === $lingua.biglietti.laluna) {
-        battiva8 = true;
+        battiva8 =  $abilitato.batti = true
     } if (articolo.titoloitem === $lingua.biglietti.lamarte) {
-        battiva9 = true;
+        battiva9 =  $abilitato.batti = true
     } if (articolo.titoloitem === $lingua.biglietti.lasistema) {
-        battiva10 = true;
+        battiva10 =  $abilitato.batti = true
     }
  }
  
-  let battiva = true;
- let battiva1 = true;
- let battiva2 = true;
- let battiva3 = true;
- let battiva4 = true;
- let battiva5 = true;
- let battiva6 = true;
- let battiva7 = true;
- let battiva8 = true;
- let battiva9 = true;
- let battiva10 = true;
+  $: battiva =  $abilitato.batti = true
+ $: battiva1 =  $abilitato.batti = true
+ $: battiva2 =  $abilitato.batti = true
+ $: battiva3 =  $abilitato.batti = true
+ $: battiva4 =  $abilitato.batti = true
+ $: battiva5 =  $abilitato.batti = true
+ $: battiva6 =  $abilitato.batti = true
+ $: battiva7 =  $abilitato.batti = true
+ $: battiva8 =  $abilitato.batti = true
+ $: battiva9 =  $abilitato.batti = true
+ $: battiva10 =  $abilitato.batti = true
 
  let disattiva = true
  let disattiva1 = true
@@ -565,17 +566,37 @@ carrello = carrello.filter(item=> item !== articolo)
    paypalcard = false
    mastercard = false
    americancard = false
-   battiva = true
-   battiva1 = true
-   battiva2 = true
-   battiva3 = true
-   battiva4 = true
-   battiva5 = true
-   battiva6= true
-   battiva7 = true
-   battiva8 = true
-   battiva9 = true
-   battiva10 = true
+   battiva =  $abilitato.batti = true
+ battiva1 =  $abilitato.batti = true
+ battiva2 =  $abilitato.batti = true
+ battiva3 =  $abilitato.batti = true
+ battiva4 =  $abilitato.batti = true
+ battiva5 =  $abilitato.batti = true
+ battiva6 =  $abilitato.batti = true
+ battiva7 =  $abilitato.batti = true
+ battiva8 =  $abilitato.batti = true
+ battiva9 =  $abilitato.batti = true
+ battiva10 =  $abilitato.batti = true 
+      localStorage.setItem('attiva', 'true')
+      localStorage.setItem('attiva1', 'true')
+      localStorage.setItem('attiva2', 'true')
+      localStorage.setItem('attiva3', 'true')
+      localStorage.setItem('attiva4', 'true')
+      localStorage.setItem('attiva5', 'true')
+      localStorage.setItem('attiva6', 'true')
+      localStorage.setItem('attiva7', 'true')
+      localStorage.setItem('attiva8', 'true')
+      localStorage.setItem('attiva9', 'true')
+      localStorage.setItem('attiva10', 'true')
+      localStorage.setItem('attiva11', 'true')
+      localStorage.setItem('attiva12', 'true')
+      localStorage.setItem('attiva13', 'true')
+      localStorage.setItem('attiva14', 'true')
+      localStorage.setItem('attiva15', 'true')
+      localStorage.setItem('attiva16', 'true')
+      localStorage.setItem('attiva17', 'true')
+      localStorage.setItem('attiva18', 'true')
+      localStorage.setItem('attiva19', 'true')
   salvaCarrello()
   }
 
@@ -641,7 +662,27 @@ onMount(() => {
       const salvaAtt7 = localStorage.getItem('battiva7')
       const salvaAtt8 = localStorage.getItem('battiva8')
       const salvaAtt9 = localStorage.getItem('battiva9')
-      const salvaAtt10 = localStorage.getItem('battiva10')
+      const salvaAtt10 = localStorage.getItem('battiva10')   
+      const sAtt = localStorage.getItem('attiva')
+      const sAtt1 = localStorage.getItem('attiva1')
+      const sAtt2 = localStorage.getItem('attiva2')
+      const sAtt3 = localStorage.getItem('attiva3')
+      const sAtt4 = localStorage.getItem('attiva4')
+      const sAtt5 = localStorage.getItem('attiva5')
+      const sAtt6 = localStorage.getItem('attiva6')
+      const sAtt7 = localStorage.getItem('attiva7')
+      const sAtt8 = localStorage.getItem('attiva8')
+      const sAtt9 = localStorage.getItem('attiva9')
+      const sAtt10 = localStorage.getItem('attiva10')
+      const sAtt11 = localStorage.getItem('attiva11')
+      const sAtt12 = localStorage.getItem('attiva12')
+      const sAtt13 = localStorage.getItem('attiva13')
+      const sAtt14 = localStorage.getItem('attiva14')
+      const sAtt15 = localStorage.getItem('attiva15')
+      const sAtt16 = localStorage.getItem('attiva16')
+      const sAtt17 = localStorage.getItem('attiva17')
+      const sAtt18 = localStorage.getItem('attiva18')
+      const sAtt19 = localStorage.getItem('attiva19')
       if (salvaCar) {
         carrello = JSON.parse(salvaCar);
       }

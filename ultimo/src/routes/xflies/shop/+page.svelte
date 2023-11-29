@@ -31,6 +31,7 @@
   import info from '/src/routes/xflies/ximg/information.png';
   import reload from '/src/routes/xflies/ximg/reload.png';
   import {onMount} from 'svelte';
+  import {abilitato} from '../store.js';
   
   // @ts-ignore
    import ita from '/src/routes/xflies/xtesto.json';
@@ -396,7 +397,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva = false
+       attiva = $abilitato.atti = false
       break;
       case 'braccio': 
       const artBraccio = articoli[1]
@@ -406,7 +407,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva1 = false
+       attiva1 = $abilitato.atti = false
       break;
       case 'bitcoin': 
       const artbitcoin = articoli[2]
@@ -416,7 +417,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva2= false
+       attiva2= $abilitato.atti = false
       break;
       case 'blaster': 
       const artblaster = articoli[3]
@@ -426,7 +427,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva3 = false
+       attiva3 = $abilitato.atti = false
       break;
       case 'kit': 
       const artkit = articoli[4]
@@ -436,7 +437,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva4 = false
+       attiva4 = $abilitato.atti = false
       break;
       case 'computer': 
       const artcomputer = articoli[5]
@@ -446,7 +447,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva5 = false
+       attiva5 = $abilitato.atti = false
       break;
        case 'cpu': 
       const artcpu = articoli[6]
@@ -456,7 +457,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva6 = false
+       attiva6 = $abilitato.atti = false
       break;
        case 'dna': 
       const artdna = articoli[7]
@@ -466,7 +467,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva7= false
+       attiva7= $abilitato.atti = false
        break;
       case 'energia': 
       const artenergia = articoli[8]
@@ -476,7 +477,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva8 = false
+       attiva8 = $abilitato.atti = false
       break;
       case 'auto': 
       const artauto = articoli[9]
@@ -486,7 +487,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva9= false
+       attiva9= $abilitato.atti = false
       break;
       case 'ologramma': 
       const artologramma = articoli[10]
@@ -496,7 +497,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva10 = false
+       attiva10 = $abilitato.atti = false
       break;
       case 'jetpack': 
       const artjetpack = articoli[11]
@@ -506,7 +507,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva11 = false
+       attiva11 = $abilitato.atti = false
       break;
       case 'ram': 
       const artram = articoli[12]
@@ -516,7 +517,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva12 = false
+       attiva12 = $abilitato.atti = false
       break;
       case 'robot': 
       const artrobot = articoli[13]
@@ -526,7 +527,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva13 = false
+       attiva13 = $abilitato.atti = false
       break;
       case 'razzo': 
       const artrazzo = articoli[14]
@@ -536,7 +537,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva14 = false
+       attiva14 = $abilitato.atti = false
       break;
       case 'nave': 
       const artnave = articoli[15]
@@ -546,7 +547,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva15 = false
+       attiva15 = $abilitato.atti = false
       break;
       case 'teletrasporto': 
       const artteletrasporto = articoli[16]
@@ -556,7 +557,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva16 = false
+       attiva16 = $abilitato.atti = false
       break;
       case 'telescopio': 
       const arttelescopio = articoli[17]
@@ -566,7 +567,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva17 = false
+       attiva17 = $abilitato.atti = false
       break;
       case 'titanio': 
       const arttitanio = articoli[18]
@@ -576,7 +577,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva18 = false
+       attiva18 = $abilitato.atti = false
       break;
       case 'batteria': 
       const artbatteria = articoli[19]
@@ -586,7 +587,7 @@ const TraduciPagina=(linguatraduci)=>{
        count = calcolo
        numart = numcount + 1
        numcount = numart
-       attiva19 = false
+       attiva19 = $abilitato.atti = false
       break;
       default:
         break;
@@ -605,68 +606,68 @@ const TraduciPagina=(linguatraduci)=>{
        salvaCarrello()
   
        if (articolo.titoloitem === $lingua.shop.laatomo) {
-          attiva = true;
+          attiva = $abilitato.atti = true
       } if (articolo.titoloitem === $lingua.shop.labraccio) {
-          attiva1 = true;
+          attiva1 = $abilitato.atti = true
       }  if (articolo.titoloitem === $lingua.shop.labitcoin) {
-          attiva2 = true;
+          attiva2 = $abilitato.atti = true
       } if (articolo.titoloitem === $lingua.shop.lablaster) {
-          attiva3 = true;
+          attiva3 = $abilitato.atti = true
       }  if (articolo.titoloitem === $lingua.shop.lakit) {
-          attiva4 = true;
+          attiva4 = $abilitato.atti = true
       } if (articolo.titoloitem === $lingua.shop.lacomputer) {
-          attiva5 = true;
+          attiva5 = $abilitato.atti = true
       }  if (articolo.titoloitem === $lingua.shop.lacpu) {
-          attiva6 = true;
+          attiva6 = $abilitato.atti = true
       } if (articolo.titoloitem === $lingua.shop.ladna) {
-          attiva7 = true;
+          attiva7 = $abilitato.atti = true
       }  if (articolo.titoloitem === $lingua.shop.laenergia) {
-          attiva8 = true;
+          attiva8 = $abilitato.atti = true
       } if (articolo.titoloitem === $lingua.shop.laauto) {
-          attiva9 = true;
+          attiva9 = $abilitato.atti = true
       } if (articolo.titoloitem === $lingua.shop.laologramma) {
-          attiva10 = true;
+          attiva10 = $abilitato.atti = true
       } if (articolo.titoloitem === $lingua.shop.lajetpack) {
-          attiva11 = true;
+          attiva11 = $abilitato.atti = true
       } if (articolo.titoloitem === $lingua.shop.laram) {
-          attiva12 = true;
+          attiva12 = $abilitato.atti = true
       } if (articolo.titoloitem === $lingua.shop.larobot) {
-          attiva13 = true;
+          attiva13 = $abilitato.atti = true
       } if (articolo.titoloitem === $lingua.shop.larazzo) {
-          attiva14 = true;
+          attiva14 = $abilitato.atti = true
       } if (articolo.titoloitem === $lingua.shop.lanave) {
-          attiva15 = true;
+          attiva15 = $abilitato.atti = true
       } if (articolo.titoloitem === $lingua.shop.lateletrasporto) {
-          attiva16 = true;
+          attiva16 = $abilitato.atti = true
       } if (articolo.titoloitem === $lingua.shop.latelescopio) {
-          attiva17 = true;
+          attiva17 = $abilitato.atti = true
       } if (articolo.titoloitem === $lingua.shop.latitanio) {
-          attiva18 = true;
+          attiva18 = $abilitato.atti = true
       } if (articolo.titoloitem === $lingua.shop.labatteria) {
-          attiva19 = true;
+          attiva19 = $abilitato.atti = true
       }
    }
    
-   let attiva = true
-   let attiva1 = true
-   let attiva2 = true
-   let attiva3 = true
-   let attiva4 = true
-   let attiva5 = true
-   let attiva6= true
-   let attiva7 = true
-   let attiva8 = true
-   let attiva9 = true
-   let attiva10 = true
-   let attiva11 = true
-   let attiva12 = true
-   let attiva13 = true
-   let attiva14 = true
-   let attiva15 = true
-   let attiva16= true
-   let attiva17 = true
-   let attiva18 = true
-   let attiva19 = true
+   $: attiva = $abilitato.atti = true
+   $: attiva1 = $abilitato.atti = true
+   $: attiva2 = $abilitato.atti = true
+   $: attiva3 = $abilitato.atti = true
+   $: attiva4 = $abilitato.atti = true
+   $: attiva5 = $abilitato.atti = true
+   $: attiva6= $abilitato.atti = true
+   $: attiva7 = $abilitato.atti = true
+   $: attiva8 = $abilitato.atti = true
+   $: attiva9 = $abilitato.atti = true
+   $: attiva10 = $abilitato.atti = true
+   $: attiva11 = $abilitato.atti = true
+   $: attiva12 = $abilitato.atti = true
+   $: attiva13 = $abilitato.atti = true
+   $: attiva14 = $abilitato.atti = true
+   $: attiva15 = $abilitato.atti = true
+   $: attiva16= $abilitato.atti = true
+   $: attiva17 = $abilitato.atti = true
+   $: attiva18 = $abilitato.atti = true
+   $: attiva19 = $abilitato.atti = true
   
    let disattiva = true
    let disattiva1 = true
@@ -739,26 +740,37 @@ const TraduciPagina=(linguatraduci)=>{
      paypalcard = false
      mastercard = false
      americancard = false
-     attiva = true
-     attiva1 = true
-     attiva2 = true
-     attiva3 = true
-     attiva4 = true
-     attiva5 = true
-     attiva6= true
-     attiva7 = true
-     attiva8 = true
-     attiva9 = true
-     attiva10 = true
-     attiva11 = true
-      attiva12 = true
-      attiva13 = true
-      attiva14 = true
-      attiva15 = true
-      attiva16= true
-      attiva17 = true
-      attiva18 = true
-      attiva19 = true
+     attiva = $abilitato.atti = true
+     attiva1 = $abilitato.atti = true
+     attiva2 = $abilitato.atti = true
+     attiva3 = $abilitato.atti = true
+     attiva4 = $abilitato.atti = true
+     attiva5 = $abilitato.atti = true
+     attiva6= $abilitato.atti = true
+     attiva7 = $abilitato.atti = true
+     attiva8 = $abilitato.atti = true
+     attiva9 = $abilitato.atti = true
+     attiva10 = $abilitato.atti = true
+     attiva11 = $abilitato.atti = true
+      attiva12 = $abilitato.atti = true
+      attiva13 = $abilitato.atti = true
+      attiva14 = $abilitato.atti = true
+      attiva15 = $abilitato.atti = true
+      attiva16= $abilitato.atti = true
+      attiva17 = $abilitato.atti = true
+      attiva18 = $abilitato.atti = true
+      attiva19 = $abilitato.atti = true
+      localStorage.setItem('battiva', 'true')
+      localStorage.setItem('battiva1', 'true')
+      localStorage.setItem('battiva2', 'true')
+      localStorage.setItem('battiva3', 'true')
+      localStorage.setItem('battiva4', 'true')
+      localStorage.setItem('battiva5', 'true')
+      localStorage.setItem('battiva6', 'true')
+      localStorage.setItem('battiva7', 'true')
+      localStorage.setItem('battiva8', 'true')
+      localStorage.setItem('battiva9', 'true')
+      localStorage.setItem('battiva10', 'true')
      salvaCarrello()
     }
   
@@ -1283,6 +1295,17 @@ onMount(() => {
       const salvaAtt17 = localStorage.getItem('attiva17')
       const salvaAtt18 = localStorage.getItem('attiva18')
       const salvaAtt19 = localStorage.getItem('attiva19')
+      const battiva = localStorage.getItem('battiva')
+      const battiva1 = localStorage.getItem('battiva1')
+      const battiva2 = localStorage.getItem('battiva2')
+      const battiva3 = localStorage.getItem('battiva3')
+      const battiva4 = localStorage.getItem('battiva4')
+      const battiva5 = localStorage.getItem('battiva5')
+      const battiva6 = localStorage.getItem('battiva6')
+      const battiva7 = localStorage.getItem('battiva7')
+      const battiva8 = localStorage.getItem('battiva8')
+      const battiva9 = localStorage.getItem('battiva9')
+      const battiva10 = localStorage.getItem('battiva10')
       if (salvaCar) {
         carrello = JSON.parse(salvaCar);
       }
