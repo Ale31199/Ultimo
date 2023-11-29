@@ -28,19 +28,47 @@ import ita from '/src/routes/xflies/xtesto.json';
 //@ts-ignore
   import eng from '/src/routes/xflies/xtestoeng.json';
 
-import { lingua } from './lingua.js';
 
+  import { lingua } from './lingua.js';
+ 
 
-const TraduciPagina=(linguatraduci)=>{
-  switch(linguatraduci){
-    case 'ita':
-      lingua.set(ita)
-      break;
-    case 'eng':
-      lingua.set(eng)
-    break;
-  }
-}
+  let ital = 'Italiani'
+  let engl = 'English'
+
+  onMount(() => {
+    if (typeof window !== 'undefined') {
+      const salvaLingua = localStorage.getItem('lingua');
+      const salvaital = localStorage.getItem('ital');
+      const salvaengl = localStorage.getItem('engl');
+      if (salvaLingua) {
+        lingua.set(salvaLingua === 'ita' ? ita : eng)
+      }
+      if (salvaital) {
+        ital = JSON.parse(salvaital)
+      }
+      if (salvaengl) {
+        engl = JSON.parse(salvaengl)
+      }
+     
+    }
+  });
+
+  const TraduciPagina = (linguatraduci) => {
+    switch (linguatraduci) {
+      case 'ita':
+        lingua.set(ita);
+        ital = 'Italiani'
+        localStorage.setItem('ital', JSON.stringify(ital))
+        localStorage.setItem('lingua', 'ita');
+        break;
+      case 'eng':
+        lingua.set(eng);
+        engl = 'English'
+        localStorage.setItem('engl', JSON.stringify(engl))
+        localStorage.setItem('lingua', 'eng');
+        break;
+    }
+  };
 
 let pianeta = luna;
 $: titolo = $lingua.homepage.via1
@@ -762,7 +790,7 @@ onMount(() => {
 </div>
 </div>
 
-<select on:change="{(event)=>TraduciPagina(event.target.value)}" class="w-[100px] absolute top-[200px] sm:top-[200px] md:top-[130px] bg-gradient-to-tr p-2 from-white to-neutral-300 border-2 border-neutral-300 rounded-2xl invert">
+<select value="{$lingua}" on:change="{(event)=>TraduciPagina(event.target.value)}" class="w-[100px] absolute top-[200px] sm:top-[200px] md:top-[130px] bg-gradient-to-tr p-2 from-white to-neutral-300 border-2 border-neutral-300 rounded-2xl invert">
   <option value="ita">Italiano</option>
   <option value="eng">English</option>
   </select>
@@ -891,14 +919,14 @@ onMount(() => {
           {#each carrello as item (item.titoloitem)}
           <div class="flex items-center bg-gradient-to-tr from-black to-neutral-700 border-2 border-neutral-700 w-[90%] h-[90px] rounded-2xl relative top-[10%] justify-center text-center cursor-default">
           <img src={item.imgitem} alt="terra" class="w-[50px] md:w-[70px] absolute left-[5%] " />
-          <p class="text-teal-500 text-xl md:text-3xl font-semibold absolute top-[20%] md:top-[10%] left-[26%] md:left-[32%] tracking-wide">{item.titoloitem}</p>
-          <p class="text-teal-500 text-lg md:text-2xl font-semibold absolute top-[50%] left-[26%] md:left-[32%]">€{item.prezzoitem}</p>
+          <p class="text-teal-500 text-xl md:text-3xl font-semibold absolute top-[20%] md:top-[10%] left-[23%] md:left-[23%] tracking-wide">{item.titoloitem}</p>
+          <p class="text-teal-500 text-lg md:text-2xl font-semibold absolute top-[50%] left-[23%] md:left-[23%]">€{item.prezzoitem}</p>
           <select class="absolute right-[20%] w-[50px] rounded-sm outline-none" on:change="{()=>qt(event)}">
             <option value=1 >1</option>
             <option value=2 >2</option>
             <option value=3 >3</option>
             <option value=4 >4</option>
-            <option value=5 >5</option>
+            <option value=5 >5</option> 
           </select>
           <img src={trash} alt='trash' on:click="{()=>elimina(item)}" class="invert bg-cyan-500 rounded-full absolute right-[5%] border-2 border-cyan-800 md:p-2 p-1 w-[30px] md:w-[40px] cursor-pointer" />
           </div>

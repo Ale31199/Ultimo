@@ -12,19 +12,48 @@ import chat from './ximg/chat.png';
 import ita from '/src/routes/xflies/xtesto.json';
 import eng from '/src/routes/xflies/xtestoeng.json';
 
+
 import { lingua } from './lingua.js';
+  import {onMount} from 'svelte';
+ 
 
+  let ital = 'Italiani'
+  let engl = 'English'
 
-const TraduciPagina=(linguatraduci)=>{
-  switch(linguatraduci){
-    case 'ita':
-      lingua.set(ita)
-      break;
-    case 'eng':
-      lingua.set(eng)
-    break;
-  }
-}
+  onMount(() => {
+    if (typeof window !== 'undefined') {
+      const salvaLingua = localStorage.getItem('lingua');
+      const salvaital = localStorage.getItem('ital');
+      const salvaengl = localStorage.getItem('engl');
+      if (salvaLingua) {
+        lingua.set(salvaLingua === 'ita' ? ita : eng)
+      }
+      if (salvaital) {
+        ital = JSON.parse(salvaital)
+      }
+      if (salvaengl) {
+        engl = JSON.parse(salvaengl)
+      }
+     
+    }
+  });
+
+  const TraduciPagina = (linguatraduci) => {
+    switch (linguatraduci) {
+      case 'ita':
+        lingua.set(ita);
+        ital = 'Italiani'
+        localStorage.setItem('ital', JSON.stringify(ital))
+        localStorage.setItem('lingua', 'ita');
+        break;
+      case 'eng':
+        lingua.set(eng);
+        engl = 'English'
+        localStorage.setItem('engl', JSON.stringify(engl))
+        localStorage.setItem('lingua', 'eng');
+        break;
+    }
+  };
 
 
 
@@ -106,7 +135,7 @@ let home= false
     </div>
 </div>
 
-<select on:change="{(event)=>TraduciPagina(event.target.value)}" class="w-[100px] absolute top-[200px] sm:top-[200px] md:top-[130px] bg-gradient-to-tr p-2 from-white to-neutral-300 border-2 border-neutral-300 rounded-2xl invert">
+<select value="{$lingua}" on:change="{(event)=>TraduciPagina(event.target.value)}" class="w-[100px] absolute top-[200px] sm:top-[200px] md:top-[130px] bg-gradient-to-tr p-2 from-white to-neutral-300 border-2 border-neutral-300 rounded-2xl invert">
   <option value="ita">Italiano</option>
   <option value="eng">English</option>
   </select>
