@@ -244,7 +244,7 @@ let home= false
 
 <div>
   <div class="bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-800 flex-auto relative top-5 w-auto h-24 items-center border-b-2 white flex rounded-3xl ">
-  <h1  class="text-white text-4xl font-bold flex relative left-[68px] justify-center cursor-default">HomeCode </h1>
+  <h1  class="text-white text-4xl font-bold flex relative left-[88px] justify-center cursor-default">HomeCode </h1>
   </div>
   <div class="bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-800 h-10 flex-auto flex flex-row items-center justify-between relative top-12 rounded-xl md:w-[50%] md:left-[45%] md:-top-12 "> 
   <a href="/" class=" font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {home ? "border-b-2 rounded-sm border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('home')}">Home</a>
@@ -259,7 +259,7 @@ let home= false
   <option value="eng">English</option>
   </select>
 
-<div class="flex justify-center w-[100%] h-[680px] relative top-[15%]">
+<div class="flex justify-center w-[100%] h-[680px] relative top-[25%] sm:top-[15%]">
 <div class="w-[400px] sm:w-[500px] md:w-[700px] lg:w-[1000px] h-[600px]  rounded-3xl relative top-[0%] bottom-[20%] flex justify-center ">
     <audio>
       <source src={soundcho} type="audio/mpeg"/>
