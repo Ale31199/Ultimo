@@ -54,9 +54,9 @@
   };
  
 
- let home= true
+ let home= false
  let skills = false
- let progetti = false
+ let progetti = true
 
   // @ts-ignore
   const selezionaPag=(pagina)=>{
@@ -236,7 +236,7 @@
   <div class="bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-800 h-10 flex-auto flex flex-row items-center justify-between relative top-12 rounded-xl md:w-[50%] md:left-[45%] md:-top-12 "> 
   <a href="/" class=" font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {home ? "border-b-2 rounded-sm border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('home')}">Home</a>
   <a href="/skills" class=" text-white font-bold cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {skills ? "border-b-2 border-teal-500":""}" on:click="{()=>selezionaPag('skills')}">Skills</a>
-  <a href="/progetti" class=" text-white font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500":""}" on:click="{()=>selezionaPag('progetti')}">{$lingua.testo.progetti}</a>
+  <a href="/progetti" class=" font-bold mr-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {progetti ? "border-b-2 border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('progetti')}">{$lingua.testo.progetti}</a>
   </div>
 </div>
 
@@ -250,8 +250,8 @@
     <img on:click="{()=> unmostra()}" src={moviecode} alt="home" class="w-[340px] sm:w-[480px] absolute top-[50px] md:top-[10px] " />
     <div class="absolute top-[150px] md:top-[100px] flex justify-center w-[100%]">
   <img on:click="{()=> unmostra()}" src={homee} alt="home" class="w-[50px] p-3  bg-teal-100 rounded-2xl cursor-pointer hover:bg-teal-400 hover:invert-0 transi  hover:border-black" />
-  <input bind:value={searchKeyword} on:keyup={Enter} placeholder="Cerca Film o Serie TV..." class="bg-gradient-to-r from-teal-100 bg-opacity-30 to-teal-200 w-[180px] sm:w-[400px] lg:w-[700px] p-3 rounded-xl ml-3 mr-3 outline-none" />
-  <button class="p-3 rounded-xl bg-teal-200 hover:rounded-3xl  transi" on:click={() => searchMovies(searchKeyword)}>Cerca</button>
+  <input bind:value={searchKeyword} on:keyup={Enter} placeholder="Cerca Film o Serie TV..." class="text-sm bg-gradient-to-r from-teal-100 bg-opacity-30 to-teal-200 w-[180px] sm:w-[400px] lg:w-[700px] p-3 rounded-xl ml-3 mr-3 outline-none" />
+  <button class="p-3 rounded-xl bg-teal-200 hover:rounded-3xl hover:bg-teal-400 transi" on:click={() => searchMovies(searchKeyword)}>Cerca</button>
 </div>
 </div>
 
