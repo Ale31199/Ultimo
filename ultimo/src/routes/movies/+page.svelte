@@ -91,16 +91,16 @@
 
 
   let searchKeyword = '';
-  let searchResults = null;
-  let discoverMovies = null;
-  let discoverTv = null;
-  let discoverAll = null
+  let searchResults = [];
+  let discoverMovies = [];
+  let discoverTv = [];
+  let discoverAll = []
   let showwSer = false;
   let showwAll = false;
 
   const mostra=()=>{
     if (showwSer === true){
-      showwSer = true;
+        showwSer = true;
       showwAll = true
     }
   }
@@ -109,10 +109,53 @@
       showwSer = false;
       showwAll = false
       searchKeyword = ''
+      page = 1
   }
   
+  
 
- 
+  let page = 1;
+  const itempage= 14
+  let isLoading = false
+  let moreRes = true
+
+  const caricaItems = () => {
+    const resultBox = document.getElementById('searchmore');
+    if (!resultBox || isLoading || !moreRes) return;
+    if (window.innerHeight + window.scrollY >= resultBox.offsetHeight + resultBox.offsetTop) {
+      moreItem();
+    }
+  };
+
+  const moreItem = async () => {
+  if (isLoading || !moreRes) return;
+  isLoading = true;
+  setTimeout(async () => {
+    try {
+     await searchMovies(searchKeyword)
+    } finally {
+      isLoading = false
+    }
+  }, 1500);
+};
+  onMount(() => {
+    window.addEventListener('scroll', caricaItems);
+    return () => {
+      window.removeEventListener('scroll', caricaItems);
+    };
+  });
+
+
+
+   let bodyLimit;
+
+  const cambiaRicerca=(Nuova)=>{
+    searchKeyword = Nuova
+    page = 1
+    searchMovies(Nuova)
+    showwSer = true
+    mostra()
+  }
 
 
   const searchMovies = async (query) => {
@@ -124,14 +167,21 @@
         params: {
           api_key: apiKey,
           query: query,
+          page: page
         },
       });
 
       console.log(response.data);
-      searchKeyword = ''
-      showwSer = true
-      mostra()
+
+      if (page === 1) {
       searchResults = response.data.results || [];
+      }else {
+        searchResults = [...searchResults, ...response.data.results];
+       
+      }
+
+      page++
+      mostra()
     } catch (error) {
       console.error('Errore durante la ricerca di film:', error);
     }
@@ -219,12 +269,11 @@
 
  const Enter=(event)=>{
   if (event.key === 'Enter'){
-    searchMovies(searchKeyword)
+    cambiaRicerca(searchKeyword)
   }
  }
 
  const limit = 14
-
 
 </script>
 
@@ -245,27 +294,27 @@
 <option value="eng" >English</option>
 </select>
 
-<main class="text-black top-[120px] rounded-t-2xl relative text-base font-semibold {showAll ? "h-[6000px] sm:h-[8300px] md:h-[6000px] lg:h-[5000px] xl:h-[3900px] 2xl:h-[2800px]" : "h-[1000px] lg:h-[1500px]"}  bg-gradient-to-t from-pink-950 to-teal-950 bg-opacity-20">
+<main class="text-black top-[120px] rounded-t-2xl relative text-base font-semibold {showwSer ? "h-[1000px] lg:h-[1500px]": "h-[6000px] sm:h-[8300px] md:h-[6000px] lg:h-[5000px] xl:h-[3900px] 2xl:h-[2800px]"}  bg-gradient-to-t from-transparent to-neutral-900 bg-opacity-20">
   <div class=" flex w-[100%] justify-center relative top-[0px] sfoca bg-black bg-opacity-90 rounded-t-2xl p-2 items-center h-[250px] md:h-[160px]">
     <img on:click="{()=> unmostra()}" src={moviecode} alt="home" class="w-[340px] sm:w-[480px] absolute top-[50px] md:top-[10px] " />
     <div class="absolute top-[150px] md:top-[100px] flex justify-center w-[100%]">
-  <img on:click="{()=> unmostra()}" src={homee} alt="home" class="w-[50px] p-3  bg-teal-100 rounded-2xl cursor-pointer hover:bg-teal-400 hover:invert-0 transi  hover:border-black" />
-  <input bind:value={searchKeyword} on:keyup={Enter} placeholder="Cerca Film o Serie TV..." class="text-sm bg-gradient-to-r from-teal-100 bg-opacity-30 to-teal-200 w-[180px] sm:w-[400px] lg:w-[700px] p-3 rounded-xl ml-3 mr-3 outline-none" />
-  <button class="p-3 rounded-xl bg-teal-200 hover:rounded-3xl hover:bg-teal-400 transi" on:click={() => searchMovies(searchKeyword)}>Cerca</button>
+  <img on:click="{()=> unmostra()}" src={homee} alt="home" class="w-[50px] p-3 hover:rounded-3xl bg-white rounded-2xl cursor-pointer hover:bg-teal-400 hover:invert-0 transi  hover:border-black" />
+  <input bind:value={searchKeyword} on:keyup={Enter} placeholder="Cerca Film o Serie TV..." class="text-sm bg-gradient-to-r from-white bg-opacity-30 to-white w-[180px] sm:w-[400px] lg:w-[700px] p-3 rounded-xl ml-3 mr-3 outline-none" />
+  <button class="p-3 rounded-xl bg-white hover:rounded-3xl hover:bg-teal-400 transi" on:click={() => cambiaRicerca(searchKeyword)}>Cerca</button>
 </div>
 </div>
 
 {#if discoverAll !== null}
 <div class="flex w-[100%] justify-center sfoca2 relative top-[100px] {showwAll ? "invisible": "visible"}">
-  <p class="text-white font-bold absolute top-[-50px] left-8 text-3xl">In Tendenza</p>
+  <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">In Tendenza</p>
   <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 overflow-x-auto gap-6" >
     {#each discoverAll.slice(0, limit) as allmovie (allmovie.id)}
-      <div class="bg-neutral-950 rounded-xl p-2 cursor-pointer hover:border-2 hover:border-teal-600 hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
+      <div class="bg-gradient-to-t from-black to-neutral-600 rounded-xl p-2 cursor-pointer hover:border-2 hover:border-teal-600 hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
         <img class="w-[200px] h-[190px] sm:h-[300px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${allmovie.poster_path}`} alt="poster"/>
         {#if allmovie.original_title}
-        <h2 class="text-white text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] sm:w-[200px] ">{allmovie.original_title}</h2>
+        <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] relative top-[10px] md:top-[5px] sm:w-[200px] ">{allmovie.original_title}</h2>
         {:else if allmovie.original_name}
-        <h2 class="text-white text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] sm:w-[200px]">{allmovie.original_name}</h2>
+        <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] relative top-[10px] md:top-[5px] sm:w-[200px]">{allmovie.original_name}</h2>
         {/if}
       </div>
       {/each}
@@ -275,12 +324,12 @@
 
   {#if discoverMovies !== null}
   <div class="flex w-[100%] justify-center sfoca3 relative top-[200px] {showwAll ? "invisible": "visible"}">
-    <p class="text-white font-bold absolute top-[-50px] left-8 text-3xl">Film del momento</p>
+    <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">Film del momento</p>
     <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 overflow-x-auto gap-6" >
       {#each discoverMovies.slice(0, limit) as discmovie (discmovie.id)}
-        <div class="bg-neutral-950 rounded-xl p-2 cursor-pointer hover:border-2 hover:border-pink-600  hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
+        <div class="bg-gradient-to-t from-black to-neutral-600 rounded-xl p-2 cursor-pointer hover:border-2 hover:border-teal-600  hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
           <img class="w-[200px] h-[190px] sm:h-[300px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${discmovie.poster_path}`} alt="poster"/>
-          <h2 class="text-white text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] sm:w-[200px] ">{discmovie.original_title}</h2>
+          <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] relative top-[10px] md:top-[5px] sm:w-[200px] ">{discmovie.original_title}</h2>
         </div>
         {/each}
       </div>
@@ -290,12 +339,12 @@
     
   {#if discoverTv !== null}
   <div class="flex w-[100%] justify-center sfoca4 relative top-[300px] {showwAll ? "invisible": "visible"}">
-    <p class="text-white font-bold absolute top-[-50px] left-8 text-3xl">Serie del momento</p>
+    <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">Serie del momento</p>
     <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 overflow-x-auto gap-6" >
       {#each discoverTv.slice(0, limit) as tvmovie (tvmovie.id)}
-        <div class="bg-neutral-950 rounded-xl p-2 cursor-pointer hover:border-2 hover:border-pink-600  hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
+        <div class="bg-gradient-to-t from-black to-neutral-600 rounded-xl p-2 cursor-pointer hover:border-2 hover:border-teal-600  hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
           <img class="w-[200px] h-[190px] sm:h-[300px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${tvmovie.poster_path}`} alt="poster"/>
-          <h2 class="text-white text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] sm:w-[200px] ">{tvmovie.original_name}</h2>
+          <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] relative top-[10px] md:top-[5px] sm:w-[200px] ">{tvmovie.original_name}</h2>
         </div>
         {/each}
       </div>
@@ -304,15 +353,15 @@
 
   {#if searchResults !== null}
   <div class="flex w-[100%] justify-center {showwSer ? "visible": "invisible"}">
-    <div class="flex w-[100%] justify-center absolute top-[345px] ">
+    <div class="flex w-[100%] justify-center absolute top-[350px] md:top-[260px] ">
       {#if searchResults.length > 0}
-      <p class="text-white font-bold absolute top-[-50px] left-8 text-3xl">Risultati trovati</p>
+      <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">Risultati trovati</p>
         <ul class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-6 ">
           {#each searchResults as movie (movie.id)}
-          <div class="bg-neutral-950 rounded-xl p-2 cursor-pointer hover:scale-105 w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
+          <div id="searchmore" class="bg-gradient-to-t from-black to-neutral-600 rounded-xl mb-8 p-2 relative top-[16px] hover:border-2 hover:border-teal-600 transi cursor-pointer hover:scale-105 w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
               <img class="w-[200px] h-[190px] sm:h-[300px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="poster"/>
-              <h2 class="text-white text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] sm:w-[200px] ">{movie.original_title}</h2>
-              <!-- Altre informazioni possono essere aggiunte qui -->
+              <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] relative top-[10px] md:top-[5px] sm:w-[200px] ">{movie.original_title}</h2>
+              
             </div>
           {/each}
         </ul>
@@ -323,11 +372,19 @@
   </div>
   {/if}
 
+ 
 
   </main>
+ 
   
 
   <style>
+
+  #body{
+    height: bodyLimit
+  }
+
+
     .transi{
       transition: 1s;
     }
