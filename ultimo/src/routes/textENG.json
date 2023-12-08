@@ -91,6 +91,13 @@
 		"nome2": "New List 2",
 		"nome3": "New List 3",
 		"nome4": "New List 4",
-		"nome5": "New List 5"
+		"nome5": "New List 5",
+		"cfilm": "Search Movie or Series...",
+		"cerca": "Search",
+		"tendenza": "Trending",
+		"film": "Trending Movies",
+		"tv": "Trending Series",
+		"mostra": "Show All",
+		"risultato": "Results found"
 	}
 }

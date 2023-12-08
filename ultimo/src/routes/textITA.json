@@ -91,6 +91,13 @@
 		"nome2": "Nuova Lista 2",
 		"nome3": "Nuova Lista 3",
 		"nome4": "Nuova Lista 4",
-		"nome5": "Nuova Lista 5"
+		"nome5": "Nuova Lista 5",
+		"cfilm": "Cerca Film o Serie...",
+		"cerca": "Cerca",
+		"tendenza": "In Tendenza",
+		"film": "Film del momento",
+		"tv": "Serie del momento",
+		"mostra": "Mostra tutto",
+		"risultato": "Risultati trovati"
 	}
 }

@@ -299,15 +299,15 @@
     <img on:click="{()=> unmostra()}" src={moviecode} alt="home" class="w-[340px] sm:w-[480px] absolute top-[50px] md:top-[10px] " />
     <div class="absolute top-[150px] md:top-[100px] flex justify-center w-[100%]">
   <img on:click="{()=> unmostra()}" src={homee} alt="home" class="w-[50px] p-3 hover:rounded-3xl bg-gradient-to-t to-teal-400 from-violet-400 rounded-2xl cursor-pointer hover:bg-teal-400 hover:invert-0 transi  hover:border-black" />
-  <input bind:value={searchKeyword} on:keyup={Enter} placeholder="Cerca Film o Serie TV..." class="placeholder:text-black text-sm bg-gradient-to-t from-violet-400 bg-opacity-30 to-teal-400 w-[180px] sm:w-[400px] lg:w-[700px] p-3 rounded-xl ml-3 mr-3 outline-none" />
-  <button class="p-3 rounded-xl bg-gradient-to-t to-teal-400 from-violet-400 hover:rounded-3xl hover:bg-teal-400 transi" on:click={() => cambiaRicerca(searchKeyword)}>Cerca</button>
+  <input bind:value={searchKeyword} on:keyup={Enter} placeholder={$lingua.progetti.cfilm} class="placeholder:text-black text-sm bg-gradient-to-t from-violet-400 bg-opacity-30 to-teal-400 w-[180px] sm:w-[400px] lg:w-[700px] p-3 rounded-xl ml-3 mr-3 outline-none" />
+  <button class="p-3 rounded-xl bg-gradient-to-t to-teal-400 from-violet-400 hover:rounded-3xl hover:bg-teal-400 transi" on:click={() => cambiaRicerca(searchKeyword)}>{$lingua.progetti.cerca}</button>
 </div>
 </div>
 
 {#if discoverAll !== null}
 <div class="flex w-[100%] justify-center sfoca2 relative top-[100px] {showwAll ? "invisible": "visible"}">
-  <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">In Tendenza</p>
-  <button class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 font-bold absolute top-[-50px] right-8 text-sm md:text-sm">Mostra tutto</button>
+  <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">{$lingua.progetti.tendenza}</p>
+  <button class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 font-bold absolute top-[-50px] right-8 text-sm md:text-sm">{$lingua.progetti.mostra}</button>
   <div class="bg-gradient-to-t from-pink-950 to-teal-950 bg-opacity-25 rounded-2xl grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 overflow-x-auto gap-6" >
     {#each discoverAll.slice(0, limit) as allmovie (allmovie.id)}
       <div class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-teal-600 hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
@@ -325,8 +325,8 @@
 
   {#if discoverMovies !== null}
   <div class="flex w-[100%] justify-center sfoca3 relative top-[200px] {showwAll ? "invisible": "visible"}">
-    <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">Film del momento</p>
-    <button class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 font-bold absolute top-[-50px] right-8 text-sm md:text-sm">Mostra tutto</button>
+    <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">{$lingua.progetti.film}</p>
+    <button class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 font-bold absolute top-[-50px] right-8 text-sm md:text-sm">{$lingua.progetti.mostra}</button>
     <div class="bg-gradient-to-t from-orange-950 to-green-950 bg-opacity-25 rounded-2xl grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 overflow-x-auto gap-6" >
       {#each discoverMovies.slice(0, limit) as discmovie (discmovie.id)}
         <div class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-green-600  hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
@@ -341,8 +341,8 @@
     
   {#if discoverTv !== null}
   <div class="flex w-[100%] justify-center sfoca4 relative top-[300px] {showwAll ? "invisible": "visible"}">
-    <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">Serie del momento</p>
-    <button class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 font-bold absolute top-[-50px] right-8 text-sm md:text-sm">Mostra tutto</button>
+    <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">{$lingua.progetti.tv}</p>
+    <button class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 font-bold absolute top-[-50px] right-8 text-sm md:text-sm">{$lingua.progetti.mostra}</button>
     <div class="bg-gradient-to-t from-red-950 to-yellow-900 bg-opacity-25 rounded-2xl grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 overflow-x-auto gap-6" >
       {#each discoverTv.slice(0, limit) as tvmovie (tvmovie.id)}
         <div class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-yellow-600  hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
@@ -358,10 +358,10 @@
   <div class="flex w-[100%] justify-center {showwSer ? "visible": "invisible"}">
     <div class="flex w-[100%] justify-center absolute top-[350px] md:top-[260px] ">
       {#if searchResults.length > 0}
-      <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">Risultati trovati</p>
-        <ul class="bg-gradient-to-t from-violet-950 to-teal-950 bg-opacity-25 rounded-2xl grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-6 ">
+      <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">{$lingua.progetti.risultato}</p>
+        <ul class="bg-gradient-to-t from-violet-950 to-teal-950 bg-opacity-25 rounded-2xl grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 gap-6 ">
           {#each searchResults as movie (movie.id)}
-          <div id="searchmore" class="bg-gradient-to-t from-black to-transparent rounded-xl mb-8 p-2 relative top-[16px] hover:border-2 hover:border-violet-600 transi cursor-pointer hover:scale-105 w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
+          <div id="searchmore" class="bg-gradient-to-t from-black to-transparent rounded-xl mb-8 p-2 relative top-[0px] hover:border-2 hover:border-violet-600 transi cursor-pointer hover:scale-105 w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
               <img class="w-[200px] h-[190px] sm:h-[300px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="poster"/>
               <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] relative top-[10px] md:top-[5px] sm:w-[200px] ">{movie.original_title}</h2>
               
