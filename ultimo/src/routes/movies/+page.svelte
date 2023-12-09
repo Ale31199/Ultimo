@@ -2,6 +2,7 @@
   import axios from 'axios';
   import homee from './imm/home.png';
   import moviecode from './imm/moviecode.png';
+  import star from './imm/star.png';
   // @ts-ignore
   import ita from '/src/routes/textITA.json';
   // @ts-ignore
@@ -91,25 +92,50 @@
 
 
   let searchKeyword = '';
+  let limit = 14
   let searchResults = [];
   let discoverMovies = [];
   let discoverTv = [];
   let discoverAll = []
   let showwSer = false;
   let showwAll = false;
+  let showwAll2 = false
+  let showwAll3 = false
+  let showwMostra = true
+  let showwMostra2 = true
+  let showwMostra3 = true
+  let showwMostraH = false
 
   const mostra=()=>{
     if (showwSer === true){
         showwSer = true;
       showwAll = true
+      showwAll2 = true
+      showwAll3 = true
+      showwMostra = false
+      showwMostra2 = false
+      showwMostra3 = false
+      showwMostraH = true
     }
   }
 
   const unmostra=()=>{
       showwSer = false;
       showwAll = false
+      showwAll2 = false
+      showwAll3 = false
+      showwMostra = true
+      showwMostra2 = true
+      showwMostra3 = true
+      showwMostraH = false
       searchKeyword = ''
       page = 1
+      limit = 14
+      isLoading = false;
+      moreRes = true;
+      window.removeEventListener('scroll', caricaItems1);
+      window.removeEventListener('scroll', caricaItems2);
+      window.removeEventListener('scroll', caricaItems3);
   }
   
   
@@ -119,14 +145,7 @@
   let isLoading = false
   let moreRes = true
 
-  const caricaItems = () => {
-    const resultBox = document.getElementById('searchmore');
-    if (!resultBox || isLoading || !moreRes) return;
-    if (window.innerHeight + window.scrollY >= resultBox.offsetHeight + resultBox.offsetTop) {
-      moreItem();
-    }
-  };
-
+ 
   const moreItem = async () => {
   if (isLoading || !moreRes) return;
   isLoading = true;
@@ -138,6 +157,99 @@
     }
   }, 1500);
 };
+
+const mostraTutto = async () => {
+  if (isLoading || !moreRes) return;
+  isLoading = true;
+  setTimeout(async () => {
+    try { 
+      await showAll();
+      limit = 200
+      showwAll = false
+      showwAll2 = true;
+      showwAll3 = true;
+      showwMostraH = false
+      showwMostra = false
+      showwMostra2 = false
+      showwMostra3 = false
+    } finally {
+      isLoading = false;
+    }
+  }, 1500);
+};
+
+const mostraTutto2 = async () => {
+  if (isLoading || !moreRes) return;
+  isLoading = true;
+  setTimeout(async () => {
+    try { 
+      await showTrendy();
+      limit = 200
+      showwAll = true
+      showwAll2 = false;
+      showwAll3 = true;
+      showwMostraH = false
+      showwMostra = false
+      showwMostra2 = false
+      showwMostra3 = false
+    } finally {
+      isLoading = false;
+    }
+  }, 1500);
+};
+
+const mostraTutto3 = async () => {
+  if (isLoading || !moreRes) return;
+  isLoading = true;
+  setTimeout(async () => {
+    try { 
+      await showTv();
+      limit = 200
+      showwAll = true
+      showwAll2 = true;
+      showwAll3 = false;
+      showwMostraH = false
+      showwMostra = false
+      showwMostra2 = false
+      showwMostra3 = false
+    } finally {
+      isLoading = false;
+    }
+  }, 1500);
+};
+
+const caricaItems = () => {
+    const resultBox = document.getElementById('searchmore');
+    if (!resultBox || isLoading || !moreRes) return;
+    if (window.innerHeight + window.scrollY >= resultBox.offsetHeight + resultBox.offsetTop) {
+      moreItem();
+    }
+  }
+
+  const caricaItems1 = () => {
+    const resultAll = document.getElementById('allmore');
+    if ( !resultAll || isLoading || !moreRes || showwAll) return;
+    if (window.innerHeight + window.scrollY >= resultAll.offsetHeight + resultAll.offsetTop) {
+      mostraTutto();
+    }
+  }
+
+  const caricaItems2 = () => {
+    const resultMovie = document.getElementById('allmovie');
+    if (!resultMovie || isLoading || !moreRes || showwAll2) return;
+    if (window.innerHeight + window.scrollY >= resultMovie.offsetHeight + resultMovie.offsetTop) {
+      mostraTutto2();
+    }
+  }
+
+  const caricaItems3 = () => {
+    const resultTv = document.getElementById('alltv');
+    if (!resultTv || isLoading || !moreRes || showwAll3) return;
+    if (window.innerHeight + window.scrollY >= resultTv.offsetHeight + resultTv.offsetTop) {
+      mostraTutto3();
+    }
+  }
+
   onMount(() => {
     window.addEventListener('scroll', caricaItems);
     return () => {
@@ -145,7 +257,13 @@
     };
   });
 
+   if (limit === 200){
+    window.addEventListener('scroll', caricaItems1);
+    window.addEventListener('scroll', caricaItems2);
+    window.addEventListener('scroll', caricaItems3);
+   }
 
+  
 
    let bodyLimit;
 
@@ -161,7 +279,6 @@
   const searchMovies = async (query) => {
     const apiKey = '758d1e2e3df3b485c0c62b322b0e9128';  
     const searchEndpoint = 'https://api.themoviedb.org/3/search/movie';
-
     try {
       const response = await axios.get(searchEndpoint, {
         params: {
@@ -170,7 +287,6 @@
           page: page
         },
       });
-
       console.log(response.data);
 
       if (page === 1) {
@@ -179,7 +295,6 @@
         searchResults = [...searchResults, ...response.data.results];
        
       }
-
       page++
       mostra()
     } catch (error) {
@@ -199,14 +314,20 @@
           include_adult: false,
           include_video: false,
           language: 'en-US',
-          page: 1,
+          page: page,
           sort_by: 'popularity.desc',
         },
       });
 
+        if (page === 1){
+          discoverAll = allResponse.data.results || []
+        }else{
+        discoverAll = [...discoverAll, ...allResponse.data.results];
+        }
+        
       console.log(allResponse.data);
+      page++
       mostra()
-      discoverAll = allResponse.data.results || [];
     } catch (error) {
       console.error('Errore durante la ricerca di tendenze:', error);
     }
@@ -225,18 +346,23 @@
           include_adult: false,
           include_video: false,
           language: 'en-US',
-          page: 1,
+          page: page,
           sort_by: 'popularity.desc',
         },
       });
-
+       
+      if (page === 1){
+        discoverMovies = discoverResponse.data.results || []
+      }else{
+        discoverMovies = [...discoverMovies, ...discoverResponse.data.results]
+        }
+        
       console.log(discoverResponse.data);
+      page++
       mostra()
-      discoverMovies = discoverResponse.data.results || [];
     } catch (error) {
       console.error('Errore durante la ricerca di film popolari:', error);
     }
-    
   }
 
   const showTv = async () => {
@@ -249,14 +375,20 @@
         include_adult: false,
         include_video: false,
         language: 'en-US',
-        page: 1,
+        page: page,
         sort_by: 'popularity.desc',
       },
     });
 
+    if (page === 1){
+      discoverTv = tvResponse.data.results || []
+    }else{
+      discoverTv = [...discoverTv, ...tvResponse.data.results]
+    }
+    
     console.log(tvResponse.data);
     mostra()
-    discoverTv = tvResponse.data.results || [];
+    page++
   } catch (error) {
     console.error('Errore durante la ricerca di serie popolari:', error);
   }
@@ -273,7 +405,8 @@
   }
  }
 
- const limit = 14
+ 
+
 
 </script>
 
@@ -294,7 +427,7 @@
 <option value="eng" >English</option>
 </select>
 
-<main class="text-black top-[120px] rounded-t-2xl relative text-base font-semibold {showwSer ? "h-[1000px] lg:h-[1500px]": "h-[6000px] sm:h-[8300px] md:h-[6000px] lg:h-[5000px] xl:h-[3900px] 2xl:h-[2800px]"}  bg-gradient-to-t from-transparent to-neutral-900 bg-opacity-20">
+<main class="text-black top-[120px] rounded-t-2xl relative text-base font-semibold {showwSer ? "h-[1000px] lg:h-[1000px]": "h-[6000px] sm:h-[8300px] md:h-[6000px] lg:h-[5000px] xl:h-[3900px] 2xl:h-[2800px]"}  bg-gradient-to-t from-transparent to-neutral-900 bg-opacity-20">
   <div class=" flex w-[100%] justify-center relative top-[0px] sfoca bg-black bg-opacity-90 rounded-t-2xl p-2 items-center h-[250px] md:h-[160px]">
     <img on:click="{()=> unmostra()}" src={moviecode} alt="home" class="w-[340px] sm:w-[480px] absolute top-[50px] md:top-[10px] " />
     <div class="absolute top-[150px] md:top-[100px] flex justify-center w-[100%]">
@@ -305,13 +438,19 @@
 </div>
 
 {#if discoverAll !== null}
-<div class="flex w-[100%] justify-center sfoca2 relative top-[100px] {showwAll ? "invisible": "visible"}">
+<div class="flex w-[100%] justify-center sfoca2 relative {showwAll ? "invisible": "visible"} {showwMostra ? "relative top-[100px]" : "relative top-[100px]"}">
   <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">{$lingua.progetti.tendenza}</p>
-  <button class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 font-bold absolute top-[-50px] right-8 text-sm md:text-sm">{$lingua.progetti.mostra}</button>
+  <button on:click="{()=>mostraTutto()}" class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 md:p-2 font-bold absolute top-[-50px] right-8 text-sm md:text-sm {showwMostra ? "visible" : "invisible"}">{$lingua.progetti.mostra}</button>
   <div class="bg-gradient-to-t from-pink-950 to-teal-950 bg-opacity-25 rounded-2xl grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 overflow-x-auto gap-6" >
     {#each discoverAll.slice(0, limit) as allmovie (allmovie.id)}
-      <div class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-teal-600 hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
-        <img class="w-[200px] h-[190px] sm:h-[300px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${allmovie.poster_path}`} alt="poster"/>
+      <div id="allmore" class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-teal-600 hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
+        <div class="relative">
+        <img class="w-[200px] h-[190px] sm:h-[300px] relative top-[1px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${allmovie.poster_path}`} alt="poster"/>
+        <div class="flex flex-row">
+        <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg" src={star} alt="poster"/>
+        <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8  ">{Math.floor(allmovie.vote_average)}</p>
+        </div>
+        </div>
         {#if allmovie.original_title}
         <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] relative top-[10px] md:top-[5px] sm:w-[200px] ">{allmovie.original_title}</h2>
         {:else if allmovie.original_name}
@@ -324,13 +463,19 @@
   {/if}
 
   {#if discoverMovies !== null}
-  <div class="flex w-[100%] justify-center sfoca3 relative top-[200px] {showwAll ? "invisible": "visible"}">
+  <div class="flex w-[100%] justify-center sfoca3  {showwAll2 ? "invisible": "visible"} {showwMostra2 ? "relative top-[200px]" : "absolute top-[260px]"}">
     <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">{$lingua.progetti.film}</p>
-    <button class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 font-bold absolute top-[-50px] right-8 text-sm md:text-sm">{$lingua.progetti.mostra}</button>
+    <button on:click="{()=>mostraTutto2()}" class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 md:p-2 font-bold absolute top-[-50px] right-8 text-sm md:text-sm {showwMostra2 ? "visible" : "invisible"}">{$lingua.progetti.mostra}</button>
     <div class="bg-gradient-to-t from-orange-950 to-green-950 bg-opacity-25 rounded-2xl grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 overflow-x-auto gap-6" >
       {#each discoverMovies.slice(0, limit) as discmovie (discmovie.id)}
-        <div class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-green-600  hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
-          <img class="w-[200px] h-[190px] sm:h-[300px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${discmovie.poster_path}`} alt="poster"/>
+        <div id="allmovie" class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-green-600  hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
+          <div class="relative">
+            <img class="w-[200px] h-[190px] sm:h-[300px] relative top-[1px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${discmovie.poster_path}`} alt="poster"/>
+            <div class="flex flex-row">
+            <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg" src={star} alt="poster"/>
+            <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8  ">{Math.floor(discmovie.vote_average)}</p>
+            </div>
+            </div>
           <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] relative top-[10px] md:top-[5px] sm:w-[200px] ">{discmovie.original_title}</h2>
         </div>
         {/each}
@@ -340,13 +485,19 @@
 
     
   {#if discoverTv !== null}
-  <div class="flex w-[100%] justify-center sfoca4 relative top-[300px] {showwAll ? "invisible": "visible"}">
+  <div class="flex w-[100%] justify-center sfoca4  {showwAll3 ? "invisible": "visible"} {showwMostra3 ? "relative top-[300px]" : "absolute top-[260px]"}">
     <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">{$lingua.progetti.tv}</p>
-    <button class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 font-bold absolute top-[-50px] right-8 text-sm md:text-sm">{$lingua.progetti.mostra}</button>
+    <button on:click="{()=>mostraTutto3()}" class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 md:p-2 font-bold absolute top-[-50px] right-8 text-sm md:text-sm {showwMostra3 ? "visible" : "invisible"}">{$lingua.progetti.mostra}</button>
     <div class="bg-gradient-to-t from-red-950 to-yellow-900 bg-opacity-25 rounded-2xl grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 overflow-x-auto gap-6" >
       {#each discoverTv.slice(0, limit) as tvmovie (tvmovie.id)}
-        <div class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-yellow-600  hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
-          <img class="w-[200px] h-[190px] sm:h-[300px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${tvmovie.poster_path}`} alt="poster"/>
+        <div id="alltv" class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-yellow-600  hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
+          <div class="relative">
+            <img class="w-[200px] h-[190px] sm:h-[300px] relative top-[1px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${tvmovie.poster_path}`} alt="poster"/>
+            <div class="flex flex-row">
+            <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg" src={star} alt="poster"/>
+            <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8  ">{Math.floor(tvmovie.vote_average)}</p>
+            </div>
+            </div>
           <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] relative top-[10px] md:top-[5px] sm:w-[200px] ">{tvmovie.original_name}</h2>
         </div>
         {/each}
@@ -362,7 +513,13 @@
         <ul class="bg-gradient-to-t from-violet-950 to-teal-950 bg-opacity-25 rounded-2xl grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 gap-6 ">
           {#each searchResults as movie (movie.id)}
           <div id="searchmore" class="bg-gradient-to-t from-black to-transparent rounded-xl mb-8 p-2 relative top-[0px] hover:border-2 hover:border-violet-600 transi cursor-pointer hover:scale-105 w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
-              <img class="w-[200px] h-[190px] sm:h-[300px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="poster"/>
+            <div class="relative">
+              <img class="w-[200px] h-[190px] sm:h-[300px] relative top-[1px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="poster"/>
+              <div class="flex flex-row">
+              <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg" src={star} alt="poster"/>
+              <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8  ">{Math.floor(movie.vote_average)}</p>
+              </div>
+              </div>
               <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] relative top-[10px] md:top-[5px] sm:w-[200px] ">{movie.original_title}</h2>
               
             </div>
