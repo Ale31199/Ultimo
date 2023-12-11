@@ -3,6 +3,7 @@
   import homee from './imm/home.png';
   import moviecode from './imm/moviecode.png';
   import star from './imm/star.png';
+  import arrow from './imm/arrow.png';
   // @ts-ignore
   import ita from '/src/routes/textITA.json';
   // @ts-ignore
@@ -426,7 +427,13 @@ const caricaItems = () => {
   }
  }
 
- 
+ const upButton=()=>{
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+ }
+
 
 
 </script>
@@ -457,6 +464,7 @@ const caricaItems = () => {
   <button class="p-3 rounded-xl bg-gradient-to-t to-teal-400 from-violet-400 hover:rounded-3xl hover:bg-teal-400 transi" on:click={() => cambiaRicerca(searchKeyword)}>{$lingua.progetti.cerca}</button>
 </div>
 </div>
+
 
 
 {#if discoverAll !== null}
@@ -554,6 +562,9 @@ const caricaItems = () => {
   </div>
   {/if}
 
+<div on:click="{upButton}" id="up" class="cursor-pointer md:w-[50px] bg-white bg-opacity-70 p-3 fixed bottom-4 right-8 rounded-full">
+  <img class="w-[30px]" src={arrow} alt="poster"/>
+</div>
  
 
   </main>
