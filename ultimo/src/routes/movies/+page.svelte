@@ -94,6 +94,7 @@
   let searchKeyword = '';
   let limit = 14
   let searchResults = [];
+  let discoverSoon = []
   let discoverMovies = [];
   let discoverTv = [];
   let discoverAll = []
@@ -157,12 +158,8 @@
     } finally {
       isLoading = false
     }
-    if(!isLoading){
-    window.addEventListener('scroll', caricaItems);
-    }
   }, 50);
 };
-
 
 
 
@@ -242,7 +239,7 @@ const mostraTutto3 = async () => {
 
 const caricaItems = () => {
     const resultBox = document.getElementById('searchmore');
-    if (!resultBox || isLoading || !moreRes ) return;
+    if (!resultBox || isLoading || !moreRes || !showwSer ) return;
     if (window.innerHeight + window.scrollY >= resultBox.offsetHeight + resultBox.offsetTop) {
       moreItem();
     }
@@ -272,6 +269,8 @@ const caricaItems = () => {
     }
   }
 
+  
+
 
 
    let bodyLimit;
@@ -282,6 +281,13 @@ const caricaItems = () => {
     searchMovies(Nuova)
     showwSer = true
     mostra()
+    
+    if (showwSer === true){
+    window.addEventListener('scroll', caricaItems);
+    } else{
+    window.removeEventListener('scroll', caricaItems);
+    page = 1
+    }
   }
 
 
@@ -329,9 +335,7 @@ const caricaItems = () => {
         },
       });
 
-
       const uniqueResults = allResponse.data.results.filter(result => !discoverAll.some(existing => existing.id === result.id));
-
 
           if (page === 1){
           discoverAll = allResponse.data.results || []
@@ -364,11 +368,13 @@ const caricaItems = () => {
           sort_by: 'popularity.desc',
         },
       });
+
+      const unico = discoverResponse.data.results.filter(result => !discoverMovies.some(existing => existing.id === result.id))
        
       if (page === 1){
         discoverMovies = discoverResponse.data.results || []
       }else{
-        discoverMovies = [...discoverMovies, ...discoverResponse.data.results]
+        discoverMovies = [...discoverMovies, ...unico]
         }
         
       console.log(discoverResponse.data);
@@ -394,10 +400,12 @@ const caricaItems = () => {
       },
     });
 
+      const unicoh = tvResponse.data.results.filter(resulto=> !discoverTv.some(existingo => existingo.id === resulto.id))
+
     if (page === 1){
       discoverTv = tvResponse.data.results || []
     }else{
-      discoverTv = [...discoverTv, ...tvResponse.data.results]
+      discoverTv = [...discoverTv, ...unicoh]
     }
     
     console.log(tvResponse.data);
@@ -411,7 +419,6 @@ const caricaItems = () => {
   showAll()
   showTrendy();
   showTv()
-  
 
  const Enter=(event)=>{
   if (event.key === 'Enter'){
@@ -451,6 +458,7 @@ const caricaItems = () => {
 </div>
 </div>
 
+
 {#if discoverAll !== null}
 <div class="flex w-[100%] justify-center sfoca2 relative {showwAll ? "invisible": "visible"} {showwMostra ? "relative top-[100px]" : "relative top-[100px]"}">
   <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">{$lingua.progetti.tendenza}</p>
@@ -477,7 +485,7 @@ const caricaItems = () => {
   {/if}
 
   {#if discoverMovies !== null}
-  <div class="flex w-[100%] justify-center sfoca3  {showwAll2 ? "invisible": "visible"} {showwMostra2 ? "relative top-[200px]" : "absolute top-[260px]"}">
+  <div class="flex w-[100%] justify-center sfoca3  {showwAll2 ? "invisible": "visible"} {showwMostra2 ? "relative top-[200px]" : "absolute top-[350px] md:top-[260px]"}">
     <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">{$lingua.progetti.film}</p>
     <button on:click="{()=>mostraTutto2()}" class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 md:p-2 font-bold absolute top-[-50px] right-8 text-sm md:text-sm {showwMostra2 ? "visible" : "invisible"}">{$lingua.progetti.mostra}</button>
     <div class="bg-gradient-to-t from-orange-950 to-green-950 bg-opacity-25 rounded-2xl grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 overflow-x-auto gap-6" >
@@ -499,7 +507,7 @@ const caricaItems = () => {
 
     
   {#if discoverTv !== null}
-  <div class="flex w-[100%] justify-center sfoca4  {showwAll3 ? "invisible": "visible"} {showwMostra3 ? "relative top-[300px]" : "absolute top-[260px]"}">
+  <div class="flex w-[100%] justify-center sfoca4  {showwAll3 ? "invisible": "visible"} {showwMostra3 ? "relative top-[300px]" : "absolute top-[350px] md:top-[260px]"}">
     <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">{$lingua.progetti.tv}</p>
     <button on:click="{()=>mostraTutto3()}" class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 md:p-2 font-bold absolute top-[-50px] right-8 text-sm md:text-sm {showwMostra3 ? "visible" : "invisible"}">{$lingua.progetti.mostra}</button>
     <div class="bg-gradient-to-t from-red-950 to-yellow-900 bg-opacity-25 rounded-2xl grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 overflow-x-auto gap-6" >
@@ -520,7 +528,7 @@ const caricaItems = () => {
     {/if}
 
   {#if searchResults !== null}
-  <div class="flex w-[100%] justify-center {showwSer ? "visible": "invisible"}">
+  <div class="flex w-[100%] justify-center {showwSer ? "grid": "hidden"}">
     <div class="flex w-[100%] justify-center absolute top-[350px] md:top-[260px] ">
       {#if searchResults.length > 0}
       <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">{$lingua.progetti.risultato}</p>
