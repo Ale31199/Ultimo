@@ -119,7 +119,7 @@
     }
   }
 
-  const unmostra=()=>{
+  $: unmostra=()=>{
       showwSer = false;
       showwAll = false
       showwAll2 = false
@@ -133,6 +133,7 @@
       limit = 14
       isLoading = false;
       moreRes = true;
+      window.removeEventListener('scroll', caricaItems);
       window.removeEventListener('scroll', caricaItems1);
       window.removeEventListener('scroll', caricaItems2);
       window.removeEventListener('scroll', caricaItems3);
@@ -152,11 +153,19 @@
   setTimeout(async () => {
     try {
      await searchMovies(searchKeyword)
+     showwSer = true
     } finally {
       isLoading = false
     }
-  }, 1500);
+    if(!isLoading){
+    window.addEventListener('scroll', caricaItems);
+    }
+  }, 50);
 };
+
+
+
+
 
 const mostraTutto = async () => {
   if (isLoading || !moreRes) return;
@@ -164,6 +173,7 @@ const mostraTutto = async () => {
   setTimeout(async () => {
     try { 
       await showAll();
+    
       limit = 200
       showwAll = false
       showwAll2 = true;
@@ -175,7 +185,11 @@ const mostraTutto = async () => {
     } finally {
       isLoading = false;
     }
-  }, 1500);
+    
+    if (limit === 200){
+    window.addEventListener('scroll', caricaItems1);
+   }
+  }, 50);
 };
 
 const mostraTutto2 = async () => {
@@ -195,7 +209,11 @@ const mostraTutto2 = async () => {
     } finally {
       isLoading = false;
     }
-  }, 1500);
+    
+    if (limit === 200){
+    window.addEventListener('scroll', caricaItems2);
+   }
+  }, 50);
 };
 
 const mostraTutto3 = async () => {
@@ -215,12 +233,16 @@ const mostraTutto3 = async () => {
     } finally {
       isLoading = false;
     }
-  }, 1500);
+    
+    if (limit === 200){
+    window.addEventListener('scroll', caricaItems3);
+   }
+  }, 50);
 };
 
 const caricaItems = () => {
     const resultBox = document.getElementById('searchmore');
-    if (!resultBox || isLoading || !moreRes) return;
+    if (!resultBox || isLoading || !moreRes ) return;
     if (window.innerHeight + window.scrollY >= resultBox.offsetHeight + resultBox.offsetTop) {
       moreItem();
     }
@@ -250,20 +272,7 @@ const caricaItems = () => {
     }
   }
 
-  onMount(() => {
-    window.addEventListener('scroll', caricaItems);
-    return () => {
-      window.removeEventListener('scroll', caricaItems);
-    };
-  });
 
-   if (limit === 200){
-    window.addEventListener('scroll', caricaItems1);
-    window.addEventListener('scroll', caricaItems2);
-    window.addEventListener('scroll', caricaItems3);
-   }
-
-  
 
    let bodyLimit;
 
@@ -303,6 +312,7 @@ const caricaItems = () => {
     
   };
 
+  
 
   const showAll= async ()=>{
     const apiKey = '758d1e2e3df3b485c0c62b322b0e9128'; 
@@ -319,10 +329,14 @@ const caricaItems = () => {
         },
       });
 
-        if (page === 1){
+
+      const uniqueResults = allResponse.data.results.filter(result => !discoverAll.some(existing => existing.id === result.id));
+
+
+          if (page === 1){
           discoverAll = allResponse.data.results || []
         }else{
-        discoverAll = [...discoverAll, ...allResponse.data.results];
+        discoverAll = [...discoverAll, ...uniqueResults];
         }
         
       console.log(allResponse.data);
