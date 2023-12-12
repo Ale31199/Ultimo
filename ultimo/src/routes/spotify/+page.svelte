@@ -1,5 +1,6 @@
 <script>
 import home from './im/home.png';
+import hc from './im/HomeCode.png'
 import src from './im/search.png';
 import devices from './im/devices.png';
 import friends from './im/friends.png';
@@ -353,7 +354,7 @@ let homee= false
 
 <div>
   <div class="bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-800 flex-auto relative top-5 w-auto h-24 items-center border-b-2 white flex rounded-3xl ">
-  <h1  class="text-white text-4xl font-bold flex relative left-[88px] justify-center cursor-default">HomeCode </h1>
+    <img src={hc} class="w-[250px] flex relative left-[65px] justify-center cursor-default" />
   </div>
   <div class="bg-gradient-to-tr from-black to-neutral-900 border-2 border-neutral-800 h-10 flex-auto flex flex-row items-center justify-between relative top-12 rounded-xl md:w-[50%] md:left-[45%] md:-top-12 "> 
   <a href="/" class=" font-bold ml-6 cursor-pointer hover:text-teal-500 hover:border-b-2 hover:border-teal-500 {homee ? "border-b-2 rounded-sm border-teal-500 text-teal-500":"text-white"}" on:click="{()=>selezionaPag('home')}">Home</a>

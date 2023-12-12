@@ -438,36 +438,61 @@ const caricaItems = () => {
  let openDesc2 = false
  let openDesc3 = false
  let openDesc4 = false
+ let noRating = false
+ let noRating2 = false
+ let noRating3 = false
+ let noRating4 = false
 
  const apri=()=>{
   if (openDesc === false){
     openDesc = true
+    noRating = true
+     noRating2 = false
+  noRating3 = false
+  noRating4 = false
+
   } else {
     openDesc = !openDesc
+    noRating = false
   }
  }
  const apri2=()=>{
   if (openDesc2 === false){
     openDesc2 = true
+    noRating2 = true
+     noRating = false
+  noRating3 = false
+  noRating4 = false
+
   } else {
     openDesc2 = !openDesc2
+    noRating2 = false
   }
  }
  const apri3=()=>{
   if (openDesc3 === false){
     openDesc3 = true
+    noRating3 = true
+     noRating2 = false
+  noRating = false
+  noRating4 = false
+
   } else {
     openDesc3 = !openDesc3
+    noRating3 = false
   }
  }
  const apri4=()=>{
   if (openDesc4 === false){
     openDesc4 = true
-    openDesc = true
-    openDesc2 = true
-    openDesc3 = true
+    noRating4 = true
+     noRating2 = false
+  noRating3 = false
+  noRating = false
+
   } else {
     openDesc4 = !openDesc4
+    noRating4 = false
   }
  }
 
@@ -509,10 +534,10 @@ const caricaItems = () => {
     {#each discoverAll.slice(0, limit) as allmovie (allmovie.id)}
       <div id="allmore" on:click="{()=>apri()}" class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-teal-600 hover:scale-105 transi  {openDesc ? "w-[340px] h-[330px] sm:w-[410px] md:w-[320px] lg:w-[300px] xl:w-[300px] sm:h-[440px]": "w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]"} ">
         <div class="relative">
-        <img class="relative top-[1px] rounded-lg {openDesc ? "h-[300px] sm:h-[400px] w-full overflow-hidden object-cover opacity-10 ": "w-[200px] h-[190px] sm:h-[300px] "}" src={`https://image.tmdb.org/t/p/w500${allmovie.poster_path}`} alt="poster"/>
+        <img class="relative top-[1px] rounded-lg {openDesc ? "h-[300px] sm:h-[400px] w-full overflow-hidden object-cover opacity-20 ": "w-[200px] h-[190px] sm:h-[300px] "}" src={`https://image.tmdb.org/t/p/w500${allmovie.poster_path}`} alt="poster"/>
         <div class="flex flex-row">
-        <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg {openDesc ? "invisible": "visible"}" src={star} alt="poster"/>
-        <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8 {openDesc ? "invisible": "visible"} ">{Math.floor(allmovie.vote_average)}</p>
+        <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg {noRating ? "hidden": "block"}" src={star} alt="poster"/>
+        <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8 {noRating ? "hidden": "block"} ">{Math.floor(allmovie.vote_average)}</p>
         </div>
         <p class="text-[12px] text-white leading-snug text-justify absolute top-8 ml-1 mr-1 {openDesc ? "hover:block": "hidden"}">{allmovie.overview}</p>
         </div>
@@ -536,10 +561,10 @@ const caricaItems = () => {
       {#each discoverMovies.slice(0, limit) as discmovie (discmovie.id)}
         <div id="allmovie" on:click="{()=>apri2()}" class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-green-600  hover:scale-105 transi {openDesc2 ? "w-[340px] h-[330px] sm:w-[410px] md:w-[320px] lg:w-[300px] xl:w-[300px] sm:h-[440px]": "w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]"}">
           <div class="relative">
-            <img class="{openDesc2 ? "h-[300px] sm:h-[400px] w-full overflow-hidden object-cover opacity-10 ": "w-[200px] h-[190px] sm:h-[300px] "} rounded-lg" src={`https://image.tmdb.org/t/p/w500${discmovie.poster_path}`} alt="poster"/>
+            <img class="{openDesc2 ? "h-[300px] sm:h-[400px] w-full overflow-hidden object-cover opacity-20 ": "w-[200px] h-[190px] sm:h-[300px] "} rounded-lg" src={`https://image.tmdb.org/t/p/w500${discmovie.poster_path}`} alt="poster"/>
             <div class="flex flex-row">
-            <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg {openDesc2 ? "invisible": "visible"}" src={star} alt="poster"/>
-            <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8 {openDesc2 ? "invisible": "visible"} ">{Math.floor(discmovie.vote_average)}</p>
+            <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg {noRating2 ? "hidden": "block"}" src={star} alt="poster"/>
+            <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8 {noRating2 ? "hidden": "block"} ">{Math.floor(discmovie.vote_average)}</p>
             </div>
             <p class="text-[12px] text-white leading-snug text-justify absolute top-8 ml-1 mr-1 {openDesc2 ? "hover:block": "hidden"}">{discmovie.overview}</p>
             </div>
@@ -559,10 +584,10 @@ const caricaItems = () => {
       {#each discoverTv.slice(0, limit) as tvmovie (tvmovie.id)}
         <div id="alltv" on:click="{()=>apri3()}" class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-yellow-600  hover:scale-105 transi {openDesc3 ? "w-[340px] h-[330px] sm:w-[410px] md:w-[320px] lg:w-[300px] xl:w-[300px] sm:h-[440px]": "w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]"}">
           <div class="relative">
-            <img class="{openDesc3 ? "h-[300px] sm:h-[400px] w-full overflow-hidden object-cover opacity-10 ": "w-[200px] h-[190px] sm:h-[300px] "} rounded-lg" src={`https://image.tmdb.org/t/p/w500${tvmovie.poster_path}`} alt="poster"/>
+            <img class="{openDesc3 ? "h-[300px] sm:h-[400px] w-full overflow-hidden object-cover opacity-20 ": "w-[200px] h-[190px] sm:h-[300px] "} rounded-lg" src={`https://image.tmdb.org/t/p/w500${tvmovie.poster_path}`} alt="poster"/>
             <div class="flex flex-row">
-            <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg {openDesc3 ? "invisible": "visible"}" src={star} alt="poster"/>
-            <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8 {openDesc3 ? "invisible": "visible"} ">{Math.floor(tvmovie.vote_average)}</p>
+            <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg {noRating3 ? "hidden": "block"}" src={star} alt="poster"/>
+            <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8 {noRating3 ? "hidden": "block"} ">{Math.floor(tvmovie.vote_average)}</p>
             </div>
             <p class="text-[12px] text-white leading-snug text-justify absolute top-8 ml-1 mr-1 {openDesc3 ? "hover:block": "hidden"}">{tvmovie.overview}</p>
             </div>
@@ -582,10 +607,10 @@ const caricaItems = () => {
           {#each searchResults as movie (movie.id)}
           <div id="searchmore" on:click="{()=>apri4()}" class="bg-gradient-to-t from-black to-transparent rounded-xl mb-8 p-2 relative top-[0px] hover:border-2 hover:border-violet-600 transi cursor-pointer hover:scale-105 {openDesc4 ? "w-[340px] h-[330px] sm:w-[410px] md:w-[320px] lg:w-[300px] xl:w-[300px] sm:h-[440px]": "w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]"}">
             <div class="relative">
-              <img class="{openDesc4 ? "h-[300px] sm:h-[400px] w-full overflow-hidden object-cover opacity-10 ": "w-[200px] h-[190px] sm:h-[300px] "} rounded-lg" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="poster"/>
+              <img class="{openDesc4 ? "h-[300px] sm:h-[400px] w-full overflow-hidden object-cover opacity-20 ": "w-[200px] h-[190px] sm:h-[300px] "} rounded-lg" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="poster"/>
               <div class="flex flex-row">
-              <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg {openDesc4 ? "invisible": "visible"}" src={star} alt="poster"/>
-              <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8 {openDesc4 ? "invisible": "visible"} ">{Math.floor(movie.vote_average)}</p>
+              <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg {noRating4 ? "hidden": "block"}" src={star} alt="poster"/>
+              <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8 {noRating4 ? "hidden": "block"} ">{Math.floor(movie.vote_average)}</p>
               </div>
               <p class="text-[12px] text-white leading-snug text-justify absolute top-8 ml-1 mr-1 {openDesc4 ? "hover:block": "hidden"}">{movie.overview}</p>
               </div>
