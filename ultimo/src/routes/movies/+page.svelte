@@ -434,7 +434,42 @@ const caricaItems = () => {
   })
  }
 
+ let openDesc = false
+ let openDesc2 = false
+ let openDesc3 = false
+ let openDesc4 = false
 
+ const apri=()=>{
+  if (openDesc === false){
+    openDesc = true
+  } else {
+    openDesc = !openDesc
+  }
+ }
+ const apri2=()=>{
+  if (openDesc2 === false){
+    openDesc2 = true
+  } else {
+    openDesc2 = !openDesc2
+  }
+ }
+ const apri3=()=>{
+  if (openDesc3 === false){
+    openDesc3 = true
+  } else {
+    openDesc3 = !openDesc3
+  }
+ }
+ const apri4=()=>{
+  if (openDesc4 === false){
+    openDesc4 = true
+    openDesc = true
+    openDesc2 = true
+    openDesc3 = true
+  } else {
+    openDesc4 = !openDesc4
+  }
+ }
 
 </script>
 
@@ -456,8 +491,8 @@ const caricaItems = () => {
 </select>
 
 <main class="text-black top-[120px] rounded-t-2xl relative text-base font-semibold {showwSer ? "h-[1000px] lg:h-[1000px]": "h-[6000px] sm:h-[8300px] md:h-[6000px] lg:h-[5000px] xl:h-[3900px] 2xl:h-[2800px]"}  bg-gradient-to-t from-transparent to-neutral-900 bg-opacity-20">
-  <div class=" flex w-[100%] justify-center relative top-[0px] sfoca bg-black bg-opacity-90 rounded-t-2xl p-2 items-center h-[250px] md:h-[160px]">
-    <img on:click="{()=> unmostra()}" src={moviecode} alt="home" class="w-[340px] sm:w-[480px] absolute top-[50px] md:top-[10px] " />
+  <div class=" flex w-[100%] justify-center relative top-[0px] sfoca bg-gradient-to-t to-black from-transparent  bg-opacity-90 rounded-2xl p-2 items-center h-[250px] md:h-[160px]">
+    <img on:click="{()=> unmostra()}" src={moviecode} alt="home" class="w-[340px] sm:w-[480px] absolute top-[50px] md:top-[-5px] " />
     <div class="absolute top-[150px] md:top-[100px] flex justify-center w-[100%]">
   <img on:click="{()=> unmostra()}" src={homee} alt="home" class="w-[50px] p-3 hover:rounded-3xl bg-gradient-to-t to-teal-400 from-violet-400 rounded-2xl cursor-pointer hover:bg-teal-400 hover:invert-0 transi  hover:border-black" />
   <input bind:value={searchKeyword} on:keyup={Enter} placeholder={$lingua.progetti.cfilm} class="placeholder:text-black text-sm bg-gradient-to-t from-violet-400 bg-opacity-30 to-teal-400 w-[180px] sm:w-[400px] lg:w-[700px] p-3 rounded-xl ml-3 mr-3 outline-none" />
@@ -466,25 +501,26 @@ const caricaItems = () => {
 </div>
 
 
-
 {#if discoverAll !== null}
-<div class="flex w-[100%] justify-center sfoca2 relative {showwAll ? "invisible": "visible"} {showwMostra ? "relative top-[100px]" : "relative top-[100px]"}">
+<div class="flex w-[100%] justify-center sfoca2 relative {showwAll ? "invisible": "visible"} {showwMostra ? "relative top-[100px]" : "relative top-[100px]"}" >
   <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">{$lingua.progetti.tendenza}</p>
   <button on:click="{()=>mostraTutto()}" class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 md:p-2 font-bold absolute top-[-50px] right-8 text-sm md:text-sm {showwMostra ? "visible" : "invisible"}">{$lingua.progetti.mostra}</button>
-  <div class="bg-gradient-to-t from-pink-950 to-teal-950 bg-opacity-25 rounded-2xl grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 overflow-x-auto gap-6" >
+  <div class="bg-gradient-to-t from-pink-950 to-teal-950 bg-opacity-25 rounded-2xl grid p-4 overflow-x-auto gap-6 {openDesc ? " grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4": " grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7"}" >
     {#each discoverAll.slice(0, limit) as allmovie (allmovie.id)}
-      <div id="allmore" class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-teal-600 hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
+      <div id="allmore" on:click="{()=>apri()}" class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-teal-600 hover:scale-105 transi  {openDesc ? "w-[340px] h-[330px] sm:w-[410px] md:w-[320px] lg:w-[300px] xl:w-[300px] sm:h-[440px]": "w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]"} ">
         <div class="relative">
-        <img class="w-[200px] h-[190px] sm:h-[300px] relative top-[1px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${allmovie.poster_path}`} alt="poster"/>
+        <img class="relative top-[1px] rounded-lg {openDesc ? "h-[300px] sm:h-[400px] w-full overflow-hidden object-cover opacity-10 ": "w-[200px] h-[190px] sm:h-[300px] "}" src={`https://image.tmdb.org/t/p/w500${allmovie.poster_path}`} alt="poster"/>
         <div class="flex flex-row">
-        <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg" src={star} alt="poster"/>
-        <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8  ">{Math.floor(allmovie.vote_average)}</p>
+        <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg {openDesc ? "invisible": "visible"}" src={star} alt="poster"/>
+        <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8 {openDesc ? "invisible": "visible"} ">{Math.floor(allmovie.vote_average)}</p>
         </div>
+        <p class="text-[12px] text-white leading-snug text-justify absolute top-8 ml-1 mr-1 {openDesc ? "hover:block": "hidden"}">{allmovie.overview}</p>
         </div>
+        
         {#if allmovie.original_title}
-        <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] relative top-[10px] md:top-[5px] sm:w-[200px] ">{allmovie.original_title}</h2>
+        <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden {openDesc ? "relative bottom-[0px] md:bottom-[0px] w-[230px]  sm:w-[290px]": "relative top-[10px] md:top-[5px] w-[130px]  sm:w-[200px]"} ">{allmovie.original_title}</h2>
         {:else if allmovie.original_name}
-        <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] relative top-[10px] md:top-[5px] sm:w-[200px]">{allmovie.original_name}</h2>
+        <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden {openDesc ? "relative bottom-[0px] md:bottom-[0px] w-[230px]  sm:w-[290px]": "relative top-[10px] md:top-[5px] w-[130px]  sm:w-[200px]"}">{allmovie.original_name}</h2>
         {/if}
       </div>
       {/each}
@@ -496,17 +532,18 @@ const caricaItems = () => {
   <div class="flex w-[100%] justify-center sfoca3  {showwAll2 ? "invisible": "visible"} {showwMostra2 ? "relative top-[200px]" : "absolute top-[350px] md:top-[260px]"}">
     <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">{$lingua.progetti.film}</p>
     <button on:click="{()=>mostraTutto2()}" class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 md:p-2 font-bold absolute top-[-50px] right-8 text-sm md:text-sm {showwMostra2 ? "visible" : "invisible"}">{$lingua.progetti.mostra}</button>
-    <div class="bg-gradient-to-t from-orange-950 to-green-950 bg-opacity-25 rounded-2xl grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 overflow-x-auto gap-6" >
+    <div class="bg-gradient-to-t from-orange-950 to-green-950 bg-opacity-25 rounded-2xl grid {openDesc2 ? " grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4": " grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7"} p-4 overflow-x-auto gap-6" >
       {#each discoverMovies.slice(0, limit) as discmovie (discmovie.id)}
-        <div id="allmovie" class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-green-600  hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
+        <div id="allmovie" on:click="{()=>apri2()}" class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-green-600  hover:scale-105 transi {openDesc2 ? "w-[340px] h-[330px] sm:w-[410px] md:w-[320px] lg:w-[300px] xl:w-[300px] sm:h-[440px]": "w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]"}">
           <div class="relative">
-            <img class="w-[200px] h-[190px] sm:h-[300px] relative top-[1px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${discmovie.poster_path}`} alt="poster"/>
+            <img class="{openDesc2 ? "h-[300px] sm:h-[400px] w-full overflow-hidden object-cover opacity-10 ": "w-[200px] h-[190px] sm:h-[300px] "} rounded-lg" src={`https://image.tmdb.org/t/p/w500${discmovie.poster_path}`} alt="poster"/>
             <div class="flex flex-row">
-            <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg" src={star} alt="poster"/>
-            <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8  ">{Math.floor(discmovie.vote_average)}</p>
+            <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg {openDesc2 ? "invisible": "visible"}" src={star} alt="poster"/>
+            <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8 {openDesc2 ? "invisible": "visible"} ">{Math.floor(discmovie.vote_average)}</p>
             </div>
+            <p class="text-[12px] text-white leading-snug text-justify absolute top-8 ml-1 mr-1 {openDesc2 ? "hover:block": "hidden"}">{discmovie.overview}</p>
             </div>
-          <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] relative top-[10px] md:top-[5px] sm:w-[200px] ">{discmovie.original_title}</h2>
+          <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden {openDesc2 ? "relative bottom-[0px] md:bottom-[0px] w-[230px]  sm:w-[290px]": "relative top-[10px] md:top-[5px] w-[130px]  sm:w-[200px]"} ">{discmovie.original_title}</h2>
         </div>
         {/each}
       </div>
@@ -518,17 +555,18 @@ const caricaItems = () => {
   <div class="flex w-[100%] justify-center sfoca4  {showwAll3 ? "invisible": "visible"} {showwMostra3 ? "relative top-[300px]" : "absolute top-[350px] md:top-[260px]"}">
     <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">{$lingua.progetti.tv}</p>
     <button on:click="{()=>mostraTutto3()}" class="text-white bg-teal-700 rounded-md hover:rounded-3xl transi p-1 md:p-2 font-bold absolute top-[-50px] right-8 text-sm md:text-sm {showwMostra3 ? "visible" : "invisible"}">{$lingua.progetti.mostra}</button>
-    <div class="bg-gradient-to-t from-red-950 to-yellow-900 bg-opacity-25 rounded-2xl grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 overflow-x-auto gap-6" >
+    <div class="bg-gradient-to-t from-red-950 to-yellow-900 bg-opacity-25 rounded-2xl grid {openDesc3 ? " grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4": " grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7"} p-4 overflow-x-auto gap-6" >
       {#each discoverTv.slice(0, limit) as tvmovie (tvmovie.id)}
-        <div id="alltv" class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-yellow-600  hover:scale-105 transi w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
+        <div id="alltv" on:click="{()=>apri3()}" class="bg-gradient-to-t from-black to-transparent rounded-xl p-2 cursor-pointer hover:border-2 hover:border-yellow-600  hover:scale-105 transi {openDesc3 ? "w-[340px] h-[330px] sm:w-[410px] md:w-[320px] lg:w-[300px] xl:w-[300px] sm:h-[440px]": "w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]"}">
           <div class="relative">
-            <img class="w-[200px] h-[190px] sm:h-[300px] relative top-[1px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${tvmovie.poster_path}`} alt="poster"/>
+            <img class="{openDesc3 ? "h-[300px] sm:h-[400px] w-full overflow-hidden object-cover opacity-10 ": "w-[200px] h-[190px] sm:h-[300px] "} rounded-lg" src={`https://image.tmdb.org/t/p/w500${tvmovie.poster_path}`} alt="poster"/>
             <div class="flex flex-row">
-            <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg" src={star} alt="poster"/>
-            <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8  ">{Math.floor(tvmovie.vote_average)}</p>
+            <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg {openDesc3 ? "invisible": "visible"}" src={star} alt="poster"/>
+            <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8 {openDesc3 ? "invisible": "visible"} ">{Math.floor(tvmovie.vote_average)}</p>
             </div>
+            <p class="text-[12px] text-white leading-snug text-justify absolute top-8 ml-1 mr-1 {openDesc3 ? "hover:block": "hidden"}">{tvmovie.overview}</p>
             </div>
-          <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] relative top-[10px] md:top-[5px] sm:w-[200px] ">{tvmovie.original_name}</h2>
+          <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden {openDesc3 ? "relative bottom-[0px] md:bottom-[0px] w-[230px]  sm:w-[290px]": "relative top-[10px] md:top-[5px] w-[130px]  sm:w-[200px]"} ">{tvmovie.original_name}</h2>
         </div>
         {/each}
       </div>
@@ -540,27 +578,30 @@ const caricaItems = () => {
     <div class="flex w-[100%] justify-center absolute top-[350px] md:top-[260px] ">
       {#if searchResults.length > 0}
       <p class="text-white font-bold absolute top-[-50px] left-8 text-xl md:text-3xl">{$lingua.progetti.risultato}</p>
-        <ul class="bg-gradient-to-t from-violet-950 to-teal-950 bg-opacity-25 rounded-2xl grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 p-4 gap-6 ">
+        <ul class="bg-gradient-to-t from-violet-950 to-teal-950 bg-opacity-25 rounded-2xl grid {openDesc4 ? " grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4": " grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7"} p-4 gap-6 ">
           {#each searchResults as movie (movie.id)}
-          <div id="searchmore" class="bg-gradient-to-t from-black to-transparent rounded-xl mb-8 p-2 relative top-[0px] hover:border-2 hover:border-violet-600 transi cursor-pointer hover:scale-105 w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]">
+          <div id="searchmore" on:click="{()=>apri4()}" class="bg-gradient-to-t from-black to-transparent rounded-xl mb-8 p-2 relative top-[0px] hover:border-2 hover:border-violet-600 transi cursor-pointer hover:scale-105 {openDesc4 ? "w-[340px] h-[330px] sm:w-[410px] md:w-[320px] lg:w-[300px] xl:w-[300px] sm:h-[440px]": "w-[148px] h-[230px] sm:w-[217px] sm:h-[340px]"}">
             <div class="relative">
-              <img class="w-[200px] h-[190px] sm:h-[300px] relative top-[1px] rounded-lg" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="poster"/>
+              <img class="{openDesc4 ? "h-[300px] sm:h-[400px] w-full overflow-hidden object-cover opacity-10 ": "w-[200px] h-[190px] sm:h-[300px] "} rounded-lg" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="poster"/>
               <div class="flex flex-row">
-              <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg" src={star} alt="poster"/>
-              <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8  ">{Math.floor(movie.vote_average)}</p>
+              <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg {openDesc4 ? "invisible": "visible"}" src={star} alt="poster"/>
+              <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8 {openDesc4 ? "invisible": "visible"} ">{Math.floor(movie.vote_average)}</p>
               </div>
+              <p class="text-[12px] text-white leading-snug text-justify absolute top-8 ml-1 mr-1 {openDesc4 ? "hover:block": "hidden"}">{movie.overview}</p>
               </div>
-              <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden w-[130px] relative top-[10px] md:top-[5px] sm:w-[200px] ">{movie.original_title}</h2>
+              <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden {openDesc4 ? "relative bottom-[0px] md:bottom-[0px] w-[230px]  sm:w-[290px]": "relative top-[10px] md:top-[5px] w-[130px]  sm:w-[200px]"} ">{movie.original_title}</h2>
               
             </div>
           {/each}
         </ul>
       {:else}
-        <p>Nessun risultato trovato.</p>
+        <p class=" text-white font-bold">{$lingua.progetti.ri}</p>
       {/if}
     </div>
   </div>
   {/if}
+
+
 
 <div on:click="{upButton}" id="up" class="cursor-pointer md:w-[50px] bg-white bg-opacity-70 p-3 fixed bottom-4 right-8 rounded-full">
   <img class="w-[30px]" src={arrow} alt="poster"/>
