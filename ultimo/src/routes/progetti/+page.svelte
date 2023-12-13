@@ -5,6 +5,7 @@
   import calculator from '/src/routes/img/calculator.png';
   import rps from '/src/routes/img/rpslogo.png';
   import list from '/src/routes/img/to-do-list.png';
+  import video from '/src/routes/img/video-camera.png'
   // @ts-ignore
   import ita from '/src/routes/textITA.json';
   // @ts-ignore
@@ -67,6 +68,7 @@
  let cal = false;
  let rp = false;
  let lis = false;
+ let vid = false
 
 
 
@@ -87,6 +89,7 @@
   cal = false;
   rp = false;
   lis = false;
+  vid = false
   }
 
  const scegliP=()=>{
@@ -96,6 +99,7 @@
   cal = false;
   rp = false;
   lis = false;
+  vid = false
   }
 
  const scegliC=()=>{
@@ -105,6 +109,7 @@
   alieno = false;
   rp = false;
   lis = false;
+  vid = false
   }
 
   const scegliR=()=>{
@@ -114,10 +119,22 @@
   spot = false;
   alieno = false;
   cal = false;
+  vid = false
   }
 
  const scegliL=()=>{
   lis = true
+  rp =false
+    cal = false
+  spot = false;
+  night = false;
+  alieno = false;
+  vid = false
+  }
+
+  const scegliV=()=>{
+    vid = true
+  lis = false
   rp =false
     cal = false
   spot = false;
@@ -175,6 +192,11 @@ case 'TODO':
   titolobottone = $lingua.progetti.provaL
   return '/list'
 break
+case 'video':
+  titolo = 'MOVIECODE',
+  descrizione = $lingua.progetti.vid,
+  titolobottone = $lingua.progetti.provaV
+  return '/movies'
 default:
 break
   }
@@ -234,16 +256,16 @@ let home= false
   </select>
 
 <div class="relative top-36 h-[1100px] w-[100%] flex justify-center">
-<div style="padding-bottom: 10%" class="bg-black w-[100%] lg:w-[80%] sm:h-[920px] md:h-[920px] lg:h-[920px] h-[1000px] relative  mb-[10%] rounded-3xl flex justify-center">
-  <div class="grid grid-cols-2 grid-rows-3 sm:grid-cols-3 sm:grid-rows-2 gap-5 gap-y-[150px] sm:gap-y-2 justify-center items-center w-[90%] md:w-[80%] h-[290px] absolute top-[8%] sm:top-[5%] ">
+<div style="padding-bottom: 10%" class="bg-black w-[100%] lg:w-[80%] sm:h-[1050px] md:h-[1050px] lg:h-[1050px] h-[1000px] relative  mb-[10%] rounded-3xl flex justify-center">
+  <div class="grid grid-cols-3 grid-rows-4 sm:grid-cols-3 sm:grid-rows-3 gap-5 gap-y-[150px] sm:gap-y-2 justify-center items-center w-[90%] md:w-[80%] h-[290px] sm:h-[450px] absolute top-[8%] sm:top-[5%] ">
     <div on:click="{()=>scegliApp('X-FLIES')}" on:click="{()=>scegliA()}" class=" sfoca cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-teal-950 hover:border-2 hover:border-teal-500 flex items-center justify-center {alieno ? "rounded-full border-teal-500 border-2 transizione ombraA" : "rounded-2xl border-teal-950 border-2 transizione"}">
       <img src={alien} alt="spotify" class="w-[110px] sm:w-[140px]" />
     </div>
     <div on:click="{()=>scegliApp('SPOTIFY')}" on:click="{()=>scegliS()}" class="sfoca2 cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-green-950 hover:border-2 hover:border-green-500 flex items-center justify-center  {spot ? "rounded-full border-green-500 border-2 transizione ombraS" : "rounded-2xl border-2 border-green-950 transizione"}">
-      <img src={spotify} alt="spotify" class="w-[110px] sm:w-[120px]" />
+      <img src={spotify} alt="spotify" class="w-[80px] sm:w-[120px]" />
     </div>
     <div on:click="{()=>scegliApp('PIXEL NIGHTMARE')}" on:click="{()=>scegliP()}" class="sfoca3 cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-violet-950 hover:border-2 hover:border-violet-500  flex items-center justify-center {night ? "rounded-full border-violet-500 border-2 transizione ombraP" : "rounded-2xl border-2 border-violet-950 transizione"}">
-      <img src={pixel} alt="spotify" class="w-[110px] sm:w-[140px]" />
+      <img src={pixel} alt="spotify" class="w-[80px] sm:w-[140px]" />
     </div>
     <div on:click="{()=>scegliApp('TODO')}" on:click="{()=>scegliL()}" class="sfoca4 cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-yellow-800 hover:border-2 hover:border-yellow-500  flex items-center justify-center {lis ? "rounded-full border-yellow-500 border-2 transizione ombraL" : "rounded-2xl border-2 border-yellow-800 transizione"}">
       <img src={list} alt="spotify" class="w-[110px] sm:w-[120px]" />
@@ -254,12 +276,15 @@ let home= false
     <div on:click="{()=>scegliApp('THE CALCULATOR')}" on:click="{()=>scegliC()}" class="sfoca6 cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-red-950 hover:border-2 hover:border-red-500  flex items-center justify-center {cal ? "rounded-full border-red-500 border-2 transizione ombraC" : "rounded-2xl border-2 border-red-950 transizione"}">
       <img src={calculator} alt="spotify" class="w-[110px] sm:w-[120px]" />
     </div>
+    <div on:click="{()=>scegliApp('video')}" on:click="{()=>scegliV()}" class="sfoca7 col-span-3 cursor-pointer w-[100%] h-[140px] bg-gradient-to-tr from-black to-blue-950 hover:border-2 hover:border-blue-500  flex items-center justify-center {vid ? "rounded-full border-blue-500 border-2 transizione ombraV" : "rounded-2xl border-2 border-blue-950 transizione"}">
+      <img src={video} alt="spotify" class="w-[110px] sm:w-[120px]" />
+    </div>
   </div>
 
-<div class="sfoca7 absolute top-[48%] sm:top-[40%] w-[90%] md:w-[80%] h-[510px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-900 rounded-2xl flex flex-col items-center justify-center" >
+<div class="sfoca8 absolute top-[46%] sm:top-[49%] w-[90%] md:w-[80%] h-[510px] bg-gradient-to-tr from-black to-neutral-800 border-2 border-neutral-900 rounded-2xl flex flex-col items-center justify-center" >
   <p class="font-bold text-lg sm:text-4xl absolute top-[5%]" >{titolo}</p>
   <p class="w-[80%] text-justify text-[12px] sm:text-[16px] lg:text-[18px] absolute sm:top-[16%] top-[13%]">{descrizione}</p>
-  <a href="{ alieno ? scegliApp('X-FLIES') : (lis ? scegliApp('TODO') : (rp ? scegliApp('RPS') : (spot ? scegliApp('SPOTIFY') : (night ? scegliApp('PIXEL NIGHTMARE') : (cal ? scegliApp('THE CALCULATOR') : '#'))))) }" class=" cursor-pointer w-[80%] md:w-[60%] h-[60px] absolute bottom-[5%] rounded-xl border-2 border-teal-500 bg-gradient-to-tr from-black to-neutral-800 text-white hover:text-teal-500 text-sm sm:text-base md:text-lg flex font-bold items-center justify-center hover:border-2 hover:border-white-900 hover:bg-gradient-to-tr hover:rounded-3xl transizione  hover:from-black hover:to-neutral-700">{titolobottone}</a>
+  <a href="{ vid ? scegliApp('video') : alieno ? scegliApp('X-FLIES') : (lis ? scegliApp('TODO') : (rp ? scegliApp('RPS') : (spot ? scegliApp('SPOTIFY') : (night ? scegliApp('PIXEL NIGHTMARE') : (cal ? scegliApp('THE CALCULATOR') : '#'))))) }" class=" cursor-pointer w-[80%] md:w-[60%] h-[60px] absolute bottom-[5%] rounded-xl border-2 border-teal-500 bg-gradient-to-tr from-black to-neutral-800 text-white hover:text-teal-500 text-sm sm:text-base md:text-lg flex font-bold items-center justify-center hover:border-2 hover:border-white-900 hover:bg-gradient-to-tr hover:rounded-3xl transizione  hover:from-black hover:to-neutral-700">{titolobottone}</a>
 </div>
 
 
@@ -337,6 +362,15 @@ let home= false
     to{box-shadow: rgb(143, 143, 0) 0px 0px 0px 0px;}
   }
 
+  .ombraV{
+    box-shadow: rgb(0, 79, 143) 0px 0px 15px 0px;
+    animation: infinite 1s alternate-reverse pulsa4;
+  }
+  @keyframes pulsa4 {
+    from{box-shadow: rgb(0, 79, 143) 0px 0px 15px 0px;}
+    to{box-shadow: rgb(0, 79, 143) 0px 0px 0px 0px;}
+  }
+
 .sfoca{
   animation: forwards 1s sfoc;
   opacity: 0;
@@ -371,6 +405,11 @@ let home= false
   animation-delay: 3s;
   opacity: 0;
 }
+.sfoca8{
+  animation: forwards 1s sfoc8;
+  animation-delay: 3.5s;
+  opacity: 0;
+}
 
 @keyframes sfoc {
   0%{filter: blur(5px);}
@@ -397,6 +436,10 @@ let home= false
   100%{filter: blur(0px); opacity: 1;}
 }
 @keyframes sfoc7 {
+ 0%{filter: blur(5px);}
+  100%{filter: blur(0px); opacity: 1;}
+}
+@keyframes sfoc8 {
  0%{filter: blur(5px);}
   100%{filter: blur(0px); opacity: 1;}
 }
