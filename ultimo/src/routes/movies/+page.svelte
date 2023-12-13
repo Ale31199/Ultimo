@@ -9,10 +9,12 @@
   import ita from '/src/routes/textITA.json';
   // @ts-ignore
   import eng from '/src/routes/textENG.json';
+  import i18next from 'i18next';
   
   import { lingua } from './lingua.js';
   import {onMount} from 'svelte';
  
+
 
   let ital = 'Italiani'
   let engl = 'English'
@@ -37,11 +39,14 @@
     }
   });
 
+  let lang = 'it'
+
   const TraduciPagina = (linguatraduci) => {
     switch (linguatraduci) {
       case 'ita':
         lingua.set(ita);
         ital = 'Italiani'
+        lang = 'it',
         localStorage.setItem('ital', JSON.stringify(ital))
         localStorage.setItem('lingua', 'ita');
         localStorage.setItem('salvaSele', 'ita');
@@ -49,11 +54,13 @@
       case 'eng':
         lingua.set(eng);
         engl = 'English'
+        lang = 'en',
         localStorage.setItem('engl', JSON.stringify(engl))
         localStorage.setItem('lingua', 'eng');
         localStorage.setItem('salvaSele', 'eng');
         break;
     }
+   
   };
  
 
@@ -301,7 +308,8 @@ const caricaItems = () => {
         params: {
           api_key: apiKey,
           query: query,
-          page: page
+          page: page,
+          language: lang ? "it-IT" : "en-US",
         },
       });
       console.log(response.data);
@@ -310,7 +318,6 @@ const caricaItems = () => {
       searchResults = response.data.results || [];
       }else {
         searchResults = [...searchResults, ...response.data.results];
-       
       }
       page++
       mostra()
@@ -331,7 +338,7 @@ const caricaItems = () => {
           api_key: apiKey,
           include_adult: false,
           include_video: false,
-          language: 'en-US',
+          language: lang === 'it' ? "it-IT" : "en-US",
           page: page,
           sort_by: 'popularity.desc',
         },
@@ -365,7 +372,7 @@ const caricaItems = () => {
           api_key: apiKey,
           include_adult: false,
           include_video: false,
-          language: 'en-US',
+          language: lang ? "it-IT" : "en-US",
           page: page,
           sort_by: 'popularity.desc',
         },
@@ -396,7 +403,7 @@ const caricaItems = () => {
         api_key: apiKey,
         include_adult: false,
         include_video: false,
-        language: 'en-US',
+        language: lang ? "it-IT" : "en-US",
         page: page,
         sort_by: 'popularity.desc',
       },
@@ -497,6 +504,8 @@ const caricaItems = () => {
   }
  }
 
+ 
+
 </script>
 
 <div>
@@ -540,7 +549,7 @@ const caricaItems = () => {
         <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg {noRating ? "hidden": "block"}" src={star} alt="poster"/>
         <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8 {noRating ? "hidden": "block"} ">{Math.floor(allmovie.vote_average)}</p>
         </div>
-        <p class="text-[12px] text-white leading-snug text-justify absolute top-8 ml-1 mr-1 {openDesc ? "hover:block": "hidden"}">{allmovie.overview}</p>
+        <p class="text-[12.5px] text-white leading-snug text-justify absolute top-8 ml-1 mr-1 {openDesc ? "hover:block": "hidden"}">{allmovie.overview}</p>
         </div>
         
         {#if allmovie.original_title}
@@ -567,7 +576,7 @@ const caricaItems = () => {
             <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg {noRating2 ? "hidden": "block"}" src={star} alt="poster"/>
             <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8 {noRating2 ? "hidden": "block"} ">{Math.floor(discmovie.vote_average)}</p>
             </div>
-            <p class="text-[12px] text-white leading-snug text-justify absolute top-8 ml-1 mr-1 {openDesc2 ? "hover:block": "hidden"}">{discmovie.overview}</p>
+            <p class="text-[12.5px] text-white leading-snug text-justify absolute top-8 ml-1 mr-1 {openDesc2 ? "hover:block": "hidden"}">{discmovie.overview}</p>
             </div>
           <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden {openDesc2 ? "relative bottom-[0px] md:bottom-[0px] w-[230px]  sm:w-[290px]": "relative top-[10px] md:top-[5px] w-[130px]  sm:w-[200px]"} ">{discmovie.original_title}</h2>
         </div>
@@ -590,7 +599,7 @@ const caricaItems = () => {
             <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg {noRating3 ? "hidden": "block"}" src={star} alt="poster"/>
             <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8 {noRating3 ? "hidden": "block"} ">{Math.floor(tvmovie.vote_average)}</p>
             </div>
-            <p class="text-[12px] text-white leading-snug text-justify absolute top-8 ml-1 mr-1 {openDesc3 ? "hover:block": "hidden"}">{tvmovie.overview}</p>
+            <p class="text-[12.5px] text-white leading-snug text-justify absolute top-8 ml-1 mr-1 {openDesc3 ? "hover:block": "hidden"}">{tvmovie.overview}</p>
             </div>
           <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden {openDesc3 ? "relative bottom-[0px] md:bottom-[0px] w-[230px]  sm:w-[290px]": "relative top-[10px] md:top-[5px] w-[130px]  sm:w-[200px]"} ">{tvmovie.original_name}</h2>
         </div>
@@ -613,7 +622,7 @@ const caricaItems = () => {
               <img class="w-[45px] md:w-[50px] bg-black bg-opacity-70 pr-7 absolute top-2 left-1 rounded-lg {noRating4 ? "hidden": "block"}" src={star} alt="poster"/>
               <p class="text-white text-sm font-bold absolute top-[6px] md:top-[9px] left-7 md:left-8 {noRating4 ? "hidden": "block"} ">{Math.floor(movie.vote_average)}</p>
               </div>
-              <p class="text-[12px] text-white leading-snug text-justify absolute top-8 ml-1 mr-1 {openDesc4 ? "hover:block": "hidden"}">{movie.overview}</p>
+              <p class="text-[12.5px] text-white leading-snug text-justify absolute top-8 ml-1 mr-1 {openDesc4 ? "hover:block": "hidden"}">{movie.overview}</p>
               </div>
               <h2 class="text-white text-xs md:text-base font-semibold text-ellipsis whitespace-nowrap overflow-hidden {openDesc4 ? "relative bottom-[0px] md:bottom-[0px] w-[230px]  sm:w-[290px]": "relative top-[10px] md:top-[5px] w-[130px]  sm:w-[200px]"} ">{movie.original_title}</h2>
               
