@@ -39,14 +39,16 @@
     }
   });
 
-  let lang = 'it'
+  let lang = 'it-IT'
 
   const TraduciPagina = (linguatraduci) => {
     switch (linguatraduci) {
       case 'ita':
         lingua.set(ita);
         ital = 'Italiani'
-        lang = 'it',
+        lang = 'it-IT',
+        statoLang = true
+        console.log('italiano selezionato', lang)
         localStorage.setItem('ital', JSON.stringify(ital))
         localStorage.setItem('lingua', 'ita');
         localStorage.setItem('salvaSele', 'ita');
@@ -54,14 +56,19 @@
       case 'eng':
         lingua.set(eng);
         engl = 'English'
-        lang = 'en',
+        lang = 'en-US',
+        statoLang = false
+        console.log('English selected', lang)
         localStorage.setItem('engl', JSON.stringify(engl))
         localStorage.setItem('lingua', 'eng');
         localStorage.setItem('salvaSele', 'eng');
         break;
     }
-   
+  
   };
+
+ 
+
  
 
  let home= false
@@ -138,6 +145,14 @@
       showwMostra2 = true
       showwMostra3 = true
       showwMostraH = false
+       openDesc = false
+     openDesc2 = false
+     openDesc3 = false
+     openDesc4 = false
+     noRating = false
+     noRating2 = false
+     noRating3 = false
+     noRating4 = false
       searchKeyword = ''
       page = 1
       limit = 14
@@ -309,7 +324,7 @@ const caricaItems = () => {
           api_key: apiKey,
           query: query,
           page: page,
-          language: lang ? "it-IT" : "en-US",
+          language: lang,
         },
       });
       console.log(response.data);
@@ -327,22 +342,24 @@ const caricaItems = () => {
     
   };
 
-  
+  let statoLang = true
 
   const showAll= async ()=>{
     const apiKey = '758d1e2e3df3b485c0c62b322b0e9128'; 
     const discoverAllen = 'https://api.themoviedb.org/3/trending/all/week';
+    
     try {
       const allResponse = await axios.get(discoverAllen, {
         params: {
           api_key: apiKey,
           include_adult: false,
           include_video: false,
-          language: lang === 'it' ? "it-IT" : "en-US",
+          language: statoLang ? 'it-IT' : 'en-US',
           page: page,
           sort_by: 'popularity.desc',
         },
-      });
+      }
+      );
 
       const uniqueResults = allResponse.data.results.filter(result => !discoverAll.some(existing => existing.id === result.id));
 
@@ -372,7 +389,7 @@ const caricaItems = () => {
           api_key: apiKey,
           include_adult: false,
           include_video: false,
-          language: lang ? "it-IT" : "en-US",
+          language: lang,
           page: page,
           sort_by: 'popularity.desc',
         },
@@ -403,7 +420,7 @@ const caricaItems = () => {
         api_key: apiKey,
         include_adult: false,
         include_video: false,
-        language: lang ? "it-IT" : "en-US",
+        language: lang,
         page: page,
         sort_by: 'popularity.desc',
       },
@@ -450,15 +467,20 @@ const caricaItems = () => {
  let noRating2 = false
  let noRating3 = false
  let noRating4 = false
+ let descOpen = null
 
- const apri=()=>{
+ const apri=(index)=>{
+  if (descOpen === index){
+    descOpen = null
+  }else{
+    descOpen = index
+  }
   if (openDesc === false){
     openDesc = true
     noRating = true
      noRating2 = false
   noRating3 = false
   noRating4 = false
-
   } else {
     openDesc = !openDesc
     noRating = false
@@ -503,6 +525,7 @@ const caricaItems = () => {
     noRating4 = false
   }
  }
+
 
  
 
