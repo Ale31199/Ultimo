@@ -12,6 +12,7 @@
   import i18next from 'i18next';
   
   import { lingua } from './lingua.js';
+  import {lang} from './lang.js'
   import {onMount} from 'svelte';
  
 
@@ -39,16 +40,18 @@
     }
   });
 
-  let lang = 'it-IT'
+  
+  let statoLang = true
 
-  const TraduciPagina = (linguatraduci) => {
+  const TraduciPagina = async (linguatraduci) => {
     switch (linguatraduci) {
       case 'ita':
         lingua.set(ita);
         ital = 'Italiani'
-        lang = 'it-IT',
+        $lang = 'it-IT' 
+        lang.set('it-IT')
         statoLang = true
-        console.log('italiano selezionato', lang)
+        console.log('italiano selezionato', $lang)
         localStorage.setItem('ital', JSON.stringify(ital))
         localStorage.setItem('lingua', 'ita');
         localStorage.setItem('salvaSele', 'ita');
@@ -56,15 +59,15 @@
       case 'eng':
         lingua.set(eng);
         engl = 'English'
-        lang = 'en-US',
+        $lang = 'en-US'
+        lang.set('en-US')
         statoLang = false
-        console.log('English selected', lang)
+        console.log('English selected', $lang)
         localStorage.setItem('engl', JSON.stringify(engl))
         localStorage.setItem('lingua', 'eng');
         localStorage.setItem('salvaSele', 'eng');
         break;
     }
-  
   };
 
  
@@ -324,7 +327,7 @@ const caricaItems = () => {
           api_key: apiKey,
           query: query,
           page: page,
-          language: lang,
+          language: $lang,
         },
       });
       console.log(response.data);
@@ -342,19 +345,19 @@ const caricaItems = () => {
     
   };
 
-  let statoLang = true
+ 
 
   const showAll= async ()=>{
     const apiKey = '758d1e2e3df3b485c0c62b322b0e9128'; 
     const discoverAllen = 'https://api.themoviedb.org/3/trending/all/week';
-    
     try {
+      await TraduciPagina()
       const allResponse = await axios.get(discoverAllen, {
         params: {
           api_key: apiKey,
           include_adult: false,
           include_video: false,
-          language: statoLang ? 'it-IT' : 'en-US',
+          language: $lang,
           page: page,
           sort_by: 'popularity.desc',
         },
@@ -362,7 +365,6 @@ const caricaItems = () => {
       );
 
       const uniqueResults = allResponse.data.results.filter(result => !discoverAll.some(existing => existing.id === result.id));
-
           if (page === 1){
           discoverAll = allResponse.data.results || []
         }else{
@@ -375,9 +377,7 @@ const caricaItems = () => {
     } catch (error) {
       console.error('Errore durante la ricerca di tendenze:', error);
     }
-   
   }
-
 
 
   const showTrendy= async ()=>{
@@ -389,7 +389,7 @@ const caricaItems = () => {
           api_key: apiKey,
           include_adult: false,
           include_video: false,
-          language: lang,
+          language: $lang,
           page: page,
           sort_by: 'popularity.desc',
         },
@@ -420,7 +420,7 @@ const caricaItems = () => {
         api_key: apiKey,
         include_adult: false,
         include_video: false,
-        language: lang,
+        language: $lang,
         page: page,
         sort_by: 'popularity.desc',
       },
@@ -442,7 +442,7 @@ const caricaItems = () => {
   }
 }
 
-  showAll()
+  $: showAll()
   showTrendy();
   showTv()
 
